@@ -195,7 +195,7 @@ table _Medidas_Comercial
 		lineageTag: 5f2b8c14-6a3d-4e91-b7f0-2c9d1a6e8b3f
 
 	measure 'Semaforo KPI' = 
-		VAR _desvio = [Desvio Ingresos %]
+		VAR _desvio = [Desvio Cuota %]
 		RETURN
 		    SWITCH(
 		        TRUE(),
@@ -222,13 +222,13 @@ table _Medidas_Comercial
 	measure 'Top Causa Desvio' = 
 		VAR _tbl =
 		    ADDCOLUMNS(
-		        VALUES(dim_productos[LineaProducto]),
-		        "@desvio", ABS(CALCULATE([Desvio Ingresos %]))
+		        VALUES(dim_productos[Linea]),
+		        "@desvio", ABS(CALCULATE([Desvio Cuota %]))
 		    )
 		VAR _top =
 		    TOPN(1, _tbl, [@desvio], DESC)
 		RETURN
-		    CONCATENATEX(_top, dim_productos[LineaProducto], ", ")
+		    CONCATENATEX(_top, dim_productos[Linea], ", ")
 		formatString: "@"
 		displayFolder: 06 Diagnostico Causal
 		lineageTag: 45400334-5753-43d2-b26d-cfe4db2df110
@@ -236,8 +236,8 @@ table _Medidas_Comercial
 	measure 'Magnitud Desvio Top Causa' = 
 		VAR _tbl =
 		    ADDCOLUMNS(
-		        VALUES(dim_productos[LineaProducto]),
-		        "@desvio", ABS(CALCULATE([Desvio Ingresos %]))
+		        VALUES(dim_productos[Linea]),
+		        "@desvio", ABS(CALCULATE([Desvio Cuota %]))
 		    )
 		VAR _top =
 		    TOPN(1, _tbl, [@desvio], DESC)
@@ -265,14 +265,14 @@ table _Medidas_Comercial
 		lineageTag: f52054a7-69d3-4eda-ad99-d6e0c584c480
 
 	measure 'Rank Desvio por Dimension' = 
-		VAR _tbl = ADDCOLUMNS(VALUES(dim_productos[LineaProducto]), "@dev", ABS(CALCULATE([Desvio Ingresos %])))
+		VAR _tbl = ADDCOLUMNS(VALUES(dim_productos[Linea]), "@dev", ABS(CALCULATE([Desvio Cuota %])))
 		RETURN RANKX(_tbl, [@dev], , DESC, Skip)
 		formatString: 0
 		displayFolder: 06 Diagnostico Causal
 		lineageTag: 536f532c-300d-4823-9f1e-cf8a1c9178f2
 
 	measure 'KPI Fuera de Objetivo' = 
-		IF([Desvio Ingresos %] < -0.05, 1, 0)
+		IF([Desvio Cuota %] < -0.05, 1, 0)
 		formatString: 0
 		displayFolder: 06 Diagnostico Causal
 		lineageTag: 95cf287a-2bc3-499c-9c91-3881242f1cd5
@@ -324,7 +324,7 @@ table _Medidas_Comercial
 
 	measure 'Resumen Ejecutivo' = 
 		VAR _estado   = [Semaforo KPI]
-		VAR _dev      = FORMAT(ABS([Desvio Ingresos %]), "0.0%")
+		VAR _dev      = FORMAT(ABS([Desvio Cuota %]), "0.0%")
 		VAR _yoy      = [Variacion YoY Texto]
 		VAR _causa    = [Top Causa Desvio]
 		VAR _periodo  = [Periodo Seleccionado]
