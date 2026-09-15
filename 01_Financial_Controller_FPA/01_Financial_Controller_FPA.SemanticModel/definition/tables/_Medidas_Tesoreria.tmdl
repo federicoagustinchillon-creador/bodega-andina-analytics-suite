@@ -56,17 +56,22 @@ table _Medidas_Tesoreria
 		displayFolder: 01 Tesoreria y Cobertura Cambiaria
 		lineageTag: 4b73067d-2ebe-427d-94b9-a618d3d3c7f8
 
-	measure 'Cobranzas USD Pendientes' = CALCULATE(SUM(fact_cobranzas_exportacion_usd[ImporteFOB_USD]), fact_cobranzas_exportacion_usd[EstadoCobranza] = "Pendiente")
+	measure 'Fecha Referencia Simulada' = DATE(2025, 11, 15)
+		formatString: dd/mm/yyyy
+		displayFolder: 02 Cobranzas de Exportacion USD
+		lineageTag: 7a4e9c31-5b8d-4f6a-9e2c-1d7b8a3f6e02
+
+	measure 'Cobranzas USD Pendientes' = CALCULATE(SUM(fact_cobranzas_exportacion_usd[ImporteFOB_USD]), fact_cobranzas_exportacion_usd[FechaCobroEstimada] > [Fecha Referencia Simulada])
 		formatString: $#,##0" u$s"
 		displayFolder: 02 Cobranzas de Exportacion USD
 		lineageTag: 21554589-ad2f-48e0-95bb-80c2b128032b
 
-	measure 'Cobranzas USD Cobradas' = CALCULATE(SUM(fact_cobranzas_exportacion_usd[ImporteFOB_USD]), fact_cobranzas_exportacion_usd[EstadoCobranza] = "Cobrado")
+	measure 'Cobranzas USD Cobradas' = CALCULATE(SUM(fact_cobranzas_exportacion_usd[ImporteFOB_USD]), fact_cobranzas_exportacion_usd[FechaCobroEstimada] <= [Fecha Referencia Simulada])
 		formatString: $#,##0" u$s"
 		displayFolder: 02 Cobranzas de Exportacion USD
 		lineageTag: 64449db2-9392-41d0-87b6-a8b8de47ace1
 
-	measure 'Cantidad Cobranzas Pendientes' = CALCULATE(COUNTROWS(fact_cobranzas_exportacion_usd), fact_cobranzas_exportacion_usd[EstadoCobranza] = "Pendiente")
+	measure 'Cantidad Cobranzas Pendientes' = CALCULATE(COUNTROWS(fact_cobranzas_exportacion_usd), fact_cobranzas_exportacion_usd[FechaCobroEstimada] > [Fecha Referencia Simulada])
 		formatString: #,##0
 		displayFolder: 02 Cobranzas de Exportacion USD
 		lineageTag: ccb3c74a-2817-4632-8538-c63248646e76
