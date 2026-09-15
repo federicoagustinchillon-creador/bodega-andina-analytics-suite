@@ -7,7 +7,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["RutaDatos","dim_calendario","dim_centros_costo","dim_cuentas_contables","dim_productos","fact_presupuesto_ventas","fact_ventas_reales","fact_opex_mensual","fact_capital_trabajo","dim_desglose_cascada","fact_mercado_rofex_futuros","fact_cobranzas_exportacion_usd","_Medidas_Controller","_Medidas_Tesoreria"]
+annotation PBI_QueryOrder = ["RutaDatos","dim_calendario","dim_centros_costo","dim_cuentas_contables","dim_productos","fact_presupuesto_ventas","fact_ventas_reales","fact_opex_mensual","fact_capital_trabajo","fact_mercado_rofex_futuros","fact_cobranzas_exportacion_usd"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
@@ -28,3 +28,4 @@ ref table _Medidas_Controller
 ref table _Medidas_Tesoreria
 
 ref cultureInfo en-US
+

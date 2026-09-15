@@ -29,36 +29,6 @@
           "name": "Deep_Navy_UXBIA_Theme.json",
           "path": "Deep_Navy_UXBIA_Theme.json",
           "type": "CustomTheme"
-        },
-        {
-          "name": "icon_grape.png",
-          "path": "icon_grape.png",
-          "type": "Image"
-        },
-        {
-          "name": "icon_currency.png",
-          "path": "icon_currency.png",
-          "type": "Image"
-        },
-        {
-          "name": "icon_alert.png",
-          "path": "icon_alert.png",
-          "type": "Image"
-        },
-        {
-          "name": "icon_barrel.png",
-          "path": "icon_barrel.png",
-          "type": "Image"
-        },
-        {
-          "name": "icon_clock.png",
-          "path": "icon_clock.png",
-          "type": "Image"
-        },
-        {
-          "name": "icon_box.png",
-          "path": "icon_box.png",
-          "type": "Image"
         }
       ]
     },

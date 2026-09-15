@@ -1,60 +1,64 @@
 table _Medidas_Tesoreria
 	lineageTag: 8ac9d18a-f88c-4cf9-9e21-d366856b6478
 
-
 	measure 'Spot ARS/USD Actual' =
-		VAR _UltimaFecha = CALCULATE(MAX(fact_mercado_rofex_futuros[DateKey]))
-		RETURN
-		    CALCULATE(MAX(fact_mercado_rofex_futuros[TipoCambioSpotA3500]), fact_mercado_rofex_futuros[DateKey] = _UltimaFecha)
-		formatString: $#,##0.00
-		displayFolder: 01 Tesoreria y Cobertura Cambiaria
-		lineageTag: a88bbfd0-cefb-49fc-8636-55d3f1bb062f
+			VAR _UltimaFecha = CALCULATE(MAX(fact_mercado_rofex_futuros[DateKey]))
+			RETURN
+			    CALCULATE(MAX(fact_mercado_rofex_futuros[TipoCambioSpotA3500]), fact_mercado_rofex_futuros[DateKey] = _UltimaFecha)
+			formatString: $#,##0.00
+			displayFolder: 01 Tesoreria y Cobertura Cambiaria
+			lineageTag: a88bbfd0-cefb-49fc-8636-55d3f1bb062f
+		lineageTag: 864d6a68-8a4b-458d-9d8b-f19ffe6c8957
 
-	measure 'TNA Implicita Rofex 3M' = 
-		VAR _UltimaFecha = CALCULATE(MAX(fact_mercado_rofex_futuros[DateKey]))
-		VAR _Spot = CALCULATE(MAX(fact_mercado_rofex_futuros[TipoCambioSpotA3500]), fact_mercado_rofex_futuros[DateKey] = _UltimaFecha)
-		VAR _Futuro = CALCULATE(MAX(fact_mercado_rofex_futuros[FuturoRofex3M]), fact_mercado_rofex_futuros[DateKey] = _UltimaFecha)
-		VAR _Dias = CALCULATE(MAX(fact_mercado_rofex_futuros[DiasVencimiento3M]), fact_mercado_rofex_futuros[DateKey] = _UltimaFecha)
-		RETURN
-		    DIVIDE(_Futuro - _Spot, _Spot, 0) * DIVIDE(365, _Dias, 0)
-		formatString: 0.00%
-		displayFolder: 01 Tesoreria y Cobertura Cambiaria
-		lineageTag: 2c4aba29-0440-40f0-9a77-2567dac59eac
+	measure 'TNA Implicita Rofex 3M' =
+			VAR _UltimaFecha = CALCULATE(MAX(fact_mercado_rofex_futuros[DateKey]))
+			VAR _Spot = CALCULATE(MAX(fact_mercado_rofex_futuros[TipoCambioSpotA3500]), fact_mercado_rofex_futuros[DateKey] = _UltimaFecha)
+			VAR _Futuro = CALCULATE(MAX(fact_mercado_rofex_futuros[FuturoRofex3M]), fact_mercado_rofex_futuros[DateKey] = _UltimaFecha)
+			VAR _Dias = CALCULATE(MAX(fact_mercado_rofex_futuros[DiasVencimiento3M]), fact_mercado_rofex_futuros[DateKey] = _UltimaFecha)
+			RETURN
+			    DIVIDE(_Futuro - _Spot, _Spot, 0) * DIVIDE(365, _Dias, 0)
+			formatString: 0.00%
+			displayFolder: 01 Tesoreria y Cobertura Cambiaria
+			lineageTag: 2c4aba29-0440-40f0-9a77-2567dac59eac
+		lineageTag: 900c2bd4-010d-4f13-acde-b68001f6fb96
 
-	measure 'TNA Benchmark LECAP' = 
-		VAR _UltimaFecha = CALCULATE(MAX(fact_mercado_rofex_futuros[DateKey]))
-		RETURN
-		    CALCULATE(MAX(fact_mercado_rofex_futuros[TasaLecapReferenciaTNA]), fact_mercado_rofex_futuros[DateKey] = _UltimaFecha)
-		formatString: 0.00%
-		displayFolder: 01 Tesoreria y Cobertura Cambiaria
-		lineageTag: 29062f6b-e38a-4b40-9075-97421546360a
+	measure 'TNA Benchmark LECAP' =
+			VAR _UltimaFecha = CALCULATE(MAX(fact_mercado_rofex_futuros[DateKey]))
+			RETURN
+			    CALCULATE(MAX(fact_mercado_rofex_futuros[TasaLecapReferenciaTNA]), fact_mercado_rofex_futuros[DateKey] = _UltimaFecha)
+			formatString: 0.00%
+			displayFolder: 01 Tesoreria y Cobertura Cambiaria
+			lineageTag: 29062f6b-e38a-4b40-9075-97421546360a
+		lineageTag: dcd91700-8759-406a-b700-98c9c39ea8d7
 
 	measure 'Spread Arbitraje bps' = ([TNA Implicita Rofex 3M] - [TNA Benchmark LECAP]) * 10000
 		formatString: +#,##0;-#,##0;0
 		displayFolder: 01 Tesoreria y Cobertura Cambiaria
 		lineageTag: 601adcbd-98f3-4652-a92a-46ef0c7e3cac
 
-	measure 'Recomendacion Cobertura' = 
-		SWITCH(
-		    TRUE(),
-		    [Spread Arbitraje bps] > 150, "Vender Futuro Rofex (tasa implicita cara)",
-		    [Spread Arbitraje bps] < -150, "Financiar en Pesos (cobertura cara)",
-		    "Calce / Indiferencia"
-		)
-		formatString: "@"
-		displayFolder: 01 Tesoreria y Cobertura Cambiaria
-		lineageTag: d3e3c5d6-785a-4fdf-8114-2180d302f4d5
+	measure 'Recomendacion Cobertura' =
+			SWITCH(
+			    TRUE(),
+			    [Spread Arbitraje bps] > 150, "Vender Futuro Rofex (tasa implicita cara)",
+			    [Spread Arbitraje bps] < -150, "Financiar en Pesos (cobertura cara)",
+			    "Calce / Indiferencia"
+			)
+			formatString: "@"
+			displayFolder: 01 Tesoreria y Cobertura Cambiaria
+			lineageTag: d3e3c5d6-785a-4fdf-8114-2180d302f4d5
+		lineageTag: f202438c-1f67-42de-bd72-86ae415ec583
 
-	measure 'Color Recomendacion Cobertura' = 
-		SWITCH(
-		    [Recomendacion Cobertura],
-		    "Vender Futuro Rofex (tasa implicita cara)", "#10B981",
-		    "Financiar en Pesos (cobertura cara)", "#EF4444",
-		    "#F59E0B"
-		)
-		formatString: "@"
-		displayFolder: 01 Tesoreria y Cobertura Cambiaria
-		lineageTag: 4b73067d-2ebe-427d-94b9-a618d3d3c7f8
+	measure 'Color Recomendacion Cobertura' =
+			SWITCH(
+			    [Recomendacion Cobertura],
+			    "Vender Futuro Rofex (tasa implicita cara)", "#10B981",
+			    "Financiar en Pesos (cobertura cara)", "#EF4444",
+			    "#F59E0B"
+			)
+			formatString: "@"
+			displayFolder: 01 Tesoreria y Cobertura Cambiaria
+			lineageTag: 4b73067d-2ebe-427d-94b9-a618d3d3c7f8
+		lineageTag: 525413b3-e02a-425f-b97a-24a8be3cfda4
 
 	measure 'Fecha Referencia Simulada' = DATE(2025, 11, 15)
 		formatString: dd/mm/yyyy
@@ -114,3 +118,4 @@ table _Medidas_Tesoreria
 	partition _Medidas_Tesoreria = calculated
 		mode: import
 		source = Row("Medidas", "Tabla Centralizada de Medidas Tesoreria")
+

@@ -71,3 +71,4 @@ table dim_productos
 					Tipos
 
 	annotation PBI_ResultType = Table
+

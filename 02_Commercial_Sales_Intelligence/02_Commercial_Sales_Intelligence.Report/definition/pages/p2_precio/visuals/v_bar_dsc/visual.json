@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_bar_dsc",
   "position": {
     "x": 831,
     "y": 158,
-    "width": 435,
-    "height": 245,
     "z": 2,
+    "height": 245,
+    "width": 435,
     "tabOrder": 0
   },
   "visual": {
@@ -16,7 +16,6 @@
         "Category": {
           "projections": [
             {
-              "queryRef": "fact_ventas_reales.CanalVenta",
               "field": {
                 "Column": {
                   "Expression": {
@@ -27,7 +26,9 @@
                   "Property": "CanalVenta"
                 }
               },
+              "queryRef": "fact_ventas_reales.CanalVenta",
               "nativeQueryRef": "CanalVenta",
+              "active": true,
               "displayName": "Canal Comercial"
             }
           ]
@@ -35,7 +36,6 @@
         "Y": {
           "projections": [
             {
-              "queryRef": "_Medidas_Comercial.Descuento Comercial Promedio %",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -46,6 +46,7 @@
                   "Property": "Descuento Comercial Promedio %"
                 }
               },
+              "queryRef": "_Medidas_Comercial.Descuento Comercial Promedio %",
               "nativeQueryRef": "Descuento Comercial Promedio %",
               "displayName": "Descuento %"
             }
@@ -53,137 +54,6 @@
         }
       }
     },
-    "visualContainerObjects": {
-      "background": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": "#111827"
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "border": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": "#1E2638"
-              }
-            },
-            "radius": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Descuento Comercial Promedio por Canal'"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": "#F8FAFC"
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9.5D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI Semibold'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Comparacion por dimension | Ordenado por valor real'"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": "#64748B"
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "7.5D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "drillFilterOtherVisuals": true,
     "objects": {
       "valueAxis": [
         {
@@ -195,27 +65,13 @@
                 }
               }
             },
-            "fontColor": {
-              "solid": {
-                "color": "#64748B"
-              }
-            },
             "gridlineColor": {
-              "solid": {
-                "color": "#1E2638"
-              }
+              "solid": {}
             },
             "gridlineShow": {
               "expr": {
                 "Literal": {
                   "Value": "true"
-                }
-              }
-            },
-            "gridlineWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
                 }
               }
             },
@@ -240,55 +96,7 @@
         {
           "properties": {
             "defaultColor": {
-              "solid": {
-                "color": "#60A5FA"
-              }
-            },
-            "showAllDataPoints": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "dataLabels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8.5D"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": "#E2E8F0"
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "1L"
-                }
-              }
+              "solid": {}
             }
           }
         }
@@ -301,11 +109,6 @@
                 "Literal": {
                   "Value": "8.5D"
                 }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": "#E2E8F0"
               }
             },
             "gridlineShow": {
@@ -356,11 +159,6 @@
                 }
               }
             },
-            "fontColor": {
-              "solid": {
-                "color": "#94A3B8"
-              }
-            },
             "fontFamily": {
               "expr": {
                 "Literal": {
@@ -371,45 +169,21 @@
           }
         }
       ],
-      "title": [
+      "plotArea": [
         {
           "properties": {
-            "show": {
+            "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Descuento Comercial Promedio % por Canal de Venta'"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": "#F8FAFC"
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9.5D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI Semibold'"
+                  "Value": "100D"
                 }
               }
             }
           }
         }
-      ],
+      ]
+    },
+    "visualContainerObjects": {
       "background": [
         {
           "properties": {
@@ -421,9 +195,7 @@
               }
             },
             "color": {
-              "solid": {
-                "color": "#111827"
-              }
+              "solid": {}
             },
             "transparency": {
               "expr": {
@@ -446,9 +218,7 @@
               }
             },
             "color": {
-              "solid": {
-                "color": "#1E2638"
-              }
+              "solid": {}
             },
             "radius": {
               "expr": {
@@ -460,137 +230,7 @@
           }
         }
       ],
-      "dropShadow": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": "#00000040"
-              }
-            },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'outer'"
-                }
-              }
-            },
-            "shadowSpread": {
-              "expr": {
-                "Literal": {
-                  "Value": "2D"
-                }
-              }
-            },
-            "angle": {
-              "expr": {
-                "Literal": {
-                  "Value": "90D"
-                }
-              }
-            },
-            "distance": {
-              "expr": {
-                "Literal": {
-                  "Value": "2D"
-                }
-              }
-            },
-            "blur": {
-              "expr": {
-                "Literal": {
-                  "Value": "6D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "tooltip": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI'"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": "#F1F5F9"
-              }
-            },
-            "background": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0F1623'"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "padding": [
-        {
-          "properties": {
-            "top": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "bottom": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "left": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            },
-            "right": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "noDataMessage": [
+      "title": [
         {
           "properties": {
             "show": {
@@ -603,20 +243,55 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sin datos para el período y filtros seleccionados.'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
+                  "Value": "'Descuento Comercial Promedio por Canal'"
                 }
               }
             },
             "fontColor": {
-              "solid": {
-                "color": "#64748B"
+              "solid": {}
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9.5D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Comparacion por dimension | Ordenado por valor real'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {}
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "7.5D"
+                }
               }
             },
             "fontFamily": {
@@ -625,30 +300,11 @@
                   "Value": "'Segoe UI'"
                 }
               }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "plotArea": [
-        {
-          "properties": {
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "100D"
-                }
-              }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

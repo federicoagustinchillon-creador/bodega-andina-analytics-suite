@@ -27,6 +27,7 @@ table fact_ventas_reales
 		sourceColumn: Fecha
 
 		annotation SummarizationSetBy = Automatic
+
 		annotation UnderlyingDateTimeDataType = Date
 
 	column ProductoID
@@ -116,3 +117,4 @@ table fact_ventas_reales
 					Tipos = Table.TransformColumnTypes(Encabezados, {{"TransaccionID", type text}, {"DateKey", Int64.Type}, {"Fecha", type date}, {"ProductoID", type text}, {"CentroCostoID", type text}, {"VolumenReal", Int64.Type}, {"PrecioRealUnit", type number}, {"CostoRealUnit", type number}, {"IngresosReales", type number}, {"CostoReal", type number}, {"MargenBrutoReal", type number}, {"CanalVenta", type text}}, "en-US")
 				in
 					Tipos
+

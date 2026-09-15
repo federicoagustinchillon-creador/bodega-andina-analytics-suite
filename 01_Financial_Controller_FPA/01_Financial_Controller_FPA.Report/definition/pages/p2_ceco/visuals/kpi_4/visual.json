@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "kpi_4",
   "position": {
     "x": 1009,
     "y": 66,
-    "width": 256,
-    "height": 84,
     "z": 2,
+    "height": 84,
+    "width": 256,
     "tabOrder": 0
   },
   "visual": {
@@ -16,7 +16,6 @@
         "Values": {
           "projections": [
             {
-              "queryRef": "_Medidas_Controller.Ratio OPEX s/Ingresos Real",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -27,6 +26,7 @@
                   "Property": "Ratio OPEX s/Ingresos Real"
                 }
               },
+              "queryRef": "_Medidas_Controller.Ratio OPEX s/Ingresos Real",
               "nativeQueryRef": "Ratio OPEX s/Ingresos Real",
               "displayName": "Ratio OPEX / Ventas (%)"
             }
@@ -34,98 +34,6 @@
         }
       }
     },
-    "visualContainerObjects": {
-      "background": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": "#111827"
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "border": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": "#1E2638"
-              }
-            },
-            "radius": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Ratio OPEX / Ventas (%)'"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": "#F8FAFC"
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI Semibold'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "drillFilterOtherVisuals": true,
     "objects": {
       "labels": [
         {
@@ -145,9 +53,7 @@
               }
             },
             "color": {
-              "solid": {
-                "color": "#F8FAFC"
-              }
+              "solid": {}
             },
             "labelDisplayUnits": {
               "expr": {
@@ -179,6 +85,13 @@
           }
         }
       ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
       "background": [
         {
           "properties": {
@@ -190,9 +103,7 @@
               }
             },
             "color": {
-              "solid": {
-                "color": "#111827"
-              }
+              "solid": {}
             },
             "transparency": {
               "expr": {
@@ -215,9 +126,7 @@
               }
             },
             "color": {
-              "solid": {
-                "color": "#1E2638"
-              }
+              "solid": {}
             },
             "radius": {
               "expr": {
@@ -229,107 +138,7 @@
           }
         }
       ],
-      "dropShadow": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": "#00000040"
-              }
-            },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'outer'"
-                }
-              }
-            },
-            "shadowSpread": {
-              "expr": {
-                "Literal": {
-                  "Value": "2D"
-                }
-              }
-            },
-            "angle": {
-              "expr": {
-                "Literal": {
-                  "Value": "90D"
-                }
-              }
-            },
-            "distance": {
-              "expr": {
-                "Literal": {
-                  "Value": "2D"
-                }
-              }
-            },
-            "blur": {
-              "expr": {
-                "Literal": {
-                  "Value": "6D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "padding": [
-        {
-          "properties": {
-            "top": {
-              "expr": {
-                "Literal": {
-                  "Value": "4D"
-                }
-              }
-            },
-            "bottom": {
-              "expr": {
-                "Literal": {
-                  "Value": "4D"
-                }
-              }
-            },
-            "left": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            },
-            "right": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "general": [
-        {
-          "properties": {
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Center'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "noDataMessage": [
+      "title": [
         {
           "properties": {
             "show": {
@@ -342,105 +151,31 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sin datos para el período y filtros seleccionados.'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
+                  "Value": "'Ratio OPEX / Ventas (%)'"
                 }
               }
             },
             "fontColor": {
-              "solid": {
-                "color": "#64748B"
+              "solid": {}
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
               }
             },
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Segoe UI'"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "calloutValue": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11D"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": "#60A5FA"
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "indicator": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "summaryType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Sum'"
-                }
-              }
-            },
-            "reverseIconOrder": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
+                  "Value": "'Segoe UI Semibold'"
                 }
               }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

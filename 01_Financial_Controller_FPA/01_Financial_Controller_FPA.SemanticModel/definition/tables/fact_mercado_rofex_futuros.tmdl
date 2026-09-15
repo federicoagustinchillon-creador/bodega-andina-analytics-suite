@@ -73,3 +73,4 @@ table fact_mercado_rofex_futuros
 					Tipos = Table.TransformColumnTypes(Encabezados, {{"DateKey", Int64.Type}, {"TipoCambioSpotA3500", type number}, {"FuturoRofex1M", type number}, {"FuturoRofex3M", type number}, {"DiasVencimiento1M", Int64.Type}, {"DiasVencimiento3M", Int64.Type}, {"TasaLecapReferenciaTNA", type number}}, "en-US")
 				in
 					Tipos
+

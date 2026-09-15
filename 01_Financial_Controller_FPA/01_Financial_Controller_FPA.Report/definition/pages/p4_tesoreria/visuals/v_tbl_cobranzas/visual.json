@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_tbl_cobranzas",
   "position": {
     "x": 846,
     "y": 238,
-    "width": 423,
-    "height": 470,
     "z": 2,
+    "height": 470,
+    "width": 423,
     "tabOrder": 0
   },
   "visual": {
@@ -16,7 +16,6 @@
         "Values": {
           "projections": [
             {
-              "queryRef": "fact_cobranzas_exportacion_usd.FechaEmbarque",
               "field": {
                 "Column": {
                   "Expression": {
@@ -27,11 +26,11 @@
                   "Property": "FechaEmbarque"
                 }
               },
+              "queryRef": "fact_cobranzas_exportacion_usd.FechaEmbarque",
               "nativeQueryRef": "FechaEmbarque",
               "displayName": "Embarque"
             },
             {
-              "queryRef": "dim_productos.SKU",
               "field": {
                 "Column": {
                   "Expression": {
@@ -42,11 +41,11 @@
                   "Property": "SKU"
                 }
               },
+              "queryRef": "dim_productos.SKU",
               "nativeQueryRef": "SKU",
               "displayName": "SKU"
             },
             {
-              "queryRef": "fact_cobranzas_exportacion_usd.FechaCobroEstimada",
               "field": {
                 "Column": {
                   "Expression": {
@@ -57,11 +56,11 @@
                   "Property": "FechaCobroEstimada"
                 }
               },
+              "queryRef": "fact_cobranzas_exportacion_usd.FechaCobroEstimada",
               "nativeQueryRef": "FechaCobroEstimada",
               "displayName": "Cobro Estimado"
             },
             {
-              "queryRef": "fact_cobranzas_exportacion_usd.ImporteFOB_USD",
               "field": {
                 "Column": {
                   "Expression": {
@@ -72,6 +71,7 @@
                   "Property": "ImporteFOB_USD"
                 }
               },
+              "queryRef": "fact_cobranzas_exportacion_usd.ImporteFOB_USD",
               "nativeQueryRef": "ImporteFOB_USD",
               "displayName": "FOB (USD)"
             }
@@ -96,6 +96,117 @@
         ]
       }
     },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {}
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {}
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {}
+            },
+            "backColor": {
+              "solid": {}
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {}
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {}
+            },
+            "backColor": {
+              "solid": {}
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "background": [
         {
@@ -108,9 +219,7 @@
               }
             },
             "color": {
-              "solid": {
-                "color": "#111827"
-              }
+              "solid": {}
             },
             "transparency": {
               "expr": {
@@ -133,9 +242,7 @@
               }
             },
             "color": {
-              "solid": {
-                "color": "#1E2638"
-              }
+              "solid": {}
             },
             "radius": {
               "expr": {
@@ -165,9 +272,7 @@
               }
             },
             "fontColor": {
-              "solid": {
-                "color": "#F8FAFC"
-              }
+              "solid": {}
             },
             "fontSize": {
               "expr": {
@@ -204,9 +309,7 @@
               }
             },
             "fontColor": {
-              "solid": {
-                "color": "#94A3B8"
-              }
+              "solid": {}
             },
             "fontSize": {
               "expr": {
@@ -226,153 +329,7 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
-    "objects": {
-      "grid": [
-        {
-          "properties": {
-            "gridVertical": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "gridHorizontal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "gridHorizontalColor": {
-              "solid": {
-                "color": "#1E2638"
-              }
-            },
-            "rowPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "5D"
-                }
-              }
-            },
-            "outlineColor": {
-              "solid": {
-                "color": "#1E293B"
-              }
-            },
-            "textSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
-                }
-              }
-            },
-            "columnPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "columnHeaders": [
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": "#F1F5F9"
-              }
-            },
-            "backColor": {
-              "solid": {
-                "color": "#131C31"
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI Semibold'"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Left'"
-                }
-              }
-            },
-            "outline": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Bottom'"
-                }
-              }
-            },
-            "outlineColor": {
-              "solid": {
-                "color": "#1E293B"
-              }
-            },
-            "outlineWeight": {
-              "expr": {
-                "Literal": {
-                  "Value": "2D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "values": [
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": "#94A3B8"
-              }
-            },
-            "backColor": {
-              "solid": {
-                "color": "#111827"
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI'"
-                }
-              }
-            },
-            "textSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8.5D"
-                }
-              }
-            }
-          }
-        }
-      ]
-    }
+    "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
@@ -389,7 +346,6 @@
           }
         },
         "type": "Categorical",
-        "howCreated": "User",
         "filter": {
           "Version": 2,
           "From": [
@@ -428,7 +384,8 @@
               }
             }
           ]
-        }
+        },
+        "howCreated": "User"
       }
     ]
   }

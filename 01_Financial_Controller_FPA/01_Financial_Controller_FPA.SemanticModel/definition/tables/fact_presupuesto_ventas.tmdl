@@ -97,3 +97,4 @@ table fact_presupuesto_ventas
 					Tipos = Table.TransformColumnTypes(Encabezados, {{"DateKey", Int64.Type}, {"AnioMes", type text}, {"ProductoID", type text}, {"CentroCostoID", type text}, {"VolumenPresupuestado", Int64.Type}, {"PrecioPresupuestadoUnit", type number}, {"CostoEstandarUnit", type number}, {"IngresosPresupuestados", type number}, {"CostoPresupuestado", type number}, {"MargenBrutoPresupuestado", type number}}, "en-US")
 				in
 					Tipos
+

@@ -49,3 +49,4 @@ relationship rel_cobranzas_calendario
 relationship rel_cobranzas_productos
 	fromColumn: fact_cobranzas_exportacion_usd.ProductoID
 	toColumn: dim_productos.ProductoID
+

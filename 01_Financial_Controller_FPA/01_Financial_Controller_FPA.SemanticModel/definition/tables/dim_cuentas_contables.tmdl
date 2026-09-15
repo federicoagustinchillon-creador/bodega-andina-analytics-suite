@@ -43,3 +43,4 @@ table dim_cuentas_contables
 					Tipos = Table.TransformColumnTypes(Encabezados, {{"CuentaID", type text}, {"NombreCuenta", type text}, {"Naturaleza", type text}, {"Rubro", type text}}, "en-US")
 				in
 					Tipos
+

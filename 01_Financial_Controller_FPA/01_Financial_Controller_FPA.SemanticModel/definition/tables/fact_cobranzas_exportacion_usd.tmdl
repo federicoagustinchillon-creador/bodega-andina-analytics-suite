@@ -27,6 +27,8 @@ table fact_cobranzas_exportacion_usd
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column ProductoID
 		dataType: string
 		lineageTag: 504458c1-fd59-4b8c-9a0f-1b281f835c9d
@@ -52,6 +54,8 @@ table fact_cobranzas_exportacion_usd
 		sourceColumn: FechaCobroEstimada
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column ImporteFOB_USD
 		dataType: double
@@ -88,3 +92,4 @@ table fact_cobranzas_exportacion_usd
 					Tipos = Table.TransformColumnTypes(Encabezados, {{"TransaccionID", type text}, {"DateKeyEmbarque", Int64.Type}, {"FechaEmbarque", type date}, {"ProductoID", type text}, {"PlazoDiasCobro", Int64.Type}, {"FechaCobroEstimada", type date}, {"ImporteFOB_USD", type number}, {"TipoCambioEmbarque", type number}, {"EstadoCobranza", type text}}, "en-US")
 				in
 					Tipos
+

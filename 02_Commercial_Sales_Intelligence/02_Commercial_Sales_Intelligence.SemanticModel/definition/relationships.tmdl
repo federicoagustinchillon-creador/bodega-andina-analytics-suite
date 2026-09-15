@@ -21,3 +21,4 @@ relationship rel_presupuesto_productos
 relationship rel_presupuesto_centroscosto
 	fromColumn: fact_presupuesto_ventas.CentroCostoID
 	toColumn: dim_centros_costo.CentroCostoID
+
