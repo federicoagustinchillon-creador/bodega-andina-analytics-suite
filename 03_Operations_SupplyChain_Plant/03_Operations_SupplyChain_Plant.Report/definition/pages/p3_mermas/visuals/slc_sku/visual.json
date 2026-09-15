@@ -3,9 +3,9 @@
   "name": "slc_sku",
   "position": {
     "x": 18,
-    "y": 220,
+    "y": 232,
     "width": 160,
-    "height": 52,
+    "height": 64,
     "z": 3,
     "tabOrder": 0
   },

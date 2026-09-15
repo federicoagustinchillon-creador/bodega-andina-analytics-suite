@@ -16,21 +16,6 @@
         "Values": {
           "projections": [
             {
-              "queryRef": "dim_centros_costo.CentroCostoID",
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_centros_costo"
-                    }
-                  },
-                  "Property": "CentroCostoID"
-                }
-              },
-              "nativeQueryRef": "CentroCostoID",
-              "displayName": "CeCo ID"
-            },
-            {
               "queryRef": "dim_centros_costo.NombreCentroCosto",
               "field": {
                 "Column": {

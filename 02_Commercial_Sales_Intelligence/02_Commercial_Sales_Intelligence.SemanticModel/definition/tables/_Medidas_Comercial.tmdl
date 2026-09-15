@@ -13,35 +13,29 @@ table _Medidas_Comercial
 		lineageTag: a1b2c3d4-1111-2222-3333-000100010002
 
 	measure 'Ingresos Presupuesto' =
-			VAR _CanalActual = SELECTEDVALUE(fact_ventas_reales[CanalVenta])
+			VAR _CanalesSel = VALUES(fact_ventas_reales[CanalVenta])
+			VAR _IncluyeExport = "Exportacion Directa" IN _CanalesSel
 			VAR _PresupuestoExport = CALCULATE(SUM(fact_presupuesto_ventas[IngresosPresupuestados]), fact_presupuesto_ventas[CentroCostoID] = "CC-203")
-			VAR _PresupuestoDomestico = CALCULATE(SUM(fact_presupuesto_ventas[IngresosPresupuestados]), fact_presupuesto_ventas[CentroCostoID] = "CC-202")
-			VAR _RealDelCanal = [Ingresos Reales]
+			VAR _PresupuestoDomesticoTotal = CALCULATE(SUM(fact_presupuesto_ventas[IngresosPresupuestados]), fact_presupuesto_ventas[CentroCostoID] = "CC-202")
+			VAR _RealDomesticoSel = CALCULATE([Ingresos Reales], REMOVEFILTERS(fact_ventas_reales[CanalVenta]), KEEPFILTERS(fact_ventas_reales[CanalVenta] IN _CanalesSel), fact_ventas_reales[CanalVenta] <> "Exportacion Directa")
 			VAR _RealDomesticoTotal = CALCULATE([Ingresos Reales], REMOVEFILTERS(fact_ventas_reales[CanalVenta]), fact_ventas_reales[CanalVenta] IN {"Canal Horeca", "Supermercados", "Distribuidor Mayorista"})
+			VAR _PresupuestoDomAsignado = _PresupuestoDomesticoTotal * DIVIDE(_RealDomesticoSel, _RealDomesticoTotal, 0)
 			RETURN
-				SWITCH(
-					TRUE(),
-					_CanalActual = "Exportacion Directa", _PresupuestoExport,
-					NOT ISBLANK(_CanalActual), _PresupuestoDomestico * DIVIDE(_RealDelCanal, _RealDomesticoTotal, 0),
-					_PresupuestoExport + _PresupuestoDomestico
-				)
+				_PresupuestoDomAsignado + IF(_IncluyeExport, _PresupuestoExport, 0)
 		formatString: $#,##0;($#,##0);"-"
 		displayFolder: 01 Ventas y Cumplimiento
 		lineageTag: a1b2c3d4-1111-2222-3333-000100010003
 
 	measure 'Volumen Presupuesto' =
-			VAR _CanalActual = SELECTEDVALUE(fact_ventas_reales[CanalVenta])
+			VAR _CanalesSel = VALUES(fact_ventas_reales[CanalVenta])
+			VAR _IncluyeExport = "Exportacion Directa" IN _CanalesSel
 			VAR _PresupuestoExport = CALCULATE(SUM(fact_presupuesto_ventas[VolumenPresupuestado]), fact_presupuesto_ventas[CentroCostoID] = "CC-203")
-			VAR _PresupuestoDomestico = CALCULATE(SUM(fact_presupuesto_ventas[VolumenPresupuestado]), fact_presupuesto_ventas[CentroCostoID] = "CC-202")
-			VAR _RealDelCanal = [Volumen Real]
+			VAR _PresupuestoDomesticoTotal = CALCULATE(SUM(fact_presupuesto_ventas[VolumenPresupuestado]), fact_presupuesto_ventas[CentroCostoID] = "CC-202")
+			VAR _RealDomesticoSel = CALCULATE([Volumen Real], REMOVEFILTERS(fact_ventas_reales[CanalVenta]), KEEPFILTERS(fact_ventas_reales[CanalVenta] IN _CanalesSel), fact_ventas_reales[CanalVenta] <> "Exportacion Directa")
 			VAR _RealDomesticoTotal = CALCULATE([Volumen Real], REMOVEFILTERS(fact_ventas_reales[CanalVenta]), fact_ventas_reales[CanalVenta] IN {"Canal Horeca", "Supermercados", "Distribuidor Mayorista"})
+			VAR _PresupuestoDomAsignado = _PresupuestoDomesticoTotal * DIVIDE(_RealDomesticoSel, _RealDomesticoTotal, 0)
 			RETURN
-				SWITCH(
-					TRUE(),
-					_CanalActual = "Exportacion Directa", _PresupuestoExport,
-					NOT ISBLANK(_CanalActual), _PresupuestoDomestico * DIVIDE(_RealDelCanal, _RealDomesticoTotal, 0),
-					_PresupuestoExport + _PresupuestoDomestico
-				)
+				_PresupuestoDomAsignado + IF(_IncluyeExport, _PresupuestoExport, 0)
 		formatString: #,##0;(#,##0);"-"
 		displayFolder: 01 Ventas y Cumplimiento
 		lineageTag: a1b2c3d4-1111-2222-3333-000100010004
@@ -67,15 +61,14 @@ table _Medidas_Comercial
 		lineageTag: a1b2c3d4-1111-2222-3333-000100010008
 
 	measure 'Ticket Promedio' = DIVIDE([Ingresos Reales], [Cantidad Pedidos], 0)
+		formatString: $#,##0.00;($#,##0.00);"-"
+		displayFolder: 01 Ventas y Cumplimiento
+		lineageTag: a1b2c3d4-1111-2222-3333-000100010009
 
 	measure 'Subtitulo Brecha Volumen' =
 			"Plan: " & FORMAT([Volumen Presupuesto], "#,##0") & " | Brecha: " & FORMAT([Volumen Presupuesto] - [Volumen Real], "#,##0")
 		formatString: "@"
 		lineageTag: c7d4e1a9-2b6f-4c8d-9a3e-5f1b7c8d9e2a
-
-		formatString: $#,##0.00;($#,##0.00);"-"
-		displayFolder: 01 Ventas y Cumplimiento
-		lineageTag: a1b2c3d4-1111-2222-3333-000100010009
 
 
 	measure 'Precio Promedio Real' = DIVIDE([Ingresos Reales], [Volumen Real], 0)
@@ -186,9 +179,9 @@ table _Medidas_Comercial
 	measure 'Color Semaforo Precio' =
 			SWITCH(
 				TRUE(),
-				[Desvio Precio Relativo %] < -0.05, "#EF4444",
-				[Desvio Precio Relativo %] < 0.00, "#F59E0B",
-				"#10B981"
+				[Desvio Precio Relativo %] < -0.05, "#DC2626",
+				[Desvio Precio Relativo %] < 0.00, "#D97706",
+				"#059669"
 			)
 		formatString: "@"
 		displayFolder: 04 Elasticidad y Deducciones
@@ -210,9 +203,9 @@ table _Medidas_Comercial
 	measure 'Color Semaforo KPI' = 
 		SWITCH(
 		    [Semaforo KPI],
-		    "CUMPLE",  "#065F46",
-		    "ALERTA",  "#92400E",
-		    "CRITICO", "#7F1D1D",
+		    "CUMPLE",  "#059669",
+		    "ALERTA",  "#D97706",
+		    "CRITICO", "#DC2626",
 		    "#1E293B"
 		)
 		formatString: "@"

@@ -406,24 +406,24 @@ table _Medidas_Controller
 		displayFolder: 07 Diagnostico Causal
 		lineageTag: c5f660e5-027a-402d-b5d0-a2791e9dce1d
 
-	measure 'Top Causa Desvio' = 
+	measure 'Top Causa Desvio' =
 		VAR _tbl =
 		    ADDCOLUMNS(
-		        VALUES(dim_cuentas_contables[CuentaNombre]),
+		        VALUES(dim_cuentas_contables[NombreCuenta]),
 		        "@desvio", ABS(CALCULATE([Desvio Ingresos %]))
 		    )
 		VAR _top =
 		    TOPN(1, _tbl, [@desvio], DESC)
 		RETURN
-		    CONCATENATEX(_top, dim_cuentas_contables[CuentaNombre], ", ")
+		    CONCATENATEX(_top, dim_cuentas_contables[NombreCuenta], ", ")
 		formatString: "@"
 		displayFolder: 07 Diagnostico Causal
 		lineageTag: 18eb21fb-a5d9-4b42-aaf9-b7efa3532085
 
-	measure 'Magnitud Desvio Top Causa' = 
+	measure 'Magnitud Desvio Top Causa' =
 		VAR _tbl =
 		    ADDCOLUMNS(
-		        VALUES(dim_cuentas_contables[CuentaNombre]),
+		        VALUES(dim_cuentas_contables[NombreCuenta]),
 		        "@desvio", ABS(CALCULATE([Desvio Ingresos %]))
 		    )
 		VAR _top =
@@ -452,7 +452,7 @@ table _Medidas_Controller
 		lineageTag: 1917c896-c37e-4f13-ac36-7e3402c2e6b6
 
 	measure 'Rank Desvio por Dimension' = 
-		VAR _tbl = ADDCOLUMNS(VALUES(dim_cuentas_contables[CuentaNombre]), "@dev", ABS(CALCULATE([Desvio Ingresos %])))
+		VAR _tbl = ADDCOLUMNS(VALUES(dim_cuentas_contables[NombreCuenta]), "@dev", ABS(CALCULATE([Desvio Ingresos %])))
 		RETURN RANKX(_tbl, [@dev], , DESC, Skip)
 		formatString: 0
 		displayFolder: 07 Diagnostico Causal

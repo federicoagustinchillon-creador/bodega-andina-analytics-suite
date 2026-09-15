@@ -177,7 +177,13 @@
             },
             "fontColor": {
               "solid": {
-                "color": "#64748B"
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#94A3B8'"
+                    }
+                  }
+                }
               }
             },
             "fontSize": {

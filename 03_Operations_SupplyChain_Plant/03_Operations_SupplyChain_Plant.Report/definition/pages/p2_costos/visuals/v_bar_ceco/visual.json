@@ -35,7 +35,7 @@
         "Y": {
           "projections": [
             {
-              "queryRef": "_Medidas_Operaciones.Costo Total Fabril",
+              "queryRef": "_Medidas_Operaciones.Costo Fabril Real Centro",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -43,14 +43,14 @@
                       "Entity": "_Medidas_Operaciones"
                     }
                   },
-                  "Property": "Costo Total Fabril"
+                  "Property": "Costo Fabril Real Centro"
                 }
               },
-              "nativeQueryRef": "Costo Total Fabril",
+              "nativeQueryRef": "Costo Fabril Real Centro",
               "displayName": "Real"
             },
             {
-              "queryRef": "_Medidas_Operaciones.Costo Presupuesto Fabril",
+              "queryRef": "_Medidas_Operaciones.Costo Fabril Plan Centro",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -58,10 +58,10 @@
                       "Entity": "_Medidas_Operaciones"
                     }
                   },
-                  "Property": "Costo Presupuesto Fabril"
+                  "Property": "Costo Fabril Plan Centro"
                 }
               },
-              "nativeQueryRef": "Costo Presupuesto Fabril",
+              "nativeQueryRef": "Costo Fabril Plan Centro",
               "displayName": "Plan"
             }
           ]
@@ -268,7 +268,7 @@
             }
           },
           "selector": {
-            "metadata": "_Medidas_Operaciones.Costo Total Fabril"
+            "metadata": "_Medidas_Operaciones.Costo Fabril Real Centro"
           }
         },
         {
@@ -280,7 +280,7 @@
             }
           },
           "selector": {
-            "metadata": "_Medidas_Operaciones.Costo Presupuesto Fabril"
+            "metadata": "_Medidas_Operaciones.Costo Fabril Plan Centro"
           }
         }
       ],

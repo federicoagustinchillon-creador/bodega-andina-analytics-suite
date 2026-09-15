@@ -46,7 +46,7 @@
               "displayName": "Centro Costo"
             },
             {
-              "queryRef": "_Medidas_Operaciones.Costo Total Fabril",
+              "queryRef": "_Medidas_Operaciones.Costo Fabril Real Centro",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -54,14 +54,14 @@
                       "Entity": "_Medidas_Operaciones"
                     }
                   },
-                  "Property": "Costo Total Fabril"
+                  "Property": "Costo Fabril Real Centro"
                 }
               },
-              "nativeQueryRef": "Costo Total Fabril",
+              "nativeQueryRef": "Costo Fabril Real Centro",
               "displayName": "Real ($)"
             },
             {
-              "queryRef": "_Medidas_Operaciones.Costo Presupuesto Fabril",
+              "queryRef": "_Medidas_Operaciones.Costo Fabril Plan Centro",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -69,14 +69,14 @@
                       "Entity": "_Medidas_Operaciones"
                     }
                   },
-                  "Property": "Costo Presupuesto Fabril"
+                  "Property": "Costo Fabril Plan Centro"
                 }
               },
-              "nativeQueryRef": "Costo Presupuesto Fabril",
+              "nativeQueryRef": "Costo Fabril Plan Centro",
               "displayName": "Plan ($)"
             },
             {
-              "queryRef": "_Medidas_Operaciones.Desvio Fabril Total",
+              "queryRef": "_Medidas_Operaciones.Desvio Fabril Centro",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -84,10 +84,10 @@
                       "Entity": "_Medidas_Operaciones"
                     }
                   },
-                  "Property": "Desvio Fabril Total"
+                  "Property": "Desvio Fabril Centro"
                 }
               },
-              "nativeQueryRef": "Desvio Fabril Total",
+              "nativeQueryRef": "Desvio Fabril Centro",
               "displayName": "Desvío ($)"
             }
           ]
@@ -103,7 +103,7 @@
                     "Entity": "_Medidas_Operaciones"
                   }
                 },
-                "Property": "Costo Total Fabril"
+                "Property": "Costo Fabril Real Centro"
               }
             },
             "direction": "Descending"

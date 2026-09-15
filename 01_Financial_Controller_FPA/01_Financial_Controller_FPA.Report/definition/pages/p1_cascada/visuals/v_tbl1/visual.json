@@ -16,21 +16,6 @@
         "Values": {
           "projections": [
             {
-              "queryRef": "dim_productos.SKU",
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_productos"
-                    }
-                  },
-                  "Property": "SKU"
-                }
-              },
-              "nativeQueryRef": "SKU",
-              "displayName": "SKU"
-            },
-            {
               "queryRef": "dim_productos.Descripcion",
               "field": {
                 "Column": {

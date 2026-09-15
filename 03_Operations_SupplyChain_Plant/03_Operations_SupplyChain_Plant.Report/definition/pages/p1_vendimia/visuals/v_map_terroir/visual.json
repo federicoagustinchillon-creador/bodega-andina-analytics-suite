@@ -13,44 +13,6 @@
     "visualType": "azureMap",
     "query": {
       "queryState": {
-        "Latitude": {
-          "projections": [
-            {
-              "queryRef": "fact_operaciones_planta.Latitud",
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_operaciones_planta"
-                    }
-                  },
-                  "Property": "Latitud"
-                }
-              },
-              "nativeQueryRef": "Latitud",
-              "displayName": "Latitud"
-            }
-          ]
-        },
-        "Longitude": {
-          "projections": [
-            {
-              "queryRef": "fact_operaciones_planta.Longitud",
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_operaciones_planta"
-                    }
-                  },
-                  "Property": "Longitud"
-                }
-              },
-              "nativeQueryRef": "Longitud",
-              "displayName": "Longitud"
-            }
-          ]
-        },
         "Size": {
           "projections": [
             {
@@ -67,25 +29,6 @@
               },
               "nativeQueryRef": "Total Kilos Uva",
               "displayName": "Kilos de Uva"
-            }
-          ]
-        },
-        "Legend": {
-          "projections": [
-            {
-              "queryRef": "fact_operaciones_planta.FincaOrigen",
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_operaciones_planta"
-                    }
-                  },
-                  "Property": "FincaOrigen"
-                }
-              },
-              "nativeQueryRef": "FincaOrigen",
-              "displayName": "Finca de Origen"
             }
           ]
         },

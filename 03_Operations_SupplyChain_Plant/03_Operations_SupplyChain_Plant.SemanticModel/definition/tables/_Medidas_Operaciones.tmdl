@@ -175,11 +175,6 @@ table _Medidas_Operaciones
 		displayFolder: 03 Inventario Guarda y Mermas
 		lineageTag: 0f03755a-8562-41b5-b241-b59e1c735e34
 
-	measure 'Merma Madera %' = [Tasa Merma Crianza %]
-		formatString: 0.00%
-		displayFolder: 03 Inventario Guarda y Mermas
-		lineageTag: 0f03755a-8562-41b5-b241-b59e1c735e33
-
 	measure 'Eficiencia de Planta %' = [Tasa Eficiencia Planta]
 		formatString: 0.00%
 		displayFolder: 02 Costos Fabriles y Absorcion
@@ -248,11 +243,6 @@ table _Medidas_Operaciones
 		formatString: #,##0 "kg"
 		displayFolder: 01 Eficiencia y Recepcion Vendimia
 		lineageTag: d69c8f1e-b918-4d00-b043-b3fc5a5be5ec
-
-	measure 'Porcentaje Utilizacion Capacidad Vendimia' = DIVIDE([Total Kilos Uva], [Capacidad Maxima Molienda Semanal] * 10, 0)
-		formatString: 0.00%
-		displayFolder: 01 Eficiencia y Recepcion Vendimia
-		lineageTag: 9db32790-e1d6-4dc7-8f95-72d60236d980
 
 	measure 'Costo Uva Ponderado por Kilo' = DIVIDE([Costo Elaboracion Total], [Total Kilos Uva], 0)
 		formatString: $#,##0.00;($#,##0.00);"-"

@@ -35,7 +35,7 @@
         "Y": {
           "projections": [
             {
-              "queryRef": "_Medidas_Operaciones.Desvio Fabril Total",
+              "queryRef": "_Medidas_Operaciones.Desvio Fabril Centro",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -43,10 +43,10 @@
                       "Entity": "_Medidas_Operaciones"
                     }
                   },
-                  "Property": "Desvio Fabril Total"
+                  "Property": "Desvio Fabril Centro"
                 }
               },
-              "nativeQueryRef": "Desvio Fabril Total",
+              "nativeQueryRef": "Desvio Fabril Centro",
               "displayName": "Desvío Fabril ($)"
             }
           ]

@@ -156,7 +156,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Evolucion mensual | Filtros activos en panel izquierdo'"
+                  "Value": "'Comparacion por dimension | Ordenado por valor real'"
                 }
               }
             },

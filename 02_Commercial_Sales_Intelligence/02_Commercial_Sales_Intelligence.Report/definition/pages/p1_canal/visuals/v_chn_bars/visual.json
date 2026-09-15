@@ -132,7 +132,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Facturación Real vs. Presupuesto por Canal'"
+                  "Value": "'Facturación Real vs. Presupuesto por Canal Comercial'"
                 }
               }
             },

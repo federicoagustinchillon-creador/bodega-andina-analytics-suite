@@ -156,13 +156,19 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Evolucion mensual | Filtros activos en panel izquierdo'"
+                  "Value": "'Comparacion por cuenta contable | Filtros activos en panel izquierdo'"
                 }
               }
             },
             "fontColor": {
               "solid": {
-                "color": "#64748B"
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#94A3B8'"
+                    }
+                  }
+                }
               }
             },
             "fontSize": {
