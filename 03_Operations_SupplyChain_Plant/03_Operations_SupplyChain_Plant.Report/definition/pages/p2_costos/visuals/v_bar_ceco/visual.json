@@ -322,7 +322,7 @@
             "maxMarginFactor": {
               "expr": {
                 "Literal": {
-                  "Value": "24D"
+                  "Value": "38D"
                 }
               }
             },
@@ -330,6 +330,13 @@
               "expr": {
                 "Literal": {
                   "Value": "16D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             },
