@@ -13,7 +13,7 @@
     "visualType": "card",
     "query": {
       "queryState": {
-        "Data": {
+        "Values": {
           "projections": [
             {
               "queryRef": "_Medidas_Operaciones.Rendimiento Medio Extraccion %",
