@@ -99,3 +99,4 @@ table fact_capital_trabajo
 					Tipos = Table.TransformColumnTypes(Encabezados, {{"DateKey", Int64.Type}, {"AnioMes", type text}, {"CuentasPorCobrar", type number}, {"CuentasPorPagar", type number}, {"Inventario", type number}, {"DSO_DiasCobro", type number}, {"DIO_DiasInventario", type number}, {"DPO_DiasPago", type number}, {"CicloConversionEfectivo_CCC", type number}, {"NecesidadOperativaFondos_NOF", type number}}, "en-US")
 				in
 					Tipos
+

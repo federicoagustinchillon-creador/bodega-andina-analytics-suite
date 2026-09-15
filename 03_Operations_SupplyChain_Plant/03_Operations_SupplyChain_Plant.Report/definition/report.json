@@ -31,6 +31,17 @@
           "type": "CustomTheme"
         }
       ]
+    },
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY24Report",
+          "path": "BaseThemes/CY24Report.json",
+          "type": "BaseTheme"
+        }
+      ]
     }
   ],
   "settings": {

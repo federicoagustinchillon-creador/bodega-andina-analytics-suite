@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "slc_ceco",
   "position": {
     "x": 18,
     "y": 232,
-    "width": 160,
-    "height": 64,
     "z": 3,
+    "height": 64,
+    "width": 160,
     "tabOrder": 0
   },
   "visual": {
@@ -16,7 +16,6 @@
         "Values": {
           "projections": [
             {
-              "queryRef": "dim_centros_costo.NombreCentroCosto",
               "field": {
                 "Column": {
                   "Expression": {
@@ -27,79 +26,15 @@
                   "Property": "NombreCentroCosto"
                 }
               },
+              "queryRef": "dim_centros_costo.NombreCentroCosto",
               "nativeQueryRef": "NombreCentroCosto",
+              "active": true,
               "displayName": "Centro de Costo Fabril"
             }
           ]
         }
       }
     },
-    "visualContainerObjects": {
-      "background": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": "#111827"
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "border": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": "#1E2638"
-              }
-            },
-            "radius": {
-              "expr": {
-                "Literal": {
-                  "Value": "6D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "drillFilterOtherVisuals": true,
     "objects": {
       "header": [
         {
@@ -112,9 +47,7 @@
               }
             },
             "fontColor": {
-              "solid": {
-                "color": "#F1F5F9"
-              }
+              "solid": {}
             },
             "textSize": {
               "expr": {
@@ -131,9 +64,7 @@
               }
             },
             "background": {
-              "solid": {
-                "color": "#111827"
-              }
+              "solid": {}
             }
           }
         }
@@ -151,47 +82,11 @@
           }
         }
       ],
-      "padding": [
-        {
-          "properties": {
-            "top": {
-              "expr": {
-                "Literal": {
-                  "Value": "2D"
-                }
-              }
-            },
-            "bottom": {
-              "expr": {
-                "Literal": {
-                  "Value": "2D"
-                }
-              }
-            },
-            "left": {
-              "expr": {
-                "Literal": {
-                  "Value": "6D"
-                }
-              }
-            },
-            "right": {
-              "expr": {
-                "Literal": {
-                  "Value": "6D"
-                }
-              }
-            }
-          }
-        }
-      ],
       "general": [
         {
           "properties": {
             "outlineColor": {
-              "solid": {
-                "color": "#1E2638"
-              }
+              "solid": {}
             },
             "outlineWeight": {
               "expr": {
@@ -262,9 +157,7 @@
         {
           "properties": {
             "fontColor": {
-              "solid": {
-                "color": "#CBD5E1"
-              }
+              "solid": {}
             },
             "textSize": {
               "expr": {
@@ -274,9 +167,7 @@
               }
             },
             "background": {
-              "solid": {
-                "color": "#0F172A"
-              }
+              "solid": {}
             }
           }
         }
@@ -290,17 +181,72 @@
                   "Value": "false"
                 }
               }
-            },
-            "selectAll": {
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {}
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {}
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "6D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

@@ -7,7 +7,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["RutaDatos","dim_calendario","dim_productos","dim_centros_costo","dim_cuentas_contables","fact_operaciones_planta","fact_opex_mensual","fact_capital_trabajo","fact_inventario_guarda","_Medidas_Operaciones"]
+annotation PBI_QueryOrder = ["RutaDatos","dim_calendario","dim_productos","dim_centros_costo","dim_cuentas_contables","fact_operaciones_planta","fact_opex_mensual","fact_capital_trabajo","fact_inventario_guarda"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
@@ -24,3 +24,4 @@ ref table fact_inventario_guarda
 ref table _Medidas_Operaciones
 
 ref cultureInfo en-US
+

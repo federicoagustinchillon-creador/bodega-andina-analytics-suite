@@ -79,3 +79,4 @@ table fact_opex_mensual
 					Tipos = Table.TransformColumnTypes(Encabezados, {{"DateKey", Int64.Type}, {"AnioMes", type text}, {"CentroCostoID", type text}, {"CuentaID", type text}, {"OPEXPresupuestado", type number}, {"OPEXReal", type number}, {"DesvioOPEX", type number}, {"DesvioPorcentual", type number}}, "en-US")
 				in
 					Tipos
+

@@ -1,7 +1,6 @@
 table _Medidas_Operaciones
 	lineageTag: d3b25446-cdc1-4fb0-9d4a-01b7d86b3916
 
-
 	measure 'Latitud Finca' = AVERAGE(fact_operaciones_planta[Latitud])
 		formatString: 0.0000
 		displayFolder: 01 Eficiencia y Recepcion Vendimia\Geolocalizacion
@@ -41,7 +40,6 @@ table _Medidas_Operaciones
 		formatString: #,##0
 		displayFolder: 01 Eficiencia y Recepcion Vendimia
 		lineageTag: 8f541a3a-172d-4031-8e17-a604747583d5
-
 
 	measure 'Costo Elaboracion Total' = CALCULATE(SUM(fact_opex_mensual[OPEXReal]), fact_opex_mensual[CentroCostoID] = "CC-101")
 		formatString: $#,##0;($#,##0);"-"
@@ -85,7 +83,7 @@ table _Medidas_Operaciones
 				[Desvio Fabril %] > 0.00, "#F59E0B",
 				"#10B981"
 			)
-		formatString: "@"
+		formatString: @
 		displayFolder: 02 Costos Fabriles y Absorcion
 		lineageTag: 8a1e4f27-3c9b-4d68-a5f1-0e7c2b9a4d6e
 
@@ -154,7 +152,6 @@ table _Medidas_Operaciones
 		displayFolder: 02 Costos Fabriles y Absorcion
 		lineageTag: d76dc348-dfaf-4e3e-b476-23e77ff82a72
 
-
 	measure 'Valor Inventario Guarda' = SUM(fact_inventario_guarda[ValorInventario])
 		formatString: $#,##0;($#,##0);"-"
 		displayFolder: 03 Inventario Guarda y Mermas
@@ -215,14 +212,14 @@ table _Medidas_Operaciones
 		displayFolder: 03 Inventario Guarda y Mermas
 		lineageTag: 47a2f2bf-0b73-445e-98b5-1c1ea1c46f52
 
-	measure 'DIO Rango Optimo' = 
+	measure 'DIO Rango Optimo' =
 			VAR _DIO = [DIO Promedio Dias]
 			RETURN IF(_DIO <= 185, _DIO, 185)
 		formatString: 0.0 "días"
 		displayFolder: 03 Inventario Guarda y Mermas
 		lineageTag: eca5752f-2cef-4dee-9337-f8946fbb2007
 
-	measure 'DIO Desvio Exceso' = 
+	measure 'DIO Desvio Exceso' =
 			VAR _DIO = [DIO Promedio Dias]
 			RETURN IF(_DIO > 185, _DIO - 185, 0)
 		formatString: 0.0 "días"
@@ -249,165 +246,179 @@ table _Medidas_Operaciones
 		displayFolder: 02 Costos Fabriles y Absorcion
 		lineageTag: dac8d639-bcf5-497a-a12a-a9fc2a655130
 
-	measure 'Semaforo KPI' = 
-		VAR _desvio = [Desvio Fabril %]
-		RETURN
-		    SWITCH(
-		        TRUE(),
-		        _desvio >= 0,               "CUMPLE",
-		        _desvio >= -0.05,           "ALERTA",
-		        "CRITICO"
-		    )
-		formatString: "@"
-		displayFolder: 05 Diagnostico Causal
-		lineageTag: 9b17ee49-c57f-49ad-b179-bad1aae6fdad
+	measure 'Semaforo KPI' =
+			VAR _desvio = [Desvio Fabril %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        _desvio >= 0,               "CUMPLE",
+			        _desvio >= -0.05,           "ALERTA",
+			        "CRITICO"
+			    )
+			formatString: "@"
+			displayFolder: 05 Diagnostico Causal
+			lineageTag: 9b17ee49-c57f-49ad-b179-bad1aae6fdad
+		lineageTag: 07a4e66b-5536-42a5-a5d6-a72028d4c6a3
 
-	measure 'Color Semaforo KPI' = 
-		SWITCH(
-		    [Semaforo KPI],
-		    "CUMPLE",  "#065F46",
-		    "ALERTA",  "#92400E",
-		    "CRITICO", "#7F1D1D",
-		    "#1E293B"
-		)
-		formatString: "@"
-		displayFolder: 05 Diagnostico Causal
-		lineageTag: e427f063-9a4c-499f-aa89-0de51bb03a3a
+	measure 'Color Semaforo KPI' =
+			SWITCH(
+			    [Semaforo KPI],
+			    "CUMPLE",  "#065F46",
+			    "ALERTA",  "#92400E",
+			    "CRITICO", "#7F1D1D",
+			    "#1E293B"
+			)
+			formatString: "@"
+			displayFolder: 05 Diagnostico Causal
+			lineageTag: e427f063-9a4c-499f-aa89-0de51bb03a3a
+		lineageTag: 6351a55b-ff08-4b6f-a30a-d6512dfbd2ed
 
-	measure 'Top Causa Desvio' = 
-		VAR _tbl =
-		    ADDCOLUMNS(
-		        VALUES(fact_operaciones_planta[VariedadUva]),
-		        "@desvio", ABS(CALCULATE([Desvio Fabril %]))
-		    )
-		VAR _top =
-		    TOPN(1, _tbl, [@desvio], DESC)
-		RETURN
-		    CONCATENATEX(_top, fact_operaciones_planta[VariedadUva], ", ")
-		formatString: "@"
-		displayFolder: 05 Diagnostico Causal
-		lineageTag: ee5cd885-4eca-4d50-9480-d920305c5d46
+	measure 'Top Causa Desvio' =
+			VAR _tbl =
+			    ADDCOLUMNS(
+			        VALUES(fact_operaciones_planta[VariedadUva]),
+			        "@desvio", ABS(CALCULATE([Desvio Fabril %]))
+			    )
+			VAR _top =
+			    TOPN(1, _tbl, [@desvio], DESC)
+			RETURN
+			    CONCATENATEX(_top, fact_operaciones_planta[VariedadUva], ", ")
+			formatString: "@"
+			displayFolder: 05 Diagnostico Causal
+			lineageTag: ee5cd885-4eca-4d50-9480-d920305c5d46
+		lineageTag: ee2b8a89-0f14-4794-8f5f-de10688f5b1d
 
-	measure 'Magnitud Desvio Top Causa' = 
-		VAR _tbl =
-		    ADDCOLUMNS(
-		        VALUES(fact_operaciones_planta[VariedadUva]),
-		        "@desvio", ABS(CALCULATE([Desvio Fabril %]))
-		    )
-		VAR _top =
-		    TOPN(1, _tbl, [@desvio], DESC)
-		RETURN
-		    MAXX(_top, [@desvio])
-		formatString: +0.00%;-0.00%;0.00%
-		displayFolder: 05 Diagnostico Causal
-		lineageTag: 8cd53ee0-5dd9-4b7f-806f-0405c8ac62c6
+	measure 'Magnitud Desvio Top Causa' =
+			VAR _tbl =
+			    ADDCOLUMNS(
+			        VALUES(fact_operaciones_planta[VariedadUva]),
+			        "@desvio", ABS(CALCULATE([Desvio Fabril %]))
+			    )
+			VAR _top =
+			    TOPN(1, _tbl, [@desvio], DESC)
+			RETURN
+			    MAXX(_top, [@desvio])
+			formatString: +0.00%;-0.00%;0.00%
+			displayFolder: 05 Diagnostico Causal
+			lineageTag: 8cd53ee0-5dd9-4b7f-806f-0405c8ac62c6
+		lineageTag: 8a6be481-d1c8-4fc0-b12d-349cb7199897
 
-	measure 'Diagnostico Causal' = 
-		VAR _estado   = [Semaforo KPI]
-		VAR _causa    = [Top Causa Desvio]
-		VAR _magnitud = FORMAT([Magnitud Desvio Top Causa], "0.0%")
-		VAR _real     = FORMAT([Costo Total Fabril], "$#,##0")
-		VAR _ppto     = FORMAT([Costo Presupuesto Fabril], "$#,##0")
-		RETURN
-		    SWITCH(
-		        _estado,
-		        "CUMPLE",  "KPI en objetivo. " & _causa & " es el principal impulsor positivo (" & _magnitud & " s/ppto).",
-		        "ALERTA",  "Desvio moderado. " & _causa & " concentra la mayor brecha (" & _magnitud & "). Real: " & _real & " | Ppto: " & _ppto & ".",
-		        "CRITICO", "ACCION REQUERIDA: " & _causa & " presenta desvio critico (" & _magnitud & "). Real: " & _real & " vs Ppto: " & _ppto & "."
-		    )
-		formatString: "@"
-		displayFolder: 05 Diagnostico Causal
-		lineageTag: e7e6dfef-10e2-473d-b55a-58c024b11387
+	measure 'Diagnostico Causal' =
+			VAR _estado   = [Semaforo KPI]
+			VAR _causa    = [Top Causa Desvio]
+			VAR _magnitud = FORMAT([Magnitud Desvio Top Causa], "0.0%")
+			VAR _real     = FORMAT([Costo Total Fabril], "$#,##0")
+			VAR _ppto     = FORMAT([Costo Presupuesto Fabril], "$#,##0")
+			RETURN
+			    SWITCH(
+			        _estado,
+			        "CUMPLE",  "KPI en objetivo. " & _causa & " es el principal impulsor positivo (" & _magnitud & " s/ppto).",
+			        "ALERTA",  "Desvio moderado. " & _causa & " concentra la mayor brecha (" & _magnitud & "). Real: " & _real & " | Ppto: " & _ppto & ".",
+			        "CRITICO", "ACCION REQUERIDA: " & _causa & " presenta desvio critico (" & _magnitud & "). Real: " & _real & " vs Ppto: " & _ppto & "."
+			    )
+			formatString: "@"
+			displayFolder: 05 Diagnostico Causal
+			lineageTag: e7e6dfef-10e2-473d-b55a-58c024b11387
+		lineageTag: 337f9b81-c0e6-4918-b519-6f93b337e3be
 
-	measure 'Rank Desvio por Dimension' = 
-		VAR _tbl = ADDCOLUMNS(VALUES(fact_operaciones_planta[VariedadUva]), "@dev", ABS(CALCULATE([Desvio Fabril %])))
-		RETURN RANKX(_tbl, [@dev], , DESC, Skip)
-		formatString: 0
-		displayFolder: 05 Diagnostico Causal
-		lineageTag: f5a0bb62-83d6-404d-8cc4-5c5ffe743a67
+	measure 'Rank Desvio por Dimension' =
+			VAR _tbl = ADDCOLUMNS(VALUES(fact_operaciones_planta[VariedadUva]), "@dev", ABS(CALCULATE([Desvio Fabril %])))
+			RETURN RANKX(_tbl, [@dev], , DESC, Skip)
+			formatString: 0
+			displayFolder: 05 Diagnostico Causal
+			lineageTag: f5a0bb62-83d6-404d-8cc4-5c5ffe743a67
+		lineageTag: be707330-1e67-45eb-b209-7dbf1b3c5485
 
-	measure 'KPI Fuera de Objetivo' = 
-		IF([Desvio Fabril %] < -0.05, 1, 0)
-		formatString: 0
-		displayFolder: 05 Diagnostico Causal
-		lineageTag: 6f803ad9-1ac5-4fbe-b3f5-e66850d8a39a
+	measure 'KPI Fuera de Objetivo' =
+			IF([Desvio Fabril %] < -0.05, 1, 0)
+			formatString: 0
+			displayFolder: 05 Diagnostico Causal
+			lineageTag: 6f803ad9-1ac5-4fbe-b3f5-e66850d8a39a
+		lineageTag: 087c07e4-653b-4bee-bdeb-136f55f35d0d
 
 	measure 'Varianza Absoluta KPI' = [Costo Total Fabril] - [Costo Presupuesto Fabril]
 		displayFolder: 05 Diagnostico Causal
 		lineageTag: 32ab4f66-0ede-4d18-9415-8939353ca99a
 
-	measure 'Periodo Seleccionado' = 
-		VAR _anio = SELECTEDVALUE(dim_calendario[Anio], "Todos")
-		VAR _mes  = SELECTEDVALUE(dim_calendario[MesNombre], "")
-		RETURN
-		    IF(_mes <> "", _anio & " — " & _mes, _anio & " (todos los meses)")
-		formatString: "@"
-		displayFolder: 06 Storytelling y Contexto
-		lineageTag: 2226dc3c-917e-4eed-b632-96accb8792e3
+	measure 'Periodo Seleccionado' =
+			VAR _anio = SELECTEDVALUE(dim_calendario[Anio], "Todos")
+			VAR _mes  = SELECTEDVALUE(dim_calendario[MesNombre], "")
+			RETURN
+			    IF(_mes <> "", _anio & " — " & _mes, _anio & " (todos los meses)")
+			formatString: "@"
+			displayFolder: 06 Storytelling y Contexto
+			lineageTag: 2226dc3c-917e-4eed-b632-96accb8792e3
+		lineageTag: 290c6c0f-fa08-44b1-8d41-ca9e1d842df3
 
-	measure 'Titulo Dinamico Principal' = 
-		"Evolucion " & [Total Kilos Uva] & " — " & [Periodo Seleccionado]
-		formatString: "@"
-		displayFolder: 06 Storytelling y Contexto
-		lineageTag: 32dbbb65-cfa4-4f43-8c5d-9fe01648aa66
+	measure 'Titulo Dinamico Principal' =
+			"Evolucion " & [Total Kilos Uva] & " — " & [Periodo Seleccionado]
+			formatString: "@"
+			displayFolder: 06 Storytelling y Contexto
+			lineageTag: 32dbbb65-cfa4-4f43-8c5d-9fe01648aa66
+		lineageTag: e906282b-b394-40ee-9664-34e8868d5763
 
-	measure 'Real Anio Anterior' = 
-		CALCULATE([Total Kilos Uva], SAMEPERIODLASTYEAR(dim_calendario[Fecha]))
-		displayFolder: 06 Storytelling y Contexto
-		lineageTag: 551b8246-eb7b-4294-9edc-e27b981336ce
+	measure 'Real Anio Anterior' =
+			CALCULATE([Total Kilos Uva], SAMEPERIODLASTYEAR(dim_calendario[Fecha]))
+			displayFolder: 06 Storytelling y Contexto
+			lineageTag: 551b8246-eb7b-4294-9edc-e27b981336ce
+		lineageTag: d268ff59-a02a-4233-a7a6-c3c16046035c
 
-	measure 'Variacion YoY' = 
-		DIVIDE([Total Kilos Uva] - [Real Anio Anterior], ABS([Real Anio Anterior]), BLANK())
-		formatString: +0.0%;-0.0%;0.0%
-		displayFolder: 06 Storytelling y Contexto
-		lineageTag: 2279b5f2-bf93-49e6-ae89-2e508b7d70cf
+	measure 'Variacion YoY' =
+			DIVIDE([Total Kilos Uva] - [Real Anio Anterior], ABS([Real Anio Anterior]), BLANK())
+			formatString: +0.0%;-0.0%;0.0%
+			displayFolder: 06 Storytelling y Contexto
+			lineageTag: 2279b5f2-bf93-49e6-ae89-2e508b7d70cf
+		lineageTag: c36deeed-2f07-41ed-a8ed-6e5eeda0ec04
 
-	measure 'Variacion YoY Texto' = 
-		VAR _yoy = [Variacion YoY]
-		RETURN
-		    IF(
-		        ISBLANK(_yoy),
-		        "Sin periodo anterior comparable",
-		        IF(_yoy >= 0,
-		            "+" & FORMAT(_yoy, "0.0%") & " vs. año anterior",
-		            FORMAT(_yoy, "0.0%") & " vs. año anterior"
-		        )
-		    )
-		formatString: "@"
-		displayFolder: 06 Storytelling y Contexto
-		lineageTag: 46949d83-7223-443c-b647-e19175084559
+	measure 'Variacion YoY Texto' =
+			VAR _yoy = [Variacion YoY]
+			RETURN
+			    IF(
+			        ISBLANK(_yoy),
+			        "Sin periodo anterior comparable",
+			        IF(_yoy >= 0,
+			            "+" & FORMAT(_yoy, "0.0%") & " vs. año anterior",
+			            FORMAT(_yoy, "0.0%") & " vs. año anterior"
+			        )
+			    )
+			formatString: "@"
+			displayFolder: 06 Storytelling y Contexto
+			lineageTag: 46949d83-7223-443c-b647-e19175084559
+		lineageTag: a90fd9e9-cabd-49d4-b46d-59d6f807265f
 
-	measure 'Resumen Ejecutivo' = 
-		VAR _estado   = [Semaforo KPI]
-		VAR _dev      = FORMAT(ABS([Desvio Fabril %]), "0.0%")
-		VAR _yoy      = [Variacion YoY Texto]
-		VAR _causa    = [Top Causa Desvio]
-		VAR _periodo  = [Periodo Seleccionado]
-		RETURN
-		    SWITCH(
-		        _estado,
-		        "CUMPLE",
-		            "SITUACION: En objetivo para " & _periodo & ". " &
-		            "El cumplimiento es positivo con " & _yoy & ". " &
-		            "Impulsor principal: " & _causa & ".",
-		        "ALERTA",
-		            "ATENCION: Desvio moderado (" & _dev & " bajo plan) en " & _periodo & ". " &
-		            _yoy & ". " &
-		            "Revisar: " & _causa & ".",
-		        "CRITICO",
-		            "ACCION URGENTE: Desvio critico (" & _dev & " bajo plan) en " & _periodo & ". " &
-		            _yoy & ". " &
-		            "Dimension mas comprometida: " & _causa & ". Se requiere plan de recuperacion."
-		    )
-		formatString: "@"
-		displayFolder: 06 Storytelling y Contexto
-		lineageTag: 4bb62b86-383a-4ff7-abd6-efaa52a1dff2
+	measure 'Resumen Ejecutivo' =
+			VAR _estado   = [Semaforo KPI]
+			VAR _dev      = FORMAT(ABS([Desvio Fabril %]), "0.0%")
+			VAR _yoy      = [Variacion YoY Texto]
+			VAR _causa    = [Top Causa Desvio]
+			VAR _periodo  = [Periodo Seleccionado]
+			RETURN
+			    SWITCH(
+			        _estado,
+			        "CUMPLE",
+			            "SITUACION: En objetivo para " & _periodo & ". " &
+			            "El cumplimiento es positivo con " & _yoy & ". " &
+			            "Impulsor principal: " & _causa & ".",
+			        "ALERTA",
+			            "ATENCION: Desvio moderado (" & _dev & " bajo plan) en " & _periodo & ". " &
+			            _yoy & ". " &
+			            "Revisar: " & _causa & ".",
+			        "CRITICO",
+			            "ACCION URGENTE: Desvio critico (" & _dev & " bajo plan) en " & _periodo & ". " &
+			            _yoy & ". " &
+			            "Dimension mas comprometida: " & _causa & ". Se requiere plan de recuperacion."
+			    )
+			formatString: "@"
+			displayFolder: 06 Storytelling y Contexto
+			lineageTag: 4bb62b86-383a-4ff7-abd6-efaa52a1dff2
+		lineageTag: 0d33f776-99cc-404c-8499-a43345562936
 
-	measure 'Tendencia YoY Icono' = 
-		IF([Variacion YoY] >= 0, "▲", "▼")
-		formatString: "@"
-		displayFolder: 06 Storytelling y Contexto
-		lineageTag: b38b3637-d34e-4b58-a262-58346df08400
+	measure 'Tendencia YoY Icono' =
+			IF([Variacion YoY] >= 0, "▲", "▼")
+			formatString: "@"
+			displayFolder: 06 Storytelling y Contexto
+			lineageTag: b38b3637-d34e-4b58-a262-58346df08400
+		lineageTag: 7deb0d89-c6ed-4d72-86de-b3674eda7a1f
 
 	column Medidas
 		dataType: string
@@ -422,3 +433,4 @@ table _Medidas_Operaciones
 	partition _Medidas_Operaciones = calculated
 		mode: import
 		source = Row("Medidas", "Tabla de Medidas Operaciones y Planta")
+

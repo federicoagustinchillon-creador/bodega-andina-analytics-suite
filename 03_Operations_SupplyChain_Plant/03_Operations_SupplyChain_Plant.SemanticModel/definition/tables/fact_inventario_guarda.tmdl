@@ -87,3 +87,4 @@ table fact_inventario_guarda
 					Tipos = Table.TransformColumnTypes(Encabezados, {{"DateKey", Int64.Type}, {"AnioMes", type text}, {"ProductoID", type text}, {"TipoVasija", type text}, {"Litros", type number}, {"ValorInventario", type number}, {"MermaPct", type number}, {"DIODias", type number}, {"EstadoCalidad", type text}}, "en-US")
 				in
 					Tipos
+

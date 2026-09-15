@@ -29,3 +29,4 @@ relationship rel_inventario_calendario
 relationship rel_inventario_productos
 	fromColumn: fact_inventario_guarda.ProductoID
 	toColumn: dim_productos.ProductoID
+

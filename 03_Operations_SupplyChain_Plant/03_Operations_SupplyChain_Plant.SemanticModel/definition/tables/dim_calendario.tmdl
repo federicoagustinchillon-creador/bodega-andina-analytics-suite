@@ -20,6 +20,7 @@ table dim_calendario
 		sourceColumn: Fecha
 
 		annotation SummarizationSetBy = Automatic
+
 		annotation UnderlyingDateTimeDataType = Date
 
 	column Anio
@@ -58,7 +59,6 @@ table dim_calendario
 
 		annotation SummarizationSetBy = Automatic
 
-
 	column Trimestre
 		dataType: string
 		lineageTag: 7ccf26e5-6a55-45f0-8601-405d4a4b504b
@@ -93,3 +93,4 @@ table dim_calendario
 					Tipos = Table.TransformColumnTypes(Encabezados, {{"DateKey", Int64.Type}, {"Fecha", type date}, {"Anio", Int64.Type}, {"MesNumero", Int64.Type}, {"MesNombre", type text}, {"MesCorto", type text}, {"Trimestre", type text}, {"Semestre", type text}, {"EsFinDeSemana", Int64.Type}}, "en-US")
 				in
 					Tipos
+

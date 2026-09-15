@@ -43,3 +43,4 @@ table dim_centros_costo
 					Tipos = Table.TransformColumnTypes(Encabezados, {{"CentroCostoID", type text}, {"NombreCentroCosto", type text}, {"Area", type text}, {"Responsable", type text}}, "en-US")
 				in
 					Tipos
+

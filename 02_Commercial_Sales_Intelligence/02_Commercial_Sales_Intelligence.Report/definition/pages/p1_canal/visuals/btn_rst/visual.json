@@ -196,6 +196,13 @@
                   "Value": "true"
                 }
               }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ClearAllSlicers'"
+                }
+              }
             }
           }
         },

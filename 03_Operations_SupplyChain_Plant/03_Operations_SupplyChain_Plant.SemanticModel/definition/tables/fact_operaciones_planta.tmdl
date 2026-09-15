@@ -27,6 +27,7 @@ table fact_operaciones_planta
 		sourceColumn: Fecha
 
 		annotation SummarizationSetBy = Automatic
+
 		annotation UnderlyingDateTimeDataType = Date
 
 	column CentroCostoID
@@ -99,8 +100,8 @@ table fact_operaciones_planta
 
 	column UbicacionGeografica
 		dataType: string
-		dataCategory: Place
 		lineageTag: c87b411d-3b89-4f21-825e-3847291a9988
+		dataCategory: Place
 		summarizeBy: none
 		sourceColumn: UbicacionGeografica
 
@@ -108,9 +109,9 @@ table fact_operaciones_planta
 
 	column Latitud
 		dataType: double
-		dataCategory: Latitude
 		formatString: 0.0000
 		lineageTag: 71092e01-3b89-4f21-825e-3847291a0001
+		dataCategory: Latitude
 		summarizeBy: average
 		sourceColumn: Latitud
 
@@ -118,9 +119,9 @@ table fact_operaciones_planta
 
 	column Longitud
 		dataType: double
-		dataCategory: Longitude
 		formatString: 0.0000
 		lineageTag: 71092e02-3b89-4f21-825e-3847291a0002
+		dataCategory: Longitude
 		summarizeBy: average
 		sourceColumn: Longitud
 
@@ -135,3 +136,4 @@ table fact_operaciones_planta
 					Tipos = Table.TransformColumnTypes(Encabezados, {{"RemitoID", type text}, {"DateKey", Int64.Type}, {"Fecha", type date}, {"CentroCostoID", type text}, {"VariedadUva", type text}, {"FincaOrigen", type text}, {"KilosEntrada", type number}, {"GradosBrix", type number}, {"LitrosMostoObtenido", type number}, {"RendimientoExtraccionPct", type number}, {"CalificacionSanitaria", type text}, {"UbicacionGeografica", type text}, {"Latitud", type number}, {"Longitud", type number}}, "en-US")
 				in
 					Tipos
+
