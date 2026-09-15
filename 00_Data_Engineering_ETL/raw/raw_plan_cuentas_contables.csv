@@ -1,0 +1,14 @@
+CuentaID,NombreCuenta,Naturaleza,Rubro
+ 4.1.01 ,Ventas Netas Mercado Interno, Ingresos ,Revenue
+4.1.02,Ventas Netas Exportacion (Comex),Ingresos,Revenue
+5.1.01 ,"Costo de Insumos Secos (Botellas, Corchos, Etiquetas)",Costos,COGS
+ 5.1.02,Mano de Obra Directa de Bodega,Costos,COGS
+5.1.03,Materia Prima Uva & Elaboracion,Costos,COGS
+5.2.01,Fletes y Distribucion Logistica,Gastos Operativos, OPEX 
+5.2.02 ,Sueldos y Cargas Sociales Administrativas,Gastos Operativos,OPEX
+ 5.2.03 ,Servicios Publicos y Energia Electrica (Tarifa T3),Gastos Operativos,OPEX
+5.2.04,Comisiones Comerciales e Incoterms,Gastos Operativos,OPEX
+CTA-201,Materia Prima Uva & Mosto,Costos,COGS
+CTA-202,"Insumos Secos (Botellas, Corchos, Capsulas, Cajas)",Costos,COGS
+CTA-203,Mano de Obra Directa de Bodega,Costos,COGS
+CTA-204,"Costos Indirectos Fabriles (Energia, Gas, Mantenimiento)",Costos,COGS

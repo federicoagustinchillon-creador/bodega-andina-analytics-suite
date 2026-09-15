@@ -1,0 +1,6 @@
+ProductoID,SKU,Descripcion,Linea,CostoEstandarUnit,PrecioPresupuestadoUnit,CategoriaABC
+PRD-01,MAL-RES-750,Malbec Reserva 750ml,Alta Gama,3200.0,6800.0,Clase A
+PRD-02,CAB-RES-750,Cabernet Franc Reserva 750ml,Alta Gama,3400.0,7200.0,Clase A
+PRD-03,MAL-CLA-750,Malbec Clasico 750ml,Entrada / Volumen,1600.0,3100.0,Clase C
+PRD-04,CHA-ESP-750,Chardonnay Extra Brut 750ml,Espumantes,2800.0,5900.0,Clase B
+PRD-05,BIB-MAL-3000,Bag in Box Malbec 3L,Granel / Masivo,4500.0,8900.0,Clase A

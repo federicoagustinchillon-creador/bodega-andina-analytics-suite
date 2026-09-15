@@ -1,0 +1,401 @@
+RemitoID,DateKey,Fecha,CentroCostoID,VariedadUva,FincaOrigen,KilosEntrada,GradosBrix,LitrosMostoObtenido,RendimientoExtraccionPct,CalificacionSanitaria,UbicacionGeografica,Latitud,Longitud
+REM-2025-00001,20250201,2025-02-01,CC-101,Syrah,Finca Barrancas,14461.0,25.6,10534.5,0.7285,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00002,20250201,2025-02-01,CC-102,Malbec,Finca Agrelo,10088.0,22.7,7162.2,0.71,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00003,20250201,2025-02-01,CC-101,Cabernet Franc,Finca Gualtallary,17165.0,23.6,12503.1,0.7284,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00004,20250202,2025-02-02,CC-102,Cabernet Franc,Finca Agrelo,17539.0,25.1,12012.2,0.6849,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00005,20250202,2025-02-02,CC-102,Cabernet Franc,Finca Barrancas,17167.0,23.7,11946.6,0.6959,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00006,20250202,2025-02-02,CC-102,Syrah,Finca Agrelo,11412.0,25.7,7872.0,0.6898,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00007,20250202,2025-02-02,CC-101,Chardonnay,Finca Barrancas,10659.0,24.5,7583.4,0.7115,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00008,20250203,2025-02-03,CC-102,Bonarda,Finca Barrancas,9204.0,23.6,6761.6,0.7346,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00009,20250203,2025-02-03,CC-102,Bonarda,Finca Agrelo,21175.0,23.0,15342.1,0.7245,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00010,20250203,2025-02-03,CC-102,Bonarda,Finca Barrancas,11393.0,22.7,7923.2,0.6954,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00011,20250203,2025-02-03,CC-101,Syrah,Finca Agrelo,22155.0,23.5,15577.3,0.7031,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00012,20250204,2025-02-04,CC-101,Chardonnay,Finca Agrelo,13579.0,24.9,9914.0,0.7301,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00013,20250204,2025-02-04,CC-101,Chardonnay,Finca Gualtallary,13690.0,23.0,9913.7,0.7242,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00014,20250204,2025-02-04,CC-101,Syrah,Finca Altamira,18359.0,25.1,12859.7,0.7005,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00015,20250204,2025-02-04,CC-102,Bonarda,Finca Gualtallary,20118.0,23.6,14017.2,0.6967,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00016,20250205,2025-02-05,CC-101,Malbec,Finca Altamira,10275.0,26.5,7033.2,0.6845,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00017,20250205,2025-02-05,CC-101,Chardonnay,Finca Barrancas,19164.0,24.1,13431.4,0.7009,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00018,20250205,2025-02-05,CC-101,Bonarda,Finca Barrancas,11511.0,22.9,8297.8,0.7209,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00019,20250205,2025-02-05,CC-101,Bonarda,Finca Barrancas,18634.0,24.6,13274.0,0.7124,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00020,20250206,2025-02-06,CC-102,Syrah,Finca Altamira,10821.0,25.6,7846.4,0.7251,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00021,20250206,2025-02-06,CC-102,Chardonnay,Finca Barrancas,16801.0,23.4,11522.5,0.6858,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00022,20250206,2025-02-06,CC-101,Chardonnay,Finca Agrelo,21922.0,24.9,15992.1,0.7295,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00023,20250206,2025-02-06,CC-101,Bonarda,Finca Barrancas,10519.0,24.4,7647.9,0.7271,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00024,20250207,2025-02-07,CC-101,Bonarda,Finca Gualtallary,10462.0,24.6,7155.6,0.684,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00025,20250207,2025-02-07,CC-101,Syrah,Finca Gualtallary,12367.0,26.4,8900.6,0.7197,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00026,20250207,2025-02-07,CC-102,Malbec,Finca Barrancas,13816.0,25.1,9987.9,0.7229,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00027,20250207,2025-02-07,CC-102,Malbec,Finca Barrancas,10676.0,23.9,7686.9,0.72,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00028,20250208,2025-02-08,CC-102,Syrah,Finca Barrancas,15519.0,22.5,10683.0,0.6884,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00029,20250208,2025-02-08,CC-101,Chardonnay,Finca Agrelo,14434.0,24.3,10212.9,0.7076,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00030,20250208,2025-02-08,CC-102,Cabernet Franc,Finca Altamira,9711.0,25.4,6895.4,0.7101,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00031,20250208,2025-02-08,CC-102,Malbec,Finca Barrancas,21736.0,25.9,15924.4,0.7326,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00032,20250209,2025-02-09,CC-102,Chardonnay,Finca Agrelo,11191.0,24.7,7739.1,0.6915,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00033,20250209,2025-02-09,CC-102,Chardonnay,Finca Barrancas,18021.0,25.0,12281.3,0.6815,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00034,20250209,2025-02-09,CC-101,Bonarda,Finca Agrelo,21748.0,24.6,15579.1,0.7163,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00035,20250209,2025-02-09,CC-101,Syrah,Finca Gualtallary,18441.0,24.6,13184.4,0.715,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00036,20250210,2025-02-10,CC-102,Syrah,Finca Barrancas,14368.0,24.8,9931.1,0.6912,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00037,20250210,2025-02-10,CC-101,Cabernet Franc,Finca Barrancas,14599.0,24.1,10757.5,0.7369,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00038,20250210,2025-02-10,CC-102,Cabernet Franc,Finca Gualtallary,22889.0,24.6,15714.9,0.6866,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00039,20250210,2025-02-10,CC-102,Syrah,Finca Barrancas,20385.0,26.5,14523.9,0.7125,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00040,20250211,2025-02-11,CC-101,Bonarda,Finca Altamira,10762.0,26.5,7942.3,0.738,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00041,20250211,2025-02-11,CC-101,Syrah,Finca Agrelo,9724.0,25.0,6951.2,0.7148,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00042,20250211,2025-02-11,CC-102,Bonarda,Finca Altamira,9482.0,25.2,6564.9,0.6924,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00043,20250211,2025-02-11,CC-102,Cabernet Franc,Finca Gualtallary,20043.0,23.0,13785.4,0.6878,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00044,20250212,2025-02-12,CC-102,Chardonnay,Finca Gualtallary,18868.0,25.0,12917.9,0.6846,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00045,20250212,2025-02-12,CC-102,Cabernet Franc,Finca Barrancas,20742.0,23.9,14513.5,0.6997,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00046,20250212,2025-02-12,CC-102,Malbec,Finca Altamira,18515.0,25.0,13458.3,0.7269,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00047,20250212,2025-02-12,CC-102,Syrah,Finca Agrelo,22368.0,22.7,16213.5,0.7249,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00048,20250213,2025-02-13,CC-101,Cabernet Franc,Finca Barrancas,13240.0,23.7,9018.4,0.6811,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00049,20250213,2025-02-13,CC-102,Cabernet Franc,Finca Gualtallary,14986.0,22.6,11048.2,0.7372,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00050,20250213,2025-02-13,CC-102,Chardonnay,Finca Agrelo,19850.0,25.7,14420.5,0.7265,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00051,20250213,2025-02-13,CC-101,Cabernet Franc,Finca Agrelo,14354.0,25.0,9802.1,0.6829,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00052,20250214,2025-02-14,CC-101,Cabernet Franc,Finca Altamira,10396.0,22.6,7643.9,0.7353,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00053,20250214,2025-02-14,CC-101,Chardonnay,Finca Barrancas,8972.0,23.4,6213.0,0.6925,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00054,20250214,2025-02-14,CC-102,Cabernet Franc,Finca Gualtallary,11642.0,23.5,8541.8,0.7337,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00055,20250214,2025-02-14,CC-101,Cabernet Franc,Finca Altamira,8486.0,23.9,6194.5,0.73,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00056,20250215,2025-02-15,CC-101,Bonarda,Finca Altamira,19831.0,26.1,14589.3,0.7357,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00057,20250215,2025-02-15,CC-102,Malbec,Finca Barrancas,11343.0,23.7,7913.9,0.6977,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00058,20250215,2025-02-15,CC-102,Malbec,Finca Altamira,19016.0,24.8,13218.8,0.6951,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00059,20250215,2025-02-15,CC-102,Bonarda,Finca Agrelo,20492.0,26.0,14176.4,0.6918,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00060,20250216,2025-02-16,CC-101,Cabernet Franc,Finca Barrancas,9175.0,25.0,6361.8,0.6934,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00061,20250216,2025-02-16,CC-102,Bonarda,Finca Gualtallary,20018.0,25.2,13840.7,0.6914,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00062,20250216,2025-02-16,CC-102,Malbec,Finca Gualtallary,9253.0,22.8,6746.3,0.7291,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00063,20250216,2025-02-16,CC-102,Cabernet Franc,Finca Agrelo,10043.0,24.8,7139.4,0.7109,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00064,20250217,2025-02-17,CC-102,Malbec,Finca Gualtallary,11042.0,22.9,7789.1,0.7054,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00065,20250217,2025-02-17,CC-102,Bonarda,Finca Gualtallary,13181.0,25.4,9627.4,0.7304,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00066,20250217,2025-02-17,CC-102,Syrah,Finca Altamira,21968.0,22.8,15250.4,0.6942,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00067,20250217,2025-02-17,CC-101,Chardonnay,Finca Barrancas,15152.0,23.0,10636.0,0.702,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00068,20250218,2025-02-18,CC-102,Bonarda,Finca Gualtallary,11069.0,23.4,7563.2,0.6833,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00069,20250218,2025-02-18,CC-102,Syrah,Finca Barrancas,9496.0,22.9,6555.4,0.6903,Aceptable,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00070,20250218,2025-02-18,CC-102,Cabernet Franc,Finca Barrancas,21861.0,24.8,15957.3,0.7299,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00071,20250218,2025-02-18,CC-102,Chardonnay,Finca Gualtallary,13485.0,23.2,9729.5,0.7215,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00072,20250219,2025-02-19,CC-102,Malbec,Finca Barrancas,7280.0,26.4,5380.9,0.7391,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00073,20250219,2025-02-19,CC-101,Malbec,Finca Altamira,19133.0,23.5,13927.2,0.7279,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00074,20250219,2025-02-19,CC-102,Chardonnay,Finca Gualtallary,8496.0,25.9,6193.8,0.729,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00075,20250219,2025-02-19,CC-101,Bonarda,Finca Gualtallary,15368.0,24.5,10651.0,0.6931,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00076,20250220,2025-02-20,CC-101,Syrah,Finca Agrelo,13241.0,24.8,9082.0,0.6859,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00077,20250220,2025-02-20,CC-101,Chardonnay,Finca Barrancas,18399.0,26.3,12775.5,0.6944,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00078,20250220,2025-02-20,CC-101,Chardonnay,Finca Agrelo,18720.0,24.4,13713.2,0.7325,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00079,20250220,2025-02-20,CC-102,Syrah,Finca Gualtallary,16735.0,23.9,11696.8,0.6989,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00080,20250221,2025-02-21,CC-102,Syrah,Finca Agrelo,8477.0,25.2,5916.7,0.698,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00081,20250221,2025-02-21,CC-101,Bonarda,Finca Gualtallary,21577.0,22.9,15835.1,0.7339,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00082,20250221,2025-02-21,CC-102,Bonarda,Finca Gualtallary,8781.0,26.4,6428.7,0.7321,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00083,20250221,2025-02-21,CC-101,Cabernet Franc,Finca Agrelo,22842.0,22.7,16326.9,0.7148,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00084,20250222,2025-02-22,CC-102,Chardonnay,Finca Gualtallary,17130.0,22.5,12476.3,0.7283,Aceptable,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00085,20250222,2025-02-22,CC-102,Chardonnay,Finca Gualtallary,15897.0,24.2,11457.5,0.7207,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00086,20250222,2025-02-22,CC-102,Chardonnay,Finca Altamira,10556.0,24.5,7681.7,0.7277,Aceptable,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00087,20250222,2025-02-22,CC-101,Chardonnay,Finca Gualtallary,22966.0,23.9,15702.0,0.6837,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00088,20250223,2025-02-23,CC-102,Bonarda,Finca Agrelo,16878.0,22.9,11752.2,0.6963,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00089,20250223,2025-02-23,CC-102,Bonarda,Finca Agrelo,11825.0,23.5,8106.6,0.6855,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00090,20250223,2025-02-23,CC-102,Malbec,Finca Gualtallary,22612.0,24.2,16074.3,0.7109,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00091,20250223,2025-02-23,CC-101,Chardonnay,Finca Altamira,20790.0,26.1,14309.0,0.6883,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00092,20250224,2025-02-24,CC-101,Cabernet Franc,Finca Altamira,9054.0,22.6,6234.7,0.6886,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00093,20250224,2025-02-24,CC-101,Cabernet Franc,Finca Barrancas,15740.0,25.4,11446.0,0.7272,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00094,20250224,2025-02-24,CC-101,Bonarda,Finca Barrancas,19614.0,23.7,13906.1,0.709,Aceptable,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00095,20250224,2025-02-24,CC-102,Chardonnay,Finca Altamira,8270.0,24.9,6111.7,0.739,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00096,20250225,2025-02-25,CC-102,Syrah,Finca Agrelo,11446.0,25.5,8126.7,0.71,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00097,20250225,2025-02-25,CC-101,Cabernet Franc,Finca Gualtallary,10313.0,24.8,7198.4,0.698,Aceptable,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00098,20250225,2025-02-25,CC-101,Cabernet Franc,Finca Altamira,17657.0,25.0,12916.7,0.7315,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00099,20250225,2025-02-25,CC-102,Bonarda,Finca Gualtallary,14507.0,24.1,10640.3,0.7335,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00100,20250226,2025-02-26,CC-102,Malbec,Finca Barrancas,18923.0,25.4,13150.1,0.6949,Aceptable,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00101,20250226,2025-02-26,CC-102,Chardonnay,Finca Barrancas,20960.0,23.1,14370.5,0.6856,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00102,20250226,2025-02-26,CC-101,Malbec,Finca Gualtallary,15122.0,26.0,10497.5,0.6942,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00103,20250226,2025-02-26,CC-102,Syrah,Finca Agrelo,13207.0,25.4,9234.3,0.6992,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00104,20250227,2025-02-27,CC-101,Chardonnay,Finca Altamira,17846.0,23.2,13162.9,0.7376,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00105,20250227,2025-02-27,CC-102,Syrah,Finca Agrelo,13078.0,24.1,9491.2,0.7257,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00106,20250227,2025-02-27,CC-102,Cabernet Franc,Finca Barrancas,12165.0,22.5,8286.8,0.6812,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00107,20250227,2025-02-27,CC-102,Bonarda,Finca Agrelo,9999.0,24.3,7110.1,0.7111,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00108,20250228,2025-02-28,CC-102,Syrah,Finca Agrelo,14365.0,24.2,10387.1,0.7231,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00109,20250228,2025-02-28,CC-102,Syrah,Finca Agrelo,17918.0,25.4,12434.8,0.694,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00110,20250228,2025-02-28,CC-101,Cabernet Franc,Finca Barrancas,14363.0,23.9,10146.2,0.7064,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00111,20250228,2025-02-28,CC-101,Chardonnay,Finca Gualtallary,18795.0,24.9,13613.9,0.7243,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00112,20250301,2025-03-01,CC-101,Cabernet Franc,Finca Altamira,18955.0,24.7,12949.6,0.6832,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00113,20250301,2025-03-01,CC-102,Cabernet Franc,Finca Altamira,20528.0,22.7,15082.0,0.7347,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00114,20250301,2025-03-01,CC-102,Malbec,Finca Altamira,19382.0,24.5,13693.2,0.7065,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00115,20250301,2025-03-01,CC-101,Syrah,Finca Agrelo,8283.0,23.7,6064.3,0.7321,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00116,20250302,2025-03-02,CC-101,Malbec,Finca Gualtallary,10572.0,25.4,7560.8,0.7152,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00117,20250302,2025-03-02,CC-102,Malbec,Finca Gualtallary,10108.0,23.3,7154.8,0.7078,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00118,20250302,2025-03-02,CC-102,Malbec,Finca Altamira,11140.0,25.8,7884.8,0.7078,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00119,20250302,2025-03-02,CC-101,Chardonnay,Finca Altamira,9886.0,25.0,7044.5,0.7126,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00120,20250303,2025-03-03,CC-101,Cabernet Franc,Finca Altamira,14839.0,24.0,10178.8,0.6859,Aceptable,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00121,20250303,2025-03-03,CC-102,Malbec,Finca Barrancas,20168.0,24.3,14655.7,0.7267,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00122,20250303,2025-03-03,CC-101,Malbec,Finca Barrancas,8706.0,23.2,6132.3,0.7044,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00123,20250303,2025-03-03,CC-101,Chardonnay,Finca Gualtallary,22843.0,25.3,16107.4,0.7051,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00124,20250304,2025-03-04,CC-101,Cabernet Franc,Finca Altamira,20851.0,22.8,15410.4,0.7391,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00125,20250304,2025-03-04,CC-101,Cabernet Franc,Finca Altamira,18271.0,23.6,13066.5,0.7151,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00126,20250304,2025-03-04,CC-102,Cabernet Franc,Finca Altamira,11756.0,23.7,8672.8,0.7377,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00127,20250304,2025-03-04,CC-101,Cabernet Franc,Finca Gualtallary,20424.0,23.7,14476.1,0.7088,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00128,20250305,2025-03-05,CC-101,Bonarda,Finca Agrelo,12626.0,24.2,8661.8,0.686,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00129,20250305,2025-03-05,CC-102,Syrah,Finca Gualtallary,20407.0,22.6,14375.0,0.7044,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00130,20250305,2025-03-05,CC-102,Malbec,Finca Gualtallary,11741.0,25.4,8466.2,0.7211,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00131,20250305,2025-03-05,CC-101,Cabernet Franc,Finca Agrelo,23457.0,23.5,16346.6,0.6969,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00132,20250306,2025-03-06,CC-102,Syrah,Finca Altamira,18669.0,23.4,12716.9,0.6812,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00133,20250306,2025-03-06,CC-102,Cabernet Franc,Finca Barrancas,18842.0,25.3,13151.1,0.698,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00134,20250306,2025-03-06,CC-102,Syrah,Finca Agrelo,12497.0,26.5,9141.4,0.7315,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00135,20250306,2025-03-06,CC-101,Bonarda,Finca Gualtallary,15835.0,23.1,11518.5,0.7274,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00136,20250307,2025-03-07,CC-101,Cabernet Franc,Finca Gualtallary,8555.0,26.1,6137.6,0.7174,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00137,20250307,2025-03-07,CC-102,Malbec,Finca Altamira,22700.0,23.0,16585.8,0.7307,Aceptable,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00138,20250307,2025-03-07,CC-102,Malbec,Finca Altamira,14277.0,24.6,9740.2,0.6822,Aceptable,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00139,20250307,2025-03-07,CC-102,Cabernet Franc,Finca Barrancas,10523.0,26.1,7210.8,0.6852,Aceptable,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00140,20250308,2025-03-08,CC-102,Bonarda,Finca Gualtallary,10881.0,25.8,7915.7,0.7275,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00141,20250308,2025-03-08,CC-101,Bonarda,Finca Barrancas,19162.0,25.7,14007.6,0.731,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00142,20250308,2025-03-08,CC-101,Malbec,Finca Barrancas,9284.0,26.3,6340.9,0.683,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00143,20250308,2025-03-08,CC-101,Bonarda,Finca Barrancas,22335.0,24.7,15959.4,0.7145,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00144,20250309,2025-03-09,CC-101,Bonarda,Finca Gualtallary,11977.0,26.4,8529.9,0.7122,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00145,20250309,2025-03-09,CC-101,Cabernet Franc,Finca Gualtallary,16324.0,23.5,11787.3,0.7221,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00146,20250309,2025-03-09,CC-101,Chardonnay,Finca Agrelo,20040.0,22.7,14347.9,0.716,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00147,20250309,2025-03-09,CC-102,Bonarda,Finca Altamira,16865.0,24.7,11933.2,0.7076,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00148,20250310,2025-03-10,CC-102,Syrah,Finca Agrelo,17385.0,25.2,11952.8,0.6875,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00149,20250310,2025-03-10,CC-102,Cabernet Franc,Finca Gualtallary,16873.0,23.3,11801.1,0.6994,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00150,20250310,2025-03-10,CC-102,Malbec,Finca Altamira,12658.0,24.6,9260.5,0.7316,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00151,20250310,2025-03-10,CC-101,Syrah,Finca Altamira,21251.0,22.8,15270.6,0.7186,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00152,20250311,2025-03-11,CC-102,Chardonnay,Finca Altamira,19561.0,24.8,13613.9,0.696,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00153,20250311,2025-03-11,CC-101,Malbec,Finca Barrancas,12058.0,23.0,8649.7,0.7173,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00154,20250311,2025-03-11,CC-101,Bonarda,Finca Agrelo,19269.0,23.3,13952.7,0.7241,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00155,20250311,2025-03-11,CC-101,Chardonnay,Finca Agrelo,14080.0,24.7,10035.9,0.7128,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00156,20250312,2025-03-12,CC-102,Bonarda,Finca Barrancas,20878.0,24.2,15265.9,0.7312,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00157,20250312,2025-03-12,CC-101,Syrah,Finca Agrelo,17118.0,22.9,11733.4,0.6854,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00158,20250312,2025-03-12,CC-102,Cabernet Franc,Finca Altamira,9848.0,26.0,6772.8,0.6877,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00159,20250312,2025-03-12,CC-102,Syrah,Finca Barrancas,21291.0,22.9,15273.9,0.7174,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00160,20250313,2025-03-13,CC-102,Chardonnay,Finca Barrancas,16126.0,25.3,11059.2,0.6858,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00161,20250313,2025-03-13,CC-101,Syrah,Finca Gualtallary,17279.0,23.8,12540.9,0.7258,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00162,20250313,2025-03-13,CC-102,Malbec,Finca Barrancas,21937.0,24.0,15467.2,0.7051,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00163,20250313,2025-03-13,CC-102,Cabernet Franc,Finca Barrancas,22681.0,23.7,16037.2,0.7071,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00164,20250314,2025-03-14,CC-101,Syrah,Finca Barrancas,15053.0,25.5,10331.6,0.6863,Aceptable,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00165,20250314,2025-03-14,CC-102,Malbec,Finca Altamira,17448.0,23.3,12361.4,0.7085,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00166,20250314,2025-03-14,CC-102,Syrah,Finca Agrelo,19009.0,24.6,13375.7,0.7037,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00167,20250314,2025-03-14,CC-102,Chardonnay,Finca Altamira,14443.0,24.4,10246.1,0.7094,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00168,20250315,2025-03-15,CC-102,Syrah,Finca Barrancas,17117.0,25.8,12054.0,0.7042,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00169,20250315,2025-03-15,CC-101,Chardonnay,Finca Altamira,17169.0,24.5,12265.0,0.7144,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00170,20250315,2025-03-15,CC-101,Bonarda,Finca Altamira,20645.0,25.7,14641.2,0.7092,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00171,20250315,2025-03-15,CC-102,Malbec,Finca Agrelo,9675.0,22.9,6717.6,0.6943,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00172,20250316,2025-03-16,CC-102,Cabernet Franc,Finca Gualtallary,15114.0,25.6,10432.2,0.6902,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00173,20250316,2025-03-16,CC-102,Cabernet Franc,Finca Gualtallary,13726.0,25.3,10056.2,0.7326,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00174,20250316,2025-03-16,CC-101,Bonarda,Finca Barrancas,18808.0,22.8,13126.3,0.6979,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00175,20250316,2025-03-16,CC-102,Cabernet Franc,Finca Barrancas,17985.0,23.6,12428.8,0.6911,Aceptable,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00176,20250317,2025-03-17,CC-101,Malbec,Finca Altamira,12749.0,25.5,8826.9,0.6924,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00177,20250317,2025-03-17,CC-101,Cabernet Franc,Finca Altamira,21431.0,22.6,15111.8,0.7051,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00178,20250317,2025-03-17,CC-101,Syrah,Finca Altamira,15983.0,23.9,11409.1,0.7138,Aceptable,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00179,20250317,2025-03-17,CC-101,Chardonnay,Finca Altamira,8361.0,25.5,5711.7,0.6831,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00180,20250318,2025-03-18,CC-102,Syrah,Finca Gualtallary,16783.0,26.0,11767.4,0.7011,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00181,20250318,2025-03-18,CC-102,Chardonnay,Finca Agrelo,11691.0,23.6,8137.5,0.696,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00182,20250318,2025-03-18,CC-101,Syrah,Finca Barrancas,18868.0,23.0,12970.3,0.6874,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00183,20250318,2025-03-18,CC-102,Chardonnay,Finca Barrancas,13273.0,25.4,9281.7,0.6993,Aceptable,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00184,20250319,2025-03-19,CC-102,Chardonnay,Finca Agrelo,17458.0,23.0,12829.6,0.7349,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00185,20250319,2025-03-19,CC-101,Chardonnay,Finca Barrancas,15773.0,24.3,10761.6,0.6823,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00186,20250319,2025-03-19,CC-102,Cabernet Franc,Finca Altamira,21596.0,24.6,14947.1,0.6921,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00187,20250319,2025-03-19,CC-102,Chardonnay,Finca Altamira,9993.0,24.0,7297.2,0.7302,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00188,20250320,2025-03-20,CC-101,Bonarda,Finca Barrancas,21722.0,24.5,15162.0,0.698,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00189,20250320,2025-03-20,CC-102,Syrah,Finca Barrancas,9981.0,25.2,6907.3,0.692,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00190,20250320,2025-03-20,CC-101,Malbec,Finca Agrelo,12987.0,23.3,9075.4,0.6988,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00191,20250320,2025-03-20,CC-101,Chardonnay,Finca Gualtallary,13909.0,25.1,10041.8,0.722,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00192,20250321,2025-03-21,CC-101,Cabernet Franc,Finca Agrelo,13179.0,25.7,9330.5,0.708,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00193,20250321,2025-03-21,CC-101,Malbec,Finca Barrancas,17990.0,22.9,13178.7,0.7326,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00194,20250321,2025-03-21,CC-102,Bonarda,Finca Agrelo,19006.0,22.9,12955.4,0.6816,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00195,20250321,2025-03-21,CC-102,Bonarda,Finca Altamira,10833.0,26.3,7743.3,0.7148,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00196,20250322,2025-03-22,CC-102,Cabernet Franc,Finca Gualtallary,20007.0,25.4,14211.4,0.7103,Aceptable,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00197,20250322,2025-03-22,CC-102,Bonarda,Finca Gualtallary,17972.0,23.3,13025.0,0.7247,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00198,20250322,2025-03-22,CC-101,Chardonnay,Finca Barrancas,17996.0,25.2,12770.1,0.7096,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00199,20250322,2025-03-22,CC-102,Cabernet Franc,Finca Altamira,16536.0,22.6,11968.7,0.7238,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00200,20250323,2025-03-23,CC-101,Malbec,Finca Agrelo,18001.0,22.7,12726.8,0.707,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00201,20250323,2025-03-23,CC-101,Chardonnay,Finca Altamira,13024.0,22.7,8967.4,0.6885,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00202,20250323,2025-03-23,CC-101,Cabernet Franc,Finca Agrelo,16869.0,23.6,11844.8,0.7022,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00203,20250323,2025-03-23,CC-102,Chardonnay,Finca Altamira,14989.0,26.0,10201.5,0.6806,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00204,20250324,2025-03-24,CC-101,Malbec,Finca Altamira,13880.0,24.8,9714.6,0.6999,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00205,20250324,2025-03-24,CC-102,Cabernet Franc,Finca Gualtallary,11016.0,24.5,7820.8,0.7099,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00206,20250324,2025-03-24,CC-102,Chardonnay,Finca Agrelo,11090.0,24.1,7701.6,0.6945,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00207,20250324,2025-03-24,CC-101,Chardonnay,Finca Gualtallary,17213.0,22.9,11970.1,0.6954,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00208,20250325,2025-03-25,CC-102,Chardonnay,Finca Gualtallary,20867.0,22.9,14438.7,0.6919,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00209,20250325,2025-03-25,CC-102,Chardonnay,Finca Barrancas,16777.0,22.5,12051.3,0.7183,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00210,20250325,2025-03-25,CC-102,Bonarda,Finca Barrancas,12775.0,26.2,8758.8,0.6856,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00211,20250325,2025-03-25,CC-101,Bonarda,Finca Altamira,10719.0,24.9,7289.7,0.6801,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00212,20250326,2025-03-26,CC-102,Bonarda,Finca Agrelo,18266.0,25.1,12520.0,0.6854,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00213,20250326,2025-03-26,CC-102,Cabernet Franc,Finca Gualtallary,20927.0,23.8,14735.4,0.7041,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00214,20250326,2025-03-26,CC-102,Chardonnay,Finca Gualtallary,11710.0,26.1,8449.4,0.7216,Aceptable,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00215,20250326,2025-03-26,CC-102,Bonarda,Finca Gualtallary,15920.0,25.6,11592.8,0.7282,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00216,20250327,2025-03-27,CC-101,Cabernet Franc,Finca Agrelo,12006.0,24.0,8433.0,0.7024,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00217,20250327,2025-03-27,CC-102,Malbec,Finca Gualtallary,14823.0,23.9,10441.1,0.7044,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00218,20250327,2025-03-27,CC-102,Syrah,Finca Gualtallary,14160.0,22.9,10162.5,0.7177,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00219,20250327,2025-03-27,CC-101,Chardonnay,Finca Altamira,13068.0,25.6,9192.2,0.7034,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00220,20250328,2025-03-28,CC-101,Cabernet Franc,Finca Agrelo,9265.0,26.1,6608.2,0.7132,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00221,20250328,2025-03-28,CC-101,Syrah,Finca Gualtallary,19584.0,24.0,14307.8,0.7306,Aceptable,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00222,20250328,2025-03-28,CC-101,Malbec,Finca Gualtallary,17028.0,25.1,12464.7,0.732,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00223,20250328,2025-03-28,CC-102,Cabernet Franc,Finca Agrelo,20096.0,26.2,13779.6,0.6857,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00224,20250329,2025-03-29,CC-102,Malbec,Finca Agrelo,15591.0,25.5,11310.0,0.7254,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00225,20250329,2025-03-29,CC-101,Bonarda,Finca Barrancas,9145.0,23.2,6656.1,0.7278,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00226,20250329,2025-03-29,CC-102,Cabernet Franc,Finca Agrelo,21061.0,24.4,14541.3,0.6904,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00227,20250329,2025-03-29,CC-101,Syrah,Finca Barrancas,17912.0,23.0,12597.8,0.7033,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00228,20250330,2025-03-30,CC-101,Cabernet Franc,Finca Barrancas,15524.0,26.2,11183.3,0.7204,Aceptable,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00229,20250330,2025-03-30,CC-101,Syrah,Finca Gualtallary,14273.0,23.0,10434.9,0.7311,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00230,20250330,2025-03-30,CC-102,Bonarda,Finca Barrancas,9902.0,26.4,7233.9,0.7305,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00231,20250330,2025-03-30,CC-102,Cabernet Franc,Finca Gualtallary,20294.0,26.4,13918.5,0.6858,Aceptable,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00232,20250331,2025-03-31,CC-101,Chardonnay,Finca Barrancas,21106.0,23.9,15527.7,0.7357,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00233,20250331,2025-03-31,CC-101,Malbec,Finca Agrelo,16565.0,24.7,11851.5,0.7155,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00234,20250331,2025-03-31,CC-101,Malbec,Finca Barrancas,21759.0,23.5,15272.1,0.7019,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00235,20250331,2025-03-31,CC-102,Cabernet Franc,Finca Altamira,21651.0,24.7,15766.9,0.7282,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00236,20250401,2025-04-01,CC-101,Cabernet Franc,Finca Gualtallary,11349.0,22.7,7978.8,0.703,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00237,20250401,2025-04-01,CC-101,Malbec,Finca Barrancas,17126.0,23.1,11751.0,0.6861,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00238,20250401,2025-04-01,CC-102,Cabernet Franc,Finca Gualtallary,17641.0,23.1,12408.1,0.7034,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00239,20250401,2025-04-01,CC-102,Syrah,Finca Altamira,8738.0,26.5,6308.0,0.7219,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00240,20250402,2025-04-02,CC-102,Chardonnay,Finca Gualtallary,16727.0,25.2,12079.1,0.7221,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00241,20250402,2025-04-02,CC-102,Syrah,Finca Agrelo,10024.0,25.6,7082.6,0.7066,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00242,20250402,2025-04-02,CC-101,Malbec,Finca Altamira,19800.0,25.6,13918.2,0.7029,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00243,20250402,2025-04-02,CC-102,Malbec,Finca Agrelo,12449.0,24.0,8739.7,0.702,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00244,20250403,2025-04-03,CC-102,Bonarda,Finca Gualtallary,19332.0,25.9,14176.5,0.7333,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00245,20250403,2025-04-03,CC-101,Cabernet Franc,Finca Altamira,13642.0,25.4,9535.6,0.699,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00246,20250403,2025-04-03,CC-101,Bonarda,Finca Agrelo,9333.0,23.3,6661.1,0.7137,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00247,20250403,2025-04-03,CC-101,Malbec,Finca Agrelo,8821.0,22.8,6360.8,0.7211,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00248,20250404,2025-04-04,CC-102,Syrah,Finca Agrelo,12534.0,24.7,8793.4,0.7016,Aceptable,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00249,20250404,2025-04-04,CC-102,Syrah,Finca Gualtallary,18639.0,26.3,13131.6,0.7045,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00250,20250404,2025-04-04,CC-101,Bonarda,Finca Agrelo,12163.0,23.4,8985.2,0.7387,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00251,20250404,2025-04-04,CC-102,Malbec,Finca Barrancas,10840.0,23.6,7645.4,0.7053,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00252,20250405,2025-04-05,CC-102,Malbec,Finca Barrancas,21158.0,23.2,14628.6,0.6914,Aceptable,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00253,20250405,2025-04-05,CC-102,Chardonnay,Finca Gualtallary,16623.0,25.2,11408.6,0.6863,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00254,20250405,2025-04-05,CC-102,Cabernet Franc,Finca Altamira,13641.0,25.8,9617.8,0.7051,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00255,20250405,2025-04-05,CC-101,Malbec,Finca Altamira,23370.0,24.2,16870.1,0.7219,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00256,20250406,2025-04-06,CC-102,Syrah,Finca Barrancas,12525.0,26.5,8648.8,0.6905,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00257,20250406,2025-04-06,CC-102,Bonarda,Finca Altamira,14487.0,23.1,10525.6,0.7266,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00258,20250406,2025-04-06,CC-102,Syrah,Finca Agrelo,20574.0,24.3,15169.2,0.7373,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00259,20250406,2025-04-06,CC-102,Malbec,Finca Agrelo,21637.0,23.7,14984.6,0.6925,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00260,20250407,2025-04-07,CC-102,Cabernet Franc,Finca Barrancas,15825.0,26.1,11275.2,0.7125,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00261,20250407,2025-04-07,CC-101,Syrah,Finca Agrelo,19538.0,23.5,14224.6,0.728,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00262,20250407,2025-04-07,CC-101,Chardonnay,Finca Agrelo,11456.0,24.5,7831.4,0.6836,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00263,20250407,2025-04-07,CC-101,Cabernet Franc,Finca Barrancas,22830.0,25.0,15788.3,0.6916,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00264,20250408,2025-04-08,CC-101,Bonarda,Finca Agrelo,14997.0,24.6,10844.1,0.7231,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00265,20250408,2025-04-08,CC-102,Chardonnay,Finca Gualtallary,19806.0,26.3,13531.9,0.6832,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00266,20250408,2025-04-08,CC-101,Bonarda,Finca Gualtallary,19649.0,23.2,14175.0,0.7214,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00267,20250408,2025-04-08,CC-101,Chardonnay,Finca Altamira,11296.0,26.1,8178.0,0.724,Aceptable,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00268,20250409,2025-04-09,CC-101,Syrah,Finca Gualtallary,15538.0,25.5,10826.7,0.6968,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00269,20250409,2025-04-09,CC-101,Chardonnay,Finca Gualtallary,18398.0,24.2,13338.7,0.725,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00270,20250409,2025-04-09,CC-102,Cabernet Franc,Finca Agrelo,11575.0,24.3,8260.9,0.7137,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00271,20250409,2025-04-09,CC-102,Bonarda,Finca Gualtallary,19131.0,24.3,14063.7,0.7351,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00272,20250410,2025-04-10,CC-102,Chardonnay,Finca Altamira,16668.0,24.7,12130.6,0.7278,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00273,20250410,2025-04-10,CC-101,Malbec,Finca Altamira,19310.0,26.3,13895.9,0.7196,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00274,20250410,2025-04-10,CC-101,Cabernet Franc,Finca Gualtallary,12258.0,24.2,8555.5,0.698,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00275,20250410,2025-04-10,CC-102,Cabernet Franc,Finca Altamira,15130.0,23.3,10474.7,0.6923,Aceptable,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00276,20250411,2025-04-11,CC-101,Cabernet Franc,Finca Altamira,13686.0,23.0,9561.9,0.6987,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00277,20250411,2025-04-11,CC-102,Cabernet Franc,Finca Agrelo,12340.0,25.6,8935.6,0.7241,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00278,20250411,2025-04-11,CC-102,Cabernet Franc,Finca Gualtallary,10751.0,23.6,7883.1,0.7332,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00279,20250411,2025-04-11,CC-102,Cabernet Franc,Finca Gualtallary,13986.0,23.5,9876.4,0.7062,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00280,20250412,2025-04-12,CC-101,Malbec,Finca Barrancas,11132.0,24.0,8093.7,0.7271,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00281,20250412,2025-04-12,CC-102,Cabernet Franc,Finca Gualtallary,21300.0,23.2,15423.0,0.7241,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00282,20250412,2025-04-12,CC-102,Chardonnay,Finca Altamira,7650.0,24.5,5236.7,0.6845,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00283,20250412,2025-04-12,CC-102,Cabernet Franc,Finca Barrancas,8539.0,25.2,6000.5,0.7027,Aceptable,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00284,20250413,2025-04-13,CC-101,Syrah,Finca Altamira,11117.0,24.6,7738.9,0.6961,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00285,20250413,2025-04-13,CC-101,Malbec,Finca Altamira,19912.0,25.4,13579.0,0.682,Aceptable,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00286,20250413,2025-04-13,CC-101,Chardonnay,Finca Agrelo,12818.0,24.7,9461.3,0.7381,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00287,20250413,2025-04-13,CC-101,Syrah,Finca Gualtallary,17111.0,22.8,12201.9,0.7131,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00288,20250414,2025-04-14,CC-102,Cabernet Franc,Finca Barrancas,12864.0,26.5,9079.7,0.7058,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00289,20250414,2025-04-14,CC-102,Syrah,Finca Barrancas,14391.0,26.1,9951.0,0.6915,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00290,20250414,2025-04-14,CC-102,Chardonnay,Finca Barrancas,19274.0,23.4,13898.7,0.7211,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00291,20250414,2025-04-14,CC-101,Bonarda,Finca Altamira,16213.0,25.3,11884.0,0.733,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00292,20250415,2025-04-15,CC-102,Bonarda,Finca Altamira,17128.0,25.7,11703.9,0.6833,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00293,20250415,2025-04-15,CC-102,Bonarda,Finca Gualtallary,10913.0,22.8,8032.4,0.736,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00294,20250415,2025-04-15,CC-101,Malbec,Finca Gualtallary,14645.0,25.1,10682.6,0.7294,Aceptable,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00295,20250415,2025-04-15,CC-102,Chardonnay,Finca Agrelo,16176.0,26.4,11692.6,0.7228,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00296,20250416,2025-04-16,CC-101,Cabernet Franc,Finca Barrancas,20558.0,24.6,14123.8,0.687,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00297,20250416,2025-04-16,CC-101,Malbec,Finca Agrelo,17914.0,23.0,12818.4,0.7156,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00298,20250416,2025-04-16,CC-102,Cabernet Franc,Finca Agrelo,18605.0,25.0,12662.6,0.6806,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00299,20250416,2025-04-16,CC-102,Malbec,Finca Barrancas,13574.0,24.5,10004.4,0.737,Aceptable,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00300,20250417,2025-04-17,CC-102,Chardonnay,Finca Gualtallary,20501.0,24.2,14819.8,0.7229,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00301,20250417,2025-04-17,CC-102,Malbec,Finca Gualtallary,18863.0,23.7,13291.8,0.7046,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00302,20250417,2025-04-17,CC-102,Bonarda,Finca Gualtallary,21344.0,26.4,14681.2,0.6878,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00303,20250417,2025-04-17,CC-101,Bonarda,Finca Barrancas,22513.0,22.6,15608.4,0.6933,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00304,20250418,2025-04-18,CC-102,Syrah,Finca Barrancas,20868.0,23.3,14290.5,0.6848,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00305,20250418,2025-04-18,CC-101,Malbec,Finca Agrelo,8831.0,22.6,6353.9,0.7195,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00306,20250418,2025-04-18,CC-101,Cabernet Franc,Finca Gualtallary,11760.0,24.7,8193.9,0.6968,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00307,20250418,2025-04-18,CC-101,Syrah,Finca Agrelo,12665.0,26.2,8769.2,0.6924,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00308,20250419,2025-04-19,CC-102,Syrah,Finca Gualtallary,16101.0,22.6,11036.5,0.6855,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00309,20250419,2025-04-19,CC-101,Chardonnay,Finca Gualtallary,20483.0,25.5,14185.8,0.6926,Aceptable,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00310,20250419,2025-04-19,CC-102,Bonarda,Finca Gualtallary,11262.0,25.4,8082.0,0.7176,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00311,20250419,2025-04-19,CC-101,Cabernet Franc,Finca Barrancas,9323.0,26.3,6717.9,0.7206,Aceptable,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00312,20250420,2025-04-20,CC-102,Malbec,Finca Gualtallary,13961.0,25.4,9560.5,0.6848,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00313,20250420,2025-04-20,CC-101,Chardonnay,Finca Barrancas,15795.0,24.7,11595.1,0.7341,Aceptable,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00314,20250420,2025-04-20,CC-102,Chardonnay,Finca Altamira,21657.0,23.4,15929.1,0.7355,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00315,20250420,2025-04-20,CC-101,Cabernet Franc,Finca Gualtallary,13725.0,24.5,9383.5,0.6837,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00316,20250421,2025-04-21,CC-101,Malbec,Finca Altamira,11967.0,25.0,8834.4,0.7382,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00317,20250421,2025-04-21,CC-101,Bonarda,Finca Agrelo,13732.0,23.8,9765.4,0.7111,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00318,20250421,2025-04-21,CC-102,Syrah,Finca Barrancas,22314.0,25.2,15495.8,0.6944,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00319,20250421,2025-04-21,CC-102,Chardonnay,Finca Altamira,9953.0,23.8,7079.7,0.7113,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00320,20250422,2025-04-22,CC-101,Bonarda,Finca Agrelo,21552.0,23.5,14688.8,0.6816,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00321,20250422,2025-04-22,CC-102,Syrah,Finca Altamira,18516.0,24.7,12592.7,0.6801,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00322,20250422,2025-04-22,CC-101,Malbec,Finca Altamira,10010.0,23.5,7001.1,0.6994,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00323,20250422,2025-04-22,CC-102,Cabernet Franc,Finca Altamira,16807.0,24.8,11584.9,0.6893,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00324,20250423,2025-04-23,CC-101,Malbec,Finca Gualtallary,10670.0,25.3,7614.2,0.7136,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00325,20250423,2025-04-23,CC-101,Bonarda,Finca Agrelo,21148.0,25.5,15078.2,0.713,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00326,20250423,2025-04-23,CC-101,Malbec,Finca Gualtallary,18083.0,23.2,12987.4,0.7182,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00327,20250423,2025-04-23,CC-102,Bonarda,Finca Barrancas,9902.0,25.8,6769.0,0.6836,Buena,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00328,20250424,2025-04-24,CC-102,Syrah,Finca Gualtallary,12753.0,26.2,9057.0,0.7102,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00329,20250424,2025-04-24,CC-102,Bonarda,Finca Gualtallary,18114.0,26.2,13267.2,0.7324,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00330,20250424,2025-04-24,CC-102,Syrah,Finca Gualtallary,11588.0,24.1,8207.1,0.7082,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00331,20250424,2025-04-24,CC-101,Malbec,Finca Altamira,22429.0,25.7,15862.6,0.7072,Aceptable,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00332,20250425,2025-04-25,CC-102,Malbec,Finca Barrancas,17252.0,25.0,12231.2,0.709,Optima,"Barrancas, Maipú, Mendoza, Argentina",-33.056,-68.705
+REM-2025-00333,20250425,2025-04-25,CC-101,Chardonnay,Finca Gualtallary,17603.0,26.1,12000.8,0.6817,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00334,20250425,2025-04-25,CC-102,Syrah,Finca Agrelo,19778.0,24.8,14082.1,0.712,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00335,20250425,2025-04-25,CC-102,Malbec,Finca Agrelo,8181.0,23.3,5818.4,0.7112,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00336,20250426,2025-04-26,CC-102,Malbec,Finca Agrelo,14632.0,23.5,10668.4,0.7291,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00337,20250426,2025-04-26,CC-101,Malbec,Finca Altamira,11709.0,23.3,8023.1,0.6852,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00338,20250426,2025-04-26,CC-102,Syrah,Finca Altamira,19740.0,22.7,14220.1,0.7204,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00339,20250426,2025-04-26,CC-101,Bonarda,Finca Gualtallary,17580.0,25.2,12576.9,0.7154,Optima,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00340,20250427,2025-04-27,CC-101,Bonarda,Finca Altamira,14903.0,23.7,10603.0,0.7115,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00341,20250427,2025-04-27,CC-101,Malbec,Finca Altamira,14323.0,24.7,10442.9,0.7291,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00342,20250427,2025-04-27,CC-102,Cabernet Franc,Finca Agrelo,14714.0,25.7,10617.2,0.7216,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00343,20250427,2025-04-27,CC-101,Cabernet Franc,Finca Altamira,12691.0,24.3,9252.6,0.7291,Aceptable,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00344,20250428,2025-04-28,CC-101,Bonarda,Finca Agrelo,18190.0,26.2,13403.7,0.7369,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00345,20250428,2025-04-28,CC-102,Chardonnay,Finca Altamira,20784.0,24.3,14893.4,0.7166,Buena,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00346,20250428,2025-04-28,CC-101,Cabernet Franc,Finca Altamira,14673.0,25.2,10177.3,0.6936,Optima,"Paraje Altamira, San Carlos, Mendoza, Argentina",-33.775,-69.155
+REM-2025-00347,20250428,2025-04-28,CC-102,Bonarda,Finca Agrelo,20636.0,25.3,14144.5,0.6854,Optima,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00348,20250429,2025-04-29,CC-101,Bonarda,Finca Agrelo,13678.0,26.1,10036.6,0.7338,Buena,"Agrelo, Luján de Cuyo, Mendoza, Argentina",-33.125,-68.895
+REM-2025-00349,20250429,2025-04-29,CC-102,Bonarda,Finca Gualtallary,16902.0,25.9,11583.4,0.6853,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00350,20250429,2025-04-29,CC-101,Cabernet Franc,Finca Gualtallary,13392.0,23.8,9249.9,0.6907,Buena,"Gualtallary, Tupungato, Mendoza, Argentina",-33.385,-69.215
+REM-2025-00351,20250423,2025-04-23,CC-101,Bonarda,Finca La Consulta,9225.6,25.5,6406.3,0.6944,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00352,20250411,2025-04-11,CC-101,Cabernet Franc,Finca La Consulta,8847.6,24.2,6032.3,0.6818,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00353,20250204,2025-02-04,CC-101,Cabernet Franc,Finca La Consulta,16199.3,25.4,11686.2,0.7214,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00354,20250308,2025-03-08,CC-102,Malbec,Finca La Consulta,20046.2,22.5,14583.6,0.7275,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00355,20250220,2025-02-20,CC-101,Bonarda,Finca La Consulta,10837.4,25.6,7434.5,0.686,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00356,20250317,2025-03-17,CC-102,Bonarda,Finca La Consulta,16857.8,25.7,12189.9,0.7231,Optima,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00357,20250321,2025-03-21,CC-101,Syrah,Finca La Consulta,8721.4,23.7,6254.1,0.7171,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00358,20250209,2025-02-09,CC-101,Cabernet Franc,Finca La Consulta,8210.3,23.4,5723.4,0.6971,Optima,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00359,20250321,2025-03-21,CC-101,Chardonnay,Finca La Consulta,11808.6,25.0,8283.7,0.7015,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00360,20250307,2025-03-07,CC-102,Cabernet Franc,Finca La Consulta,18378.2,25.2,12574.4,0.6842,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00361,20250304,2025-03-04,CC-102,Syrah,Finca La Consulta,10032.7,24.0,7408.1,0.7384,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00362,20250314,2025-03-14,CC-101,Chardonnay,Finca La Consulta,20564.2,25.6,14261.3,0.6935,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00363,20250209,2025-02-09,CC-101,Cabernet Franc,Finca La Consulta,10770.2,26.3,7880.6,0.7317,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00364,20250323,2025-03-23,CC-101,Cabernet Franc,Finca La Consulta,21212.6,25.1,14602.8,0.6884,Optima,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00365,20250410,2025-04-10,CC-101,Chardonnay,Finca La Consulta,11572.5,24.8,8482.6,0.733,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00366,20250218,2025-02-18,CC-101,Cabernet Franc,Finca La Consulta,15397.7,22.9,10513.5,0.6828,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00367,20250429,2025-04-29,CC-101,Syrah,Finca La Consulta,14043.5,22.8,9865.6,0.7025,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00368,20250412,2025-04-12,CC-102,Syrah,Finca La Consulta,20842.1,22.5,15058.4,0.7225,Optima,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00369,20250424,2025-04-24,CC-101,Chardonnay,Finca La Consulta,12772.7,23.7,8804.2,0.6893,Optima,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00370,20250223,2025-02-23,CC-102,Syrah,Finca La Consulta,15369.1,22.9,11018.1,0.7169,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00371,20250220,2025-02-20,CC-102,Bonarda,Finca La Consulta,13295.7,23.1,9789.6,0.7363,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00372,20250404,2025-04-04,CC-101,Cabernet Franc,Finca La Consulta,7801.9,26.2,5709.4,0.7318,Aceptable,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00373,20250414,2025-04-14,CC-101,Syrah,Finca La Consulta,22177.7,22.8,15717.3,0.7087,Optima,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00374,20250217,2025-02-17,CC-102,Syrah,Finca La Consulta,17726.1,26.3,12225.7,0.6897,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00375,20250228,2025-02-28,CC-102,Chardonnay,Finca La Consulta,21898.2,25.5,15782.0,0.7207,Buena,"La Consulta, San Carlos, Valle de Uco, Mendoza, Argentina",-33.75,-69.213
+REM-2025-00376,20250427,2025-04-27,CC-101,Cabernet Franc,Finca Vistalba,17573.1,24.3,12485.7,0.7105,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00377,20250316,2025-03-16,CC-101,Bonarda,Finca Vistalba,7826.0,24.7,5593.2,0.7147,Optima,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00378,20250208,2025-02-08,CC-101,Syrah,Finca Vistalba,11048.6,26.1,8073.2,0.7307,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00379,20250427,2025-04-27,CC-102,Syrah,Finca Vistalba,15023.9,24.7,10857.8,0.7227,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00380,20250402,2025-04-02,CC-101,Chardonnay,Finca Vistalba,20016.2,23.3,13725.1,0.6857,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00381,20250401,2025-04-01,CC-102,Bonarda,Finca Vistalba,20889.5,22.7,15011.2,0.7186,Aceptable,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00382,20250316,2025-03-16,CC-102,Malbec,Finca Vistalba,19909.2,22.9,13763.2,0.6913,Aceptable,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00383,20250224,2025-02-24,CC-101,Syrah,Finca Vistalba,11817.4,23.5,8679.9,0.7345,Aceptable,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00384,20250425,2025-04-25,CC-101,Cabernet Franc,Finca Vistalba,22988.9,25.8,16947.4,0.7372,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00385,20250403,2025-04-03,CC-101,Bonarda,Finca Vistalba,10813.1,24.1,7390.8,0.6835,Optima,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00386,20250306,2025-03-06,CC-102,Syrah,Finca Vistalba,21861.0,25.6,15232.7,0.6968,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00387,20250404,2025-04-04,CC-102,Syrah,Finca Vistalba,9899.4,23.7,7297.8,0.7372,Aceptable,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00388,20250313,2025-03-13,CC-102,Cabernet Franc,Finca Vistalba,8386.1,24.8,5951.6,0.7097,Aceptable,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00389,20250407,2025-04-07,CC-102,Cabernet Franc,Finca Vistalba,8741.7,23.2,6251.2,0.7151,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00390,20250414,2025-04-14,CC-101,Syrah,Finca Vistalba,11316.3,24.9,8108.1,0.7165,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00391,20250313,2025-03-13,CC-101,Chardonnay,Finca Vistalba,21987.9,23.3,15881.9,0.7223,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00392,20250427,2025-04-27,CC-101,Bonarda,Finca Vistalba,17505.3,24.3,12862.9,0.7348,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00393,20250414,2025-04-14,CC-101,Cabernet Franc,Finca Vistalba,22939.5,22.8,15887.9,0.6926,Optima,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00394,20250209,2025-02-09,CC-102,Chardonnay,Finca Vistalba,21128.7,24.0,14564.0,0.6893,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00395,20250425,2025-04-25,CC-102,Bonarda,Finca Vistalba,15698.6,25.2,11188.4,0.7127,Optima,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00396,20250218,2025-02-18,CC-101,Chardonnay,Finca Vistalba,11599.2,26.1,8395.5,0.7238,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00397,20250227,2025-02-27,CC-101,Syrah,Finca Vistalba,18623.0,23.3,13360.1,0.7174,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00398,20250207,2025-02-07,CC-101,Chardonnay,Finca Vistalba,8930.6,24.2,6218.4,0.6963,Optima,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00399,20250423,2025-04-23,CC-102,Malbec,Finca Vistalba,22686.9,23.1,16019.2,0.7061,Buena,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93
+REM-2025-00400,20250215,2025-02-15,CC-102,Bonarda,Finca Vistalba,8666.3,26.0,6355.0,0.7333,Optima,"Vistalba, Luján de Cuyo, Mendoza, Argentina",-33.05,-68.93

@@ -1,0 +1,27 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: es-AR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["RutaDatos","dim_calendario","dim_centros_costo","dim_cuentas_contables","dim_productos","fact_presupuesto_ventas","fact_ventas_reales","fact_opex_mensual","fact_capital_trabajo","dim_desglose_cascada","_Medidas_Controller"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_calendario
+ref table dim_centros_costo
+ref table dim_cuentas_contables
+ref table dim_productos
+ref table fact_presupuesto_ventas
+ref table fact_ventas_reales
+ref table fact_opex_mensual
+ref table fact_capital_trabajo
+ref table dim_desglose_cascada
+ref table _Medidas_Controller
+
+ref cultureInfo en-US

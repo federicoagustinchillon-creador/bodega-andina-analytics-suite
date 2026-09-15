@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holding Vitivinícola & Agroindustrial — Suite de Control de Gestión & FP&A</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background-color: #0A0E17;
+      color: #F1F5F9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-feature-settings: "tnum";
+      font-variant-numeric: tabular-nums;
+    }
+    .card-panel {
+      background-color: #121824;
+      border: 1px solid #1E2838;
+      border-radius: 6px;
+    }
+    .sidebar-panel {
+      background-color: #0D121D;
+      border-right: 1px solid #1A2332;
+    }
+    .tab-suite-active {
+      background-color: #1A2232;
+      border-bottom: 2px solid #722F37;
+      color: #FFFFFF;
+    }
+    .tab-suite-inactive {
+      color: #94A3B8;
+    }
+    .tab-suite-inactive:hover {
+      color: #F1F5F9;
+      background-color: rgba(26, 34, 50, 0.5);
+    }
+    .subtab-active {
+      background-color: #232E42;
+      color: #FFFFFF;
+      border-bottom: 2px solid #2563EB;
+    }
+    .subtab-inactive {
+      color: #94A3B8;
+    }
+    .subtab-inactive:hover {
+      color: #F1F5F9;
+      background-color: #1A2332;
+    }
+    .badge-slate {
+      background-color: rgba(51, 65, 85, 0.3);
+      color: #CBD5E1;
+      border: 1px solid #334155;
+    }
+    .ibcs-green { color: #10B981; }
+    .ibcs-red { color: #EF4444; }
+    table { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body class="flex flex-col h-screen overflow-hidden text-xs">
+
+  <!-- CABECERA INSTITUCIONAL CORPORATIVA -->
+  <header class="bg-[#0D121D] border-b border-[#1A2332] px-6 py-2.5 flex justify-between items-center z-10">
+    <div class="flex items-center space-x-3">
+      <div class="w-2.5 h-6 bg-[#722F37] rounded-sm"></div>
+      <div>
+        <h1 class="text-sm font-semibold tracking-wide text-slate-100">HOLDING AGROINDUSTRIAL & VITIVINÍCOLA</h1>
+        <p class="text-[11px] text-slate-400">Dirección Financiera, FP&A y Control de Gestión · Cierre Ejercicio 2025</p>
+      </div>
+    </div>
+    <div class="flex items-center space-x-4 text-[11px] text-slate-300">
+      <div><span class="text-slate-500">Período:</span> <span class="font-medium">2025 Auditado</span></div>
+      <div class="text-slate-600">|</div>
+      <div><span class="text-slate-500">Moneda:</span> <span class="font-medium">ARS ($M)</span></div>
+      <div class="text-slate-600">|</div>
+      <div><span class="text-slate-500">División:</span> <span class="text-slate-200">Control de Gestión &amp; FP&amp;A</span></div>
+    </div>
+  </header>
+
+  <!-- SELECTOR DE NIVEL 1: SUITES (3 PROYECTOS PBIP) -->
+  <nav class="bg-[#0A0E17] border-b border-[#1A2332] px-6 flex space-x-1">
+    <button onclick="switchSuite('s1')" id="tab-suite-s1" class="px-5 py-2 text-xs font-medium transition-all tab-suite-active">
+      01. Financial Controller & FP&A
+    </button>
+    <button onclick="switchSuite('s2')" id="tab-suite-s2" class="px-5 py-2 text-xs font-medium transition-all tab-suite-inactive">
+      02. Commercial Sales Intelligence
+    </button>
+    <button onclick="switchSuite('s3')" id="tab-suite-s3" class="px-5 py-2 text-xs font-medium transition-all tab-suite-inactive">
+      03. Operations & Supply Chain Plant
+    </button>
+  </nav>
+
+  <!-- SELECTOR DE NIVEL 2: PÁGINAS DEL REPORTE ACTIVO (3 PÁGINAS POR PROYECTO = 9 EN TOTAL) -->
+  <div class="bg-[#0F141F] border-b border-[#1A2332] px-6 py-1.5 flex items-center justify-between">
+    <!-- SUB-TABS SUITE 1 -->
+    <div id="subtabs-s1" class="flex space-x-2">
+      <button onclick="switchPage('s1_p1')" id="subtab-s1_p1" class="px-3 py-1 text-[11px] font-medium rounded transition-all subtab-active">
+        Pág 1: P&L Ejecutivo & Descomposición de Desvíos
+      </button>
+      <button onclick="switchPage('s1_p2')" id="subtab-s1_p2" class="px-3 py-1 text-[11px] font-medium rounded transition-all subtab-inactive">
+        Pág 2: Control OPEX por Centro de Costo (SAP CO & FI)
+      </button>
+      <button onclick="switchPage('s1_p3')" id="subtab-s1_p3" class="px-3 py-1 text-[11px] font-medium rounded transition-all subtab-inactive">
+        Pág 3: Capital de Trabajo, Ciclo de Caja (CCC) & NOF
+      </button>
+    </div>
+
+    <!-- SUB-TABS SUITE 2 -->
+    <div id="subtabs-s2" class="flex space-x-2 hidden">
+      <button onclick="switchPage('s2_p1')" id="subtab-s2_p1" class="px-3 py-1 text-[11px] font-medium rounded transition-all subtab-active">
+        Pág 1: Desempeño Multicanal & Penetración
+      </button>
+      <button onclick="switchPage('s2_p2')" id="subtab-s2_p2" class="px-3 py-1 text-[11px] font-medium rounded transition-all subtab-inactive">
+        Pág 2: Precios Reales, Elasticidad & Deducciones
+      </button>
+      <button onclick="switchPage('s2_p3')" id="subtab-s2_p3" class="px-3 py-1 text-[11px] font-medium rounded transition-all subtab-inactive">
+        Pág 3: Curva de Pareto 80/20 & Segmentación ABC
+      </button>
+    </div>
+
+    <!-- SUB-TABS SUITE 3 -->
+    <div id="subtabs-s3" class="flex space-x-2 hidden">
+      <button onclick="switchPage('s3_p1')" id="subtab-s3_p1" class="px-3 py-1 text-[11px] font-medium rounded transition-all subtab-active">
+        Pág 1: Recepción de Vendimia & Rendimiento Enológico
+      </button>
+      <button onclick="switchPage('s3_p2')" id="subtab-s2_p2_custom" class="px-3 py-1 text-[11px] font-medium rounded transition-all subtab-inactive" onclick="switchPage('s3_p2')">
+        Pág 2: Costos Fabriles & Absorción de Planta
+      </button>
+      <button onclick="switchPage('s3_p3')" id="subtab-s3_p3" class="px-3 py-1 text-[11px] font-medium rounded transition-all subtab-inactive">
+        Pág 3: Trazabilidad de Guarda en Barricas & Mermas
+      </button>
+    </div>
+
+    <div class="text-[10px] text-slate-400 font-mono">
+      Arquitectura: 9 Páginas PBIP · Relaciones 1:* Ralph Kimball
+    </div>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="flex flex-1 overflow-hidden">
+    
+    <!-- BARRA LATERAL DE FILTROS TÉCNICOS -->
+    <aside class="w-56 sidebar-panel p-4 flex flex-col justify-between overflow-y-auto">
+      <div class="space-y-4">
+        <div class="border-b border-slate-800 pb-2">
+          <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Segmentación Global</span>
+        </div>
+
+        <div>
+          <label class="text-[10px] uppercase tracking-wider text-slate-400 block mb-1">Ejercicio Fiscal</label>
+          <select class="w-full bg-[#161F2E] border border-[#232E42] rounded px-2 py-1 text-[11px] text-slate-200 focus:outline-none">
+            <option selected>2025 (Auditado)</option>
+            <option>2024 (Histórico)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-[10px] uppercase tracking-wider text-slate-400 block mb-1">Corte Temporal</label>
+          <select class="w-full bg-[#161F2E] border border-[#232E42] rounded px-2 py-1 text-[11px] text-slate-200 focus:outline-none">
+            <option selected>Acumulado Anual (YTD)</option>
+            <option>Cuarto Trimestre (Q4)</option>
+            <option>Tercer Trimestre (Q3)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-[10px] uppercase tracking-wider text-slate-400 block mb-1">Segmento Enológico</label>
+          <select class="w-full bg-[#161F2E] border border-[#232E42] rounded px-2 py-1 text-[11px] text-slate-200 focus:outline-none">
+            <option selected>(Todas las Líneas)</option>
+            <option>Línea Reserva Premium</option>
+            <option>Línea Clásica Varietal</option>
+            <option>Línea Bag in Box Masivo</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-[10px] uppercase tracking-wider text-slate-400 block mb-1">Canal Comercial</label>
+          <select class="w-full bg-[#161F2E] border border-[#232E42] rounded px-2 py-1 text-[11px] text-slate-200 focus:outline-none">
+            <option selected>(Todos los Canales)</option>
+            <option>Exportación Directa FOB</option>
+            <option>Supermercados</option>
+            <option>Distribuidores Mayoristas</option>
+            <option>Canal Horeca</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-800 text-[10px] text-slate-500 space-y-1">
+        <p class="font-medium text-slate-400">Control de Gestión Corporativo</p>
+        <p>Autor: Federico Agustín Chillón</p>
+        <p>Bodega &amp; Agroindustria Andina</p>
+      </div>
+    </aside>
+
+    <!-- AREA DE CONTENIDO DE LAS 9 PÁGINAS -->
+    <main class="flex-1 p-5 overflow-y-auto space-y-4" id="main-content">
+
+      <!-- ========================================================================= -->
+      <!-- SUITE 1 - PÁGINA 1: P&L EJECUTIVO & VARIANCE ANALYSIS -->
+      <!-- ========================================================================= -->
+      <div id="page-s1_p1" class="page-container space-y-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2 class="text-sm font-semibold text-slate-100">P&L Ejecutivo, Descomposición de Margen & Conciliación de Caja</h2>
+            <p class="text-[11px] text-slate-400">Variance Analysis de 4 factores ortogonales y conciliación a Flujo de Caja Libre Operativo (FCFF)</p>
+          </div>
+          <span class="px-2.5 py-1 rounded text-[11px] font-mono badge-slate">Cuadratura Exacta: $0.00</span>
+        </div>
+
+        <div class="grid grid-cols-4 gap-3">
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Facturación Neta</div>
+            <div class="text-xl font-bold text-white mt-1">$1,474.5M</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Plan: $2,120.0M <span class="ibcs-red">(-30.4%)</span></div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Margen Bruto Real</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">$768.6M</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">52.1% s/Venta <span class="ibcs-green">(+1.2 pp vs Plan)</span></div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">EBITDA Operativo</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">$214.2M</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">14.5% Margen | OPEX: $554.4M</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Free Cash Flow (FCFF)</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">$57.9M</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Post-Impuestos, ΔNOF y CAPEX</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-3">
+          <div class="col-span-7 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Descomposición Ortogonal de Margen Bruto (4 Factores IBCS)</h3>
+              <span class="text-[10px] text-slate-400">$ Millones</span>
+            </div>
+            <div class="h-52">
+              <canvas id="chartWaterfall_s1p1"></canvas>
+            </div>
+          </div>
+
+          <div class="col-span-5 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Conciliación Cash Flow (Método Indirecto)</h3>
+              <span class="text-[10px] text-slate-400">EBITDA a FCFF</span>
+            </div>
+            <div class="h-52">
+              <canvas id="chartCashFlow_s1p1"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-panel p-3.5">
+          <div class="flex justify-between items-center mb-2">
+            <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Desempeño y Desvíos por Línea Enológica (Norma IBCS)</h3>
+            <span class="text-[10px] text-slate-400">Desvío Volumen vs. Tarifa</span>
+          </div>
+          <table class="w-full text-left text-[11px]">
+            <thead>
+              <tr class="text-slate-400 border-b border-slate-800 pb-1">
+                <th class="pb-1 font-medium">Línea Enológica</th>
+                <th class="pb-1 text-right font-medium">Facturación Real</th>
+                <th class="pb-1 text-right font-medium">Margen Bruto</th>
+                <th class="pb-1 text-right font-medium">Margen %</th>
+                <th class="pb-1 text-right font-medium">Δ Volumen</th>
+                <th class="pb-1 text-right font-medium">Δ Precio</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/80">
+              <tr>
+                <td class="py-1.5 text-slate-200 font-medium">Línea Reserva Premium</td>
+                <td class="py-1.5 text-right font-mono">$556.8M</td>
+                <td class="py-1.5 text-right font-mono text-slate-200">$382.5M</td>
+                <td class="py-1.5 text-right font-mono font-semibold text-slate-100">68.7%</td>
+                <td class="py-1.5 text-right font-mono ibcs-red">-8.2%</td>
+                <td class="py-1.5 text-right font-mono ibcs-green">+5.4%</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 text-slate-200 font-medium">Línea Clásica Varietal</td>
+                <td class="py-1.5 text-right font-mono">$433.1M</td>
+                <td class="py-1.5 text-right font-mono text-slate-200">$194.0M</td>
+                <td class="py-1.5 text-right font-mono font-semibold text-slate-100">44.8%</td>
+                <td class="py-1.5 text-right font-mono ibcs-red">-14.1%</td>
+                <td class="py-1.5 text-right font-mono ibcs-green">+2.1%</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 text-slate-200 font-medium">Línea Bag in Box Masivo</td>
+                <td class="py-1.5 text-right font-mono">$484.6M</td>
+                <td class="py-1.5 text-right font-mono text-slate-200">$163.8M</td>
+                <td class="py-1.5 text-right font-mono font-semibold text-slate-100">33.8%</td>
+                <td class="py-1.5 text-right font-mono ibcs-green">+4.5%</td>
+                <td class="py-1.5 text-right font-mono ibcs-red">-1.2%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- SUITE 1 - PÁGINA 2: CONTROL OPEX (SAP CO-CCA & FI) -->
+      <!-- ========================================================================= -->
+      <div id="page-s1_p2" class="page-container space-y-4 hidden">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2 class="text-sm font-semibold text-slate-100">Control Presupuestario OPEX por Centro de Costo (SAP CO-CCA) & Cuentas FI</h2>
+            <p class="text-[11px] text-slate-400">Monitoreo de desvíos operacionales y semáforos de imputación por naturaleza del gasto</p>
+          </div>
+          <span class="px-2.5 py-1 rounded text-[11px] font-mono badge-slate">Ahorro Neto OPEX: -$3.6M (-0.6%)</span>
+        </div>
+
+        <div class="grid grid-cols-4 gap-3">
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">OPEX Real Consolidado</div>
+            <div class="text-xl font-bold text-white mt-1">$554.4M</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Presupuesto: $558.0M</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Desvío Presupuestario Total</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">-$3.6M</div>
+            <div class="text-[10px] ibcs-green mt-0.5">-0.6% por debajo del techo</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Ratio OPEX / Ventas</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">37.6%</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Techo Operativo: 38.5%</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Centros en Alerta Roja</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">1 de 5</div>
+            <div class="text-[10px] ibcs-red mt-0.5">CC-103 Mantenimiento (+8.1%)</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-3">
+          <div class="col-span-6 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Desvío OPEX por Centro de Costo (SAP CO)</h3>
+              <span class="text-[10px] text-slate-400">Real vs. Presupuesto</span>
+            </div>
+            <div class="h-56">
+              <canvas id="chartOpex_s1p2"></canvas>
+            </div>
+          </div>
+
+          <div class="col-span-6 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Apertura por Cuentas Contables SAP FI</h3>
+              <span class="text-[10px] text-slate-400">Naturaleza del Gasto</span>
+            </div>
+            <table class="w-full text-left text-[11px]">
+              <thead>
+                <tr class="text-slate-400 border-b border-slate-800 pb-1">
+                  <th class="pb-1 font-medium">Cuenta Contable FI</th>
+                  <th class="pb-1 text-right font-medium">Gasto Real</th>
+                  <th class="pb-1 text-right font-medium">Presupuesto</th>
+                  <th class="pb-1 text-right font-medium">Desvío %</th>
+                  <th class="pb-1 text-center font-medium">Semáforo</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/80">
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">5.1.01 Mano de Obra Operativa</td>
+                  <td class="py-1.5 text-right font-mono">$184.2M</td>
+                  <td class="py-1.5 text-right font-mono">$186.0M</td>
+                  <td class="py-1.5 text-right font-mono ibcs-green">-1.0%</td>
+                  <td class="py-1.5 text-center font-semibold ibcs-green">Normal</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">5.2.01 Fletes y Distribución</td>
+                  <td class="py-1.5 text-right font-mono">$128.5M</td>
+                  <td class="py-1.5 text-right font-mono">$125.0M</td>
+                  <td class="py-1.5 text-right font-mono ibcs-red">+2.8%</td>
+                  <td class="py-1.5 text-center font-semibold text-amber-400">Precaución</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">5.1.05 Mantenimiento y Repuestos</td>
+                  <td class="py-1.5 text-right font-mono">$89.2M</td>
+                  <td class="py-1.5 text-right font-mono">$82.5M</td>
+                  <td class="py-1.5 text-right font-mono ibcs-red">+8.1%</td>
+                  <td class="py-1.5 text-center font-semibold ibcs-red">Alerta Crítica</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">5.1.04 Suministros y Energía</td>
+                  <td class="py-1.5 text-right font-mono">$72.1M</td>
+                  <td class="py-1.5 text-right font-mono">$74.0M</td>
+                  <td class="py-1.5 text-right font-mono ibcs-green">-2.6%</td>
+                  <td class="py-1.5 text-center font-semibold ibcs-green">Normal</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">5.3.01 Honorarios y Servicios</td>
+                  <td class="py-1.5 text-right font-mono">$80.4M</td>
+                  <td class="py-1.5 text-right font-mono">$90.5M</td>
+                  <td class="py-1.5 text-right font-mono ibcs-green">-11.2%</td>
+                  <td class="py-1.5 text-center font-semibold ibcs-green">Eficiente</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="bg-[#0D121D] p-2 rounded border border-[#1A2332] mt-2 text-[10px] text-slate-400">
+              Protocolo Prescriptivo: Desvío en cuenta 5.1.05 superó el umbral del 5%. Se suspenden contrataciones no programadas en CC-103 y se auditan órdenes de compra de repuestos de fraccionadora.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- SUITE 1 - PÁGINA 3: CAPITAL DE TRABAJO & LIQUIDEZ (CCC/NOF) -->
+      <!-- ========================================================================= -->
+      <div id="page-s1_p3" class="page-container space-y-4 hidden">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2 class="text-sm font-semibold text-slate-100">Capital de Trabajo, Ciclo de Conversión de Efectivo (CCC) & Ratios de Creación de Valor</h2>
+            <p class="text-[11px] text-slate-400">Trayectoria mensual de DSO, DIO, DPO, Necesidad Operativa de Fondos (NOF) y descomposición DuPont</p>
+          </div>
+          <span class="px-2.5 py-1 rounded text-[11px] font-mono badge-slate">EVA Estimado: +$14.8M</span>
+        </div>
+
+        <div class="grid grid-cols-4 gap-3">
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Ciclo Conversión Caja (CCC)</div>
+            <div class="text-xl font-bold text-white mt-1">62.9 Días</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Meta Corporativa: 60.0 Días</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">NOF Consolidada</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">$241.6M</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">CxC + Inv ($398.2M) - CxP ($156.6M)</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">ROIC vs. WACC</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">16.2% vs. 12.0%</div>
+            <div class="text-[10px] ibcs-green mt-0.5">Creación de Valor Spread: +4.2 pp</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Descomposición DuPont (ROE)</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">18.4%</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Margen 9.4% x Rotación 1.25 x Apal. 1.56</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-3">
+          <div class="col-span-7 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Evolución Mensual del Ciclo de Efectivo (DSO, DIO, DPO, CCC)</h3>
+              <span class="text-[10px] text-slate-400">Días de Rotación por Mes</span>
+            </div>
+            <div class="h-56">
+              <canvas id="chartCccMonthly_s1p3"></canvas>
+            </div>
+          </div>
+
+          <div class="col-span-5 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Estructura de Capital de Trabajo Operativo</h3>
+              <span class="text-[10px] text-slate-400">$ Millones</span>
+            </div>
+            <div class="h-56">
+              <canvas id="chartNofComp_s1p3"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- SUITE 2 - PÁGINA 1: DESEMPEÑO MULTICANAL -->
+      <!-- ========================================================================= -->
+      <div id="page-s2_p1" class="page-container space-y-4 hidden">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2 class="text-sm font-semibold text-slate-100">Inteligencia Comercial: Desempeño y Penetración Multicanal</h2>
+            <p class="text-[11px] text-slate-400">Análisis comparativo de volumen, facturación y margen por canal de comercialización</p>
+          </div>
+          <span class="px-2.5 py-1 rounded text-[11px] font-mono badge-slate">225,496 Cajas Equivalentes 9L</span>
+        </div>
+
+        <div class="grid grid-cols-4 gap-3">
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Venta Neta Comercial</div>
+            <div class="text-xl font-bold text-white mt-1">$1,474.5M</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Cumplimiento Cuota: 92.4%</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Canal Líder en Margen</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">62.1% Horeca</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Exportación Directa FOB: 58.4%</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Canal Líder en Volumen</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">Supermercados</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">30.0% de Facturación ($441.9M)</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Ticket Promedio Global</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">$910,187</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">1,620 Transacciones de Despacho</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-3">
+          <div class="col-span-6 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Ventas Reales vs. Presupuesto por Canal ($M)</h3>
+              <span class="text-[10px] text-slate-400">Real vs. Plan</span>
+            </div>
+            <div class="h-56">
+              <canvas id="chartCanalSales_s2p1"></canvas>
+            </div>
+          </div>
+
+          <div class="col-span-6 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Margen de Contribución por Canal (%)</h3>
+              <span class="text-[10px] text-slate-400">Rentabilidad Neta</span>
+            </div>
+            <div class="h-56">
+              <canvas id="chartCanalMargin_s2p1"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- SUITE 2 - PÁGINA 2: PRECIOS, ELASTICIDAD & DEDUCCIONES -->
+      <!-- ========================================================================= -->
+      <div id="page-s2_p2" class="page-container space-y-4 hidden">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2 class="text-sm font-semibold text-slate-100">Dinámica de Precios, Cuadrante de Elasticidad & Cascada de Deducciones</h2>
+            <p class="text-[11px] text-slate-400">Mapeo de fijación de precios frente a la demanda y filtración de facturación bruta a margen</p>
+          </div>
+          <span class="px-2.5 py-1 rounded text-[11px] font-mono badge-slate">Descuento Comercial: 6.4%</span>
+        </div>
+
+        <div class="grid grid-cols-12 gap-3">
+          <div class="col-span-6 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Cuadrante de Elasticidad: Desvío Volumen vs. Desvío Precio</h3>
+              <span class="text-[10px] text-slate-400">Comportamiento por SKU</span>
+            </div>
+            <div class="h-60">
+              <canvas id="chartScatter_s2p2"></canvas>
+            </div>
+          </div>
+
+          <div class="col-span-6 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Cascada de Filtración de Ingresos (Bruto a Margen)</h3>
+              <span class="text-[10px] text-slate-400">$ Millones</span>
+            </div>
+            <div class="h-60">
+              <canvas id="chartRevenueWaterfall_s2p2"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- SUITE 2 - PÁGINA 3: CURVA DE PARETO 80/20 & SEGMENTACIÓN ABC -->
+      <!-- ========================================================================= -->
+      <div id="page-s2_p3" class="page-container space-y-4 hidden">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2 class="text-sm font-semibold text-slate-100">Concentración de Cartera: Curva de Lorenz & Segmentación ABC (Pareto 80/20)</h2>
+            <p class="text-[11px] text-slate-400">Racionalización de catálogo, absorción de capital inmovilizado y productos de tracción</p>
+          </div>
+          <span class="px-2.5 py-1 rounded text-[11px] font-mono badge-slate">Top 3 SKUs = 70.6% Ingresos</span>
+        </div>
+
+        <div class="grid grid-cols-12 gap-3">
+          <div class="col-span-7 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Curva de Lorenz y Concentración Acumulada de Ingresos</h3>
+              <span class="text-[10px] text-slate-400">Facturación vs. % Acumulado</span>
+            </div>
+            <div class="h-64">
+              <canvas id="chartPareto_s2p3"></canvas>
+            </div>
+          </div>
+
+          <div class="col-span-5 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Segmentación Estratégica ABC de Productos</h3>
+              <span class="text-[10px] text-slate-400">Política de Stock</span>
+            </div>
+            <table class="w-full text-left text-[11px]">
+              <thead>
+                <tr class="text-slate-400 border-b border-slate-800 pb-1">
+                  <th class="pb-1 font-medium">SKU / Etiqueta</th>
+                  <th class="pb-1 text-center font-medium">Clase</th>
+                  <th class="pb-1 text-right font-medium">Ventas</th>
+                  <th class="pb-1 text-right font-medium">Acción</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/80">
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Bag in Box 3L</td>
+                  <td class="py-1.5 text-center font-semibold ibcs-green">A</td>
+                  <td class="py-1.5 text-right font-mono">$484.6M</td>
+                  <td class="py-1.5 text-right text-slate-400">Garantizar Stock</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Malbec Reserva 750ml</td>
+                  <td class="py-1.5 text-center font-semibold ibcs-green">A</td>
+                  <td class="py-1.5 text-right font-mono">$305.0M</td>
+                  <td class="py-1.5 text-right text-slate-400">Defender Tarifa</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Chardonnay Extra Brut</td>
+                  <td class="py-1.5 text-center font-semibold ibcs-green">A</td>
+                  <td class="py-1.5 text-right font-mono">$268.0M</td>
+                  <td class="py-1.5 text-right text-slate-400">Tracción Horeca</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Cabernet Franc Reserva</td>
+                  <td class="py-1.5 text-center font-semibold text-sky-400">B</td>
+                  <td class="py-1.5 text-right font-mono">$251.8M</td>
+                  <td class="py-1.5 text-right text-slate-400">Desarrollo Comex</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Malbec Clásico 750ml</td>
+                  <td class="py-1.5 text-center font-semibold text-slate-400">C</td>
+                  <td class="py-1.5 text-right font-mono">$165.1M</td>
+                  <td class="py-1.5 text-right text-slate-400">Revisión Margen</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- SUITE 3 - PÁGINA 1: RECEPCIÓN DE VENDIMIA & BALANCE DE MASA -->
+      <!-- ========================================================================= -->
+      <div id="page-s3_p1" class="page-container space-y-4 hidden">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2 class="text-sm font-semibold text-slate-100">Eficiencia Enológica, Báscula de Vendimia & Balance de Masa</h2>
+            <p class="text-[11px] text-slate-400">Extracción de mosto por quintal de uva, maduración azucarina (°Bx) y capacidad de lagares</p>
+          </div>
+          <span class="px-2.5 py-1 rounded text-[11px] font-mono badge-slate">Rendimiento Medio: 70.86%</span>
+        </div>
+
+        <div class="grid grid-cols-4 gap-3">
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Uva Procesada en Báscula</div>
+            <div class="text-xl font-bold text-white mt-1">5,452,927 kg</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">350 Remitos Auditados</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Mosto Obtenido</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">3,863,764 L</div>
+            <div class="text-[10px] ibcs-green mt-0.5">70.86 L / 100 kg uva</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Grados Brix Ponderado</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">24.40 °Bx</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Maduración Óptima</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Utilización Capacidad</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">90.9%</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Sin cuellos de botella</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-3">
+          <div class="col-span-6 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Ritmo de Molienda Semanal vs. Capacidad Máxima</h3>
+              <span class="text-[10px] text-slate-400">Miles de kg por Semana</span>
+            </div>
+            <div class="h-56">
+              <canvas id="chartVendimia_s3p1"></canvas>
+            </div>
+          </div>
+
+          <div class="col-span-6 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Rendimiento Enológico por Finca Proveedora</h3>
+              <span class="text-[10px] text-slate-400">Balance de Vendimia 2025</span>
+            </div>
+            <table class="w-full text-left text-[11px]">
+              <thead>
+                <tr class="text-slate-400 border-b border-slate-800 pb-1">
+                  <th class="pb-1 font-medium">Finca de Origen</th>
+                  <th class="pb-1 text-right font-medium">Kilos Uva</th>
+                  <th class="pb-1 text-right font-medium">Rendimiento</th>
+                  <th class="pb-1 text-right font-medium">Grados Brix</th>
+                  <th class="pb-1 text-center font-medium">Calidad</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/80">
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Finca Agrelo (Luján de Cuyo)</td>
+                  <td class="py-1.5 text-right font-mono">1,821,450</td>
+                  <td class="py-1.5 text-right font-mono font-semibold text-slate-100">71.2%</td>
+                  <td class="py-1.5 text-right font-mono">24.6 °Bx</td>
+                  <td class="py-1.5 text-center font-semibold ibcs-green">Óptimo</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Finca Gualtallary (Valle de Uco)</td>
+                  <td class="py-1.5 text-right font-mono">1,539,800</td>
+                  <td class="py-1.5 text-right font-mono font-semibold text-slate-100">70.5%</td>
+                  <td class="py-1.5 text-right font-mono">24.8 °Bx</td>
+                  <td class="py-1.5 text-center font-semibold ibcs-green">Óptimo</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Finca Barrancas (Maipú)</td>
+                  <td class="py-1.5 text-right font-mono">1,291,200</td>
+                  <td class="py-1.5 text-right font-mono font-semibold text-slate-100">70.9%</td>
+                  <td class="py-1.5 text-right font-mono">24.1 °Bx</td>
+                  <td class="py-1.5 text-center font-semibold ibcs-green">Conforme</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Finca Altamira (San Carlos)</td>
+                  <td class="py-1.5 text-right font-mono">800,477</td>
+                  <td class="py-1.5 text-right font-mono font-semibold text-slate-100">70.8%</td>
+                  <td class="py-1.5 text-right font-mono">24.3 °Bx</td>
+                  <td class="py-1.5 text-center font-semibold ibcs-green">Conforme</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- SUITE 3 - PÁGINA 2: COSTOS FABRILES & ABSORCIÓN DE PLANTA -->
+      <!-- ========================================================================= -->
+      <div id="page-s3_p2" class="page-container space-y-4 hidden">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2 class="text-sm font-semibold text-slate-100">Estructura de Costos Fabriles & Absorción de Planta</h2>
+            <p class="text-[11px] text-slate-400">Desvío de costo estándar vs. costo unitario real absorbido por botella</p>
+          </div>
+          <span class="px-2.5 py-1 rounded text-[11px] font-mono badge-slate">Ahorro Unitario: -$0.74 / bot</span>
+        </div>
+
+        <div class="grid grid-cols-4 gap-3">
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Costo Unitario Real</div>
+            <div class="text-xl font-bold text-white mt-1">$84.96 / bot</div>
+            <div class="text-[10px] ibcs-green mt-0.5">Estándar: $85.70</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Costo Total de Molienda</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">$142.1M</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">CC-101 Molienda</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Costo de Fraccionamiento</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">$168.4M</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">CC-102 Línea Embotellado</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Costo Mantenimiento Planta</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">$89.2M</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">CC-103 Servicios Centrales</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-3">
+          <div class="col-span-7 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Desvío de Costo Fabril Unitario por Botella ($ ARS)</h3>
+              <span class="text-[10px] text-slate-400">Estándar vs. Real Absorbido</span>
+            </div>
+            <div class="h-60">
+              <canvas id="chartUnitCost_s3p2"></canvas>
+            </div>
+          </div>
+
+          <div class="col-span-5 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Desglose por Elemento del Costo</h3>
+              <span class="text-[10px] text-slate-400">Composición Unitario</span>
+            </div>
+            <table class="w-full text-left text-[11px]">
+              <thead>
+                <tr class="text-slate-400 border-b border-slate-800 pb-1">
+                  <th class="pb-1 font-medium">Componente</th>
+                  <th class="pb-1 text-right font-medium">Real</th>
+                  <th class="pb-1 text-right font-medium">Estándar</th>
+                  <th class="pb-1 text-right font-medium">Δ $</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/80">
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Materia Prima Uva</td>
+                  <td class="py-1.5 text-right font-mono">$36.80</td>
+                  <td class="py-1.5 text-right font-mono">$36.35</td>
+                  <td class="py-1.5 text-right font-mono ibcs-red">+$0.45</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Insumos Secos (Vidrio/Corcho)</td>
+                  <td class="py-1.5 text-right font-mono">$24.20</td>
+                  <td class="py-1.5 text-right font-mono">$24.75</td>
+                  <td class="py-1.5 text-right font-mono ibcs-green">-$0.55</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Mano de Obra Directa</td>
+                  <td class="py-1.5 text-right font-mono">$14.50</td>
+                  <td class="py-1.5 text-right font-mono">$15.32</td>
+                  <td class="py-1.5 text-right font-mono ibcs-green">-$0.82</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Costos Indirectos (CIF)</td>
+                  <td class="py-1.5 text-right font-mono">$9.46</td>
+                  <td class="py-1.5 text-right font-mono">$9.28</td>
+                  <td class="py-1.5 text-right font-mono ibcs-red">+$0.18</td>
+                </tr>
+                <tr class="font-bold border-t border-slate-700">
+                  <td class="py-1.5 text-slate-100">Costo Total Unitario</td>
+                  <td class="py-1.5 text-right font-mono text-emerald-400">$84.96</td>
+                  <td class="py-1.5 text-right font-mono">$85.70</td>
+                  <td class="py-1.5 text-right font-mono ibcs-green">-$0.74</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- SUITE 3 - PÁGINA 3: TRAZABILIDAD DE GUARDA & MERMAS -->
+      <!-- ========================================================================= -->
+      <div id="page-s3_p3" class="page-container space-y-4 hidden">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2 class="text-sm font-semibold text-slate-100">Trazabilidad de Guarda en Barricas & Monitoreo Técnico de Mermas</h2>
+            <p class="text-[11px] text-slate-400">Distribución patrimonial de stock ($207.96M) y control higrométrico de evaporación (ouillage)</p>
+          </div>
+          <span class="px-2.5 py-1 rounded text-[11px] font-mono badge-slate">Tasa de Merma: 3.14%</span>
+        </div>
+
+        <div class="grid grid-cols-4 gap-3">
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Stock Total Valuado</div>
+            <div class="text-xl font-bold text-white mt-1">$207.96M</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">En vasijas y cava de guarda</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Merma Evaporación Madera</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">3.14%</div>
+            <div class="text-[10px] ibcs-green mt-0.5">Límite Técnico: 3.50%</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Merma Línea Envasado</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">0.42%</div>
+            <div class="text-[10px] ibcs-green mt-0.5">Tolerancia: 0.50%</div>
+          </div>
+          <div class="card-panel p-3.5">
+            <div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Humedad Relativa Cava</div>
+            <div class="text-xl font-bold text-slate-100 mt-1">78.0% HR</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Control automático estable</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-3">
+          <div class="col-span-7 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Estructura y Trazabilidad del Stock de Guarda ($207.96M)</h3>
+              <span class="text-[10px] text-slate-400">Distribución por Tipo de Vasija</span>
+            </div>
+            <div class="h-60">
+              <canvas id="chartGuardaBar_s3p3"></canvas>
+            </div>
+          </div>
+
+          <div class="col-span-5 card-panel p-3.5">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-[11px] font-bold text-slate-200 uppercase tracking-wider">Protocolo de Guarda por Tipo de Roble</h3>
+              <span class="text-[10px] text-slate-400">Crianza y Relleno</span>
+            </div>
+            <table class="w-full text-left text-[11px]">
+              <thead>
+                <tr class="text-slate-400 border-b border-slate-800 pb-1">
+                  <th class="pb-1 font-medium">Vasija de Guarda</th>
+                  <th class="pb-1 text-right font-medium">Valor ($M)</th>
+                  <th class="pb-1 text-right font-medium">Merma</th>
+                  <th class="pb-1 text-right font-medium">Crianza</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/80">
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Piletas Acero Inox</td>
+                  <td class="py-1.5 text-right font-mono">$93.58M</td>
+                  <td class="py-1.5 text-right font-mono ibcs-green">0.20%</td>
+                  <td class="py-1.5 text-right text-slate-400">4.2 meses</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Roble Francés 225L</td>
+                  <td class="py-1.5 text-right font-mono">$48.20M</td>
+                  <td class="py-1.5 text-right font-mono ibcs-green">3.10%</td>
+                  <td class="py-1.5 text-right text-slate-400">14.5 meses</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Roble Americano 225L</td>
+                  <td class="py-1.5 text-right font-mono">$24.59M</td>
+                  <td class="py-1.5 text-right font-mono ibcs-green">3.25%</td>
+                  <td class="py-1.5 text-right text-slate-400">11.2 meses</td>
+                </tr>
+                <tr>
+                  <td class="py-1.5 text-slate-200 font-medium">Estiba en Cava</td>
+                  <td class="py-1.5 text-right font-mono">$41.59M</td>
+                  <td class="py-1.5 text-right font-mono ibcs-green">0.38%</td>
+                  <td class="py-1.5 text-right text-slate-400">8.0 meses</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- CONTROL DE NAVEGACION DE LAS 9 PÁGINAS Y GRAFICACION IBCS -->
+  <script>
+    let activeSuite = 's1';
+    let activePage = 's1_p1';
+    let chartsInitialized = {};
+
+    const IBCS_STYLE = {
+      gridColor: '#1A2332',
+      tickColor: '#94A3B8',
+      fontSize: 10,
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+    };
+
+    function switchSuite(suiteId) {
+      activeSuite = suiteId;
+      ['s1', 's2', 's3'].forEach(id => {
+        document.getElementById('tab-suite-' + id).className = 'px-5 py-2 text-xs font-medium transition-all tab-suite-inactive';
+        document.getElementById('subtabs-' + id).classList.add('hidden');
+      });
+
+      document.getElementById('tab-suite-' + suiteId).className = 'px-5 py-2 text-xs font-medium transition-all tab-suite-active';
+      document.getElementById('subtabs-' + suiteId).classList.remove('hidden');
+
+      // Ir a la primera página de la suite seleccionada
+      switchPage(suiteId + '_p1');
+    }
+
+    function switchPage(pageId) {
+      activePage = pageId;
+      document.querySelectorAll('.page-container').forEach(el => el.classList.add('hidden'));
+      
+      const targetPage = document.getElementById('page-' + pageId);
+      if (targetPage) {
+        targetPage.classList.remove('hidden');
+      }
+
+      // Actualizar estilo de subtabs
+      const prefix = pageId.split('_')[0];
+      ['p1', 'p2', 'p3'].forEach(p => {
+        const btnId = 'subtab-' + prefix + '_' + p;
+        const btn = document.getElementById(btnId);
+        if (btn) {
+          if (prefix + '_' + p === pageId) {
+            btn.className = 'px-3 py-1 text-[11px] font-medium rounded transition-all subtab-active';
+          } else {
+            btn.className = 'px-3 py-1 text-[11px] font-medium rounded transition-all subtab-inactive';
+          }
+        }
+      });
+
+      initChartsForPage(pageId);
+    }
+
+    function initChartsForPage(pId) {
+      if (chartsInitialized[pId]) return;
+
+      if (pId === 's1_p1') {
+        new Chart(document.getElementById('chartWaterfall_s1p1').getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['Margen Plan', 'Efecto Vol Puro', 'Efecto Mix', 'Efecto Precio', 'Efecto Costo', 'Margen Real'],
+            datasets: [{
+              data: [1078.6, -385.2, -24.5, 105.8, -6.1, 768.6],
+              backgroundColor: ['#475569', '#DC2626', '#DC2626', '#10B981', '#DC2626', '#722F37'],
+              borderRadius: 3
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { grid: { display: false }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } },
+              y: { grid: { color: IBCS_STYLE.gridColor }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } }
+            }
+          }
+        });
+
+        new Chart(document.getElementById('chartCashFlow_s1p1').getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['EBITDA', '(-) Impuestos', '(+/-) ΔNOF', '(-) CAPEX', 'FCFF Operativo'],
+            datasets: [{
+              data: [214.2, -42.8, -78.5, -35.0, 57.9],
+              backgroundColor: ['#475569', '#DC2626', '#DC2626', '#DC2626', '#10B981'],
+              borderRadius: 3
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { grid: { display: false }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 8.5 } } },
+              y: { grid: { color: IBCS_STYLE.gridColor }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } }
+            }
+          }
+        });
+      }
+
+      if (pId === 's1_p2') {
+        new Chart(document.getElementById('chartOpex_s1p2').getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['Molienda (CC101)', 'Fraccion. (CC102)', 'Mantenim. (CC103)', 'Comercial (CC201)', 'Admin. (CC301)'],
+            datasets: [
+              {
+                label: 'OPEX Real',
+                data: [142.1, 168.4, 89.2, 95.8, 58.9],
+                backgroundColor: '#334155',
+                borderRadius: 3
+              },
+              {
+                label: 'Presupuesto Target',
+                data: [138.0, 175.0, 82.5, 102.0, 60.5],
+                backgroundColor: '#64748B',
+                borderRadius: 3
+              }
+            ]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'top', labels: { color: IBCS_STYLE.tickColor, font: { size: 9 }, boxWidth: 10 } } },
+            scales: {
+              x: { grid: { color: IBCS_STYLE.gridColor }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } },
+              y: { grid: { display: false }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } }
+            }
+          }
+        });
+      }
+
+      if (pId === 's1_p3') {
+        new Chart(document.getElementById('chartCccMonthly_s1p3').getContext('2d'), {
+          type: 'line',
+          data: {
+            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            datasets: [
+              {
+                label: 'DIO (Inventario)',
+                data: [68, 79, 88, 85, 76, 73, 72, 70, 69, 71, 74, 73],
+                borderColor: '#64748B',
+                borderWidth: 1.5,
+                pointRadius: 2
+              },
+              {
+                label: 'CCC (Ciclo Neto)',
+                data: [58, 69, 78, 74, 66, 63, 62, 60, 59, 61, 64, 63],
+                borderColor: '#10B981',
+                borderWidth: 2,
+                pointRadius: 3
+              },
+              {
+                label: 'DSO (Cobro)',
+                data: [26, 25, 27, 26, 25, 25, 26, 25, 24, 25, 27, 26],
+                borderColor: '#2563EB',
+                borderWidth: 1.5,
+                pointRadius: 2
+              },
+              {
+                label: 'DPO (Pago)',
+                data: [36, 35, 37, 37, 35, 35, 36, 35, 34, 35, 37, 36],
+                borderColor: '#DC2626',
+                borderWidth: 1.5,
+                pointRadius: 2
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'top', labels: { color: IBCS_STYLE.tickColor, font: { size: 9 }, boxWidth: 10 } } },
+            scales: {
+              x: { grid: { display: false }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } },
+              y: { grid: { color: IBCS_STYLE.gridColor }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } }
+            }
+          }
+        });
+
+        new Chart(document.getElementById('chartNofComp_s1p3').getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['Cuentas por Cobrar', 'Inventarios', '(-) Cuentas por Pagar', 'NOF Total'],
+            datasets: [{
+              data: [103.5, 294.7, -156.6, 241.6],
+              backgroundColor: ['#1D4ED8', '#831843', '#0D9488', '#B45309'],
+              borderRadius: 3
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { grid: { display: false }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } },
+              y: { grid: { color: IBCS_STYLE.gridColor }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } }
+            }
+          }
+        });
+      }
+
+      if (pId === 's2_p1') {
+        new Chart(document.getElementById('chartCanalSales_s2p1').getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['Exportación FOB', 'Supermercados', 'Mayoristas', 'Canal Horeca'],
+            datasets: [
+              { label: 'Real', data: [458.1, 441.9, 387.2, 187.3], backgroundColor: '#722F37', borderRadius: 3 },
+              { label: 'Presupuesto', data: [490.0, 480.0, 410.0, 195.0], backgroundColor: '#475569', borderRadius: 3 }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'top', labels: { color: IBCS_STYLE.tickColor, font: { size: 9 }, boxWidth: 10 } } },
+            scales: {
+              x: { grid: { display: false }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } },
+              y: { grid: { color: IBCS_STYLE.gridColor }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } }
+            }
+          }
+        });
+
+        new Chart(document.getElementById('chartCanalMargin_s2p1').getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['Canal Horeca', 'Exportación FOB', 'Mayoristas', 'Supermercados'],
+            datasets: [{
+              data: [62.1, 58.4, 51.8, 46.2],
+              backgroundColor: ['#10B981', '#10B981', '#64748B', '#334155'],
+              borderRadius: 3
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { grid: { color: IBCS_STYLE.gridColor }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 }, callback: v => v + '%' } },
+              y: { grid: { display: false }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } }
+            }
+          }
+        });
+      }
+
+      if (pId === 's2_p2') {
+        new Chart(document.getElementById('chartScatter_s2p2').getContext('2d'), {
+          type: 'scatter',
+          data: {
+            datasets: [{
+              label: 'SKUs Clave',
+              data: [
+                { x: -8.2, y: 5.4 },
+                { x: -6.5, y: 4.8 },
+                { x: 4.5, y: -1.2 },
+                { x: -14.1, y: 2.1 },
+                { x: 2.3, y: 0.5 }
+              ],
+              backgroundColor: '#722F37',
+              borderColor: '#CBD5E1',
+              borderWidth: 1,
+              pointRadius: 6
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: {
+                title: { display: true, text: 'Δ Volumen Vendido (%)', color: IBCS_STYLE.tickColor, font: { size: 9 } },
+                grid: { color: IBCS_STYLE.gridColor },
+                ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 }, callback: v => v + '%' }
+              },
+              y: {
+                title: { display: true, text: 'Δ Precio Real vs Lista (%)', color: IBCS_STYLE.tickColor, font: { size: 9 } },
+                grid: { color: IBCS_STYLE.gridColor },
+                ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 }, callback: v => v + '%' }
+              }
+            }
+          }
+        });
+
+        new Chart(document.getElementById('chartRevenueWaterfall_s2p2').getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['Venta Bruta', '(-) Bonif. Super', '(-) Rebate Mayor.', '(-) Comis. Comex', 'Venta Neta', '(-) CMV Fabril', 'Margen Contrib.'],
+            datasets: [{
+              data: [1575.3, -52.1, -31.4, -17.3, 1474.5, -705.9, 768.6],
+              backgroundColor: ['#475569', '#DC2626', '#DC2626', '#DC2626', '#64748B', '#DC2626', '#722F37'],
+              borderRadius: 3
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { grid: { display: false }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 8 } } },
+              y: { grid: { color: IBCS_STYLE.gridColor }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } }
+            }
+          }
+        });
+      }
+
+      if (pId === 's2_p3') {
+        new Chart(document.getElementById('chartPareto_s2p3').getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['BIB 3L', 'Cabernet Res', 'Malbec Res', 'Chardonnay', 'Malbec Clásico'],
+            datasets: [
+              {
+                type: 'line',
+                label: '% Acumulado',
+                data: [32.9, 50.0, 70.6, 88.8, 100.0],
+                borderColor: '#10B981',
+                borderWidth: 2,
+                pointRadius: 3,
+                yAxisID: 'y1'
+              },
+              {
+                type: 'bar',
+                label: 'Facturación ($M)',
+                data: [484.6, 251.8, 305.0, 268.0, 165.1],
+                backgroundColor: '#334155',
+                borderRadius: 3,
+                yAxisID: 'y'
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'top', labels: { color: IBCS_STYLE.tickColor, font: { size: 9 }, boxWidth: 10 } } },
+            scales: {
+              x: { grid: { display: false }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } },
+              y: { grid: { color: IBCS_STYLE.gridColor }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } },
+              y1: { position: 'right', max: 100, grid: { display: false }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 }, callback: v => v + '%' } }
+            }
+          }
+        });
+      }
+
+      if (pId === 's3_p1') {
+        new Chart(document.getElementById('chartVendimia_s3p1').getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10'],
+            datasets: [
+              {
+                type: 'line',
+                label: 'Capacidad Máx. Semanal',
+                data: [600, 600, 600, 600, 600, 600, 600, 600, 600, 600],
+                borderColor: '#DC2626',
+                borderWidth: 1.5,
+                borderDash: [4, 4],
+                pointRadius: 0
+              },
+              {
+                label: 'Uva Ingresada (k kg)',
+                data: [280, 420, 560, 580, 595, 590, 540, 480, 360, 240],
+                backgroundColor: '#334155',
+                borderRadius: 2
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'top', labels: { color: IBCS_STYLE.tickColor, font: { size: 9 }, boxWidth: 10 } } },
+            scales: {
+              x: { grid: { display: false }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } },
+              y: { grid: { color: IBCS_STYLE.gridColor }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } }
+            }
+          }
+        });
+      }
+
+      if (pId === 's3_p2') {
+        new Chart(document.getElementById('chartUnitCost_s3p2').getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['Costo Estándar', 'Δ Eficiencia Extr.', 'Δ Tarifa Uva', 'Δ Insumos Secos', 'Δ Energía', 'Costo Real'],
+            datasets: [{
+              data: [85.70, -0.82, 0.45, -0.55, 0.18, 84.96],
+              backgroundColor: ['#475569', '#10B981', '#DC2626', '#10B981', '#DC2626', '#722F37'],
+              borderRadius: 3
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { grid: { display: false }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 8.5 } } },
+              y: { grid: { color: IBCS_STYLE.gridColor }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } }
+            }
+          }
+        });
+      }
+
+      if (pId === 's3_p3') {
+        new Chart(document.getElementById('chartGuardaBar_s3p3').getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['Piletas Inox', 'Roble Francés', 'Roble Americano', 'Estiba Cava'],
+            datasets: [{
+              label: 'Stock Valuado ($M)',
+              data: [93.58, 48.20, 24.59, 41.59],
+              backgroundColor: ['#334155', '#722F37', '#881337', '#475569'],
+              borderRadius: 3
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { grid: { color: IBCS_STYLE.gridColor }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } },
+              y: { grid: { display: false }, ticks: { color: IBCS_STYLE.tickColor, font: { size: 9 } } }
+            }
+          }
+        });
+      }
+
+      chartsInitialized[pId] = true;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      switchPage('s1_p1');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "name": "7643debd70466389ea1a",
+  "displayName": "Reset Filtros",
+  "options": {
+    "targetVisualNames": [],
+    "suppressDisplay": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "",
+    "sections": {
+      "p1_vendimia": {
+        "visualContainers": {
+          "slc_fca": {
+            "filters": {
+              "byExpr": []
+            }
+          },
+          "slc_mo": {
+            "filters": {
+              "byExpr": []
+            }
+          },
+          "slc_var": {
+            "filters": {
+              "byExpr": []
+            }
+          },
+          "slc_yr": {
+            "filters": {
+              "byExpr": []
+            }
+          }
+        }
+      },
+      "p2_costos": {
+        "visualContainers": {
+          "slc_ceco": {
+            "filters": {
+              "byExpr": []
+            }
+          },
+          "slc_mo": {
+            "filters": {
+              "byExpr": []
+            }
+          },
+          "slc_yr": {
+            "filters": {
+              "byExpr": []
+            }
+          }
+        }
+      },
+      "p3_mermas": {
+        "visualContainers": {
+          "slc_lin": {
+            "filters": {
+              "byExpr": []
+            }
+          },
+          "slc_sku": {
+            "filters": {
+              "byExpr": []
+            }
+          },
+          "slc_yr": {
+            "filters": {
+              "byExpr": []
+            }
+          }
+        }
+      }
+    },
+    "filters": {
+      "byExpr": []
+    }
+  }
+}

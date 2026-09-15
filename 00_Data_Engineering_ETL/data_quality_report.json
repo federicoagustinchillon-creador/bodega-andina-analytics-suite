@@ -1,0 +1,93 @@
+{
+  "pipeline_metadata": {
+    "empresa": "Bodega & Agroindustria Andina S.A.",
+    "pipeline": "ETL Curated Gold Layer Cleaner",
+    "autor": "Federico Agustin Chillon, UNCUYO",
+    "timestamp_ejecucion": "2026-09-14T18:44:19.138273",
+    "estado": "COMPLETADO_EXITOSAMENTE"
+  },
+  "tablas_procesadas": {
+    "dim_productos": {
+      "registros_leidos": 5,
+      "registros_curados": 5,
+      "inconsistencias_corregidas": 10,
+      "claves_huerfanas_detectadas": 0,
+      "claves_huerfanas_resueltas": 0,
+      "tasa_validez": "100.00%"
+    },
+    "dim_centros_costo": {
+      "registros_leidos": 7,
+      "registros_curados": 7,
+      "inconsistencias_corregidas": 8,
+      "claves_huerfanas_detectadas": 0,
+      "claves_huerfanas_resueltas": 0,
+      "tasa_validez": "100.00%"
+    },
+    "dim_cuentas_contables": {
+      "registros_leidos": 13,
+      "registros_curados": 13,
+      "inconsistencias_corregidas": 6,
+      "claves_huerfanas_detectadas": 0,
+      "claves_huerfanas_resueltas": 0,
+      "tasa_validez": "100.00%"
+    },
+    "dim_calendario": {
+      "registros_leidos": 0,
+      "registros_curados": 365,
+      "inconsistencias_corregidas": 0,
+      "claves_huerfanas_detectadas": 0,
+      "claves_huerfanas_resueltas": 0,
+      "tasa_validez": "100.00%"
+    },
+    "fact_ventas_reales": {
+      "registros_leidos": 1620,
+      "registros_curados": 1620,
+      "inconsistencias_corregidas": 2914,
+      "claves_huerfanas_detectadas": 2,
+      "claves_huerfanas_resueltas": 2,
+      "tasa_validez": "100.00%"
+    },
+    "fact_presupuesto_ventas": {
+      "registros_leidos": 11,
+      "registros_curados": 120,
+      "inconsistencias_corregidas": 9,
+      "claves_huerfanas_detectadas": 1,
+      "claves_huerfanas_resueltas": 1,
+      "tasa_validez": "100.00%"
+    },
+    "fact_opex_mensual": {
+      "registros_leidos": 85,
+      "registros_curados": 84,
+      "inconsistencias_corregidas": 58,
+      "claves_huerfanas_detectadas": 1,
+      "claves_huerfanas_resueltas": 1,
+      "tasa_validez": "100.00%"
+    },
+    "fact_capital_trabajo": {
+      "registros_leidos": 12,
+      "registros_curados": 12,
+      "inconsistencias_corregidas": 6,
+      "claves_huerfanas_detectadas": 0,
+      "claves_huerfanas_resueltas": 0,
+      "tasa_validez": "100.00%"
+    },
+    "fact_operaciones_planta": {
+      "registros_leidos": 350,
+      "registros_curados": 350,
+      "inconsistencias_corregidas": 617,
+      "claves_huerfanas_detectadas": 0,
+      "claves_huerfanas_resueltas": 0,
+      "tasa_validez": "100.00%"
+    }
+  },
+  "resumen_anomalias": {
+    "total_registros_leidos": 2103,
+    "total_registros_curados": 2576,
+    "total_inconsistencias_corregidas": 3628,
+    "total_claves_huerfanas_detectadas": 4,
+    "total_claves_huerfanas_resueltas": 4,
+    "tasa_integridad_referencial": "100.00%",
+    "tasa_validez": "100.00%",
+    "tiempo_ejecucion_segundos": 0.191
+  }
+}

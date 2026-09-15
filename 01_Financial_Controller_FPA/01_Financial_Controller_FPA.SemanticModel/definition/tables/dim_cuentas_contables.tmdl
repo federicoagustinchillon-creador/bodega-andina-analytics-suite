@@ -1,0 +1,45 @@
+table dim_cuentas_contables
+	lineageTag: 3183120b-ef04-4664-ae2b-c7108e8d38f4
+
+	column CuentaID
+		dataType: string
+		isKey
+		lineageTag: 411055fa-7b92-4319-86cd-977c2f53db6f
+		summarizeBy: none
+		sourceColumn: CuentaID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreCuenta
+		dataType: string
+		lineageTag: 07b03458-f351-4007-846a-22f4036feb7d
+		summarizeBy: none
+		sourceColumn: NombreCuenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column Naturaleza
+		dataType: string
+		lineageTag: 2a62cc9e-33cb-4976-a862-2bdfdf0d200d
+		summarizeBy: none
+		sourceColumn: Naturaleza
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rubro
+		dataType: string
+		lineageTag: 57f290d1-7b39-41a8-a117-111d0f0219e5
+		summarizeBy: none
+		sourceColumn: Rubro
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_cuentas_contables = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/dim_cuentas_contables.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"CuentaID", type text}, {"NombreCuenta", type text}, {"Naturaleza", type text}, {"Rubro", type text}}, "en-US")
+				in
+					Tipos

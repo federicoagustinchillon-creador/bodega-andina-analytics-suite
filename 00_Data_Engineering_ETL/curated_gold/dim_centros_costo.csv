@@ -1,0 +1,8 @@
+CentroCostoID,NombreCentroCosto,Area,Responsable
+CC-101,Elaboración y Molienda,Producción,Jefe de Enología
+CC-102,Fraccionamiento y Embalaje,Producción,Jefe de Planta
+CC-103,Mantenimiento y Servicios,Operaciones,Encargado de Mantenimiento
+CC-104,Logística y Despacho,Supply Chain,Jefe de Depósito
+CC-201,Administración y Finanzas,Soporte,Controller Financiero
+CC-202,Comercialización Mercado Interno,Ventas,Gerente Comercial MI
+CC-203,Comercio Exterior (Comex),Ventas,Gerente Comex

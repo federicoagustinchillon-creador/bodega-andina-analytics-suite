@@ -1,0 +1,241 @@
+DateKey,AnioMes,ProductoID,TipoVasija,Litros,ValorInventario,MermaPct,DIODias,EstadoCalidad
+20250101,2025-01,PRD-01,Piletas de Acero Inoxidable,16992.7,8332917.75,0.0081,60.4,Estabilizado
+20250101,2025-01,PRD-01,Barricas de Roble Frances,46231.0,34589939.69,0.0367,337.3,En Crianza
+20250101,2025-01,PRD-01,Barricas de Roble Americano,29548.6,18581965.43,0.0334,277.6,En Crianza
+20250101,2025-01,PRD-01,Botellero en Estiba Climatizada,21471.1,15448388.11,0.0019,147.2,Estiba Fina
+20250101,2025-01,PRD-02,Piletas de Acero Inoxidable,14110.5,7259313.28,0.0075,64.2,Estabilizado
+20250101,2025-01,PRD-02,Barricas de Roble Frances,37448.3,29124916.12,0.0396,347.2,En Crianza
+20250101,2025-01,PRD-02,Barricas de Roble Americano,19556.9,12724485.41,0.035,280.2,En Crianza
+20250101,2025-01,PRD-02,Botellero en Estiba Climatizada,15431.0,11660533.01,0.0022,156.8,Estiba Fina
+20250101,2025-01,PRD-03,Piletas de Acero Inoxidable,130107.6,21930905.74,0.0093,76.4,Aprobado Enologia
+20250101,2025-01,PRD-03,Barricas de Roble Frances,11645.1,4174769.49,0.033,159.4,En Crianza
+20250101,2025-01,PRD-03,Barricas de Roble Americano,38459.2,10077928.72,0.028,143.4,En Crianza
+20250101,2025-01,PRD-03,Botellero en Estiba Climatizada,28452.6,7205014.01,0.0025,75.1,Estiba Fina
+20250101,2025-01,PRD-04,Piletas de Acero Inoxidable,33327.7,11314080.92,0.0088,91.5,Estabilizado
+20250101,2025-01,PRD-04,Barricas de Roble Frances,10015.4,5720457.6,0.0316,184.6,En Crianza
+20250101,2025-01,PRD-04,Barricas de Roble Americano,2879.5,1207946.62,0.027,128.6,En Crianza
+20250101,2025-01,PRD-04,Botellero en Estiba Climatizada,21002.4,10933104.05,0.0015,218.1,Estiba Fina
+20250101,2025-01,PRD-05,Piletas de Acero Inoxidable,206710.8,15647353.26,0.0068,45.8,Aprobado Enologia
+20250101,2025-01,PRD-05,Barricas de Roble Frances,2877.5,529719.62,0.0309,93.3,En Crianza
+20250101,2025-01,PRD-05,Barricas de Roble Americano,11469.2,1517147.4,0.0273,76.0,En Crianza
+20250101,2025-01,PRD-05,Botellero en Estiba Climatizada,36974.8,3495461.36,0.0012,34.2,Estiba Fina
+20250201,2025-02,PRD-01,Piletas de Acero Inoxidable,22761.9,11141583.6,0.0079,58.4,Estabilizado
+20250201,2025-02,PRD-01,Barricas de Roble Frances,50323.1,38145095.53,0.0388,332.7,En Crianza
+20250201,2025-02,PRD-01,Barricas de Roble Americano,32366.7,20371436.84,0.0337,273.5,En Crianza
+20250201,2025-02,PRD-01,Botellero en Estiba Climatizada,23107.0,16934306.12,0.002,149.9,Estiba Fina
+20250201,2025-02,PRD-02,Piletas de Acero Inoxidable,18651.2,9643297.82,0.0072,63.5,Estabilizado
+20250201,2025-02,PRD-02,Barricas de Roble Frances,39276.9,31253535.67,0.0397,350.2,En Crianza
+20250201,2025-02,PRD-02,Barricas de Roble Americano,21599.4,13939159.69,0.0356,284.3,En Crianza
+20250201,2025-02,PRD-02,Botellero en Estiba Climatizada,16363.9,12475196.29,0.0022,156.7,Estiba Fina
+20250201,2025-02,PRD-03,Piletas de Acero Inoxidable,177615.8,30050745.98,0.0091,76.7,Aprobado Enologia
+20250201,2025-02,PRD-03,Barricas de Roble Frances,12893.6,4671619.41,0.0335,160.4,En Crianza
+20250201,2025-02,PRD-03,Barricas de Roble Americano,42986.8,11490326.26,0.0287,136.7,En Crianza
+20250201,2025-02,PRD-03,Botellero en Estiba Climatizada,30680.9,7775907.24,0.0026,76.6,Estiba Fina
+20250201,2025-02,PRD-04,Piletas de Acero Inoxidable,42398.4,14650825.48,0.0084,88.5,Estabilizado
+20250201,2025-02,PRD-04,Barricas de Roble Frances,10382.8,5878619.73,0.0325,178.1,En Crianza
+20250201,2025-02,PRD-04,Barricas de Roble Americano,3178.2,1364461.54,0.0277,133.7,En Crianza
+20250201,2025-02,PRD-04,Botellero en Estiba Climatizada,23337.0,12237592.55,0.0015,217.4,Estiba Fina
+20250201,2025-02,PRD-05,Piletas de Acero Inoxidable,270300.5,20310737.33,0.0071,45.0,Aprobado Enologia
+20250201,2025-02,PRD-05,Barricas de Roble Frances,3104.0,563889.92,0.0312,93.5,En Crianza
+20250201,2025-02,PRD-05,Barricas de Roble Americano,12475.3,1647216.25,0.0279,73.8,En Crianza
+20250201,2025-02,PRD-05,Botellero en Estiba Climatizada,39737.5,3865566.47,0.0012,35.5,Estiba Fina
+20250301,2025-03,PRD-01,Piletas de Acero Inoxidable,25703.9,12684127.41,0.0081,60.1,Estabilizado
+20250301,2025-03,PRD-01,Barricas de Roble Frances,57595.5,44678290.52,0.0375,323.8,En Crianza
+20250301,2025-03,PRD-01,Barricas de Roble Americano,35906.2,22858288.47,0.0352,262.2,En Crianza
+20250301,2025-03,PRD-01,Botellero en Estiba Climatizada,26416.0,19316185.53,0.002,147.1,Estiba Fina
+20250301,2025-03,PRD-02,Piletas de Acero Inoxidable,21768.4,11329700.32,0.0078,63.6,Estabilizado
+20250301,2025-03,PRD-02,Barricas de Roble Frances,46180.1,36457258.95,0.0417,357.9,En Crianza
+20250301,2025-03,PRD-02,Barricas de Roble Americano,24203.5,15938135.8,0.0367,280.9,En Crianza
+20250301,2025-03,PRD-02,Botellero en Estiba Climatizada,19228.5,14848497.17,0.0021,163.8,Estiba Fina
+20250301,2025-03,PRD-03,Piletas de Acero Inoxidable,205279.2,34822468.26,0.0089,74.3,Aprobado Enologia
+20250301,2025-03,PRD-03,Barricas de Roble Frances,14866.1,5545526.88,0.0335,162.7,En Crianza
+20250301,2025-03,PRD-03,Barricas de Roble Americano,49348.0,12974499.31,0.0283,143.3,En Crianza
+20250301,2025-03,PRD-03,Botellero en Estiba Climatizada,36191.6,9128630.19,0.0024,75.7,Estiba Fina
+20250301,2025-03,PRD-04,Piletas de Acero Inoxidable,49067.4,16909470.39,0.0085,91.0,Estabilizado
+20250301,2025-03,PRD-04,Barricas de Roble Frances,12343.1,7019478.38,0.0319,177.2,En Crianza
+20250301,2025-03,PRD-04,Barricas de Roble Americano,3642.9,1578324.06,0.0283,132.7,En Crianza
+20250301,2025-03,PRD-04,Botellero en Estiba Climatizada,26608.0,14197262.2,0.0015,218.3,Estiba Fina
+20250301,2025-03,PRD-05,Piletas de Acero Inoxidable,312537.3,23818515.18,0.0073,44.7,Aprobado Enologia
+20250301,2025-03,PRD-05,Barricas de Roble Frances,3747.0,693364.16,0.031,95.0,En Crianza
+20250301,2025-03,PRD-05,Barricas de Roble Americano,14756.5,1963944.34,0.0262,76.0,En Crianza
+20250301,2025-03,PRD-05,Botellero en Estiba Climatizada,45100.2,4324737.72,0.0012,34.3,Estiba Fina
+20250401,2025-04,PRD-01,Piletas de Acero Inoxidable,25387.0,12746958.47,0.0083,59.5,Estabilizado
+20250401,2025-04,PRD-01,Barricas de Roble Frances,55080.4,43180034.86,0.0338,339.2,En Crianza
+20250401,2025-04,PRD-01,Barricas de Roble Americano,36097.8,23341418.19,0.0305,268.1,En Crianza
+20250401,2025-04,PRD-01,Botellero en Estiba Climatizada,25789.0,19057012.92,0.0019,150.5,Estiba Fina
+20250401,2025-04,PRD-02,Piletas de Acero Inoxidable,21151.4,11197873.34,0.0075,63.4,Estabilizado
+20250401,2025-04,PRD-02,Barricas de Roble Frances,44945.0,36710815.88,0.035,350.4,En Crianza
+20250401,2025-04,PRD-02,Barricas de Roble Americano,23963.8,15941934.38,0.0325,283.4,En Crianza
+20250401,2025-04,PRD-02,Botellero en Estiba Climatizada,18302.5,14266127.02,0.0023,163.0,Estiba Fina
+20250401,2025-04,PRD-03,Piletas de Acero Inoxidable,196745.9,33917222.06,0.009,75.0,Aprobado Enologia
+20250401,2025-04,PRD-03,Barricas de Roble Frances,14322.5,5345034.37,0.0295,162.8,En Crianza
+20250401,2025-04,PRD-03,Barricas de Roble Americano,47957.3,12805362.86,0.0257,136.6,En Crianza
+20250401,2025-04,PRD-03,Botellero en Estiba Climatizada,34695.3,8826768.59,0.0025,75.2,Estiba Fina
+20250401,2025-04,PRD-04,Piletas de Acero Inoxidable,47784.5,16812314.38,0.0082,87.5,Estabilizado
+20250401,2025-04,PRD-04,Barricas de Roble Frances,11949.7,6877005.04,0.0272,180.2,En Crianza
+20250401,2025-04,PRD-04,Barricas de Roble Americano,3575.6,1536595.38,0.0252,126.8,En Crianza
+20250401,2025-04,PRD-04,Botellero en Estiba Climatizada,24775.9,13308245.47,0.0015,221.8,Estiba Fina
+20250401,2025-04,PRD-05,Piletas de Acero Inoxidable,307032.1,24103533.07,0.007,44.5,Aprobado Enologia
+20250401,2025-04,PRD-05,Barricas de Roble Frances,3580.1,660467.21,0.0269,92.6,En Crianza
+20250401,2025-04,PRD-05,Barricas de Roble Americano,13777.1,1873989.62,0.0246,75.9,En Crianza
+20250401,2025-04,PRD-05,Botellero en Estiba Climatizada,43576.7,4230386.52,0.0012,34.5,Estiba Fina
+20250501,2025-05,PRD-01,Piletas de Acero Inoxidable,19713.4,9904283.98,0.0081,59.2,Estabilizado
+20250501,2025-05,PRD-01,Barricas de Roble Frances,60971.9,47897499.63,0.0341,332.2,En Crianza
+20250501,2025-05,PRD-01,Barricas de Roble Americano,37110.2,23747563.2,0.0306,274.2,En Crianza
+20250501,2025-05,PRD-01,Botellero en Estiba Climatizada,23698.3,17540900.0,0.0019,145.9,Estiba Fina
+20250501,2025-05,PRD-02,Piletas de Acero Inoxidable,16678.8,8900484.9,0.0075,63.4,Estabilizado
+20250501,2025-05,PRD-02,Barricas de Roble Frances,47176.2,38238876.91,0.0351,348.6,En Crianza
+20250501,2025-05,PRD-02,Barricas de Roble Americano,24713.9,16506742.38,0.0323,272.4,En Crianza
+20250501,2025-05,PRD-02,Botellero en Estiba Climatizada,17553.3,13926514.22,0.0022,163.4,Estiba Fina
+20250501,2025-05,PRD-03,Piletas de Acero Inoxidable,154163.6,26186966.99,0.0087,75.6,Aprobado Enologia
+20250501,2025-05,PRD-03,Barricas de Roble Frances,14551.2,5461988.36,0.03,160.7,En Crianza
+20250501,2025-05,PRD-03,Barricas de Roble Americano,49402.2,13415777.73,0.0259,140.4,En Crianza
+20250501,2025-05,PRD-03,Botellero en Estiba Climatizada,33851.1,8771212.7,0.0026,76.8,Estiba Fina
+20250501,2025-05,PRD-04,Piletas de Acero Inoxidable,37655.9,13143105.98,0.0082,87.4,Estabilizado
+20250501,2025-05,PRD-04,Barricas de Roble Frances,12168.1,7125608.87,0.027,178.0,En Crianza
+20250501,2025-05,PRD-04,Barricas de Roble Americano,3790.3,1631924.87,0.0256,128.3,En Crianza
+20250501,2025-05,PRD-04,Botellero en Estiba Climatizada,23824.3,12960225.36,0.0015,225.0,Estiba Fina
+20250501,2025-05,PRD-05,Piletas de Acero Inoxidable,243175.0,19140339.6,0.0069,44.1,Aprobado Enologia
+20250501,2025-05,PRD-05,Barricas de Roble Frances,3772.7,712750.5,0.0281,94.5,En Crianza
+20250501,2025-05,PRD-05,Barricas de Roble Americano,14808.6,2018725.1,0.0237,76.9,En Crianza
+20250501,2025-05,PRD-05,Botellero en Estiba Climatizada,42703.8,4210147.93,0.0012,35.5,Estiba Fina
+20250601,2025-06,PRD-01,Piletas de Acero Inoxidable,18772.0,9557106.9,0.008,61.2,Estabilizado
+20250601,2025-06,PRD-01,Barricas de Roble Frances,57538.4,45761810.7,0.0337,320.3,En Crianza
+20250601,2025-06,PRD-01,Barricas de Roble Americano,37023.5,23761424.35,0.0306,277.3,En Crianza
+20250601,2025-06,PRD-01,Botellero en Estiba Climatizada,24187.3,18290978.03,0.002,149.5,Estiba Fina
+20250601,2025-06,PRD-02,Piletas de Acero Inoxidable,15795.0,8398718.61,0.0076,66.0,Estabilizado
+20250601,2025-06,PRD-02,Barricas de Roble Frances,46634.9,38452450.67,0.0348,349.9,En Crianza
+20250601,2025-06,PRD-02,Barricas de Roble Americano,23656.8,15890665.27,0.0319,286.5,En Crianza
+20250601,2025-06,PRD-02,Botellero en Estiba Climatizada,17075.0,13443660.54,0.0021,162.5,Estiba Fina
+20250601,2025-06,PRD-03,Piletas de Acero Inoxidable,149840.5,25600366.9,0.0087,75.9,Aprobado Enologia
+20250601,2025-06,PRD-03,Barricas de Roble Frances,14205.1,5411048.47,0.0295,156.0,En Crianza
+20250601,2025-06,PRD-03,Barricas de Roble Americano,47379.6,13098468.82,0.0257,138.9,En Crianza
+20250601,2025-06,PRD-03,Botellero en Estiba Climatizada,32760.5,8698416.4,0.0026,76.1,Estiba Fina
+20250601,2025-06,PRD-04,Piletas de Acero Inoxidable,37009.6,13022486.13,0.0087,90.3,Estabilizado
+20250601,2025-06,PRD-04,Barricas de Roble Frances,12050.2,7158233.78,0.0271,179.9,En Crianza
+20250601,2025-06,PRD-04,Barricas de Roble Americano,3540.1,1556745.42,0.0241,127.0,En Crianza
+20250601,2025-06,PRD-04,Botellero en Estiba Climatizada,23202.0,12700761.1,0.0015,221.1,Estiba Fina
+20250601,2025-06,PRD-05,Piletas de Acero Inoxidable,239489.3,18753196.42,0.0069,46.0,Aprobado Enologia
+20250601,2025-06,PRD-05,Barricas de Roble Frances,3578.6,684448.29,0.0259,97.7,En Crianza
+20250601,2025-06,PRD-05,Barricas de Roble Americano,14183.6,1955048.7,0.0241,77.2,En Crianza
+20250601,2025-06,PRD-05,Botellero en Estiba Climatizada,39986.9,3987527.74,0.0012,35.0,Estiba Fina
+20250701,2025-07,PRD-01,Piletas de Acero Inoxidable,18931.7,9652452.82,0.008,60.5,Estabilizado
+20250701,2025-07,PRD-01,Barricas de Roble Frances,57264.4,45899221.25,0.0328,325.7,En Crianza
+20250701,2025-07,PRD-01,Barricas de Roble Americano,36442.6,24139046.37,0.0309,271.9,En Crianza
+20250701,2025-07,PRD-01,Botellero en Estiba Climatizada,22973.4,17303706.59,0.002,148.7,Estiba Fina
+20250701,2025-07,PRD-02,Piletas de Acero Inoxidable,15740.6,8369867.97,0.0078,66.9,Estabilizado
+20250701,2025-07,PRD-02,Barricas de Roble Frances,45591.3,37593307.4,0.0355,356.6,En Crianza
+20250701,2025-07,PRD-02,Barricas de Roble Americano,23979.5,16042273.29,0.0331,285.4,En Crianza
+20250701,2025-07,PRD-02,Botellero en Estiba Climatizada,17276.0,13958914.77,0.0022,159.2,Estiba Fina
+20250701,2025-07,PRD-03,Piletas de Acero Inoxidable,149465.4,26328851.72,0.0087,72.9,Aprobado Enologia
+20250701,2025-07,PRD-03,Barricas de Roble Frances,14167.9,5436248.71,0.0301,156.6,En Crianza
+20250701,2025-07,PRD-03,Barricas de Roble Americano,47743.7,13061669.97,0.027,142.9,En Crianza
+20250701,2025-07,PRD-03,Botellero en Estiba Climatizada,32215.9,8497009.66,0.0025,74.0,Estiba Fina
+20250701,2025-07,PRD-04,Piletas de Acero Inoxidable,35763.7,12981096.46,0.0087,92.7,Estabilizado
+20250701,2025-07,PRD-04,Barricas de Roble Frances,12175.0,7211780.93,0.0286,184.8,En Crianza
+20250701,2025-07,PRD-04,Barricas de Roble Americano,3626.3,1596146.1,0.0249,127.1,En Crianza
+20250701,2025-07,PRD-04,Botellero en Estiba Climatizada,23759.4,13088318.78,0.0015,222.3,Estiba Fina
+20250701,2025-07,PRD-05,Piletas de Acero Inoxidable,231257.9,18237690.52,0.0068,45.5,Aprobado Enologia
+20250701,2025-07,PRD-05,Barricas de Roble Frances,3567.6,683669.42,0.027,97.0,En Crianza
+20250701,2025-07,PRD-05,Barricas de Roble Americano,14293.0,1965730.11,0.0247,74.6,En Crianza
+20250701,2025-07,PRD-05,Botellero en Estiba Climatizada,39393.7,3896108.8,0.0012,35.3,Estiba Fina
+20250801,2025-08,PRD-01,Piletas de Acero Inoxidable,18311.0,9271264.92,0.0078,58.3,Estabilizado
+20250801,2025-08,PRD-01,Barricas de Roble Frances,54539.9,43640244.39,0.0337,328.8,En Crianza
+20250801,2025-08,PRD-01,Barricas de Roble Americano,35038.0,23008645.75,0.031,274.6,En Crianza
+20250801,2025-08,PRD-01,Botellero en Estiba Climatizada,22271.4,17124164.22,0.0021,154.0,Optimo
+20250801,2025-08,PRD-02,Piletas de Acero Inoxidable,14838.5,8155009.68,0.0075,64.1,Estabilizado
+20250801,2025-08,PRD-02,Barricas de Roble Frances,43413.5,36548595.27,0.036,346.4,En Crianza
+20250801,2025-08,PRD-02,Barricas de Roble Americano,23048.7,15572888.42,0.0309,273.8,En Crianza
+20250801,2025-08,PRD-02,Botellero en Estiba Climatizada,15978.8,12786162.86,0.0021,161.4,Optimo
+20250801,2025-08,PRD-03,Piletas de Acero Inoxidable,138737.6,24244001.65,0.0093,74.9,Aprobado Enologia
+20250801,2025-08,PRD-03,Barricas de Roble Frances,13852.7,5253976.73,0.0283,155.6,En Crianza
+20250801,2025-08,PRD-03,Barricas de Roble Americano,45034.0,12375454.75,0.0253,136.5,En Crianza
+20250801,2025-08,PRD-03,Botellero en Estiba Climatizada,29948.9,7957033.83,0.0024,74.4,Optimo
+20250801,2025-08,PRD-04,Piletas de Acero Inoxidable,35251.0,12825241.5,0.0082,91.6,Estabilizado
+20250801,2025-08,PRD-04,Barricas de Roble Frances,11521.2,6778657.69,0.0288,184.5,En Crianza
+20250801,2025-08,PRD-04,Barricas de Roble Americano,3359.0,1491022.25,0.0256,131.9,En Crianza
+20250801,2025-08,PRD-04,Botellero en Estiba Climatizada,22034.1,12084726.94,0.0015,219.8,Optimo
+20250801,2025-08,PRD-05,Piletas de Acero Inoxidable,222849.9,17713487.1,0.007,45.7,Aprobado Enologia
+20250801,2025-08,PRD-05,Barricas de Roble Frances,3354.8,637739.43,0.0275,97.3,En Crianza
+20250801,2025-08,PRD-05,Barricas de Roble Americano,13745.6,1903123.1,0.0232,74.8,En Crianza
+20250801,2025-08,PRD-05,Botellero en Estiba Climatizada,38731.9,3884773.45,0.0012,34.7,Optimo
+20250901,2025-09,PRD-01,Piletas de Acero Inoxidable,17357.2,8883648.79,0.0078,59.4,Estabilizado
+20250901,2025-09,PRD-01,Barricas de Roble Frances,47991.5,39037222.8,0.0343,333.5,Optimo
+20250901,2025-09,PRD-01,Barricas de Roble Americano,31018.1,20614906.52,0.03,270.6,En Crianza
+20250901,2025-09,PRD-01,Botellero en Estiba Climatizada,27115.6,21083008.08,0.002,146.6,Optimo
+20250901,2025-09,PRD-02,Piletas de Acero Inoxidable,14659.8,7981884.79,0.0076,65.3,Estabilizado
+20250901,2025-09,PRD-02,Barricas de Roble Frances,38450.9,32620364.62,0.0363,344.5,Optimo
+20250901,2025-09,PRD-02,Barricas de Roble Americano,19978.1,13563831.48,0.0313,274.3,En Crianza
+20250901,2025-09,PRD-02,Botellero en Estiba Climatizada,19327.5,15644980.83,0.0021,163.8,Optimo
+20250901,2025-09,PRD-03,Piletas de Acero Inoxidable,135416.9,23970154.57,0.0089,77.2,Aprobado Enologia
+20250901,2025-09,PRD-03,Barricas de Roble Frances,11993.2,4614232.74,0.0301,163.5,Optimo
+20250901,2025-09,PRD-03,Barricas de Roble Americano,41414.3,11459157.91,0.0253,141.4,En Crianza
+20250901,2025-09,PRD-03,Botellero en Estiba Climatizada,37606.4,10095677.77,0.0025,74.0,Optimo
+20250901,2025-09,PRD-04,Piletas de Acero Inoxidable,35046.0,12653639.06,0.0084,89.6,Estabilizado
+20250901,2025-09,PRD-04,Barricas de Roble Frances,10195.9,6073502.91,0.0271,181.2,Optimo
+20250901,2025-09,PRD-04,Barricas de Roble Americano,3025.3,1365430.74,0.0243,129.9,En Crianza
+20250901,2025-09,PRD-04,Botellero en Estiba Climatizada,27042.4,14871834.17,0.0015,215.2,Optimo
+20250901,2025-09,PRD-05,Piletas de Acero Inoxidable,212614.8,17345494.71,0.0069,45.8,Aprobado Enologia
+20250901,2025-09,PRD-05,Barricas de Roble Frances,3020.1,585931.66,0.0276,95.5,Optimo
+20250901,2025-09,PRD-05,Barricas de Roble Americano,12213.0,1697502.27,0.0237,76.9,En Crianza
+20250901,2025-09,PRD-05,Botellero en Estiba Climatizada,47404.5,4895024.23,0.0012,35.5,Optimo
+20251001,2025-10,PRD-01,Piletas de Acero Inoxidable,17824.3,9151753.81,0.0077,60.9,Estabilizado
+20251001,2025-10,PRD-01,Barricas de Roble Frances,48159.5,39409228.96,0.033,335.8,Optimo
+20251001,2025-10,PRD-01,Barricas de Roble Americano,29540.6,19580795.3,0.0302,275.1,En Crianza
+20251001,2025-10,PRD-01,Botellero en Estiba Climatizada,26697.9,20774652.39,0.002,153.4,Optimo
+20251001,2025-10,PRD-02,Piletas de Acero Inoxidable,14456.8,8038436.03,0.0075,64.5,Estabilizado
+20251001,2025-10,PRD-02,Barricas de Roble Frances,37913.9,31748357.57,0.0367,350.1,Optimo
+20251001,2025-10,PRD-02,Barricas de Roble Americano,19724.3,13796863.39,0.0317,280.7,En Crianza
+20251001,2025-10,PRD-02,Botellero en Estiba Climatizada,19649.0,16188010.14,0.0021,164.2,Optimo
+20251001,2025-10,PRD-03,Piletas de Acero Inoxidable,136526.2,24208471.56,0.0087,76.3,Aprobado Enologia
+20251001,2025-10,PRD-03,Barricas de Roble Frances,12067.2,4696437.07,0.0299,162.8,Optimo
+20251001,2025-10,PRD-03,Barricas de Roble Americano,39287.6,10969645.85,0.0255,142.0,En Crianza
+20251001,2025-10,PRD-03,Botellero en Estiba Climatizada,35265.8,9541730.2,0.0026,76.7,Optimo
+20251001,2025-10,PRD-04,Piletas de Acero Inoxidable,33647.2,12474328.29,0.0082,91.9,Estabilizado
+20251001,2025-10,PRD-04,Barricas de Roble Frances,9809.8,5914685.31,0.0287,176.2,Optimo
+20251001,2025-10,PRD-04,Barricas de Roble Americano,2958.2,1350786.34,0.0254,131.1,En Crianza
+20251001,2025-10,PRD-04,Botellero en Estiba Climatizada,26736.0,15034182.75,0.0015,218.0,Optimo
+20251001,2025-10,PRD-05,Piletas de Acero Inoxidable,209786.2,17200902.32,0.007,44.7,Aprobado Enologia
+20251001,2025-10,PRD-05,Barricas de Roble Frances,2993.1,589666.31,0.0263,95.5,Optimo
+20251001,2025-10,PRD-05,Barricas de Roble Americano,11998.7,1690250.21,0.0231,76.7,En Crianza
+20251001,2025-10,PRD-05,Botellero en Estiba Climatizada,46725.0,4803352.43,0.0012,35.9,Optimo
+20251101,2025-11,PRD-01,Piletas de Acero Inoxidable,16931.6,8750187.55,0.008,60.4,Estabilizado
+20251101,2025-11,PRD-01,Barricas de Roble Frances,45924.3,37740045.76,0.0352,338.4,Optimo
+20251101,2025-11,PRD-01,Barricas de Roble Americano,28741.2,19162711.55,0.0322,275.5,En Crianza
+20251101,2025-11,PRD-01,Botellero en Estiba Climatizada,17982.1,14264303.0,0.0021,150.2,Optimo
+20251101,2025-11,PRD-02,Piletas de Acero Inoxidable,14028.7,7760659.42,0.0072,64.4,Estabilizado
+20251101,2025-11,PRD-02,Barricas de Roble Frances,37047.8,30973010.28,0.0355,347.9,Optimo
+20251101,2025-11,PRD-02,Barricas de Roble Americano,19243.9,13568693.3,0.0316,277.4,En Crianza
+20251101,2025-11,PRD-02,Botellero en Estiba Climatizada,13486.3,11135566.42,0.0022,159.5,Optimo
+20251101,2025-11,PRD-03,Piletas de Acero Inoxidable,127999.5,22755386.28,0.009,74.6,Aprobado Enologia
+20251101,2025-11,PRD-03,Barricas de Roble Frances,11763.9,4588662.99,0.0292,161.3,Optimo
+20251101,2025-11,PRD-03,Barricas de Roble Americano,37480.8,10654586.19,0.0253,143.9,En Crianza
+20251101,2025-11,PRD-03,Botellero en Estiba Climatizada,24551.0,6660768.12,0.0024,77.2,Optimo
+20251101,2025-11,PRD-04,Piletas de Acero Inoxidable,32588.6,12089671.4,0.0082,91.3,Estabilizado
+20251101,2025-11,PRD-04,Barricas de Roble Frances,9464.7,5835515.64,0.0273,176.7,Optimo
+20251101,2025-11,PRD-04,Barricas de Roble Americano,2814.4,1284990.51,0.0251,126.6,En Crianza
+20251101,2025-11,PRD-04,Botellero en Estiba Climatizada,18578.5,10496242.77,0.0015,219.2,Optimo
+20251101,2025-11,PRD-05,Piletas de Acero Inoxidable,203803.7,16660137.16,0.0068,44.1,Aprobado Enologia
+20251101,2025-11,PRD-05,Barricas de Roble Frances,2933.3,582145.7,0.0267,93.7,Optimo
+20251101,2025-11,PRD-05,Barricas de Roble Americano,11607.8,1637312.01,0.0231,73.5,En Crianza
+20251101,2025-11,PRD-05,Botellero en Estiba Climatizada,31995.8,3322853.14,0.0012,34.4,Optimo
+20251201,2025-12,PRD-01,Piletas de Acero Inoxidable,15857.9,8385544.61,0.0077,58.6,Estabilizado
+20251201,2025-12,PRD-01,Barricas de Roble Frances,44880.7,36536162.11,0.0385,324.8,Optimo
+20251201,2025-12,PRD-01,Barricas de Roble Americano,27082.5,18261307.56,0.0353,275.8,En Crianza
+20251201,2025-12,PRD-01,Botellero en Estiba Climatizada,17868.2,14056662.14,0.002,147.3,Optimo
+20251201,2025-12,PRD-02,Piletas de Acero Inoxidable,13256.5,7497956.95,0.0072,63.4,Estabilizado
+20251201,2025-12,PRD-02,Barricas de Roble Frances,34494.3,29069631.71,0.0393,351.7,Optimo
+20251201,2025-12,PRD-02,Barricas de Roble Americano,18351.6,13024186.85,0.0368,277.3,En Crianza
+20251201,2025-12,PRD-02,Botellero en Estiba Climatizada,12630.2,10482480.69,0.0022,157.8,Optimo
+20251201,2025-12,PRD-03,Piletas de Acero Inoxidable,125796.1,22687142.98,0.009,74.7,Aprobado Enologia
+20251201,2025-12,PRD-03,Barricas de Roble Frances,10940.8,4374878.57,0.0332,156.5,Optimo
+20251201,2025-12,PRD-03,Barricas de Roble Americano,37526.9,10689633.23,0.03,142.5,En Crianza
+20251201,2025-12,PRD-03,Botellero en Estiba Climatizada,23880.4,6449491.81,0.0025,75.2,Optimo
+20251201,2025-12,PRD-04,Piletas de Acero Inoxidable,31463.6,11639435.83,0.0083,91.8,Estabilizado
+20251201,2025-12,PRD-04,Barricas de Roble Frances,9435.1,5795350.04,0.0305,177.5,Optimo
+20251201,2025-12,PRD-04,Barricas de Roble Americano,2697.1,1256959.99,0.0271,130.6,En Crianza
+20251201,2025-12,PRD-04,Botellero en Estiba Climatizada,17379.4,9920966.43,0.0015,224.4,Optimo
+20251201,2025-12,PRD-05,Piletas de Acero Inoxidable,193576.2,15678533.14,0.0068,46.1,Aprobado Enologia
+20251201,2025-12,PRD-05,Barricas de Roble Frances,2815.3,557025.49,0.0305,95.9,Optimo
+20251201,2025-12,PRD-05,Barricas de Roble Americano,10875.0,1568733.57,0.0267,74.5,En Crianza
+20251201,2025-12,PRD-05,Botellero en Estiba Climatizada,30390.7,3121273.89,0.0012,35.5,Optimo
