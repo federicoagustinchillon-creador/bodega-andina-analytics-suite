@@ -12,9 +12,14 @@ DESCRIPCION: Pipeline determinista de extraccion, limpieza, unpivot dinámico,
 import os
 import json
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 import numpy as np
 import pandas as pd
+
+# Cuanto calendario futuro se pre-genera mas alla del ultimo dato observado,
+# para que una carga incremental diaria/periodica no quede sin fecha en
+# dim_calendario hasta la proxima corrida completa del pipeline.
+CALENDARIO_PADDING_DIAS_FUTURO = 120
 
 # Rutas absolutas del pipeline
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -55,6 +60,40 @@ def parse_date_robust(date_val):
         return dt.date()
     except Exception:
         return None
+
+
+def escanear_rango_fechas_observado(raw_dir):
+    """
+    Recorre las fuentes transaccionales crudas (ventas, OPEX, remitos de planta,
+    capital de trabajo) y devuelve (fecha_minima, fecha_maxima) realmente
+    presentes en los datos. dim_calendario se genera a partir de este rango
+    -- nunca de un anio fiscal hardcodeado -- para que agregar dias, meses o
+    anios nuevos a las fuentes crudas nunca deje transacciones sin fecha
+    correspondiente en el calendario.
+    """
+    fuentes = [
+        ("raw_sap_vbrk_vbrp_ventas.csv", "FKDAT"),
+        ("raw_gastos_opex.csv", "FECHA_ASIENTO"),
+        ("raw_planta_molienda_remitos.csv", "FECHA_PESAJE"),
+        ("raw_balance_capital_trabajo.csv", "Periodo_Mes"),
+    ]
+    fechas = []
+    for filename, date_col in fuentes:
+        path = os.path.join(raw_dir, filename)
+        if not os.path.exists(path):
+            continue
+        df = pd.read_csv(path)
+        if date_col not in df.columns:
+            continue
+        parsed = df[date_col].apply(parse_date_robust)
+        fechas.extend(parsed.dropna().tolist())
+
+    if not fechas:
+        # Fallback defensivo: nunca deberia ocurrir con las fuentes esperadas presentes.
+        hoy = datetime.now().date()
+        return hoy, hoy
+
+    return min(fechas), max(fechas)
 
 
 def clean_currency_or_number(val):
@@ -226,8 +265,16 @@ def run_etl():
     # =========================================================================
     # PASO 4: DIMENSION CALENDARIO
     # =========================================================================
-    # Generacion integral de 365 dias para el anio fiscal 2025
-    fechas_calendario = pd.date_range(start="2025-01-01", end="2025-12-31", freq="D")
+    # El rango se deriva de las fechas realmente presentes en las fuentes
+    # transaccionales (no de un anio fiscal hardcodeado), extendido con
+    # CALENDARIO_PADDING_DIAS_FUTURO dias hacia adelante. Asi, una carga
+    # incremental diaria o periodica que agregue transacciones mas recientes
+    # sigue encontrando su fecha en dim_calendario sin necesitar regenerar
+    # el calendario en cada corrida.
+    fecha_min_observada, fecha_max_observada = escanear_rango_fechas_observado(RAW_DIR)
+    fecha_inicio_calendario = datetime(fecha_min_observada.year, 1, 1).date()
+    fecha_fin_calendario = fecha_max_observada + timedelta(days=CALENDARIO_PADDING_DIAS_FUTURO)
+    fechas_calendario = pd.date_range(start=fecha_inicio_calendario, end=fecha_fin_calendario, freq="D")
     df_cal = pd.DataFrame({"dt": fechas_calendario})
     df_cal["DateKey"] = df_cal["dt"].dt.strftime("%Y%m%d").astype(int)
     df_cal["Fecha"] = df_cal["dt"].dt.strftime("%Y-%m-%d")
