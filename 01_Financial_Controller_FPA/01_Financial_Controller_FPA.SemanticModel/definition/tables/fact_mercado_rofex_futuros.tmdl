@@ -1,0 +1,75 @@
+table fact_mercado_rofex_futuros
+	lineageTag: ea1de74b-0aa2-4a54-90a3-e784100548d6
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a184dbb-e104-4c76-a12b-fc440c4ef698
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipoCambioSpotA3500
+		dataType: double
+		formatString: $#,##0.00
+		lineageTag: 458bc2f5-5d54-4f33-9a4b-302901276ad9
+		summarizeBy: average
+		sourceColumn: TipoCambioSpotA3500
+
+		annotation SummarizationSetBy = Automatic
+
+	column FuturoRofex1M
+		dataType: double
+		formatString: $#,##0.00
+		lineageTag: 61d38b35-34dd-44db-91d2-873e71d5fac1
+		summarizeBy: average
+		sourceColumn: FuturoRofex1M
+
+		annotation SummarizationSetBy = Automatic
+
+	column FuturoRofex3M
+		dataType: double
+		formatString: $#,##0.00
+		lineageTag: ce79e050-823d-4b8e-a523-772d3fdc27c0
+		summarizeBy: average
+		sourceColumn: FuturoRofex3M
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiasVencimiento1M
+		dataType: int64
+		formatString: 0
+		lineageTag: bed20679-666c-42f5-8f6b-50cdc7c09b6b
+		summarizeBy: none
+		sourceColumn: DiasVencimiento1M
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiasVencimiento3M
+		dataType: int64
+		formatString: 0
+		lineageTag: ca967f01-dabb-4764-984f-9cf911c7d4e4
+		summarizeBy: none
+		sourceColumn: DiasVencimiento3M
+
+		annotation SummarizationSetBy = Automatic
+
+	column TasaLecapReferenciaTNA
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 5305863c-907f-475c-90e4-90fbf5d7b30e
+		summarizeBy: average
+		sourceColumn: TasaLecapReferenciaTNA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_mercado_rofex_futuros = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/fact_mercado_rofex_futuros.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"DateKey", Int64.Type}, {"TipoCambioSpotA3500", type number}, {"FuturoRofex1M", type number}, {"FuturoRofex3M", type number}, {"DiasVencimiento1M", Int64.Type}, {"DiasVencimiento3M", Int64.Type}, {"TasaLecapReferenciaTNA", type number}}, "en-US")
+				in
+					Tipos

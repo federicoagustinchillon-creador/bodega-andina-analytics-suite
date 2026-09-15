@@ -37,3 +37,15 @@ relationship rel_opex_cuentas
 relationship rel_capital_calendario
 	fromColumn: fact_capital_trabajo.DateKey
 	toColumn: dim_calendario.DateKey
+
+relationship rel_rofex_calendario
+	fromColumn: fact_mercado_rofex_futuros.DateKey
+	toColumn: dim_calendario.DateKey
+
+relationship rel_cobranzas_calendario
+	fromColumn: fact_cobranzas_exportacion_usd.DateKeyEmbarque
+	toColumn: dim_calendario.DateKey
+
+relationship rel_cobranzas_productos
+	fromColumn: fact_cobranzas_exportacion_usd.ProductoID
+	toColumn: dim_productos.ProductoID

@@ -1,8 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "nav_next",
+  "name": "nav_prev",
   "position": {
-    "x": 1208,
+    "x": 1146,
     "y": 12,
     "width": 58,
     "height": 38,
@@ -29,7 +29,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sig. ›'"
+                  "Value": "'‹ Ant.'"
                 }
               }
             },
@@ -207,7 +207,7 @@
             "navigationSection": {
               "expr": {
                 "Literal": {
-                  "Value": "'p4_tesoreria'"
+                  "Value": "'p3_flujo'"
                 }
               }
             }
@@ -225,7 +225,7 @@
             "navigationSection": {
               "expr": {
                 "Literal": {
-                  "Value": "'p4_tesoreria'"
+                  "Value": "'p3_flujo'"
                 }
               }
             }

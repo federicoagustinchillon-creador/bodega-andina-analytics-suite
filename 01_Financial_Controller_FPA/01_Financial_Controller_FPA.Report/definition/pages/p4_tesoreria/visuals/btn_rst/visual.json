@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "nav_next",
+  "name": "btn_rst",
   "position": {
-    "x": 1208,
-    "y": 12,
-    "width": 58,
-    "height": 38,
-    "z": 500,
-    "tabOrder": 900
+    "x": 18,
+    "y": 302,
+    "width": 160,
+    "height": 34,
+    "z": 3,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "actionButton",
@@ -29,7 +29,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sig. ›'"
+                  "Value": "'Restablecer Filtros'"
                 }
               }
             },
@@ -41,7 +41,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "8.5D"
                 }
               }
             },
@@ -200,14 +200,7 @@
             "type": {
               "expr": {
                 "Literal": {
-                  "Value": "'PageNavigation'"
-                }
-              }
-            },
-            "navigationSection": {
-              "expr": {
-                "Literal": {
-                  "Value": "'p4_tesoreria'"
+                  "Value": "'ClearAllSlicers'"
                 }
               }
             }
@@ -218,14 +211,14 @@
             "type": {
               "expr": {
                 "Literal": {
-                  "Value": "'PageNavigation'"
+                  "Value": "'Bookmark'"
                 }
               }
             },
-            "navigationSection": {
+            "bookmark": {
               "expr": {
                 "Literal": {
-                  "Value": "'p4_tesoreria'"
+                  "Value": "'66179b00e7f8aa27e319'"
                 }
               }
             }
