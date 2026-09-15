@@ -2,6 +2,16 @@ table _Medidas_Operaciones
 	lineageTag: d3b25446-cdc1-4fb0-9d4a-01b7d86b3916
 
 
+	measure 'Latitud Finca' = AVERAGE(fact_operaciones_planta[Latitud])
+		formatString: 0.0000
+		displayFolder: 01 Eficiencia y Recepcion Vendimia\Geolocalizacion
+		lineageTag: 9c1f3a2b-6e4d-4a8f-8b2c-1d5e7f9a3b4c
+
+	measure 'Longitud Finca' = AVERAGE(fact_operaciones_planta[Longitud])
+		formatString: 0.0000
+		displayFolder: 01 Eficiencia y Recepcion Vendimia\Geolocalizacion
+		lineageTag: 3e8d2c1a-5f7b-4d9e-a1c3-2b6a8e0f4d7e
+
 	measure 'Total Kilos Uva' = SUM(fact_operaciones_planta[KilosEntrada])
 		formatString: #,##0
 		displayFolder: 01 Eficiencia y Recepcion Vendimia

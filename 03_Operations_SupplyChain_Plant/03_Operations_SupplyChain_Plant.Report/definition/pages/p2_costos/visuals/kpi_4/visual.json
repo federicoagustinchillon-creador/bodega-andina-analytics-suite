@@ -28,7 +28,7 @@
                 }
               },
               "nativeQueryRef": "Eficiencia de Planta %",
-              "displayName": "Eficiencia de Planta (%)"
+              "displayName": "Cumplimiento Presupuestario (%)"
             }
           ]
         }
@@ -98,7 +98,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Eficiencia de Planta (%)'"
+                  "Value": "'Cumplimiento Presupuestario (%)'"
                 }
               }
             },

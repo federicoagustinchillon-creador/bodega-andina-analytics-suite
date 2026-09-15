@@ -10,7 +10,7 @@
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "map",
+    "visualType": "azureMap",
     "query": {
       "queryState": {
         "Latitude": {
@@ -108,10 +108,40 @@
           ]
         },
         "X": {
-          "projections": []
+          "projections": [
+            {
+              "queryRef": "_Medidas_Operaciones.Longitud Finca",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Longitud Finca"
+                }
+              },
+              "nativeQueryRef": "Longitud Finca"
+            }
+          ]
         },
         "Y": {
-          "projections": []
+          "projections": [
+            {
+              "queryRef": "_Medidas_Operaciones.Latitud Finca",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Latitud Finca"
+                }
+              },
+              "nativeQueryRef": "Latitud Finca"
+            }
+          ]
         }
       }
     },
@@ -579,6 +609,26 @@
               "expr": {
                 "Literal": {
                   "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "mapStyles": [
+        {
+          "properties": {
+            "mapTheme": {
+              "expr": {
+                "Literal": {
+                  "Value": "'canvasDark'"
+                }
+              }
+            },
+            "showLabels": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
