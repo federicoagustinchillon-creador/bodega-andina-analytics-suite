@@ -5,7 +5,7 @@
     "x": 196,
     "y": 158,
     "width": 1073,
-    "height": 60,
+    "height": 68,
     "z": 2,
     "tabOrder": 0
   },
@@ -72,7 +72,18 @@
             },
             "color": {
               "solid": {
-                "color": "#1E2638"
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas_Tesoreria"
+                        }
+                      },
+                      "Property": "Color Recomendacion Cobertura"
+                    }
+                  }
+                }
               }
             },
             "radius": {
@@ -189,6 +200,35 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas_Tesoreria"
+                        }
+                      },
+                      "Property": "Color Recomendacion Cobertura"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
         }
       ],
       "categoryLabels": [
@@ -237,11 +277,6 @@
                 "Literal": {
                   "Value": "true"
                 }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": "#1E2638"
               }
             },
             "radius": {

@@ -239,6 +239,15 @@
       "dataPoint": [
         {
           "properties": {
+            "defaultColor": {
+              "solid": {
+                "color": "#60A5FA"
+              }
+            }
+          }
+        },
+        {
+          "properties": {
             "fill": {
               "solid": {
                 "color": "#3B82F6"
@@ -277,7 +286,7 @@
           "properties": {
             "fill": {
               "solid": {
-                "color": "#1D4ED8"
+                "color": "#60A5FA"
               }
             }
           },
