@@ -113,7 +113,17 @@ table _Medidas_Comercial
 		displayFolder: 02 Precios, Costos y Margen
 		lineageTag: b2c3d4e5-2222-3333-4444-000200010009
 
-	measure 'Ventas Acumuladas %' = VAR VentasActual = [Ingresos Reales] VAR TotalVentas = CALCULATE([Ingresos Reales], ALLSELECTED(dim_productos)) VAR Acum = SUMX(FILTER(ALLSELECTED(dim_productos[SKU]), [Ingresos Reales] >= VentasActual), [Ingresos Reales]) RETURN DIVIDE(Acum, TotalVentas, 0)
+	measure 'Ventas Acumuladas %' =
+		VAR TablaRanking =
+			ADDCOLUMNS(
+			    SUMMARIZE(ALLSELECTED(dim_productos), dim_productos[SKU]),
+			    "@Ingresos", CALCULATE([Ingresos Reales])
+			)
+		VAR VentasActual = [Ingresos Reales]
+		VAR TotalVentas = CALCULATE([Ingresos Reales], ALLSELECTED(dim_productos))
+		VAR Acum = SUMX(FILTER(TablaRanking, [@Ingresos] >= VentasActual), [@Ingresos])
+		RETURN
+		    DIVIDE(Acum, TotalVentas, 0)
 		formatString: 0.00%
 		displayFolder: 03 Pareto y Cartera ABC
 		lineageTag: c3d4e5f6-3333-4444-5555-000300010001
