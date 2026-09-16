@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Estacionalidad (STL) y forecasting (SARIMA) sobre la demanda domestica agregada
-de vino (fact_ventas_reales.csv, canales domesticos, 2021-2025).
+de vino (Ventas.csv, canales domesticos, 2021-2025).
 
 Funciones separadas y reusables -- el notebook final importa este modulo, no
 reimplementa nada aca. La descomposicion STL se delega 100% a
@@ -9,7 +9,7 @@ reimplementa nada aca. La descomposicion STL se delega 100% a
 
 Validacion vs sinteticos: `indice_estacional_inv_2024.csv` (consumo domestico
 real de vino en Argentina, INV 2024) fue la referencia usada para CALIBRAR la
-estacionalidad de las ventas sinteticas en fact_ventas_reales.csv. Por lo tanto
+estacionalidad de las ventas sinteticas en Ventas.csv. Por lo tanto
 recuperar ese mismo patron via STL es una validacion de que la metodologia
 (STL) funciona -- NO es evidencia de negocio independiente. Ver docstring de
 `comparar_con_indice_real`.
@@ -31,7 +31,7 @@ from seasonality import descomponer_estacional
 # Paths (todos relativos a la raiz del proyecto Portfolio_Empresarial_PowerBI)
 # ---------------------------------------------------------------------------
 ROOT = Path(__file__).resolve().parents[2]
-FACT_VENTAS_PATH = ROOT / "Ingenieria_de_Datos" / "curated_gold" / "fact_ventas_reales.csv"
+FACT_VENTAS_PATH = ROOT / "01_Limpieza_de_Datos" / "curated_gold" / "Ventas.csv"
 INDICE_REAL_PATH = ROOT / "Analisis_Econometrico" / "data" / "real" / "indice_estacional_inv_2024.csv"
 OUTPUTS_DIR = ROOT / "Analisis_Econometrico" / "outputs"
 
@@ -46,7 +46,7 @@ def construir_serie_mensual_domestica(
     canal_excluido: str = CANAL_EXCLUIDO,
 ) -> pd.Series:
     """
-    Agrega fact_ventas_reales.csv por mes calendario (sum(VolumenReal)),
+    Agrega Ventas.csv por mes calendario (sum(VolumenReal)),
     excluyendo el canal de exportacion (demanda domestica agregada).
 
     Devuelve pd.Series indexada por DatetimeIndex mensual (freq='MS'),
@@ -80,7 +80,7 @@ def comparar_con_indice_real(
 
     IMPORTANTE (honestidad metodologica): este indice real NO es un target
     independiente -- fue la referencia con la que se calibro la estacionalidad
-    sintetica de fact_ventas_reales.csv. Una correlacion alta aca confirma que
+    sintetica de Ventas.csv. Una correlacion alta aca confirma que
     STL recupera correctamente el patron que se inyecto (validacion de
     tecnica), no que el patron estacional sea un hallazgo de negocio nuevo.
 
@@ -105,7 +105,7 @@ def comparar_con_indice_real(
         "tabla_mes_a_mes": tabla.reset_index().to_dict(orient="records"),
         "nota_metodologica": (
             "El indice real INV2024 fue la referencia usada para calibrar la estacionalidad "
-            "sintetica de fact_ventas_reales.csv. Esta comparacion valida que STL recupera el "
+            "sintetica de Ventas.csv. Esta comparacion valida que STL recupera el "
             "patron inyectado (validacion de metodo), no es evidencia de negocio independiente."
         ),
     }

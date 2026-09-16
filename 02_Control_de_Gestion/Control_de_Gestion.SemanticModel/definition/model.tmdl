@@ -1,0 +1,31 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: es-AR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["RutaDatos","Calendario","CentrosCosto","PlanCuentas","Productos","PresupuestoVentas","Ventas","GastosOperativos","CapitalTrabajo","MercadoCambiario","CobranzasExportacion"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Calendario
+ref table CentrosCosto
+ref table PlanCuentas
+ref table Productos
+ref table PresupuestoVentas
+ref table Ventas
+ref table GastosOperativos
+ref table CapitalTrabajo
+ref table DesgloseCascada
+ref table MercadoCambiario
+ref table CobranzasExportacion
+ref table _Medidas_Controller
+ref table _Medidas_Tesoreria
+
+ref cultureInfo en-US
+

@@ -1,0 +1,120 @@
+table Ventas
+	lineageTag: 63694665-4b37-4830-8d78-66de117c233c
+
+	column TransaccionID
+		dataType: string
+		isKey
+		lineageTag: 7ee8854a-bda1-4f62-bd7d-07d6c6a3fbeb
+		summarizeBy: none
+		sourceColumn: TransaccionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 65abe049-5e2a-4ee6-96e3-0a6e057e595d
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 1fd83dd0-ed61-47d5-84b7-366fa05e4691
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ProductoID
+		dataType: string
+		lineageTag: cf49bc35-b4f8-4165-b646-549573c12c39
+		summarizeBy: none
+		sourceColumn: ProductoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CentroCostoID
+		dataType: string
+		lineageTag: 367f824f-abe2-4a8c-8e11-8fc262dd9c20
+		summarizeBy: none
+		sourceColumn: CentroCostoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column VolumenReal
+		dataType: int64
+		formatString: #,##0
+		lineageTag: 1c25acc3-8c72-4144-928e-752e587544a3
+		summarizeBy: sum
+		sourceColumn: VolumenReal
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrecioRealUnit
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: 58c40bff-d955-4e3d-83f9-2612651deeb9
+		summarizeBy: average
+		sourceColumn: PrecioRealUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostoRealUnit
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: e2750dc4-00e2-4f20-8c84-1a10ebfe70c5
+		summarizeBy: average
+		sourceColumn: CostoRealUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column IngresosReales
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: 33b46b4e-6e95-4342-8a96-9238e170bba3
+		summarizeBy: sum
+		sourceColumn: IngresosReales
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostoReal
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: e9be3bc5-1e17-418d-b2d2-cbc74875ea86
+		summarizeBy: sum
+		sourceColumn: CostoReal
+
+		annotation SummarizationSetBy = Automatic
+
+	column MargenBrutoReal
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: 66712619-7e80-4968-a2a1-b3af8946910f
+		summarizeBy: sum
+		sourceColumn: MargenBrutoReal
+
+		annotation SummarizationSetBy = Automatic
+
+	column CanalVenta
+		dataType: string
+		lineageTag: 039e6a9e-73d7-4f03-992c-30659924b97e
+		summarizeBy: none
+		sourceColumn: CanalVenta
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Ventas = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/Ventas.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"TransaccionID", type text}, {"DateKey", Int64.Type}, {"Fecha", type date}, {"ProductoID", type text}, {"CentroCostoID", type text}, {"VolumenReal", Int64.Type}, {"PrecioRealUnit", type number}, {"CostoRealUnit", type number}, {"IngresosReales", type number}, {"CostoReal", type number}, {"MargenBrutoReal", type number}, {"CanalVenta", type text}}, "en-US")
+				in
+					Tipos
+

@@ -93,7 +93,7 @@
       "diferencia_absoluta": 0.0046529404490417425
     }
   ],
-  "nota_metodologica": "El indice real INV2024 fue la referencia usada para calibrar la estacionalidad sintetica de fact_ventas_reales.csv. Esta comparacion valida que STL recupera el patron inyectado (validacion de metodo), no es evidencia de negocio independiente.",
+  "nota_metodologica": "El indice real INV2024 fue la referencia usada para calibrar la estacionalidad sintetica de Ventas.csv. Esta comparacion valida que STL recupera el patron inyectado (validacion de metodo), no es evidencia de negocio independiente.",
   "trend": {
     "2021-01-01": 157185.71,
     "2021-02-01": 157557.06,

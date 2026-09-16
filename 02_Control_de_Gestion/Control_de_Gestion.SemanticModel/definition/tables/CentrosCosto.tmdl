@@ -1,0 +1,46 @@
+table CentrosCosto
+	lineageTag: 76d8c34a-6520-4e36-95ae-c0e48b889aba
+
+	column CentroCostoID
+		dataType: string
+		isKey
+		lineageTag: 7a848b71-fbf0-49b9-945d-6cfd6198a443
+		summarizeBy: none
+		sourceColumn: CentroCostoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreCentroCosto
+		dataType: string
+		lineageTag: cf7be9cf-966c-4297-ae6b-e90a7749f882
+		summarizeBy: none
+		sourceColumn: NombreCentroCosto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Area
+		dataType: string
+		lineageTag: c627c8cb-79f0-4a53-9579-5f698fd2ae01
+		summarizeBy: none
+		sourceColumn: Area
+
+		annotation SummarizationSetBy = Automatic
+
+	column Responsable
+		dataType: string
+		lineageTag: 981dbdde-8788-41c4-8132-0e866fa96ebf
+		summarizeBy: none
+		sourceColumn: Responsable
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CentrosCosto = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/CentrosCosto.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"CentroCostoID", type text}, {"NombreCentroCosto", type text}, {"Area", type text}, {"Responsable", type text}}, "en-US")
+				in
+					Tipos
+

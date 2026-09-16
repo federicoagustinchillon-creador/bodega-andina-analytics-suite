@@ -17,10 +17,10 @@ A diferencia de los modelos monolíticos tradicionales —que concentran decenas
 
 ```
 Portfolio_Empresarial_PowerBI/
-├── Ingenieria_de_Datos/          # Ingestion, Limpieza en Python, Calidad 100% y DDL/Vistas SQL
-├── Control_de_Gestion/      # P&L Cascada, Centros de Costo SAP CO-CCA, Liquidez y Capital de Trabajo
-├── Inteligencia_Comercial/ # Rentabilidad Multicanal, Precios vs Lista, Curva de Pareto 80/20
-├── Operaciones_y_Planta/  # Eficiencia Enológica, Costos Fabriles de Absorción, Mermas y Crianza
+├── 01_Limpieza_de_Datos/          # Ingestion, Limpieza en Python, Calidad 100% y DDL/Vistas SQL
+├── 02_Control_de_Gestion/      # P&L Cascada, Centros de Costo SAP CO-CCA, Liquidez y Capital de Trabajo
+├── 03_Inteligencia_Comercial/ # Rentabilidad Multicanal, Precios vs Lista, Curva de Pareto 80/20
+├── 04_Operaciones_y_Planta/  # Eficiencia Enológica, Costos Fabriles de Absorción, Mermas y Crianza
 ├── tools/                            # Scripts de auditoria automatizada anti-hardcodes y verificacion
 └── sync_all_suites.py                # Orquestador maestro y sincronizacion a Google Drive Master
 ```
@@ -45,16 +45,16 @@ Una bodega de alta gama no gana dinero únicamente vendiendo vino; lo gana contr
 ### Nivel 2: Arquitectura Institucional y Estructura ERP
 El flujo de datos se estructura bajo el estándar de **Star Schema (Esquema en Estrella)**:
 - **Tablas de Hechos (Facts):** Contienen los eventos cuantitativos del negocio transaccional:
-  * `fact_ventas_reales`: Facturación granular sincronizada desde SAP SD (`VBRP/VBRK`).
-  * `fact_presupuesto_ventas`: Metas mensuales y anuales acordadas por el Directorio.
-  * `fact_opex_mensual`: Gastos operativos reales vs. plan por Centro de Costo (SAP CO-CCA).
-  * `fact_capital_trabajo`: Saldos patrimoniales de balance (CxC, Inventarios, CxP) y ratios de rotación.
-  * `fact_operaciones_planta`: Remitos de báscula de vendimia, pesajes y grados Brix.
+  * `Ventas`: Facturación granular sincronizada desde SAP SD (`VBRP/VBRK`).
+  * `PresupuestoVentas`: Metas mensuales y anuales acordadas por el Directorio.
+  * `GastosOperativos`: Gastos operativos reales vs. plan por Centro de Costo (SAP CO-CCA).
+  * `CapitalTrabajo`: Saldos patrimoniales de balance (CxC, Inventarios, CxP) y ratios de rotación.
+  * `ProduccionPlanta`: Remitos de báscula de vendimia, pesajes y grados Brix.
 - **Tablas de Dimensiones (Dimensions):** Proveen el contexto analítico y filtrado:
-  * `dim_calendario`: Dimensión temporal estructurada con granularidad diaria y orden cronológico.
-  * `dim_productos`: Maestro de SKUs, líneas enológicas y costos estándar.
-  * `dim_centros_costo`: Estructura jerárquica de centros de responsabilidad operativa.
-  * `dim_cuentas_contables`: Plan de cuentas corporativo estructurado por rubro de gasto.
+  * `Calendario`: Dimensión temporal estructurada con granularidad diaria y orden cronológico.
+  * `Productos`: Maestro de SKUs, líneas enológicas y costos estándar.
+  * `CentrosCosto`: Estructura jerárquica de centros de responsabilidad operativa.
+  * `PlanCuentas`: Plan de cuentas corporativo estructurado por rubro de gasto.
 
 ### Nivel 3: Primeros Principios Matemáticos
 
@@ -93,7 +93,7 @@ $$\text{Grados Brix Ponderados} = \frac{\sum (Brix_k \times Kilos_k)}{\sum Kilos
 ```dax
 Efecto Volumen EV = 
 SUMX(
-    VALUES(dim_productos[ProductoID]),
+    VALUES(Productos[ProductoID]),
     VAR VolReal = [Volumen Real]
     VAR VolPlan = [Volumen Presupuesto]
     VAR MargenUnitPlan = [Margen Bruto Unitario Presupuesto]
@@ -102,7 +102,7 @@ SUMX(
 
 Efecto Precio EP = 
 SUMX(
-    VALUES(dim_productos[ProductoID]),
+    VALUES(Productos[ProductoID]),
     VAR VolReal = [Volumen Real]
     VAR PrecioReal = [Precio Promedio Real]
     VAR PrecioPlan = [Precio Promedio Presupuestado]
@@ -111,7 +111,7 @@ SUMX(
 
 Efecto Costo EC = 
 SUMX(
-    VALUES(dim_productos[ProductoID]),
+    VALUES(Productos[ProductoID]),
     VAR VolReal = [Volumen Real]
     VAR CostoPlan = [Costo Unitario Presupuestado]
     VAR CostoReal = [Costo Unitario Real]
@@ -171,9 +171,9 @@ ROUND([Desvio Margen Bruto Total] - ([Efecto Volumen EV] + [Efecto Precio EP] + 
 
 1. **Requisitos:** Microsoft Power BI Desktop (edición 2024 o superior) con la opción de vista previa **Power BI Project (`.pbip`)** habilitada en `Opciones -> Características de versión preliminar`.
 2. **Apertura de Proyectos:**
-   - Para abrir la suite financiera: doble clic en `Control_de_Gestion/Control_de_Gestion.pbip`.
-   - Para abrir la suite comercial: doble clic en `Inteligencia_Comercial/Inteligencia_Comercial.pbip`.
-   - Para abrir la suite de planta: doble clic en `Operaciones_y_Planta/Operaciones_y_Planta.pbip`.
+   - Para abrir la suite financiera: doble clic en `02_Control_de_Gestion/Control_de_Gestion.pbip`.
+   - Para abrir la suite comercial: doble clic en `03_Inteligencia_Comercial/Inteligencia_Comercial.pbip`.
+   - Para abrir la suite de planta: doble clic en `04_Operaciones_y_Planta/Operaciones_y_Planta.pbip`.
 3. **Parámetro de Datos Portable (`RutaDatos`):**
    Todos los modelos leen los datos limpios mediante el parámetro `RutaDatos` configurado en `expressions.tmdl`. Si se reubica la carpeta, basta con ir a `Inicio -> Transformar datos -> Editar parámetros` e ingresar la nueva ruta a `curated_gold`.
 

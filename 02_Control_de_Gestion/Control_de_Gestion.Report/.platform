@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Control de Gestion"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8da5531b-421f-4cd0-bd55-5c161e526be0"
+  }
+}

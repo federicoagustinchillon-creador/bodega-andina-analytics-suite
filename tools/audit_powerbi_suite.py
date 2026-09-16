@@ -18,9 +18,9 @@ import re
 
 PORTFOLIO_DIR = r"c:\Users\fedea\Downloads\cv\Portfolio_Empresarial_PowerBI"
 PROJECTS = [
-    "Control_de_Gestion",
-    "Inteligencia_Comercial",
-    "Operaciones_y_Planta"
+    "02_Control_de_Gestion",
+    "03_Inteligencia_Comercial",
+    "04_Operaciones_y_Planta"
 ]
 
 def run_suite_audit():

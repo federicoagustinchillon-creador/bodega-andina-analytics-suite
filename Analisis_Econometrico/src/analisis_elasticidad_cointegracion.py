@@ -28,8 +28,8 @@ SRC_DIR = Path(__file__).resolve().parent
 BASE_DIR = SRC_DIR.parent  # Analisis_Econometrico
 PROJECT_ROOT = BASE_DIR.parent  # Portfolio_Empresarial_PowerBI
 
-FACT_VENTAS_PATH = PROJECT_ROOT / "Ingenieria_de_Datos" / "curated_gold" / "fact_ventas_reales.csv"
-DIM_PRODUCTOS_PATH = PROJECT_ROOT / "Ingenieria_de_Datos" / "curated_gold" / "dim_productos.csv"
+FACT_VENTAS_PATH = PROJECT_ROOT / "01_Limpieza_de_Datos" / "curated_gold" / "Ventas.csv"
+DIM_PRODUCTOS_PATH = PROJECT_ROOT / "01_Limpieza_de_Datos" / "curated_gold" / "Productos.csv"
 FX_PATH = BASE_DIR / "data" / "real" / "fx_mensual_2021_2025.csv"
 IPC_PATH = BASE_DIR / "data" / "real" / "ipc_mensual_2021_2025.csv"
 

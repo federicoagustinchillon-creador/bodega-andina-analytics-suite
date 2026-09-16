@@ -1,0 +1,102 @@
+table CapitalTrabajo
+	lineageTag: c01e2b95-4639-47b3-82e1-4faeb793cc58
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 39e03788-5e14-4b14-825f-7b4ed47c7375
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnioMes
+		dataType: string
+		lineageTag: d81787aa-c431-4450-9429-e825726e9e9c
+		summarizeBy: none
+		sourceColumn: AnioMes
+
+		annotation SummarizationSetBy = Automatic
+
+	column CuentasPorCobrar
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: 3414d413-95b3-4d08-ba2b-b5a514d8375a
+		summarizeBy: sum
+		sourceColumn: CuentasPorCobrar
+
+		annotation SummarizationSetBy = Automatic
+
+	column CuentasPorPagar
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: 53aff40e-24d1-4908-8b65-ab199072f50d
+		summarizeBy: sum
+		sourceColumn: CuentasPorPagar
+
+		annotation SummarizationSetBy = Automatic
+
+	column Inventario
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: 2d7c7c91-8d4b-44ca-848e-df0144cd693b
+		summarizeBy: sum
+		sourceColumn: Inventario
+
+		annotation SummarizationSetBy = Automatic
+
+	column DSO_DiasCobro
+		dataType: double
+		formatString: #,##0.0
+		lineageTag: 5acf4456-0346-445f-88e7-672c3c8239c7
+		summarizeBy: average
+		sourceColumn: DSO_DiasCobro
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIO_DiasInventario
+		dataType: double
+		formatString: #,##0.0
+		lineageTag: f76ead00-79d8-4e2b-b622-d559a340fcc1
+		summarizeBy: average
+		sourceColumn: DIO_DiasInventario
+
+		annotation SummarizationSetBy = Automatic
+
+	column DPO_DiasPago
+		dataType: double
+		formatString: #,##0.0
+		lineageTag: e35bce2c-f52c-4d24-9de5-9a9375006a29
+		summarizeBy: average
+		sourceColumn: DPO_DiasPago
+
+		annotation SummarizationSetBy = Automatic
+
+	column CicloConversionEfectivo_CCC
+		dataType: double
+		formatString: #,##0.0
+		lineageTag: bc00424f-2306-4d9a-8bdc-0001d94ed8ff
+		summarizeBy: average
+		sourceColumn: CicloConversionEfectivo_CCC
+
+		annotation SummarizationSetBy = Automatic
+
+	column NecesidadOperativaFondos_NOF
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: f727342b-9517-4251-af8c-27242846c6fc
+		summarizeBy: sum
+		sourceColumn: NecesidadOperativaFondos_NOF
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CapitalTrabajo = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/CapitalTrabajo.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"DateKey", Int64.Type}, {"AnioMes", type text}, {"CuentasPorCobrar", type number}, {"CuentasPorPagar", type number}, {"Inventario", type number}, {"DSO_DiasCobro", type number}, {"DIO_DiasInventario", type number}, {"DPO_DiasPago", type number}, {"CicloConversionEfectivo_CCC", type number}, {"NecesidadOperativaFondos_NOF", type number}}, "en-US")
+				in
+					Tipos
+

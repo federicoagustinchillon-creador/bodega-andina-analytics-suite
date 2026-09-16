@@ -3,11 +3,11 @@ name: Business Value Tests
 on:
   push:
     paths:
-      - "Ingenieria_de_Datos/**"
+      - "01_Limpieza_de_Datos/**"
       - "Analisis_Econometrico/**"
   pull_request:
     paths:
-      - "Ingenieria_de_Datos/**"
+      - "01_Limpieza_de_Datos/**"
       - "Analisis_Econometrico/**"
   workflow_dispatch:
 
@@ -25,7 +25,7 @@ jobs:
         run: pip install pytest -r Analisis_Econometrico/requirements.txt
 
       - name: Regenerate curated_gold from raw data
-        working-directory: Ingenieria_de_Datos
+        working-directory: 01_Limpieza_de_Datos
         run: |
           python generar_datos_historicos_ventas.py
           python generar_presupuesto_2025.py
@@ -39,4 +39,4 @@ jobs:
           python src/exportar_resultados_powerbi.py
 
       - name: Business-value sanity tests
-        run: python -m pytest Ingenieria_de_Datos/tests/ -v
+        run: python -m pytest 01_Limpieza_de_Datos/tests/ -v

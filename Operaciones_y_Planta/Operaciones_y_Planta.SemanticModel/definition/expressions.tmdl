@@ -1,6 +1,0 @@
-/// Carpeta de datos curados en capa Gold para Operaciones y Planta.
-expression RutaDatos = "c:/Users/fedea/Downloads/cv/Portfolio_Empresarial_PowerBI/Ingenieria_de_Datos/curated_gold" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
-	lineageTag: 1bc300af-4a46-49ea-968c-6f891739acac
-
-	annotation PBI_ResultType = Text
-

@@ -1,0 +1,32 @@
+relationship rel_operaciones_calendario
+	fromColumn: ProduccionPlanta.DateKey
+	toColumn: Calendario.DateKey
+
+relationship rel_operaciones_centroscosto
+	fromColumn: ProduccionPlanta.CentroCostoID
+	toColumn: CentrosCosto.CentroCostoID
+
+relationship rel_opex_calendario
+	fromColumn: GastosOperativos.DateKey
+	toColumn: Calendario.DateKey
+
+relationship rel_opex_centroscosto
+	fromColumn: GastosOperativos.CentroCostoID
+	toColumn: CentrosCosto.CentroCostoID
+
+relationship rel_opex_cuentas
+	fromColumn: GastosOperativos.CuentaID
+	toColumn: PlanCuentas.CuentaID
+
+relationship rel_capital_calendario
+	fromColumn: CapitalTrabajo.DateKey
+	toColumn: Calendario.DateKey
+
+relationship rel_inventario_calendario
+	fromColumn: InventarioGuarda.DateKey
+	toColumn: Calendario.DateKey
+
+relationship rel_inventario_productos
+	fromColumn: InventarioGuarda.ProductoID
+	toColumn: Productos.ProductoID
+

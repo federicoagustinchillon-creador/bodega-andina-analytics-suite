@@ -1,0 +1,95 @@
+table CobranzasExportacion
+	lineageTag: 3b55cb78-ab4f-4553-a864-b005a57d9618
+
+	column TransaccionID
+		dataType: string
+		lineageTag: 0174adbd-5a15-4b5b-a4e9-525c056531af
+		summarizeBy: none
+		sourceColumn: TransaccionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKeyEmbarque
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e62fa51-f024-4864-8e3c-5eb9058af21e
+		summarizeBy: none
+		sourceColumn: DateKeyEmbarque
+
+		annotation SummarizationSetBy = Automatic
+
+	column FechaEmbarque
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b9bb7e5d-ac5e-4aff-8b9d-c30a84f4a188
+		summarizeBy: none
+		sourceColumn: FechaEmbarque
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ProductoID
+		dataType: string
+		lineageTag: 504458c1-fd59-4b8c-9a0f-1b281f835c9d
+		summarizeBy: none
+		sourceColumn: ProductoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlazoDiasCobro
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e9c5a2c-3ff1-4831-b40e-5e8be2f2282f
+		summarizeBy: none
+		sourceColumn: PlazoDiasCobro
+
+		annotation SummarizationSetBy = Automatic
+
+	column FechaCobroEstimada
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 116ed41e-d7c5-4083-98d6-e93b8ee29a35
+		summarizeBy: none
+		sourceColumn: FechaCobroEstimada
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ImporteFOB_USD
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: 1cac61b5-3d5b-467a-bf24-b7ba5fc6cecb
+		summarizeBy: sum
+		sourceColumn: ImporteFOB_USD
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipoCambioEmbarque
+		dataType: double
+		formatString: $#,##0.00
+		lineageTag: e0f51b11-9a96-4467-bdac-28346bf039e5
+		summarizeBy: average
+		sourceColumn: TipoCambioEmbarque
+
+		annotation SummarizationSetBy = Automatic
+
+	column EstadoCobranza
+		dataType: string
+		lineageTag: dfa26323-4a85-4b45-82ad-266e363e7171
+		summarizeBy: none
+		sourceColumn: EstadoCobranza
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CobranzasExportacion = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/CobranzasExportacion.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"TransaccionID", type text}, {"DateKeyEmbarque", Int64.Type}, {"FechaEmbarque", type date}, {"ProductoID", type text}, {"PlazoDiasCobro", Int64.Type}, {"FechaCobroEstimada", type date}, {"ImporteFOB_USD", type number}, {"TipoCambioEmbarque", type number}, {"EstadoCobranza", type text}}, "en-US")
+				in
+					Tipos
+

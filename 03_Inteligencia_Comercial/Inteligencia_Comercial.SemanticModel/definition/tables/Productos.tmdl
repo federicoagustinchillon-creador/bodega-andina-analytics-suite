@@ -1,0 +1,116 @@
+table Productos
+	lineageTag: f2a3b4c5-cc01-0101-0101-020101010101
+
+	column ProductoID
+		dataType: string
+		isKey
+		lineageTag: a3b4c5d6-0101-0101-0101-020201010101
+		summarizeBy: none
+		sourceColumn: ProductoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SKU
+		dataType: string
+		lineageTag: b4c5d6e7-0101-0101-0101-020301010101
+		summarizeBy: none
+		sourceColumn: SKU
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descripcion
+		dataType: string
+		lineageTag: c5d6e7f8-0101-0101-0101-020401010101
+		summarizeBy: none
+		sourceColumn: Descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	column Linea
+		dataType: string
+		lineageTag: d6e7f8a9-0101-0101-0101-020501010101
+		summarizeBy: none
+		sourceColumn: Linea
+
+		annotation SummarizationSetBy = Automatic
+
+	column Segmento
+		dataType: string
+		lineageTag: dea4c15f-922f-44e5-86bd-deaf4d71788e
+		summarizeBy: none
+		sourceColumn: Segmento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Varietal
+		dataType: string
+		lineageTag: bfc21de1-8cbe-4f27-96da-c1a60d7793df
+		summarizeBy: none
+		sourceColumn: Varietal
+
+		annotation SummarizationSetBy = Automatic
+
+	column FormatoML
+		dataType: int64
+		formatString: 0
+		lineageTag: 0593940b-80f0-4172-8336-792b49679a56
+		summarizeBy: none
+		sourceColumn: FormatoML
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostoEstandarUnit
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: e7f8a9b0-0101-0101-0101-020601010101
+		summarizeBy: average
+		sourceColumn: CostoEstandarUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrecioPresupuestadoUnit
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: f8a9b0c1-0101-0101-0101-020701010101
+		summarizeBy: average
+		sourceColumn: PrecioPresupuestadoUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoriaABC =
+			VAR _IngresosSKU = CALCULATE(SUM(Ventas[IngresosReales]))
+			VAR _IngresosAcumulados =
+			    SUMX(
+			        FILTER(
+			            ALL(Productos),
+			            CALCULATE(SUM(Ventas[IngresosReales])) >= _IngresosSKU
+			        ),
+			        CALCULATE(SUM(Ventas[IngresosReales]))
+			    )
+			VAR _IngresosTotales = CALCULATE(SUM(Ventas[IngresosReales]), ALL(Productos))
+			VAR _PctAcumulado = DIVIDE(_IngresosAcumulados, _IngresosTotales, 0)
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        _PctAcumulado <= 0.75, "Clase A",
+			        _PctAcumulado <= 0.92, "Clase B",
+			        "Clase C"
+			    )
+		dataType: string
+		lineageTag: c3d4e5f6-7777-8888-9999-000300010099
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Productos = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/Productos.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"ProductoID", type text}, {"SKU", type text}, {"Descripcion", type text}, {"Linea", type text}, {"Segmento", type text}, {"Varietal", type text}, {"FormatoML", Int64.Type}, {"CostoEstandarUnit", type number}, {"PrecioPresupuestadoUnit", type number}}, "en-US")
+				in
+					Tipos
+
+	annotation PBI_ResultType = Table
+

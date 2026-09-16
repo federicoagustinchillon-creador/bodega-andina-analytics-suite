@@ -22,7 +22,7 @@ Frente a los reportes convencionales monolíticos —que sufren de rigidez, lent
    [ FUENTES CRUDAS ERP / PLANTA ]               [ CAPA 00: DATA ENGINEERING ]             [ CAPA SEMÁNTICA TMDL ]              [ CAPA VISUAL PBIR (9 PÁGINAS) ]
    
    +-------------------------------+             +---------------------------+              +-----------------------+            +----------------------------------+
-   | - raw_sap_vbrk_vbrp_ventas    |             |  etl_pipeline_cleaner.py  |              |  Modelos Semánticos   |            |  Control_de_Gestion     |
+   | - raw_sap_vbrk_vbrp_ventas    |             |  etl_pipeline_cleaner.py  |              |  Modelos Semánticos   |            |  02_Control_de_Gestion     |
    | - raw_presupuesto_horizontal  | ----------> |  - Stripping & Mayúsculas | -----------> |  - Relaciones 1:*     | ---------> |  p1. P&L & Variance Cascada      |
    | - raw_planta_molienda_remitos |             |  - Parseo Fechas 8 Formatos|             |  - 136 Medidas DAX    |            |  p2. OPEX por Centro de Costo    |
    | - raw_maestro_centros_costo   |             |  - Unpivot Dinámico Plan  |              |  - Cero Hardcoding    |            |  p3. Capital Trabajo & Liquidez  |
@@ -32,7 +32,7 @@ Frente a los reportes convencionales monolíticos —que sufren de rigidez, lent
                                                                |                                                                 |  p2. Dinámica de Precios Real    |
                                                                v                                                                 |  p3. Portafolio ABC & Pareto     |
                                                  +---------------------------+                                                   +----------------------------------+
-                                                 |   curated_gold/ (CSVs)    |                                                   |  Operaciones_y_Planta |
+                                                 |   curated_gold/ (CSVs)    |                                                   |  04_Operaciones_y_Planta |
                                                  |   sql/ (DDL & Vistas)     |                                                   |  p1. Vendimia & Extracción       |
                                                  +---------------------------+                                                   |  p2. Costos Fabriles Absorción   |
                                                                                                                                  |  p3. Guarda, Mermas & Crianza    |
@@ -62,7 +62,7 @@ El motor de ingeniería de datos ejecuta de forma determinista:
 2. **Algoritmo Robusto de Parseo Temporal:** Motor heurístico que evalúa secuencialmente 8 patrones de fecha, normaliza a ISO 8601 (`YYYY-MM-DD`) y genera la clave subrogada entera `DateKey` (`YYYYMMDD`).
 3. **Unpivot Matricial de Presupuesto:** Transformación columnar (*melt*) que colapsa las 24 columnas mensuales en una estructura tidy relacional (`DateKey`, `ProductoID`, `CentroCostoID`, `VolumenPresupuestado`, `IngresosPresupuestados`, `CostoPresupuestado`, `MargenBrutoPresupuestado`), calculando márgenes unitarios presupuestados.
 4. **Validación de Integridad Referencial:** Comprobación de claves foráneas entre cada tabla de hechos y sus dimensiones asociadas. El pipeline detecta, resuelve y audita cualquier registro huérfano.
-5. **Clasificación ABC Determinista:** Enriquecimiento de `dim_productos` con la columna `CategoriaABC` según la jerarquía de cartera (`Alta Gama` y `Granel / Masivo` -> Clase A; `Espumantes` -> Clase B; `Entrada / Volumen` -> Clase C).
+5. **Clasificación ABC Determinista:** Enriquecimiento de `Productos` con la columna `CategoriaABC` según la jerarquía de cartera (`Alta Gama` y `Granel / Masivo` -> Clase A; `Espumantes` -> Clase B; `Entrada / Volumen` -> Clase C).
 
 ### 2.3 Auditoría Automatizada (`data_quality_report.json`)
 Cada corrida del pipeline genera un certificado JSON auditable:
@@ -82,7 +82,7 @@ El modelo de datos se estructura bajo el estándar de **Kimball (Star Schema)** 
                                   DIAGRAMA RELACIONAL STAR SCHEMA
                                   
                                     +-----------------------+
-                                    |    dim_calendario     |
+                                    |    Calendario     |
                                     |-----------------------|
                                     | PK: DateKey           |
                                     +-----------------------+
@@ -91,7 +91,7 @@ El modelo de datos se estructura bajo el estándar de **Kimball (Star Schema)** 
                  |                               |                               |
                  v                               v                               v
     +-----------------------+        +-----------------------+       +-----------------------+
-    |   fact_ventas_reales  |        |  fact_opex_mensual    |       | fact_operaciones_plant|
+    |   Ventas  |        |  GastosOperativos    |       | fact_operaciones_plant|
     |-----------------------|        |-----------------------|       |-----------------------|
     | FK: DateKey           |        | FK: DateKey           |       | FK: DateKey           |
     | FK: ProductoID        |        | FK: CentroCostoID     |       | FK: CentroCostoID     |
@@ -100,7 +100,7 @@ El modelo de datos se estructura bajo el estándar de **Kimball (Star Schema)** 
          |                                       |                                |
          v                                       v                                v
     +-----------------------+        +-----------------------+       +-----------------------+
-    |     dim_productos     |        |   dim_centros_costo   |       | dim_cuentas_contables |
+    |     Productos     |        |   CentrosCosto   |       | PlanCuentas |
     |-----------------------|        |-----------------------|       |-----------------------|
     | PK: ProductoID        |        | PK: CentroCostoID     |       | PK: CuentaID          |
     | SKU, Descripcion,     |        | Nombre, Area,         |       | Nombre, Naturaleza,   |
@@ -111,7 +111,7 @@ El modelo de datos se estructura bajo el estándar de **Kimball (Star Schema)** 
 ### Portabilidad Absoluta (`RutaDatos`)
 Todos los modelos semánticos consumen la capa Gold a través del parámetro de Power Query `RutaDatos`:
 ```powerquery
-RutaDatos = "c:/Users/fedea/Downloads/cv/Portfolio_Empresarial_PowerBI/Ingenieria_de_Datos/curated_gold" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+RutaDatos = "c:/Users/fedea/Downloads/cv/Portfolio_Empresarial_PowerBI/01_Limpieza_de_Datos/curated_gold" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 ```
 Esto permite clonar el repositorio en cualquier servidor, estación de trabajo o entorno cloud cambiando únicamente un parámetro global sin reescribir consultas.
 
@@ -131,7 +131,7 @@ $$\Delta MB = \sum_i (EV_i + EP_i + EC_i)$$
    ```dax
    Efecto Volumen EV = 
    SUMX(
-       VALUES(dim_productos[ProductoID]),
+       VALUES(Productos[ProductoID]),
        VAR VolReal = [Volumen Real]
        VAR VolPlan = [Volumen Presupuesto]
        VAR MargenUnitPlan = [Margen Bruto Unitario Presupuesto]
@@ -145,7 +145,7 @@ $$\Delta MB = \sum_i (EV_i + EP_i + EC_i)$$
    ```dax
    Efecto Precio EP = 
    SUMX(
-       VALUES(dim_productos[ProductoID]),
+       VALUES(Productos[ProductoID]),
        VAR VolReal = [Volumen Real]
        VAR PReal = [Precio Promedio Real]
        VAR PPlan = [Precio Promedio Presupuesto]
@@ -159,7 +159,7 @@ $$\Delta MB = \sum_i (EV_i + EP_i + EC_i)$$
    ```dax
    Efecto Costo EC = 
    SUMX(
-       VALUES(dim_productos[ProductoID]),
+       VALUES(Productos[ProductoID]),
        VAR VolReal = [Volumen Real]
        VAR CPlan = [Costo Unitario Presupuesto]
        VAR CReal = [Costo Unitario Real]
@@ -238,7 +238,7 @@ Se garantiza la ausencia total de pantallas o parches blancos mediante triple re
 
 ## 6. DICCIONARIO COMPLETO DE DATOS (DATA DICTIONARY)
 
-### 6.1 Tabla `dim_calendario` (Dimensión Temporal)
+### 6.1 Tabla `Calendario` (Dimensión Temporal)
 - `DateKey` (`INTEGER`, PK): Clave temporal entera formato `YYYYMMDD`.
 - `Fecha` (`DATE`, UNIQUE): Fecha en formato calendario gregoriano `YYYY-MM-DD`.
 - `Anio` (`INTEGER`): Año fiscal (2025).
@@ -248,7 +248,7 @@ Se garantiza la ausencia total de pantallas o parches blancos mediante triple re
 - `Semestre` (`VARCHAR(5)`): Semestre calendario (S1, S2).
 - `EsFinDeSemana` (`INTEGER`): Indicador binario (1: Sábado/Domingo, 0: Día Hábil).
 
-### 6.2 Tabla `dim_productos` (Catálogo de Artículos & SKUs)
+### 6.2 Tabla `Productos` (Catálogo de Artículos & SKUs)
 - `ProductoID` (`VARCHAR(20)`, PK): Identificador único interno del producto (PRD-01 a PRD-05).
 - `SKU` (`VARCHAR(50)`, UNIQUE): Código comercial del SKU (ej. `MAL-RES-750`).
 - `Descripcion` (`VARCHAR(100)`): Nombre comercial de la etiqueta (ej. `Malbec Reserva 750ml`).
@@ -257,29 +257,29 @@ Se garantiza la ausencia total de pantallas o parches blancos mediante triple re
 - `PrecioPresupuestadoUnit` (`NUMERIC(14,2)`): Precio de lista oficial presupuestado por botella en ARS ($).
 - `CategoriaABC` (`VARCHAR(20)`): Segmentación estratégica de cartera (`Clase A`, `Clase B`, `Clase C`).
 
-### 6.3 Tabla `dim_centros_costo` (Centros de Responsabilidad)
+### 6.3 Tabla `CentrosCosto` (Centros de Responsabilidad)
 - `CentroCostoID` (`VARCHAR(20)`, PK): Código del centro de costo SAP CO-CCA (`CC-101` a `CC-105`).
 - `NombreCentroCosto` (`VARCHAR(100)`): Denominación operativa (Molienda, Fraccionamiento, Mantenimiento, Logística, Administración).
 - `Area` (`VARCHAR(50)`): Macro-área de la empresa (`Operaciones Planta`, `Logística y Distribución`, `Administración y Finanzas`).
 - `Responsable` (`VARCHAR(100)`): Gerente o jefe de área a cargo del centro de imputación.
 
-### 6.4 Tabla `dim_cuentas_contables` (Plan de Cuentas FI)
+### 6.4 Tabla `PlanCuentas` (Plan de Cuentas FI)
 - `CuentaID` (`VARCHAR(20)`, PK): Código de imputación contable (ej. `CTA-501`).
 - `NombreCuenta` (`VARCHAR(120)`): Descripción contable (Materia Prima Uva, Mano de Obra, Insumos Secos, Fletes, etc.).
 - `Naturaleza` (`VARCHAR(30)`): `Ingresos`, `Costos`, `Gastos Operativos`.
 - `Rubro` (`VARCHAR(30)`): Agrupación ejecutiva (`Revenue`, `COGS`, `OPEX`).
 
-### 6.5 Tabla `fact_ventas_reales` (Facturación Transaccional SAP SD)
+### 6.5 Tabla `Ventas` (Facturación Transaccional SAP SD)
 - `TransaccionID` (`VARCHAR(30)`, PK): Número de factura fiscal (`VBRK/VBRP`).
-- `DateKey` (`INTEGER`, FK): Enlace a `dim_calendario`.
-- `ProductoID` (`VARCHAR(20)`, FK): Enlace a `dim_productos`.
+- `DateKey` (`INTEGER`, FK): Enlace a `Calendario`.
+- `ProductoID` (`VARCHAR(20)`, FK): Enlace a `Productos`.
 - `CanalVenta` (`VARCHAR(50)`): Canal comercial (`Exportacion Directa`, `Supermercados`, `Distribuidor Mayorista`, `Horeca`).
 - `VolumenReal` (`INTEGER`): Cajas físicas facturadas.
 - `IngresosReales` (`NUMERIC(16,2)`): Facturación neta total en ARS ($).
 - `CostoReal` (`NUMERIC(16,2)`): Costo mercaderías vendidas real total en ARS ($).
 - `MargenBrutoReal` (`NUMERIC(16,2)`): Ingresos Reales - Costo Real en ARS ($).
 
-### 6.6 Tabla `fact_presupuesto_ventas` (Metas Comerciales Unpivoteadas)
+### 6.6 Tabla `PresupuestoVentas` (Metas Comerciales Unpivoteadas)
 - `DateKey` (`INTEGER`, FK): Clave mensual presupuestada.
 - `ProductoID` (`VARCHAR(20)`, FK): Clave de SKU presupuestado.
 - `CentroCostoID` (`VARCHAR(20)`, FK): Centro de costo comercial imputado.
@@ -288,7 +288,7 @@ Se garantiza la ausencia total de pantallas o parches blancos mediante triple re
 - `CostoPresupuestado` (`NUMERIC(16,2)`): Costo presupuestado total en ARS ($).
 - `MargenBrutoPresupuestado` (`NUMERIC(16,2)`): Margen objetivo en ARS ($).
 
-### 6.7 Tabla `fact_opex_mensual` (Ejecución Presupuestaria de Gasto)
+### 6.7 Tabla `GastosOperativos` (Ejecución Presupuestaria de Gasto)
 - `DateKey` (`INTEGER`, FK): Clave mensual de imputación contable.
 - `CentroCostoID` (`VARCHAR(20)`, FK): Centro de imputación de gasto.
 - `CuentaID` (`VARCHAR(20)`, FK): Cuenta contable de gasto.
@@ -297,7 +297,7 @@ Se garantiza la ausencia total de pantallas o parches blancos mediante triple re
 - `DesvioMonto` (`NUMERIC(16,2)`): Gasto Real - Gasto Presupuesto en ARS ($).
 - `DesvioPorcentual` (`NUMERIC(8,4)`): Ratio de desvío presupuestario.
 
-### 6.8 Tabla `fact_capital_trabajo` (Posición Patrimonial Operativa)
+### 6.8 Tabla `CapitalTrabajo` (Posición Patrimonial Operativa)
 - `DateKey` (`INTEGER`, FK): Clave mensual de corte de balance operativo.
 - `AnioMes` (`VARCHAR(10)`): Etiqueta cronológica (`2025-01` a `2025-12`).
 - `CuentasPorCobrar` (`NUMERIC(16,2)`): Saldo de créditos por ventas a clientes.
@@ -309,7 +309,7 @@ Se garantiza la ausencia total de pantallas o parches blancos mediante triple re
 - `DPO` (`NUMERIC(8,2)`): Días medios de pago a proveedores.
 - `CCC` (`NUMERIC(8,2)`): Ciclo neto de caja en días ($DSO + DIO - DPO$).
 
-### 6.9 Tabla `fact_operaciones_planta` (Recepción de Vendimia & Molienda)
+### 6.9 Tabla `ProduccionPlanta` (Recepción de Vendimia & Molienda)
 - `RemitoID` (`VARCHAR(30)`, PK): Número de remito de báscula de ingreso de uva.
 - `DateKey` (`INTEGER`, FK): Fecha de pesaje en báscula de bodega.
 - `CentroCostoID` (`VARCHAR(20)`, FK): Centro de imputación de planta (`CC-101`).
@@ -341,7 +341,7 @@ Para verificar la integridad absoluta del sistema en cualquier entorno:
 
 3. **Ejecución del Pipeline de Ingeniería:**
    ```bash
-   python Portfolio_Empresarial_PowerBI/Ingenieria_de_Datos/etl_pipeline_cleaner.py
+   python Portfolio_Empresarial_PowerBI/01_Limpieza_de_Datos/etl_pipeline_cleaner.py
    ```
    *Salida esperada:* Ejecución en <0.5s con generación de `curated_gold/` y `data_quality_report.json` con 100% de validez.
 

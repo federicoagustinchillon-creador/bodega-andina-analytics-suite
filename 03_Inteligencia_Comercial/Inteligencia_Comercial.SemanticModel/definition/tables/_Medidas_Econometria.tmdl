@@ -1,0 +1,97 @@
+table _Medidas_Econometria
+	lineageTag: 09d28413-7f14-4570-ac36-a67db191ccf3
+
+	measure 'MAPE Forecast' = SELECTEDVALUE(PrecisionModelo[MAPE])
+		formatString: 0.00"%"
+		displayFolder: 01 Forecast
+		lineageTag: 489aea3d-367d-4c63-b3fb-f8c316d73ebb
+
+	measure 'RMSE Forecast' = SELECTEDVALUE(PrecisionModelo[RMSE])
+		formatString: #,##0
+		displayFolder: 01 Forecast
+		lineageTag: 78227459-a370-4642-a487-117b524ead67
+
+	measure 'Modelo Forecast Elegido' = SELECTEDVALUE(PrecisionModelo[OrdenModelo])
+		displayFolder: 01 Forecast
+		lineageTag: 36a5d6c6-0bff-4e54-aa3f-de07ef2151a9
+
+	measure 'Correlacion Estacional Real' =
+			VAR _mx = AVERAGE(EstacionalidadMensual[indice_estacional_recuperado_stl])
+			VAR _my = AVERAGE(EstacionalidadMensual[indice_estacional_real_inv2024])
+			VAR _cov = SUMX(EstacionalidadMensual, (EstacionalidadMensual[indice_estacional_recuperado_stl] - _mx) * (EstacionalidadMensual[indice_estacional_real_inv2024] - _my))
+			VAR _sx = SUMX(EstacionalidadMensual, (EstacionalidadMensual[indice_estacional_recuperado_stl] - _mx) ^ 2)
+			VAR _sy = SUMX(EstacionalidadMensual, (EstacionalidadMensual[indice_estacional_real_inv2024] - _my) ^ 2)
+			RETURN
+				DIVIDE(_cov, SQRT(_sx * _sy))
+		formatString: 0.000
+		displayFolder: 02 Estacionalidad
+		lineageTag: ff1ebefa-b6a0-4899-a310-86c2c45fcad0
+
+	measure 'Beta Elasticidad Icono' =
+			CALCULATE(
+				SELECTEDVALUE(ElasticidadSegmento[Beta_Elasticidad]),
+				ElasticidadSegmento[Segmento] = "Gran Reserva / Icono"
+			)
+		formatString: 0.000
+		displayFolder: 03 Elasticidad
+		lineageTag: 1b68a988-ada6-496e-adf1-c5db1617c035
+
+	measure 'Segmentos Elasticidad Significativa' =
+			CALCULATE(
+				COUNTROWS(ElasticidadSegmento),
+				ElasticidadSegmento[Significativo] = TRUE(),
+				ElasticidadSegmento[Segmento] <> "GLOBAL"
+			)
+		formatString: 0
+		displayFolder: 03 Elasticidad
+		lineageTag: cbabaa3f-1013-46db-a3e7-baefb93f82d5
+
+	measure 'Color Elasticidad Significativa' =
+			IF(SELECTEDVALUE(ElasticidadSegmento[Significativo]) = TRUE(), "#059669", "#64748B")
+		displayFolder: 03 Elasticidad
+		lineageTag: 7f5a12f7-a518-48da-bf5b-24e0fe1796f1
+
+	measure 'Volumen Real Serie' = SUM(PronosticoDemanda[VolumenReal])
+		formatString: #,##0
+		displayFolder: 01 Forecast
+		lineageTag: 77e21ae1-272d-4e47-99b5-a53db00c5b3f
+
+	measure 'Volumen Forecast Serie' = SUM(PronosticoDemanda[VolumenForecast])
+		formatString: #,##0
+		displayFolder: 01 Forecast
+		lineageTag: 4b9ddb86-31f3-4cf4-9a22-6c510557bf8e
+
+	measure 'Indice STL Serie' = AVERAGE(EstacionalidadMensual[indice_estacional_recuperado_stl])
+		formatString: 0.000
+		displayFolder: 02 Estacionalidad
+		lineageTag: 69d76f04-1c1a-4c2b-b71c-f41350bb7aaf
+
+	measure 'Indice Real INV Serie' = AVERAGE(EstacionalidadMensual[indice_estacional_real_inv2024])
+		formatString: 0.000
+		displayFolder: 02 Estacionalidad
+		lineageTag: 1744f692-fd96-42b1-9c95-3a3df2882440
+
+	measure 'Cointegracion Tests Validos' =
+			CALCULATE(COUNTROWS(TestsCointegracion), TestsCointegracion[EsValido] = TRUE())
+		formatString: 0
+		displayFolder: 04 Cointegracion
+		lineageTag: 8ef586cd-958c-4679-837f-af6a795639f1
+
+	measure 'Color Cointegracion Valido' =
+			IF(SELECTEDVALUE(TestsCointegracion[EsValido]) = TRUE(), "#059669", "#DC2626")
+		displayFolder: 04 Cointegracion
+		lineageTag: deacf8e1-0910-42e7-83f0-b89e871d384a
+
+	column Medidas
+		dataType: string
+		isHidden
+		lineageTag: 6e8f2a11-2b3c-4d5e-9f01-7a8b9c0d1e2f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Medidas]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Medidas_Econometria = calculated
+		mode: import
+		source = Row("Medidas", "Tabla de Medidas Econometria")

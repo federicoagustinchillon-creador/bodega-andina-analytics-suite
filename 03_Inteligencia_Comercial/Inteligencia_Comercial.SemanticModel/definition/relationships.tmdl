@@ -1,0 +1,28 @@
+relationship rel_ventas_calendario
+	fromColumn: Ventas.DateKey
+	toColumn: Calendario.DateKey
+
+relationship rel_ventas_productos
+	fromColumn: Ventas.ProductoID
+	toColumn: Productos.ProductoID
+
+relationship rel_ventas_centroscosto
+	fromColumn: Ventas.CentroCostoID
+	toColumn: CentrosCosto.CentroCostoID
+
+relationship rel_presupuesto_calendario
+	fromColumn: PresupuestoVentas.DateKey
+	toColumn: Calendario.DateKey
+
+relationship rel_presupuesto_productos
+	fromColumn: PresupuestoVentas.ProductoID
+	toColumn: Productos.ProductoID
+
+relationship rel_presupuesto_centroscosto
+	fromColumn: PresupuestoVentas.CentroCostoID
+	toColumn: CentrosCosto.CentroCostoID
+
+relationship rel_forecast_calendario
+	fromColumn: PronosticoDemanda.DateKey
+	toColumn: Calendario.DateKey
+

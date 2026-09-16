@@ -1,0 +1,75 @@
+table ElasticidadSegmento
+	lineageTag: 0c522989-238f-413e-a67a-1defd8d87d9c
+
+	column Segmento
+		dataType: string
+		lineageTag: ab154024-529e-461d-ad00-06e7b93bf414
+		summarizeBy: none
+		sourceColumn: Segmento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Beta_Elasticidad
+		dataType: double
+		formatString: 0.000
+		lineageTag: f7a0164b-3d85-43e7-a806-df0a340f67e2
+		summarizeBy: average
+		sourceColumn: Beta_Elasticidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorEstandar
+		dataType: double
+		formatString: 0.000
+		lineageTag: aa7bec09-4f90-42ae-bdd0-301bfffa7b08
+		summarizeBy: average
+		sourceColumn: ErrorEstandar
+
+		annotation SummarizationSetBy = Automatic
+
+	column PValue
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 753cb6fd-3208-4839-9859-429f6c0c19f0
+		summarizeBy: average
+		sourceColumn: PValue
+
+		annotation SummarizationSetBy = Automatic
+
+	column R2
+		dataType: double
+		formatString: 0%
+		lineageTag: f9853287-5e70-4dac-802c-df47b905e2df
+		summarizeBy: average
+		sourceColumn: R2
+
+		annotation SummarizationSetBy = Automatic
+
+	column NObs
+		dataType: int64
+		formatString: #,0
+		lineageTag: 31833105-dd6c-4f41-b6e1-2ac20b4b73c4
+		summarizeBy: sum
+		sourceColumn: NObs
+
+		annotation SummarizationSetBy = Automatic
+
+	column Significativo
+		dataType: boolean
+		lineageTag: 456f16e4-d59d-428a-84e8-ab0b965c5d72
+		summarizeBy: none
+		sourceColumn: Significativo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ElasticidadSegmento = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/ElasticidadSegmento.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"Segmento", type text}, {"Beta_Elasticidad", type number}, {"ErrorEstandar", type number}, {"PValue", type number}, {"R2", type number}, {"NObs", Int64.Type}, {"Significativo", type logical}}, "en-US")
+				in
+					Tipos
+
+	annotation PBI_ResultType = Table

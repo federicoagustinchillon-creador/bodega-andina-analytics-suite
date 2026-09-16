@@ -1,56 +1,7 @@
 # Compact AST Repository Map (Portfolio_Empresarial_PowerBI)
 > **Propósito**: Mapa ultracompacto de símbolos, docstrings y conectividad para alimentar a agentes de IA con pocos tokens.
-> **Directorios escaneados**: Ingenieria_de_Datos, Analisis_Econometrico, tools (15 módulos)
+> **Directorios escaneados**: Analisis_Econometrico, 01_Limpieza_de_Datos, tools (15 módulos)
 > **'conectado'** = referenciado (import o nombre de archivo) desde otro lugar del repo. 'sin referencias externas' no implica código roto -- puede ser un script standalone válido que nadie documentó todavía en SKILL_ROUTER.md.
-
-### [`audit_suite03_operations.py`](Ingenieria_de_Datos/audit_suite03_operations.py) — ⚠️ sin referencias externas encontradas
-> Auditoria Integral de Modelado de Datos y TMDL para Suite 03 Operations
-- `test_fact_operaciones_planta()` (L18)
-- `test_fact_inventario_guarda()` (L38)
-- `test_cuentas_contables_y_opex()` (L63)
-- `test_semantic_model_tmdl()` (L87)
-- `test_duckdb_integration()` (L128)
-
-### [`etl_pipeline_cleaner.py`](Ingenieria_de_Datos/etl_pipeline_cleaner.py) — ⚠️ sin referencias externas encontradas
-> ===================================================================================
-- `parse_date_robust(date_val)` — Parsea de forma robusta cadenas de fecha en diversos formatos a objeto datetime.date. (L33)
-- `escanear_rango_fechas_observado(raw_dir)` — Recorre las fuentes transaccionales crudas (ventas, OPEX, remitos de planta, (L65)
-- `clean_currency_or_number(val)` — Limpia cadenas numericas con simbolos monetarios, puntos de miles y comas decimales. (L99)
-- `clean_string_col(series, case)` — Elimina espacios en blanco exteriores, multiples espacios interiores y ajusta mayusculas. (L122)
-- `run_etl()` (L137)
-
-### [`generar_datos_historicos_ventas.py`](Ingenieria_de_Datos/generar_datos_historicos_ventas.py) — ⚠️ sin referencias externas encontradas
-> Genera datos crudos (raw) de ventas 2021-2025 para 36 SKUs, calibrados contra
-- `cargar_series_reales()` (L102)
-- `sucio_fecha(fecha, i)` — Reproduce la mezcla de formatos de fecha del archivo raw original. (L111)
-- `sucio_texto(v, i)` — Ensucia levemente MATNR/INCO1 (case + espacios) como el archivo original. (L118)
-- `generar()` (L129)
-- `generar_maestro_productos()` (L205)
-
-### [`generar_presupuesto_2025.py`](Ingenieria_de_Datos/generar_presupuesto_2025.py) — ⚠️ sin referencias externas encontradas
-> Expande raw_presupuesto_horizontal.csv de 8 a 36 SKUs (catalogo actual),
-- `cargar_catalogo()` (L30)
-- `cargar_indice_estacional()` (L34)
-- `generar()` (L39)
-
-### [`test_business_value_sanity.py`](Ingenieria_de_Datos/tests/test_business_value_sanity.py) — ⚠️ sin referencias externas encontradas
-> Tests de VALOR DE NEGOCIO sobre curated_gold y outputs econometricos.
-- `quality_report()` (L25)
-- `ventas()` (L30)
-- `productos()` (L35)
-- `capital_trabajo()` (L40)
-- `opex()` (L45)
-- `test_sin_huerfanas_sin_resolver(quality_report)` — Toda clave huerfana detectada por el ETL debe haber sido resuelta (cuarentena/fix), no colada. (L50)
-- `test_tasa_validez_alta(quality_report)` (L58)
-- `test_ventas_referencian_productos_existentes(ventas, productos)` (L64)
-- *...y 7 funciones más*
-
-### [`update_data_layer.py`](Ingenieria_de_Datos/update_data_layer.py) — ⚠️ sin referencias externas encontradas
-> Script de Actualizacion de Capa de Datos y Modelos Semanticos
-- `update_fact_operaciones_planta()` (L16)
-- `create_fact_inventario_guarda()` (L51)
-- `update_dim_cuentas_contables()` (L177)
-- `update_fact_opex_mensual()` (L208)
 
 ### [`analisis_elasticidad_cointegracion.py`](Analisis_Econometrico/src/analisis_elasticidad_cointegracion.py) — ⚠️ sin referencias externas encontradas
 > Script reusable: elasticidad-precio de demanda domestica por segmento, y
@@ -109,6 +60,55 @@
 ### [`seasonality.py`](Analisis_Econometrico/src/seasonality.py) — 🔗 conectado
 > Descomposicion estacional real (STL) -- requiere series >= 24 meses (2 ciclos
 - `descomponer_estacional(serie, periodo, robust)` — serie: pd.Series indexada por fecha mensual (DatetimeIndex, freq='MS'), sin NaN. (L12)
+
+### [`audit_suite03_operations.py`](01_Limpieza_de_Datos/audit_suite03_operations.py) — ⚠️ sin referencias externas encontradas
+> Auditoria Integral de Modelado de Datos y TMDL para Suite 03 Operations
+- `test_fact_operaciones_planta()` (L18)
+- `test_fact_inventario_guarda()` (L38)
+- `test_cuentas_contables_y_opex()` (L63)
+- `test_semantic_model_tmdl()` (L87)
+- `test_duckdb_integration()` (L128)
+
+### [`etl_pipeline_cleaner.py`](01_Limpieza_de_Datos/etl_pipeline_cleaner.py) — ⚠️ sin referencias externas encontradas
+> ===================================================================================
+- `parse_date_robust(date_val)` — Parsea de forma robusta cadenas de fecha en diversos formatos a objeto datetime.date. (L33)
+- `escanear_rango_fechas_observado(raw_dir)` — Recorre las fuentes transaccionales crudas (ventas, OPEX, remitos de planta, (L65)
+- `clean_currency_or_number(val)` — Limpia cadenas numericas con simbolos monetarios, puntos de miles y comas decimales. (L99)
+- `clean_string_col(series, case)` — Elimina espacios en blanco exteriores, multiples espacios interiores y ajusta mayusculas. (L122)
+- `run_etl()` (L137)
+
+### [`generar_datos_historicos_ventas.py`](01_Limpieza_de_Datos/generar_datos_historicos_ventas.py) — ⚠️ sin referencias externas encontradas
+> Genera datos crudos (raw) de ventas 2021-2025 para 36 SKUs, calibrados contra
+- `cargar_series_reales()` (L102)
+- `sucio_fecha(fecha, i)` — Reproduce la mezcla de formatos de fecha del archivo raw original. (L111)
+- `sucio_texto(v, i)` — Ensucia levemente MATNR/INCO1 (case + espacios) como el archivo original. (L118)
+- `generar()` (L129)
+- `generar_maestro_productos()` (L205)
+
+### [`generar_presupuesto_2025.py`](01_Limpieza_de_Datos/generar_presupuesto_2025.py) — ⚠️ sin referencias externas encontradas
+> Expande raw_presupuesto_horizontal.csv de 8 a 36 SKUs (catalogo actual),
+- `cargar_catalogo()` (L30)
+- `cargar_indice_estacional()` (L34)
+- `generar()` (L39)
+
+### [`test_business_value_sanity.py`](01_Limpieza_de_Datos/tests/test_business_value_sanity.py) — ⚠️ sin referencias externas encontradas
+> Tests de VALOR DE NEGOCIO sobre curated_gold y outputs econometricos.
+- `quality_report()` (L25)
+- `ventas()` (L30)
+- `productos()` (L35)
+- `capital_trabajo()` (L40)
+- `opex()` (L45)
+- `test_sin_huerfanas_sin_resolver(quality_report)` — Toda clave huerfana detectada por el ETL debe haber sido resuelta (cuarentena/fix), no colada. (L50)
+- `test_tasa_validez_alta(quality_report)` (L58)
+- `test_ventas_referencian_productos_existentes(ventas, productos)` (L64)
+- *...y 7 funciones más*
+
+### [`update_data_layer.py`](01_Limpieza_de_Datos/update_data_layer.py) — ⚠️ sin referencias externas encontradas
+> Script de Actualizacion de Capa de Datos y Modelos Semanticos
+- `update_fact_operaciones_planta()` (L16)
+- `create_fact_inventario_guarda()` (L51)
+- `update_dim_cuentas_contables()` (L177)
+- `update_fact_opex_mensual()` (L208)
 
 ### [`audit_powerbi_suite.py`](tools/audit_powerbi_suite.py) — ⚠️ sin referencias externas encontradas
 > Auditor Maestro de Calidad, Integridad y Cero Hardcodes para la Suite Power BI.

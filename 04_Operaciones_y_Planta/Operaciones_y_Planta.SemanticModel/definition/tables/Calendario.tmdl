@@ -1,0 +1,96 @@
+table Calendario
+	lineageTag: 1c4de44a-6a10-4d7a-9a33-2b095bfe951b
+	dataCategory: Time
+
+	column DateKey
+		dataType: int64
+		isKey
+		formatString: 0
+		lineageTag: 08909007-8e22-4569-812d-ba406c08d51f
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: d6fc9702-8828-49cd-a26d-3f3d1db482bc
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Anio
+		dataType: int64
+		formatString: 0
+		lineageTag: cf99a32a-6879-4109-afae-281dc4f829d1
+		summarizeBy: none
+		sourceColumn: Anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesNumero
+		dataType: int64
+		formatString: 0
+		lineageTag: ba0c1725-7b1d-4035-ac36-e420a5358293
+		summarizeBy: none
+		sourceColumn: MesNumero
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesNombre
+		dataType: string
+		lineageTag: 555d9164-6293-462e-8df7-1bbf3220d32c
+		summarizeBy: none
+		sourceColumn: MesNombre
+		sortByColumn: MesNumero
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesCorto
+		dataType: string
+		lineageTag: e8392110-3847-4958-8b9a-7c9b0e25184a
+		summarizeBy: none
+		sourceColumn: MesCorto
+		sortByColumn: MesNumero
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: string
+		lineageTag: 7ccf26e5-6a55-45f0-8601-405d4a4b504b
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semestre
+		dataType: string
+		lineageTag: 43034a1d-1a72-4761-ab92-4481be399130
+		summarizeBy: none
+		sourceColumn: Semestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column EsFinDeSemana
+		dataType: int64
+		formatString: 0
+		lineageTag: c6d557db-d264-49e8-8873-b798ea7f64be
+		summarizeBy: none
+		sourceColumn: EsFinDeSemana
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendario = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/Calendario.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"DateKey", Int64.Type}, {"Fecha", type date}, {"Anio", Int64.Type}, {"MesNumero", Int64.Type}, {"MesNombre", type text}, {"MesCorto", type text}, {"Trimestre", type text}, {"Semestre", type text}, {"EsFinDeSemana", Int64.Type}}, "en-US")
+				in
+					Tipos
+

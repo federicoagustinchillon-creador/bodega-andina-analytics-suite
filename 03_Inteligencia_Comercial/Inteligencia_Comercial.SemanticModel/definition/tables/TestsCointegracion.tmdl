@@ -1,0 +1,72 @@
+table TestsCointegracion
+	lineageTag: 2de7363c-39b4-4be8-9661-d0421b51becc
+
+	column Test
+		dataType: string
+		lineageTag: d5cebb66-2721-4322-8671-c3f73177215a
+		summarizeBy: none
+		sourceColumn: Test
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrdenY
+		dataType: string
+		lineageTag: 48f2d4c1-5761-401f-86d1-a9e894d376b5
+		summarizeBy: none
+		sourceColumn: OrdenY
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrdenX
+		dataType: string
+		lineageTag: 80a64667-2ee0-41fe-890e-0834fbd2880b
+		summarizeBy: none
+		sourceColumn: OrdenX
+
+		annotation SummarizationSetBy = Automatic
+
+	column EsValido
+		dataType: boolean
+		lineageTag: 3afabffa-f69f-44d8-9d9a-dda9196be83b
+		summarizeBy: none
+		sourceColumn: EsValido
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estadistico
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 377bb273-96f0-4cee-9094-057fc1bd9aef
+		summarizeBy: none
+		sourceColumn: Estadistico
+
+		annotation SummarizationSetBy = Automatic
+
+	column PValue
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 59ae857d-56a8-4d04-bdde-c775e1c8d16c
+		summarizeBy: none
+		sourceColumn: PValue
+
+		annotation SummarizationSetBy = Automatic
+
+	column Conclusion
+		dataType: string
+		lineageTag: 787ea252-d662-4ca0-9775-d333715534a3
+		summarizeBy: none
+		sourceColumn: Conclusion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TestsCointegracion = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/TestsCointegracion.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"Test", type text}, {"OrdenY", type text}, {"OrdenX", type text}, {"EsValido", type logical}, {"Estadistico", type number}, {"PValue", type number}, {"Conclusion", type text}}, "en-US")
+				in
+					Tipos
+
+	annotation PBI_ResultType = Table

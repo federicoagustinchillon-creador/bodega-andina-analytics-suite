@@ -15,9 +15,9 @@ BASE = Path(__file__).resolve().parent.parent  # Analisis_Econometrico/
 ROOT = BASE.parent
 REAL = BASE / "data" / "real"
 OUT = BASE / "outputs"
-GOLD_02 = ROOT / "Inteligencia_Comercial" / "Inteligencia_Comercial.SemanticModel" / "definition" / "tables"
-GOLD_ETL = ROOT / "Ingenieria_de_Datos" / "curated_gold"
-GOLD_01_ETL_TARGET = GOLD_ETL  # fact_mercado_rofex_futuros.csv vive aca, project 01 lo importa desde RutaDatos comun
+GOLD_02 = ROOT / "03_Inteligencia_Comercial" / "Inteligencia_Comercial.SemanticModel" / "definition" / "tables"
+GOLD_ETL = ROOT / "01_Limpieza_de_Datos" / "curated_gold"
+GOLD_01_ETL_TARGET = GOLD_ETL  # MercadoCambiario.csv vive aca, project 01 lo importa desde RutaDatos comun
 
 
 def exportar_elasticidad():
@@ -34,14 +34,14 @@ def exportar_elasticidad():
             "Significativo": bool((r.get("p_value") or r.get("pvalue") or 1) < 0.05),
         })
     df = pd.DataFrame(filas)
-    df.to_csv(GOLD_ETL / "fact_elasticidad_segmento.csv", index=False, encoding="utf-8")
+    df.to_csv(GOLD_ETL / "ElasticidadSegmento.csv", index=False, encoding="utf-8")
     return df
 
 
 def exportar_estacionalidad():
     d = json.load(open(OUT / "estacionalidad_resultados.json", encoding="utf-8"))
     tabla = pd.DataFrame(d["tabla_mes_a_mes"])
-    tabla.to_csv(GOLD_ETL / "fact_estacionalidad_mensual.csv", index=False, encoding="utf-8")
+    tabla.to_csv(GOLD_ETL / "EstacionalidadMensual.csv", index=False, encoding="utf-8")
     return tabla
 
 
@@ -61,7 +61,7 @@ def exportar_forecast():
     if ic:
         df["IC95_Inferior"] = [ic[f][0] for f in fechas_str]
         df["IC95_Superior"] = [ic[f][1] for f in fechas_str]
-    df.to_csv(GOLD_ETL / "fact_forecast_demanda.csv", index=False, encoding="utf-8")
+    df.to_csv(GOLD_ETL / "PronosticoDemanda.csv", index=False, encoding="utf-8")
 
     om = d["orden_modelo"]
     orden_legible = f"SARIMA{tuple(om['order'])}x{tuple(om['seasonal_order'])}" if isinstance(om, dict) and "order" in om else str(om)
@@ -69,7 +69,7 @@ def exportar_forecast():
         "OrdenModelo": orden_legible, "AIC": d["aic_train"],
         "MAPE": d["MAPE"], "RMSE": d["RMSE"], "NTrain": d["n_train"], "NTest": d["n_test"],
     }])
-    meta.to_csv(GOLD_ETL / "fact_forecast_metadata.csv", index=False, encoding="utf-8")
+    meta.to_csv(GOLD_ETL / "PrecisionModelo.csv", index=False, encoding="utf-8")
     return df, meta
 
 
@@ -89,12 +89,12 @@ def exportar_cointegracion():
             "Estadistico": r["estadistico"], "PValue": r["p_value"], "Conclusion": r["conclusion"],
         })
     df = pd.DataFrame(filas)
-    df.to_csv(GOLD_ETL / "fact_cointegracion_tests.csv", index=False, encoding="utf-8")
+    df.to_csv(GOLD_ETL / "TestsCointegracion.csv", index=False, encoding="utf-8")
     return df
 
 
 def construir_curva_rofex_diaria_real():
-    """Reemplaza fact_mercado_rofex_futuros.csv (antes sine-wave) por CIP real
+    """Reemplaza MercadoCambiario.csv (antes sine-wave) por CIP real
     diario 2021-2025: spot = FX real BCRA A3500, tasa domestica = BADLAR real BCRA."""
     import sys as _sys
     _sys.path.insert(0, str(BASE / "src"))
@@ -125,7 +125,7 @@ def construir_curva_rofex_diaria_real():
             "TasaLecapReferenciaTNA": round(tna_dom, 4),
         })
     df = pd.DataFrame(filas)
-    df.to_csv(GOLD_ETL / "fact_mercado_rofex_futuros.csv", index=False, encoding="utf-8")
+    df.to_csv(GOLD_ETL / "MercadoCambiario.csv", index=False, encoding="utf-8")
     return df
 
 

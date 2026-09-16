@@ -4,7 +4,7 @@ Orquestador Maestro y Sincronizador de la Suite Empresarial Power BI
 Bodega & Agroindustria Andina S.A.
 
 Ejecuta:
-1. Verificacion de datos curados en 'Ingenieria_de_Datos/curated_gold'.
+1. Verificacion de datos curados en '01_Limpieza_de_Datos/curated_gold'.
 2. Validacion de esquemas relacionales y vistas SQL en DuckDB.
 3. Auditoria estricta anti-hardcodes y validacion de esquemas Fabric (TMDL/PBIR).
 4. Sincronizacion segura e incremental hacia Google Drive Master:
@@ -32,18 +32,18 @@ def log(msg):
 
 def step_1_verify_data_layer():
     log("PASO 1: Verificando Capa de Ingenieria de Datos (curated_gold)...")
-    gold_dir = os.path.join(LOCAL_PORTFOLIO, "Ingenieria_de_Datos", "curated_gold")
+    gold_dir = os.path.join(LOCAL_PORTFOLIO, "01_Limpieza_de_Datos", "curated_gold")
     required_tables = [
-        "dim_calendario.csv",
-        "dim_productos.csv",
-        "dim_centros_costo.csv",
-        "dim_cuentas_contables.csv",
-        "fact_ventas_reales.csv",
-        "fact_presupuesto_ventas.csv",
-        "fact_opex_mensual.csv",
-        "fact_capital_trabajo.csv",
-        "fact_operaciones_planta.csv",
-        "fact_inventario_guarda.csv"
+        "Calendario.csv",
+        "Productos.csv",
+        "CentrosCosto.csv",
+        "PlanCuentas.csv",
+        "Ventas.csv",
+        "PresupuestoVentas.csv",
+        "GastosOperativos.csv",
+        "CapitalTrabajo.csv",
+        "ProduccionPlanta.csv",
+        "InventarioGuarda.csv"
     ]
     for tbl in required_tables:
         p = os.path.join(gold_dir, tbl)
@@ -106,15 +106,15 @@ def step_4_sync_to_gdrive():
 
         # Validacion de artefactos criticos
         critical_files = [
-            r"Control_de_Gestion\Control_de_Gestion.pbip",
-            r"Control_de_Gestion\Control_de_Gestion.Report\definition.pbir",
-            r"Control_de_Gestion\Control_de_Gestion.SemanticModel\definition.pbism",
-            r"Inteligencia_Comercial\Inteligencia_Comercial.pbip",
-            r"Inteligencia_Comercial\Inteligencia_Comercial.Report\definition.pbir",
-            r"Inteligencia_Comercial\Inteligencia_Comercial.SemanticModel\definition.pbism",
-            r"Operaciones_y_Planta\Operaciones_y_Planta.pbip",
-            r"Operaciones_y_Planta\Operaciones_y_Planta.Report\definition.pbir",
-            r"Operaciones_y_Planta\Operaciones_y_Planta.SemanticModel\definition.pbism"
+            r"02_Control_de_Gestion\Control_de_Gestion.pbip",
+            r"02_Control_de_Gestion\Control_de_Gestion.Report\definition.pbir",
+            r"02_Control_de_Gestion\Control_de_Gestion.SemanticModel\definition.pbism",
+            r"03_Inteligencia_Comercial\Inteligencia_Comercial.pbip",
+            r"03_Inteligencia_Comercial\Inteligencia_Comercial.Report\definition.pbir",
+            r"03_Inteligencia_Comercial\Inteligencia_Comercial.SemanticModel\definition.pbism",
+            r"04_Operaciones_y_Planta\Operaciones_y_Planta.pbip",
+            r"04_Operaciones_y_Planta\Operaciones_y_Planta.Report\definition.pbir",
+            r"04_Operaciones_y_Planta\Operaciones_y_Planta.SemanticModel\definition.pbism"
         ]
         for cf in critical_files:
             cfp = os.path.join(gdrive_dest, cf)
