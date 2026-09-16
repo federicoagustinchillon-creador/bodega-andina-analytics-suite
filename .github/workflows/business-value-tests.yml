@@ -3,12 +3,12 @@ name: Business Value Tests
 on:
   push:
     paths:
-      - "00_Data_Engineering_ETL/**"
-      - "04_Econometric_Analysis/**"
+      - "Ingenieria_de_Datos/**"
+      - "Analisis_Econometrico/**"
   pull_request:
     paths:
-      - "00_Data_Engineering_ETL/**"
-      - "04_Econometric_Analysis/**"
+      - "Ingenieria_de_Datos/**"
+      - "Analisis_Econometrico/**"
   workflow_dispatch:
 
 jobs:
@@ -22,21 +22,21 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install pytest -r 04_Econometric_Analysis/requirements.txt
+        run: pip install pytest -r Analisis_Econometrico/requirements.txt
 
       - name: Regenerate curated_gold from raw data
-        working-directory: 00_Data_Engineering_ETL
+        working-directory: Ingenieria_de_Datos
         run: |
           python generar_datos_historicos_ventas.py
           python generar_presupuesto_2025.py
           python etl_pipeline_cleaner.py
 
       - name: Run econometric pipeline
-        working-directory: 04_Econometric_Analysis
+        working-directory: Analisis_Econometrico
         run: |
           python src/analisis_elasticidad_cointegracion.py
           python src/estacionalidad_y_forecast.py
           python src/exportar_resultados_powerbi.py
 
       - name: Business-value sanity tests
-        run: python -m pytest 00_Data_Engineering_ETL/tests/ -v
+        run: python -m pytest Ingenieria_de_Datos/tests/ -v

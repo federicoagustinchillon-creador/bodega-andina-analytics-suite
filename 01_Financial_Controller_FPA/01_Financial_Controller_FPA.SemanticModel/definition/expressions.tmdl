@@ -1,7 +1,0 @@
-/// Carpeta donde residen los archivos CSV del controlador financiero (Capa Curated Gold).
-/// Modificable directamente en Power Query -> Administrar Parametros.
-expression RutaDatos = "G:/Mi unidad/Federico_Chillon_Master/02_Insercion_Laboral_y_CVs/Proyecto Empresarial/Portfolio_Empresarial_PowerBI/00_Data_Engineering_ETL/curated_gold" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
-	lineageTag: b8c11a4d-c9f7-49fb-8ef3-5681f5ccbe39
-
-	annotation PBI_ResultType = Text
-

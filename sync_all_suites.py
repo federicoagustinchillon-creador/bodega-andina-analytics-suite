@@ -4,7 +4,7 @@ Orquestador Maestro y Sincronizador de la Suite Empresarial Power BI
 Bodega & Agroindustria Andina S.A.
 
 Ejecuta:
-1. Verificacion de datos curados en '00_Data_Engineering_ETL/curated_gold'.
+1. Verificacion de datos curados en 'Ingenieria_de_Datos/curated_gold'.
 2. Validacion de esquemas relacionales y vistas SQL en DuckDB.
 3. Auditoria estricta anti-hardcodes y validacion de esquemas Fabric (TMDL/PBIR).
 4. Sincronizacion segura e incremental hacia Google Drive Master:
@@ -32,7 +32,7 @@ def log(msg):
 
 def step_1_verify_data_layer():
     log("PASO 1: Verificando Capa de Ingenieria de Datos (curated_gold)...")
-    gold_dir = os.path.join(LOCAL_PORTFOLIO, "00_Data_Engineering_ETL", "curated_gold")
+    gold_dir = os.path.join(LOCAL_PORTFOLIO, "Ingenieria_de_Datos", "curated_gold")
     required_tables = [
         "dim_calendario.csv",
         "dim_productos.csv",
@@ -106,15 +106,15 @@ def step_4_sync_to_gdrive():
 
         # Validacion de artefactos criticos
         critical_files = [
-            r"01_Financial_Controller_FPA\01_Financial_Controller_FPA.pbip",
-            r"01_Financial_Controller_FPA\01_Financial_Controller_FPA.Report\definition.pbir",
-            r"01_Financial_Controller_FPA\01_Financial_Controller_FPA.SemanticModel\definition.pbism",
-            r"02_Commercial_Sales_Intelligence\02_Commercial_Sales_Intelligence.pbip",
-            r"02_Commercial_Sales_Intelligence\02_Commercial_Sales_Intelligence.Report\definition.pbir",
-            r"02_Commercial_Sales_Intelligence\02_Commercial_Sales_Intelligence.SemanticModel\definition.pbism",
-            r"03_Operations_SupplyChain_Plant\03_Operations_SupplyChain_Plant.pbip",
-            r"03_Operations_SupplyChain_Plant\03_Operations_SupplyChain_Plant.Report\definition.pbir",
-            r"03_Operations_SupplyChain_Plant\03_Operations_SupplyChain_Plant.SemanticModel\definition.pbism"
+            r"Control_de_Gestion\Control_de_Gestion.pbip",
+            r"Control_de_Gestion\Control_de_Gestion.Report\definition.pbir",
+            r"Control_de_Gestion\Control_de_Gestion.SemanticModel\definition.pbism",
+            r"Inteligencia_Comercial\Inteligencia_Comercial.pbip",
+            r"Inteligencia_Comercial\Inteligencia_Comercial.Report\definition.pbir",
+            r"Inteligencia_Comercial\Inteligencia_Comercial.SemanticModel\definition.pbism",
+            r"Operaciones_y_Planta\Operaciones_y_Planta.pbip",
+            r"Operaciones_y_Planta\Operaciones_y_Planta.Report\definition.pbir",
+            r"Operaciones_y_Planta\Operaciones_y_Planta.SemanticModel\definition.pbism"
         ]
         for cf in critical_files:
             cfp = os.path.join(gdrive_dest, cf)

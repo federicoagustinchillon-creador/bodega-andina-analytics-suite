@@ -6,7 +6,7 @@
 
 ## 1. Visión General de Arquitectura
 
-Este portfolio simula la stack analítica completa de una bodega exportadora argentina: desde el dato crudo (volcados ERP-like, planillas de planta) hasta 3 modelos semánticos de Power BI en producción, pasando por una capa de ingeniería de datos (ETL determinista) y una capa de econometría aplicada en Python. La decisión de **separar en 3 proyectos PBIP independientes** — `01_Financial_Controller_FPA`, `02_Commercial_Sales_Intelligence`, `03_Operations_SupplyChain_Plant` — en lugar de un único modelo monolítico replica cómo se organizan los equipos de BI en una empresa real: Finanzas, Comercial y Operaciones tienen dueños, cadencias de refresh y audiencias ejecutivas distintas, aunque comparten la misma capa `curated_gold` como fuente única de verdad (single source of truth). La capa `04_Econometric_Analysis` es una cuarta pieza, no un modelo semántico sino un motor de análisis cuantitativo en Python (elasticidad-precio, cointegración, estacionalidad STL, forecasting SARIMA, pricing de futuros vía CIP) cuyos resultados se vuelcan de regreso a `curated_gold` y de ahí se consumen dentro de `02_Commercial_Sales_Intelligence`.
+Este portfolio simula la stack analítica completa de una bodega exportadora argentina: desde el dato crudo (volcados ERP-like, planillas de planta) hasta 3 modelos semánticos de Power BI en producción, pasando por una capa de ingeniería de datos (ETL determinista) y una capa de econometría aplicada en Python. La decisión de **separar en 3 proyectos PBIP independientes** — `Control_de_Gestion`, `Inteligencia_Comercial`, `Operaciones_y_Planta` — en lugar de un único modelo monolítico replica cómo se organizan los equipos de BI en una empresa real: Finanzas, Comercial y Operaciones tienen dueños, cadencias de refresh y audiencias ejecutivas distintas, aunque comparten la misma capa `curated_gold` como fuente única de verdad (single source of truth). La capa `Analisis_Econometrico` es una cuarta pieza, no un modelo semántico sino un motor de análisis cuantitativo en Python (elasticidad-precio, cointegración, estacionalidad STL, forecasting SARIMA, pricing de futuros vía CIP) cuyos resultados se vuelcan de regreso a `curated_gold` y de ahí se consumen dentro de `Inteligencia_Comercial`.
 
 La filosofía de datos del repo es **"sintético pero calibrado, no inventado sin ancla"**: los datos transaccionales (ventas, presupuesto, OPEX, operaciones de planta) se generan con `numpy` para tener volumen y variedad de un dataset real de producción, pero cada generador ancla sus parámetros (estacionalidad, tipo de cambio, inflación, elasticidad esperada por segmento) contra series **reales** publicadas por BCRA (tipo de cambio A3500, tasa BADLAR), INDEC (IPC) y el INV (índice estacional de consumo de vino, mercado interno 2024). Esto es lo que permite que los tests econométricos (cointegración precio-IPC, pass-through cambiario, elasticidad por segmento) tengan contenido económico genuino en vez de ser ejercicios triviales sobre ruido aleatorio.
 
@@ -23,13 +23,13 @@ flowchart TB
         R4["INV — Índice Estacional Consumo Vino 2024<br/>indice_estacional_inv_2024.csv"]
     end
 
-    subgraph GEN["Scripts generadores (00_Data_Engineering_ETL, numpy calibrado)"]
+    subgraph GEN["Scripts generadores (Ingenieria_de_Datos, numpy calibrado)"]
         G1["generar_datos_historicos_ventas.py<br/>(SAP-like ventas + maestro productos)"]
         G2["generar_presupuesto_2025.py<br/>(presupuesto horizontal 36 SKU)"]
         G3["Archivos raw estáticos<br/>(OPEX, centros de costo, planta,<br/>capital de trabajo, plan de cuentas)"]
     end
 
-    subgraph RAW["00_Data_Engineering_ETL/raw/"]
+    subgraph RAW["Ingenieria_de_Datos/raw/"]
         RW1[raw_sap_vbrk_vbrp_ventas.csv]
         RW2[raw_maestro_productos.csv]
         RW3[raw_presupuesto_horizontal.csv]
@@ -43,7 +43,7 @@ flowchart TB
     ETL["etl_pipeline_cleaner.py<br/>(parseo fechas, limpieza strings,<br/>unpivot presupuesto, integridad referencial)"]
     UPD["update_data_layer.py<br/>(geolocalización planta, fact_inventario_guarda,<br/>cuentas industriales, redistribución OPEX fabril)"]
 
-    subgraph GOLD["00_Data_Engineering_ETL/curated_gold/ (single source of truth)"]
+    subgraph GOLD["Ingenieria_de_Datos/curated_gold/ (single source of truth)"]
         GD1[dim_productos.csv]
         GD2[dim_centros_costo.csv]
         GD3[dim_cuentas_contables.csv]
@@ -58,7 +58,7 @@ flowchart TB
         GD12["fact_elasticidad_segmento.csv<br/>fact_estacionalidad_mensual.csv<br/>fact_forecast_demanda.csv / _metadata.csv<br/>fact_cointegracion_tests.csv"]
     end
 
-    subgraph ECON["04_Econometric_Analysis (rama paralela Python)"]
+    subgraph ECON["Analisis_Econometrico (rama paralela Python)"]
         E1["elasticidad.py + analisis_elasticidad_cointegracion.py<br/>(regresión log-log por segmento)"]
         E2["cointegracion.py<br/>(Engle-Granger 2 pasos, pass-through)"]
         E3["estacionalidad_y_forecast.py<br/>(STL + SARIMA grid search)"]
@@ -66,15 +66,15 @@ flowchart TB
         E5["exportar_resultados_powerbi.py<br/>(vuelca outputs/*.json a curated_gold)"]
     end
 
-    subgraph SM01["01_Financial_Controller_FPA.SemanticModel"]
+    subgraph SM01["Control_de_Gestion.SemanticModel"]
         S01T["dim_productos, dim_centros_costo, dim_cuentas_contables,<br/>dim_calendario, dim_desglose_cascada (DAX calc.)<br/>fact_ventas_reales, fact_presupuesto_ventas,<br/>fact_opex_mensual, fact_capital_trabajo,<br/>fact_mercado_rofex_futuros, fact_cobranzas_exportacion_usd"]
     end
 
-    subgraph SM02["02_Commercial_Sales_Intelligence.SemanticModel"]
+    subgraph SM02["Inteligencia_Comercial.SemanticModel"]
         S02T["dim_productos (+CategoriaABC DAX),<br/>dim_centros_costo, dim_calendario<br/>fact_ventas_reales, fact_presupuesto_ventas,<br/>fact_elasticidad_segmento, fact_estacionalidad_mensual,<br/>fact_forecast_demanda, fact_forecast_metadata,<br/>fact_cointegracion_tests"]
     end
 
-    subgraph SM03["03_Operations_SupplyChain_Plant.SemanticModel"]
+    subgraph SM03["Operaciones_y_Planta.SemanticModel"]
         S03T["dim_productos, dim_centros_costo, dim_cuentas_contables,<br/>dim_calendario<br/>fact_operaciones_planta, fact_opex_mensual,<br/>fact_capital_trabajo, fact_inventario_guarda"]
     end
 
@@ -162,7 +162,7 @@ flowchart TB
     GD10 --> SM03
 ```
 
-**Nota de lectura:** `fact_cobranzas_exportacion_usd.csv` (consumida solo por 01) vive en `curated_gold` sin un script generador identificado en el repo — ver la nota correspondiente en la tabla de linaje (§3). `dim_desglose_cascada` no tiene CSV en `curated_gold`: es una tabla 100% calculada en DAX (`partition ... = calculated`) dentro de `01_Financial_Controller_FPA`, usada para la cascada de EV/EP/EC en la página `p1_cascada`.
+**Nota de lectura:** `fact_cobranzas_exportacion_usd.csv` (consumida solo por 01) vive en `curated_gold` sin un script generador identificado en el repo — ver la nota correspondiente en la tabla de linaje (§3). `dim_desglose_cascada` no tiene CSV en `curated_gold`: es una tabla 100% calculada en DAX (`partition ... = calculated`) dentro de `Control_de_Gestion`, usada para la cascada de EV/EP/EC en la página `p1_cascada`.
 
 ---
 
@@ -193,7 +193,7 @@ flowchart TB
 
 Selección de medidas de negocio real (excluye auxiliares de formateo puro de tooltip/storytelling salvo que sean el mecanismo central de una página). Fuente: `_Medidas_*.tmdl` de cada `.SemanticModel/definition/tables/`, agrupadas por su `displayFolder`.
 
-### 01_Financial_Controller_FPA — `_Medidas_Controller.tmdl`
+### Control_de_Gestion — `_Medidas_Controller.tmdl`
 
 | Medida | displayFolder | Qué mide | Fórmula (resumida) |
 |---|---|---|---|
@@ -207,7 +207,7 @@ Selección de medidas de negocio real (excluye auxiliares de formateo puro de to
 | `NOF Total` | 05 Capital de Trabajo y Liquidez | Necesidad Operativa de Fondos | `[Cuentas por Cobrar Total] + [Inventario Total] - [Cuentas por Pagar Total]` |
 | `Cascada Desglose Valor` | 06 Flujo de Fondos y Creacion de Valor | Tabla base para el waterfall de creación de valor (alimenta `dim_desglose_cascada` calculada) | multi-línea |
 
-### 01_Financial_Controller_FPA — `_Medidas_Tesoreria.tmdl`
+### Control_de_Gestion — `_Medidas_Tesoreria.tmdl`
 
 | Medida | displayFolder | Qué mide | Fórmula (resumida) |
 |---|---|---|---|
@@ -217,7 +217,7 @@ Selección de medidas de negocio real (excluye auxiliares de formateo puro de to
 | `Cobranzas USD Pendientes` | 02 Cobranzas de Exportacion USD | Exposición FOB en USD aún no cobrada, a la fecha de referencia | `CALCULATE(SUM(fact_cobranzas_exportacion_usd[ImporteFOB_USD]), FechaCobroEstimada > [Fecha Referencia Simulada])` |
 | `Exposicion Cambiaria Neta ARS` | 01 Tesoreria y Cobertura Cambiaria | Exposición neta en pesos, aplicando spot actual | `[Exposicion Cambiaria Neta USD] * [Spot ARS/USD Actual]` |
 
-### 02_Commercial_Sales_Intelligence — `_Medidas_Comercial.tmdl`
+### Inteligencia_Comercial — `_Medidas_Comercial.tmdl`
 
 | Medida | displayFolder | Qué mide | Fórmula (resumida) |
 |---|---|---|---|
@@ -229,7 +229,7 @@ Selección de medidas de negocio real (excluye auxiliares de formateo puro de to
 | `Deducciones Comerciales %` | 04 Elasticidad y Deducciones | Deducciones comerciales (bonificaciones, descuentos) como % de la facturación bruta | `DIVIDE([Deducciones Comerciales Total],[Facturacion Bruta Total],0)` |
 | `Diagnostico Causal` | 06 Diagnostico Causal | Texto explicativo de la causa raíz dominante de un desvío de KPI | multi-línea, usa `Top Causa Desvio` + `Magnitud Desvio Top Causa` |
 
-### 02_Commercial_Sales_Intelligence — `_Medidas_Econometria.tmdl`
+### Inteligencia_Comercial — `_Medidas_Econometria.tmdl`
 
 | Medida | displayFolder | Qué mide | Fórmula (resumida) |
 |---|---|---|---|
@@ -238,7 +238,7 @@ Selección de medidas de negocio real (excluye auxiliares de formateo puro de to
 | `Beta Elasticidad Icono` | 03 Elasticidad | Coeficiente de elasticidad-precio del segmento Gran Reserva / Icono | multi-línea, lee `fact_elasticidad_segmento` |
 | `Cointegracion Tests Validos` | 04 Cointegracion | Cantidad de tests Engle-Granger que confirman cointegración (pass-through real) | multi-línea, lee `fact_cointegracion_tests[EsValido]` |
 
-### 03_Operations_SupplyChain_Plant — `_Medidas_Operaciones.tmdl`
+### Operaciones_y_Planta — `_Medidas_Operaciones.tmdl`
 
 | Medida | displayFolder | Qué mide | Fórmula (resumida) |
 |---|---|---|---|
@@ -258,7 +258,7 @@ Selección de medidas de negocio real (excluye auxiliares de formateo puro de to
 - **Bug class detectado y corregido esta sesión — TMDL malformado en medidas multi-línea:** medidas DAX con bloques `VAR ... RETURN` de varias líneas requieren indentación consistente por tab respecto a la línea `measure 'Nombre' =`, y cada medida/columna nueva necesita un `lineageTag` (GUID) único — no reutilizado de otra medida por copy-paste. Un `lineageTag` duplicado o una indentación rota en el bloque `VAR/RETURN` no siempre falla al cargar, pero corrompe el árbol de dependencias del motor VertiPaq o produce resultados silenciosamente incorrectos. Lección de gobernanza: **validar el TMDL contra un ejemplo funcionando del mismo modelo antes de guardar**, no solo contra la sintaxis DAX en abstracto.
 - **`CategoriaABC` (`dim_productos.tmdl`, proyecto 02) — caso de estudio de "JSON/TMDL válido no implica valor de negocio correcto":** existían simultáneamente dos clasificaciones ABC en el mismo modelo: (1) una columna estática `CategoriaABC` que mapeaba `Linea` de producto → Clase A/B/C con un diccionario fijo, ignorando el ingreso real por SKU, y (2) la medida `'Clasificacion ABC'` en `_Medidas_Comercial.tmdl`, que calcula la clase real vía `RANKX` + % acumulado de ingresos sobre `fact_ventas_reales`. Ambas convivían mostrando clasificaciones contradictorias en la misma página (`p3_pareto`): el archivo TMDL era 100% válido sintácticamente, pero la columna estática era un valor de negocio fabricado. Se resolvió convirtiendo `CategoriaABC` en una columna calculada DAX con la **misma metodología y los mismos umbrales (75%/92%)** que la medida `'Clasificacion ABC'` ya existente (ver `dim_productos.tmdl` líneas 80-98), eliminando la contradicción sin duplicar lógica de negocio.
 - **Causa raíz relacionada, en la capa de generación de datos:** antes de esta sesión, `generar_datos_historicos_ventas.py` generaba volumen de ventas por SKU de forma uniforme (9-20 transacciones/mes) sin importar el segmento, lo que producía una curva de Pareto irrealmente plana (67% de los SKUs caía en "Clase A"). Se corrigió introduciendo `SEGMENTO_VOL_BASE_MES` — rangos de volumen base diferenciados por segmento (p. ej. `Entrada: (35,70)` vs. `Gran Reserva / Icono: (3,9)`) — reflejando que los vinos de entrada/granel venden mucho más volumen que los íconos premium. Esta es la causa raíz real de por qué la clasificación ABC fabricada parecía "razonable" a simple vista pese a estar mal fundamentada: el dato de origen tampoco reflejaba la asimetría real de ventas por segmento.
-- **Fuente única de verdad:** los 3 modelos semánticos importan desde el mismo parámetro M `RutaDatos` (definido en `expressions.tmdl` de cada proyecto, apuntando a `00_Data_Engineering_ETL/curated_gold`), evitando que cada modelo tenga su propia copia divergente de las tablas maestras.
+- **Fuente única de verdad:** los 3 modelos semánticos importan desde el mismo parámetro M `RutaDatos` (definido en `expressions.tmdl` de cada proyecto, apuntando a `Ingenieria_de_Datos/curated_gold`), evitando que cada modelo tenga su propia copia divergente de las tablas maestras.
 
 ---
 
@@ -268,31 +268,31 @@ Ejecutar en este orden desde la raíz del repo (`Portfolio_Empresarial_PowerBI/`
 
 ```bash
 # 1) Generación de datos RAW (sintéticos, calibrados contra series reales BCRA/INDEC/INV)
-python 00_Data_Engineering_ETL/generar_datos_historicos_ventas.py
-python 00_Data_Engineering_ETL/generar_presupuesto_2025.py
+python Ingenieria_de_Datos/generar_datos_historicos_ventas.py
+python Ingenieria_de_Datos/generar_presupuesto_2025.py
 # (los demás raw_*.csv — OPEX, centros de costo, planta, capital de trabajo,
 #  plan de cuentas — son archivos estáticos versionados en raw/, no requieren generador)
 
 # 2) ETL determinista: raw/ -> curated_gold/ (limpieza, unpivot, integridad referencial)
-python 00_Data_Engineering_ETL/etl_pipeline_cleaner.py
+python Ingenieria_de_Datos/etl_pipeline_cleaner.py
 
 # 3) Actualización de capa de datos derivada (geolocalización planta, inventario de
 #    guarda, cuentas industriales, redistribución de OPEX fabril)
-python 00_Data_Engineering_ETL/update_data_layer.py
+python Ingenieria_de_Datos/update_data_layer.py
 
 # 4) Capa econométrica: corre los modelos y persiste outputs/*.json
-#    (desde 04_Econometric_Analysis/src/, vía notebook o import directo)
+#    (desde Analisis_Econometrico/src/, vía notebook o import directo)
 python -c "from analisis_elasticidad_cointegracion import correr_todo; correr_todo()"
-python 04_Econometric_Analysis/src/estacionalidad_y_forecast.py   # si expone entrypoint __main__
+python Analisis_Econometrico/src/estacionalidad_y_forecast.py   # si expone entrypoint __main__
 
 # 5) Export de resultados econométricos a curated_gold (elasticidad, estacionalidad,
 #    forecast, cointegración, curva Rofex CIP real)
-python 04_Econometric_Analysis/src/exportar_resultados_powerbi.py
+python Analisis_Econometrico/src/exportar_resultados_powerbi.py
 
-# 6) Apertura en Power BI Desktop: abrir cada .pbip (01_Financial_Controller_FPA.pbip,
-#    02_Commercial_Sales_Intelligence.pbip, 03_Operations_SupplyChain_Plant.pbip) y
+# 6) Apertura en Power BI Desktop: abrir cada .pbip (Control_de_Gestion.pbip,
+#    Inteligencia_Comercial.pbip, Operaciones_y_Planta.pbip) y
 #    refrescar (Home > Refresh). Los 3 leen curated_gold/ vía el parámetro M RutaDatos,
 #    por lo que basta un solo refresh por modelo tras regenerar la capa gold.
 ```
 
-**Nota:** los pasos 1-3 son deterministas dado `np.random.seed`/`default_rng(42)` fijo en cada generador — re-ejecutarlos produce exactamente los mismos datos, salvo que cambien los CSV/JSON de `04_Econometric_Analysis/data/real/` (series reales, actualizables desde las APIs de BCRA/INDEC).
+**Nota:** los pasos 1-3 son deterministas dado `np.random.seed`/`default_rng(42)` fijo en cada generador — re-ejecutarlos produce exactamente los mismos datos, salvo que cambien los CSV/JSON de `Analisis_Econometrico/data/real/` (series reales, actualizables desde las APIs de BCRA/INDEC).

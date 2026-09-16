@@ -17,10 +17,10 @@ A diferencia de los modelos monolíticos tradicionales —que concentran decenas
 
 ```
 Portfolio_Empresarial_PowerBI/
-├── 00_Data_Engineering_ETL/          # Ingestion, Limpieza en Python, Calidad 100% y DDL/Vistas SQL
-├── 01_Financial_Controller_FPA/      # P&L Cascada, Centros de Costo SAP CO-CCA, Liquidez y Capital de Trabajo
-├── 02_Commercial_Sales_Intelligence/ # Rentabilidad Multicanal, Precios vs Lista, Curva de Pareto 80/20
-├── 03_Operations_SupplyChain_Plant/  # Eficiencia Enológica, Costos Fabriles de Absorción, Mermas y Crianza
+├── Ingenieria_de_Datos/          # Ingestion, Limpieza en Python, Calidad 100% y DDL/Vistas SQL
+├── Control_de_Gestion/      # P&L Cascada, Centros de Costo SAP CO-CCA, Liquidez y Capital de Trabajo
+├── Inteligencia_Comercial/ # Rentabilidad Multicanal, Precios vs Lista, Curva de Pareto 80/20
+├── Operaciones_y_Planta/  # Eficiencia Enológica, Costos Fabriles de Absorción, Mermas y Crianza
 ├── tools/                            # Scripts de auditoria automatizada anti-hardcodes y verificacion
 └── sync_all_suites.py                # Orquestador maestro y sincronizacion a Google Drive Master
 ```
@@ -126,7 +126,7 @@ ROUND([Desvio Margen Bruto Total] - ([Efecto Volumen EV] + [Efecto Precio EP] + 
 
 ## 3. DETALLE DE LAS SUITES INDEPENDIENTES
 
-### Suite 01: Financial Controller & FP&A (`01_Financial_Controller_FPA.pbip`)
+### Suite 01: Financial Controller & FP&A (`Control_de_Gestion.pbip`)
 - **Página 1: P&L Ejecutivo & Descomposición de Desvíos:**
   * 4 KPIs: Ingresos Netos ($1,474.5M), Margen Bruto ($768.6M / 52.13%), EBITDA ($312.8M), Ciclo de Conversión de Efectivo (62.9 días).
   * Waterfall Chart interactivo de Variance Analysis que reconcilia Plan $\rightarrow EV \rightarrow EP \rightarrow EC \rightarrow$ Real con residuo cero.
@@ -140,7 +140,7 @@ ROUND([Desvio Margen Bruto Total] - ([Efecto Volumen EV] + [Efecto Precio EP] + 
   * Curvas de rotación mensual y estructura patrimonial de NOF.
   * Panel de síntesis ejecutiva estructurado bajo el método Pirámide de Minto.
 
-### Suite 02: Commercial & Sales Intelligence (`02_Commercial_Sales_Intelligence.pbip`)
+### Suite 02: Commercial & Sales Intelligence (`Inteligencia_Comercial.pbip`)
 - **Página 1: Inteligencia Multicanal:**
   * Facturación y cumplimiento por canal: Canal Horeca, Supermercados, Distribuidor Mayorista, Exportación Directa.
   * Gráfico de dispersión cuadrante: Volumen Vendido ($X$) vs. Precio Promedio Real ($Y$) con burbujas ponderadas por margen.
@@ -152,7 +152,7 @@ ROUND([Desvio Margen Bruto Total] - ([Efecto Volumen EV] + [Efecto Precio EP] + 
   * Los SKUs Clase A (Bag in Box 3L, Cabernet Franc Reserva, Malbec Reserva) concentran el 70.63% de la facturación con un margen promedio del 52.36%.
   * Panel de recomendaciones estratégicas de blindaje de stock y rentabilidad.
 
-### Suite 03: Operations & Supply Chain Plant (`03_Operations_SupplyChain_Plant.pbip`)
+### Suite 03: Operations & Supply Chain Plant (`Operaciones_y_Planta.pbip`)
 - **Página 1: Eficiencia Enológica & Recepción de Vendimia:**
   * Balance de masa: 5,452,927 kg de uva procesada $\rightarrow$ 3,863,764 L de mosto (Rendimiento medio 70.86%, Grados Brix 24.40°Bx).
   * Rendimiento por finca de origen (Finca Agrelo, Barrancas, Gualtallary, Altamira).
@@ -171,9 +171,9 @@ ROUND([Desvio Margen Bruto Total] - ([Efecto Volumen EV] + [Efecto Precio EP] + 
 
 1. **Requisitos:** Microsoft Power BI Desktop (edición 2024 o superior) con la opción de vista previa **Power BI Project (`.pbip`)** habilitada en `Opciones -> Características de versión preliminar`.
 2. **Apertura de Proyectos:**
-   - Para abrir la suite financiera: doble clic en `01_Financial_Controller_FPA/01_Financial_Controller_FPA.pbip`.
-   - Para abrir la suite comercial: doble clic en `02_Commercial_Sales_Intelligence/02_Commercial_Sales_Intelligence.pbip`.
-   - Para abrir la suite de planta: doble clic en `03_Operations_SupplyChain_Plant/03_Operations_SupplyChain_Plant.pbip`.
+   - Para abrir la suite financiera: doble clic en `Control_de_Gestion/Control_de_Gestion.pbip`.
+   - Para abrir la suite comercial: doble clic en `Inteligencia_Comercial/Inteligencia_Comercial.pbip`.
+   - Para abrir la suite de planta: doble clic en `Operaciones_y_Planta/Operaciones_y_Planta.pbip`.
 3. **Parámetro de Datos Portable (`RutaDatos`):**
    Todos los modelos leen los datos limpios mediante el parámetro `RutaDatos` configurado en `expressions.tmdl`. Si se reubica la carpeta, basta con ir a `Inicio -> Transformar datos -> Editar parámetros` e ingresar la nueva ruta a `curated_gold`.
 

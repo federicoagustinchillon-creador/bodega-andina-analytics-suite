@@ -22,7 +22,7 @@ Frente a los reportes convencionales monolíticos —que sufren de rigidez, lent
    [ FUENTES CRUDAS ERP / PLANTA ]               [ CAPA 00: DATA ENGINEERING ]             [ CAPA SEMÁNTICA TMDL ]              [ CAPA VISUAL PBIR (9 PÁGINAS) ]
    
    +-------------------------------+             +---------------------------+              +-----------------------+            +----------------------------------+
-   | - raw_sap_vbrk_vbrp_ventas    |             |  etl_pipeline_cleaner.py  |              |  Modelos Semánticos   |            |  01_Financial_Controller_FPA     |
+   | - raw_sap_vbrk_vbrp_ventas    |             |  etl_pipeline_cleaner.py  |              |  Modelos Semánticos   |            |  Control_de_Gestion     |
    | - raw_presupuesto_horizontal  | ----------> |  - Stripping & Mayúsculas | -----------> |  - Relaciones 1:*     | ---------> |  p1. P&L & Variance Cascada      |
    | - raw_planta_molienda_remitos |             |  - Parseo Fechas 8 Formatos|             |  - 136 Medidas DAX    |            |  p2. OPEX por Centro de Costo    |
    | - raw_maestro_centros_costo   |             |  - Unpivot Dinámico Plan  |              |  - Cero Hardcoding    |            |  p3. Capital Trabajo & Liquidez  |
@@ -32,7 +32,7 @@ Frente a los reportes convencionales monolíticos —que sufren de rigidez, lent
                                                                |                                                                 |  p2. Dinámica de Precios Real    |
                                                                v                                                                 |  p3. Portafolio ABC & Pareto     |
                                                  +---------------------------+                                                   +----------------------------------+
-                                                 |   curated_gold/ (CSVs)    |                                                   |  03_Operations_SupplyChain_Plant |
+                                                 |   curated_gold/ (CSVs)    |                                                   |  Operaciones_y_Planta |
                                                  |   sql/ (DDL & Vistas)     |                                                   |  p1. Vendimia & Extracción       |
                                                  +---------------------------+                                                   |  p2. Costos Fabriles Absorción   |
                                                                                                                                  |  p3. Guarda, Mermas & Crianza    |
@@ -111,7 +111,7 @@ El modelo de datos se estructura bajo el estándar de **Kimball (Star Schema)** 
 ### Portabilidad Absoluta (`RutaDatos`)
 Todos los modelos semánticos consumen la capa Gold a través del parámetro de Power Query `RutaDatos`:
 ```powerquery
-RutaDatos = "c:/Users/fedea/Downloads/cv/Portfolio_Empresarial_PowerBI/00_Data_Engineering_ETL/curated_gold" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+RutaDatos = "c:/Users/fedea/Downloads/cv/Portfolio_Empresarial_PowerBI/Ingenieria_de_Datos/curated_gold" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 ```
 Esto permite clonar el repositorio en cualquier servidor, estación de trabajo o entorno cloud cambiando únicamente un parámetro global sin reescribir consultas.
 
@@ -341,7 +341,7 @@ Para verificar la integridad absoluta del sistema en cualquier entorno:
 
 3. **Ejecución del Pipeline de Ingeniería:**
    ```bash
-   python Portfolio_Empresarial_PowerBI/00_Data_Engineering_ETL/etl_pipeline_cleaner.py
+   python Portfolio_Empresarial_PowerBI/Ingenieria_de_Datos/etl_pipeline_cleaner.py
    ```
    *Salida esperada:* Ejecución en <0.5s con generación de `curated_gold/` y `data_quality_report.json` con 100% de validez.
 
