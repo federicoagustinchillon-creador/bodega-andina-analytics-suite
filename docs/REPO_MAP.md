@@ -21,11 +21,11 @@
 
 ### [`generar_datos_historicos_ventas.py`](00_Data_Engineering_ETL/generar_datos_historicos_ventas.py) — ⚠️ sin referencias externas encontradas
 > Genera datos crudos (raw) de ventas 2021-2025 para 36 SKUs, calibrados contra
-- `cargar_series_reales()` (L88)
-- `sucio_fecha(fecha, i)` — Reproduce la mezcla de formatos de fecha del archivo raw original. (L97)
-- `sucio_texto(v, i)` — Ensucia levemente MATNR/INCO1 (case + espacios) como el archivo original. (L104)
-- `generar()` (L115)
-- `generar_maestro_productos()` (L189)
+- `cargar_series_reales()` (L102)
+- `sucio_fecha(fecha, i)` — Reproduce la mezcla de formatos de fecha del archivo raw original. (L111)
+- `sucio_texto(v, i)` — Ensucia levemente MATNR/INCO1 (case + espacios) como el archivo original. (L118)
+- `generar()` (L129)
+- `generar_maestro_productos()` (L205)
 
 ### [`generar_presupuesto_2025.py`](00_Data_Engineering_ETL/generar_presupuesto_2025.py) — ⚠️ sin referencias externas encontradas
 > Expande raw_presupuesto_horizontal.csv de 8 a 36 SKUs (catalogo actual),
