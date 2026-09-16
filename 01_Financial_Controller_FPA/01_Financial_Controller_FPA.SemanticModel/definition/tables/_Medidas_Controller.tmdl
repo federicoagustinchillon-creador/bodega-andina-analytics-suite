@@ -315,7 +315,7 @@ table _Medidas_Controller
 		displayFolder: 05 Capital de Trabajo y Liquidez
 		lineageTag: 43c4fb6a-c6ff-4bb4-9c8c-b49d729bfc03
 
-	measure 'Ratio Cobertura Proveedores' = DIVIDE([Cuentas por Pagar Total], [Activo Operativo Liquido], 0)
+	measure 'Ratio Cobertura Proveedores' = DIVIDE([Activo Operativo Liquido], [Cuentas por Pagar Total], 0)
 		formatString: 0.00%
 		displayFolder: 05 Capital de Trabajo y Liquidez
 		lineageTag: 7344ca29-dfcb-4fcb-9308-2795c0029a80

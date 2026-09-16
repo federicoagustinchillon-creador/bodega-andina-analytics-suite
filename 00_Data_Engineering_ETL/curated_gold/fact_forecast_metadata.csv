@@ -1,2 +1,2 @@
 OrdenModelo,AIC,MAPE,RMSE,NTrain,NTest
-"SARIMA(0, 1, 1)x(0, 1, 1, 12)",404.61,4.77,3176.27,48,12
+"SARIMA(1, 1, 1)x(1, 1, 1, 12)",454.97,3.5,5865.77,48,12

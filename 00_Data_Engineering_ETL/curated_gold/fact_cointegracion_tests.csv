@@ -1,3 +1,3 @@
 Test,OrdenY,OrdenX,EsValido,Estadistico,PValue,Conclusion
-Precio Exportacion vs. FX,I(2)+,I(1),False,-3.365618470292513,0.04631528659872431,"Test no valido en sentido estricto: y es I(2)+, x es I(1). Engle-Granger requiere ambas series I(1). Resultado reportado a titulo informativo unicamente."
-Precio Domestico vs. IPC,I(2)+,I(2)+,False,-2.052103063245828,0.501410246706086,"Test no valido en sentido estricto: y es I(2)+, x es I(2)+. Engle-Granger requiere ambas series I(1). Resultado reportado a titulo informativo unicamente."
+Precio Exportacion vs. FX,I(1),I(1),True,-2.860272318248643,0.14725862195646494,No se rechaza ausencia de cointegracion (p=0.1473 >= 0.05): no hay evidencia de relacion de largo plazo estable entre las series.
+Precio Domestico vs. IPC,I(2)+,I(2)+,False,-4.513997561211294,0.0011613803733965045,"Test no valido en sentido estricto: y es I(2)+, x es I(2)+. Engle-Granger requiere ambas series I(1). Resultado reportado a titulo informativo unicamente."

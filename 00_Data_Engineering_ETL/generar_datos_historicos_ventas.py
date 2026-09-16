@@ -81,6 +81,20 @@ SEGMENTO_PARAMS = {
     "Granel / Masivo":        dict(beta=-1.6, deriva_real=-0.02,  pct_fob=0.04, usd=(0.9, 1.4)),  # USD/litro
 }
 
+# Volumen base de transacciones/mes por segmento: el vino de entrada y el granel
+# se venden en volumen mucho mayor que las etiquetas premium/icono (realidad
+# comercial de bodega -- volumen y precio son inversamente proporcionales). Antes
+# el volumen era uniforme (9-20) sin importar el segmento, lo que aplanaba
+# artificialmente la curva de ingresos y generaba un Pareto/ABC irreal (67% de
+# los SKUs en Clase A en vez de ~20%).
+SEGMENTO_VOL_BASE_MES = {
+    "Entrada":               (35, 70),
+    "Reserva":               (14, 28),
+    "Gran Reserva / Icono":  (3, 9),
+    "Espumante":             (10, 22),
+    "Granel / Masivo":       (45, 85),
+}
+
 TENDENCIA_ANUAL_DOMESTICA = -0.02   # consumo interno en caida secular (real, ver INV)
 TENDENCIA_ANUAL_EXPORT = 0.015      # exportaciones levemente crecientes
 
@@ -124,7 +138,9 @@ def generar():
         producto_id = f"PRD-{i:02d}"
         p = SEGMENTO_PARAMS[segmento]
         es_granel_litro = segmento == "Granel / Masivo"
-        vol_base_mes = RNG.integers(9, 20)  # cantidad de transacciones/mes para este SKU
+        vol_lo, vol_hi = SEGMENTO_VOL_BASE_MES[segmento]
+        popularidad_sku = RNG.lognormal(0, 0.30)  # variacion individual dentro del segmento (SKU "hero" vs. cola larga -- reconocimiento de marca/varietal, no solo precio)
+        vol_base_mes = RNG.integers(vol_lo, vol_hi) * popularidad_sku
 
         for t, fecha_mes in enumerate(MESES):
             anio_frac = t / 12

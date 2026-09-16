@@ -177,13 +177,11 @@ def run_etl():
         df_prod["FormatoML"] = df_prod_raw["FormatoML"].apply(clean_currency_or_number).round(0).astype("Int64")
     df_prod["CostoEstandarUnit"] = df_prod_raw["CostoEstandarUnit"].apply(clean_currency_or_number).round(2)
     df_prod["PrecioPresupuestadoUnit"] = df_prod_raw["PrecioPresupuestadoUnit"].apply(clean_currency_or_number).round(2)
-    df_prod["CategoriaABC"] = df_prod["Linea"].map({
-        "Alta Gama": "Clase A",
-        "Icono / Super Premium": "Clase A",
-        "Granel / Masivo": "Clase A",
-        "Espumantes": "Clase B",
-        "Entrada / Volumen": "Clase C"
-    }).fillna("Clase C")
+    # CategoriaABC NO se genera aca: un mapeo estatico Linea->Clase no es un analisis
+    # ABC/Pareto real (ignora el ingreso real por SKU). Se calcula en el modelo como
+    # columna calculada DAX (RANKX + % acumulado de ingresos reales) en dim_productos.tmdl
+    # del proyecto 02_Commercial_Sales_Intelligence, la unica que tiene fact_ventas_reales
+    # con el detalle necesario.
 
     # Conteo de correcciones de string y formato
     prod_inconsistencias += (df_prod_raw["ProductoID"] != df_prod["ProductoID"]).sum()
