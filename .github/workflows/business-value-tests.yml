@@ -1,0 +1,42 @@
+name: Business Value Tests
+
+on:
+  push:
+    paths:
+      - "00_Data_Engineering_ETL/**"
+      - "04_Econometric_Analysis/**"
+  pull_request:
+    paths:
+      - "00_Data_Engineering_ETL/**"
+      - "04_Econometric_Analysis/**"
+  workflow_dispatch:
+
+jobs:
+  business-value-sanity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pytest -r 04_Econometric_Analysis/requirements.txt
+
+      - name: Regenerate curated_gold from raw data
+        working-directory: 00_Data_Engineering_ETL
+        run: |
+          python generar_datos_historicos_ventas.py
+          python generar_presupuesto_2025.py
+          python etl_pipeline_cleaner.py
+
+      - name: Run econometric pipeline
+        working-directory: 04_Econometric_Analysis
+        run: |
+          python src/analisis_elasticidad_cointegracion.py
+          python src/estacionalidad_y_forecast.py
+          python src/exportar_resultados_powerbi.py
+
+      - name: Business-value sanity tests
+        run: python -m pytest 00_Data_Engineering_ETL/tests/ -v
