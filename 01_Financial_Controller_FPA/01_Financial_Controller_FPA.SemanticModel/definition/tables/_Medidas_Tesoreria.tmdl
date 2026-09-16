@@ -40,7 +40,7 @@ table _Medidas_Tesoreria
 			    [Spread Arbitraje bps] < -150, "Financiar en Pesos (cobertura cara)",
 			    "Calce / Indiferencia"
 			)
-		formatString: "@"
+		formatString: @
 		displayFolder: 01 Tesoreria y Cobertura Cambiaria
 		lineageTag: d3e3c5d6-785a-4fdf-8114-2180d302f4d5
 
@@ -51,7 +51,7 @@ table _Medidas_Tesoreria
 			    "Financiar en Pesos (cobertura cara)", "#EF4444",
 			    "#F59E0B"
 			)
-		formatString: "@"
+		formatString: @
 		displayFolder: 01 Tesoreria y Cobertura Cambiaria
 		lineageTag: 4b73067d-2ebe-427d-94b9-a618d3d3c7f8
 

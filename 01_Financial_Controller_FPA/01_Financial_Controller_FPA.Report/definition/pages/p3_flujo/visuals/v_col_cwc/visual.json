@@ -4,10 +4,10 @@
   "position": {
     "x": 831,
     "y": 413,
-    "z": 8000,
+    "z": 12000,
     "height": 295,
     "width": 435,
-    "tabOrder": 14000
+    "tabOrder": 18000
   },
   "visual": {
     "visualType": "lineChart",
@@ -356,51 +356,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "0a88c6bea0eb5e4c3622",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_calendario"
-              }
-            },
-            "Property": "MesNombre"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5eb548c020b9d83ad1e5",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Controller"
-              }
-            },
-            "Property": "Ingresos Reales"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f294f40435e456ab0c0e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Controller"
-              }
-            },
-            "Property": "EBITDA Real"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

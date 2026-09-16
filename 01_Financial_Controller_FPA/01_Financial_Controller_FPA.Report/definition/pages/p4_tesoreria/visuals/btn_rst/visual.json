@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "btn_rst",
   "position": {
-    "x": 18,
-    "y": 196,
-    "z": 12000,
+    "x": 17.313138429024303,
+    "y": 326.06410707995775,
+    "z": 16000,
     "height": 34,
     "width": 160,
-    "tabOrder": 5000
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "actionButton",
