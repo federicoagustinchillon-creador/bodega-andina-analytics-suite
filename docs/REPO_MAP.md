@@ -1,6 +1,6 @@
 # Compact AST Repository Map (Portfolio_Empresarial_PowerBI)
 > **Propósito**: Mapa ultracompacto de símbolos, docstrings y conectividad para alimentar a agentes de IA con pocos tokens.
-> **Directorios escaneados**: 00_Data_Engineering_ETL, 04_Econometric_Analysis, tools (14 módulos)
+> **Directorios escaneados**: 00_Data_Engineering_ETL, 04_Econometric_Analysis, tools (15 módulos)
 > **'conectado'** = referenciado (import o nombre de archivo) desde otro lugar del repo. 'sin referencias externas' no implica código roto -- puede ser un script standalone válido que nadie documentó todavía en SKILL_ROUTER.md.
 
 ### [`audit_suite03_operations.py`](00_Data_Engineering_ETL/audit_suite03_operations.py) — ⚠️ sin referencias externas encontradas
@@ -32,6 +32,18 @@
 - `cargar_catalogo()` (L30)
 - `cargar_indice_estacional()` (L34)
 - `generar()` (L39)
+
+### [`test_business_value_sanity.py`](00_Data_Engineering_ETL/tests/test_business_value_sanity.py) — ⚠️ sin referencias externas encontradas
+> Tests de VALOR DE NEGOCIO sobre curated_gold y outputs econometricos.
+- `quality_report()` (L25)
+- `ventas()` (L30)
+- `productos()` (L35)
+- `capital_trabajo()` (L40)
+- `opex()` (L45)
+- `test_sin_huerfanas_sin_resolver(quality_report)` — Toda clave huerfana detectada por el ETL debe haber sido resuelta (cuarentena/fix), no colada. (L50)
+- `test_tasa_validez_alta(quality_report)` (L58)
+- `test_ventas_referencian_productos_existentes(ventas, productos)` (L64)
+- *...y 7 funciones más*
 
 ### [`update_data_layer.py`](00_Data_Engineering_ETL/update_data_layer.py) — ⚠️ sin referencias externas encontradas
 > Script de Actualizacion de Capa de Datos y Modelos Semanticos
