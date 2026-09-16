@@ -16,7 +16,7 @@ import sys
 import json
 import re
 
-PORTFOLIO_DIR = r"c:\Users\fedea\Downloads\cv\Portfolio_Empresarial_PowerBI"
+PORTFOLIO_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECTS = [
     "02_Control_de_Gestion",
     "03_Inteligencia_Comercial",
@@ -47,11 +47,12 @@ def run_suite_audit():
             syntax_errors.append(f"Directorio no encontrado: {proj_dir}")
             continue
             
-        # 1. Comprobar .pbip
-        pbip_path = os.path.join(proj_dir, f"{proj}.pbip")
-        if not os.path.exists(pbip_path):
-            syntax_errors.append(f"Falta archivo raiz PBIP: {pbip_path}")
+        # 1. Comprobar .pbip (soporta nombre con o sin prefijo numerico)
+        pbip_candidates = [f for f in os.listdir(proj_dir) if f.endswith(".pbip")]
+        if not pbip_candidates:
+            syntax_errors.append(f"Falta archivo raiz PBIP en: {proj_dir}")
         else:
+            pbip_path = os.path.join(proj_dir, pbip_candidates[0])
             with open(pbip_path, "r", encoding="utf-8") as f:
                 try:
                     data = json.load(f)
@@ -61,7 +62,11 @@ def run_suite_audit():
                     syntax_errors.append(f"Error JSON en {pbip_path}: {e}")
                     
         # 2. Comprobar SemanticModel
-        sem_dir = os.path.join(proj_dir, f"{proj}.SemanticModel")
+        sem_candidates = [d for d in os.listdir(proj_dir) if d.endswith(".SemanticModel")]
+        if not sem_candidates:
+            syntax_errors.append(f"Directorio SemanticModel no encontrado en: {proj_dir}")
+            continue
+        sem_dir = os.path.join(proj_dir, sem_candidates[0])
         def_dir = os.path.join(sem_dir, "definition")
         tables_dir = os.path.join(def_dir, "tables")
         
@@ -101,7 +106,11 @@ def run_suite_audit():
                                     hardcode_violations.append(f"{proj} -> {tfile} -> [{current_measure}] = {full_expr}")
 
         # 3. Comprobar Report (PBIR)
-        rep_dir = os.path.join(proj_dir, f"{proj}.Report")
+        rep_candidates = [d for d in os.listdir(proj_dir) if d.endswith(".Report")]
+        if not rep_candidates:
+            syntax_errors.append(f"Directorio Report no encontrado en: {proj_dir}")
+            continue
+        rep_dir = os.path.join(proj_dir, rep_candidates[0])
         for root, dirs, files in os.walk(rep_dir):
             for file in files:
                 fpath = os.path.join(root, file)

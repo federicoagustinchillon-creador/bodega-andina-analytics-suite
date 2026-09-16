@@ -1,3 +1,15 @@
+# Power BI Desktop local runtime & caches
 **/.pbi/localSettings.json
-**/.pbi/cache.abf__pycache__/
+**/.pbi/cache.abf
+
+# Python caches
+__pycache__/
 *.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
