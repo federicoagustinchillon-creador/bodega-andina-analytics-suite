@@ -4,10 +4,10 @@
   "position": {
     "x": 196,
     "y": 238,
-    "z": 2,
+    "z": 6000,
     "height": 470,
     "width": 630,
-    "tabOrder": 0
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "lineChart",
@@ -80,9 +80,6 @@
                 }
               }
             },
-            "gridlineColor": {
-              "solid": {}
-            },
             "gridlineShow": {
               "expr": {
                 "Literal": {
@@ -143,28 +140,16 @@
       ],
       "dataPoint": [
         {
-          "properties": {
-            "defaultColor": {
-              "solid": {}
-            }
-          }
+          "properties": {}
         },
         {
-          "properties": {
-            "fill": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "metadata": "_Medidas_Tesoreria.Spot ARS/USD Serie"
           }
         },
         {
-          "properties": {
-            "fill": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "metadata": "_Medidas_Tesoreria.Futuro Rofex 3M Serie"
           }
@@ -222,9 +207,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -244,9 +226,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {
@@ -274,9 +253,6 @@
                   "Value": "'Curva Spot vs. Futuro Rofex 3M'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {
@@ -311,9 +287,6 @@
                   "Value": "'Tipo de cambio ARS/USD A3500 y futuro DLR 3M | Serie diaria 2025'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {

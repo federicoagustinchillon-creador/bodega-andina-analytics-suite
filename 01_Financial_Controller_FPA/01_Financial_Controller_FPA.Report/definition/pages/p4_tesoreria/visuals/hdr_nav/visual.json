@@ -4,10 +4,10 @@
   "position": {
     "x": 196,
     "y": 10,
-    "z": 2,
+    "z": 0,
     "height": 52,
-    "width": 930,
-    "tabOrder": 0
+    "width": 650,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "textbox",
@@ -58,9 +58,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -80,9 +77,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {

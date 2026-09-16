@@ -34,6 +34,31 @@ table dim_productos
 
 		annotation SummarizationSetBy = Automatic
 
+	column Segmento
+		dataType: string
+		lineageTag: dea4c15f-922f-44e5-86bd-deaf4d71788e
+		summarizeBy: none
+		sourceColumn: Segmento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Varietal
+		dataType: string
+		lineageTag: bfc21de1-8cbe-4f27-96da-c1a60d7793df
+		summarizeBy: none
+		sourceColumn: Varietal
+
+		annotation SummarizationSetBy = Automatic
+
+	column FormatoML
+		dataType: int64
+		formatString: 0
+		lineageTag: 0593940b-80f0-4172-8336-792b49679a56
+		summarizeBy: none
+		sourceColumn: FormatoML
+
+		annotation SummarizationSetBy = Automatic
+
 	column CostoEstandarUnit
 		dataType: double
 		formatString: $#,##0.00;($#,##0.00);"-"
@@ -66,7 +91,7 @@ table dim_productos
 				let
 					Origen = Csv.Document(File.Contents(RutaDatos & "/dim_productos.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
-					Tipos = Table.TransformColumnTypes(Encabezados, {{"ProductoID", type text}, {"SKU", type text}, {"Descripcion", type text}, {"Linea", type text}, {"CostoEstandarUnit", type number}, {"PrecioPresupuestadoUnit", type number}, {"CategoriaABC", type text}}, "en-US")
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"ProductoID", type text}, {"SKU", type text}, {"Descripcion", type text}, {"Linea", type text}, {"Segmento", type text}, {"Varietal", type text}, {"FormatoML", Int64.Type}, {"CostoEstandarUnit", type number}, {"PrecioPresupuestadoUnit", type number}, {"CategoriaABC", type text}}, "en-US")
 				in
 					Tipos
 

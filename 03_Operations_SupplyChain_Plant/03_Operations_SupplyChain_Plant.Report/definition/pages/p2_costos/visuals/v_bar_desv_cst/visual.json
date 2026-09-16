@@ -65,9 +65,6 @@
                 }
               }
             },
-            "gridlineColor": {
-              "solid": {}
-            },
             "gridlineShow": {
               "expr": {
                 "Literal": {
@@ -94,11 +91,7 @@
       ],
       "dataPoint": [
         {
-          "properties": {
-            "defaultColor": {
-              "solid": {}
-            }
-          }
+          "properties": {}
         }
       ],
       "categoryAxis": [
@@ -194,9 +187,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -216,9 +206,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {
@@ -246,9 +233,6 @@
                   "Value": "'Desvío de Absorción Fabril por Centro de Costo'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {
@@ -283,9 +267,6 @@
                   "Value": "'Comparacion por dimension | Ordenado por valor real'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {

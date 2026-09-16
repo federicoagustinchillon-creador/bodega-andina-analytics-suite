@@ -60,6 +60,30 @@ table dim_productos
 
 		annotation SummarizationSetBy = Automatic
 
+	column Segmento
+		dataType: string
+		lineageTag: 1a1300ec-0dbd-42c9-8114-72bffbf1913a
+		summarizeBy: none
+		sourceColumn: Segmento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Varietal
+		dataType: string
+		lineageTag: 110d4ee6-1258-4b23-a15a-cdde5eab5e0d
+		summarizeBy: none
+		sourceColumn: Varietal
+
+		annotation SummarizationSetBy = Automatic
+
+	column FormatoML
+		dataType: string
+		lineageTag: 6ba77622-a135-47fe-a2e1-f9d8b5a5dda2
+		summarizeBy: none
+		sourceColumn: FormatoML
+
+		annotation SummarizationSetBy = Automatic
+
 	partition dim_productos = m
 		mode: import
 		source =

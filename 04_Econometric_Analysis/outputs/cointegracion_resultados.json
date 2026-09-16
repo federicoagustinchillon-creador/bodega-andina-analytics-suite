@@ -1,0 +1,18 @@
+{
+  "test_A_pass_through_cambiario": {
+    "orden_y": "I(2)+",
+    "orden_x": "I(1)",
+    "es_valido": false,
+    "estadistico": -3.365618470292513,
+    "p_value": 0.04631528659872431,
+    "conclusion": "Test no valido en sentido estricto: y es I(2)+, x es I(1). Engle-Granger requiere ambas series I(1). Resultado reportado a titulo informativo unicamente."
+  },
+  "test_B_pass_through_inflacionario": {
+    "orden_y": "I(2)+",
+    "orden_x": "I(2)+",
+    "es_valido": false,
+    "estadistico": -2.052103063245828,
+    "p_value": 0.501410246706086,
+    "conclusion": "Test no valido en sentido estricto: y es I(2)+, x es I(2)+. Engle-Granger requiere ambas series I(1). Resultado reportado a titulo informativo unicamente."
+  }
+}

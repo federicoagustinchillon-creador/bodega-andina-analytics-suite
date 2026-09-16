@@ -169,10 +169,17 @@ def run_etl():
     df_prod["SKU"] = clean_string_col(df_prod_raw["SKU"], case="upper")
     df_prod["Descripcion"] = clean_string_col(df_prod_raw["Descripcion"])
     df_prod["Linea"] = clean_string_col(df_prod_raw["Linea"])
+    if "Segmento" in df_prod_raw.columns:
+        df_prod["Segmento"] = clean_string_col(df_prod_raw["Segmento"])
+    if "Varietal" in df_prod_raw.columns:
+        df_prod["Varietal"] = clean_string_col(df_prod_raw["Varietal"])
+    if "FormatoML" in df_prod_raw.columns:
+        df_prod["FormatoML"] = df_prod_raw["FormatoML"].apply(clean_currency_or_number).round(0).astype("Int64")
     df_prod["CostoEstandarUnit"] = df_prod_raw["CostoEstandarUnit"].apply(clean_currency_or_number).round(2)
     df_prod["PrecioPresupuestadoUnit"] = df_prod_raw["PrecioPresupuestadoUnit"].apply(clean_currency_or_number).round(2)
     df_prod["CategoriaABC"] = df_prod["Linea"].map({
         "Alta Gama": "Clase A",
+        "Icono / Super Premium": "Clase A",
         "Granel / Masivo": "Clase A",
         "Espumantes": "Clase B",
         "Entrada / Volumen": "Clase C"

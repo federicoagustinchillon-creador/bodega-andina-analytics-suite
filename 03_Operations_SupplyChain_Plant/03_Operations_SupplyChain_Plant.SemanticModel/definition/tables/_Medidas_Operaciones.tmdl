@@ -112,7 +112,7 @@ table _Medidas_Operaciones
 		displayFolder: 02 Costos Fabriles y Absorcion
 		lineageTag: 0942d548-109b-4235-a14b-0e34ddcf6ff8
 
-	measure 'Tasa Eficiencia Planta' = DIVIDE([Costo Presupuesto Fabril], [Costo Total Fabril], 0)
+	measure 'Tasa Eficiencia Planta' = DIVIDE([Costo Total Fabril], [Costo Presupuesto Fabril], 0)
 		formatString: 0.00%
 		displayFolder: 02 Costos Fabriles y Absorcion
 		lineageTag: 51e6a8d1-ac40-4757-a513-08aa9bafa60f

@@ -52,9 +52,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "labelDisplayUnits": {
               "expr": {
                 "Literal": {
@@ -102,9 +99,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -124,9 +118,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {
@@ -154,9 +145,6 @@
                   "Value": "'Tasa Merma en Crianza (%)'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_col1",
   "position": {
-    "x": 831,
-    "y": 413,
-    "z": 2,
-    "height": 295,
-    "width": 435,
-    "tabOrder": 0
+    "x": 699.92509363295881,
+    "y": 451.83520599250937,
+    "z": 8000,
+    "height": 256.4794007490637,
+    "width": 565.6928838951311,
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -72,28 +72,16 @@
     "objects": {
       "dataPoint": [
         {
-          "properties": {
-            "defaultColor": {
-              "solid": {}
-            }
-          }
+          "properties": {}
         },
         {
-          "properties": {
-            "fill": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "metadata": "_Medidas_Controller.Ingresos Reales"
           }
         },
         {
-          "properties": {
-            "fill": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "metadata": "_Medidas_Controller.Ingresos Presupuesto"
           }
@@ -142,9 +130,6 @@
                   "Value": "8.5D"
                 }
               }
-            },
-            "gridlineColor": {
-              "solid": {}
             },
             "gridlineShow": {
               "expr": {
@@ -229,9 +214,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -251,9 +233,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {
@@ -281,9 +260,6 @@
                   "Value": "'Facturación Real vs. Presupuesto por Línea Enológica'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {

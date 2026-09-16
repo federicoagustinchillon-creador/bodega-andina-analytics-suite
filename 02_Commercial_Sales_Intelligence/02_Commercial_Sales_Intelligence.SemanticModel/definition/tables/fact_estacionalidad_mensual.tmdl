@@ -1,0 +1,62 @@
+table fact_estacionalidad_mensual
+	lineageTag: cea33a09-3ab0-43d0-9ebc-39e0bc73f8a7
+
+	column mes
+		dataType: int64
+		formatString: 0
+		lineageTag: 2234e4c2-19ee-4b08-8fda-dc42c467c562
+		summarizeBy: none
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreMes
+		dataType: string
+		lineageTag: 2074eb65-3f2e-4c3b-afbc-0f0817f070e4
+		summarizeBy: none
+		sourceColumn: NombreMes
+		sortByColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column indice_estacional_recuperado_stl
+		dataType: double
+		formatString: 0.000
+		lineageTag: 7e4518b0-5a7d-4da6-9f1c-492ec4a8b8eb
+		summarizeBy: average
+		sourceColumn: indice_estacional_recuperado_stl
+
+		annotation SummarizationSetBy = Automatic
+
+	column indice_estacional_real_inv2024
+		dataType: double
+		formatString: 0.000
+		lineageTag: b4b0004d-0d18-4a85-a62a-0d0ce0fa22f9
+		summarizeBy: average
+		sourceColumn: indice_estacional_real_inv2024
+
+		annotation SummarizationSetBy = Automatic
+
+	column diferencia_absoluta
+		dataType: double
+		formatString: 0.000
+		lineageTag: 61eabe5b-3ad2-467b-b668-193106989442
+		summarizeBy: average
+		sourceColumn: diferencia_absoluta
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_estacionalidad_mensual = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/fact_estacionalidad_mensual.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"mes", Int64.Type}, {"indice_estacional_recuperado_stl", type number}, {"indice_estacional_real_inv2024", type number}, {"diferencia_absoluta", type number}}, "en-US"),
+					NombresMeses = #table({"mes", "NombreMes"}, {{1,"Ene"},{2,"Feb"},{3,"Mar"},{4,"Abr"},{5,"May"},{6,"Jun"},{7,"Jul"},{8,"Ago"},{9,"Sep"},{10,"Oct"},{11,"Nov"},{12,"Dic"}}),
+					ConNombre = Table.NestedJoin(Tipos, {"mes"}, NombresMeses, {"mes"}, "NombresMeses", JoinKind.LeftOuter),
+					Expandido = Table.ExpandTableColumn(ConNombre, "NombresMeses", {"NombreMes"}, {"NombreMes"})
+				in
+					Expandido
+
+	annotation PBI_ResultType = Table

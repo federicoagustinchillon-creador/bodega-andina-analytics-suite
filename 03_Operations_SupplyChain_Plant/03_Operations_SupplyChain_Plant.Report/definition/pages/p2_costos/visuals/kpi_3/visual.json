@@ -52,9 +52,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "labelDisplayUnits": {
               "expr": {
                 "Literal": {
@@ -131,9 +128,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -153,9 +147,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {
@@ -183,9 +174,6 @@
                   "Value": "'Desvío Fabril Total ($)'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {
@@ -220,9 +208,6 @@
                   "Value": "'Variación de Absorción Fabril'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {

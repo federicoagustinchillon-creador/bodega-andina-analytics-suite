@@ -4,10 +4,10 @@
   "position": {
     "x": 741,
     "y": 158,
-    "z": 2,
+    "z": 8000,
     "height": 245,
     "width": 525,
-    "tabOrder": 0
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -57,11 +57,7 @@
     "objects": {
       "dataPoint": [
         {
-          "properties": {
-            "defaultColor": {
-              "solid": {}
-            }
-          }
+          "properties": {}
         }
       ],
       "categoryAxis": [
@@ -107,9 +103,6 @@
                   "Value": "8.5D"
                 }
               }
-            },
-            "gridlineColor": {
-              "solid": {}
             },
             "gridlineShow": {
               "expr": {
@@ -194,9 +187,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -216,9 +206,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {
@@ -246,9 +233,6 @@
                   "Value": "'Estructura del Gasto por Naturaleza Contable FI'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_tbl1",
   "position": {
-    "x": 196,
-    "y": 413,
-    "z": 2,
-    "height": 186,
-    "width": 620,
-    "tabOrder": 0
+    "x": 196.55430711610487,
+    "y": 451.83520599250937,
+    "z": 7000,
+    "height": 256.4794007490637,
+    "width": 492.58426966292137,
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "tableEx",
@@ -129,18 +129,12 @@
                 }
               }
             },
-            "gridHorizontalColor": {
-              "solid": {}
-            },
             "rowPadding": {
               "expr": {
                 "Literal": {
                   "Value": "5D"
                 }
               }
-            },
-            "outlineColor": {
-              "solid": {}
             },
             "textSize": {
               "expr": {
@@ -155,12 +149,6 @@
       "columnHeaders": [
         {
           "properties": {
-            "fontColor": {
-              "solid": {}
-            },
-            "backColor": {
-              "solid": {}
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -182,9 +170,6 @@
                 }
               }
             },
-            "outlineColor": {
-              "solid": {}
-            },
             "outlineWeight": {
               "expr": {
                 "Literal": {
@@ -198,12 +183,6 @@
       "values": [
         {
           "properties": {
-            "fontColor": {
-              "solid": {}
-            },
-            "backColor": {
-              "solid": {}
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -224,12 +203,6 @@
       "total": [
         {
           "properties": {
-            "fontColor": {
-              "solid": {}
-            },
-            "backColor": {
-              "solid": {}
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -243,9 +216,6 @@
                   "Value": "'Segoe UI Semibold'"
                 }
               }
-            },
-            "outlineColor": {
-              "solid": {}
             },
             "outlineWeight": {
               "expr": {
@@ -269,9 +239,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -291,9 +258,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {
@@ -321,9 +285,6 @@
                   "Value": "'Desempeño y Rentabilidad Unitaria por SKU'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {
@@ -358,9 +319,6 @@
                   "Value": "'Auditoría granular de rentabilidad operativa'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {

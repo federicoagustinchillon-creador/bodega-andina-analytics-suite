@@ -4,10 +4,10 @@
   "position": {
     "x": 196,
     "y": 158,
-    "z": 2,
+    "z": 5000,
     "height": 245,
     "width": 620,
-    "tabOrder": 0
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "lineChart",
@@ -102,48 +102,28 @@
     "objects": {
       "dataPoint": [
         {
-          "properties": {
-            "defaultColor": {
-              "solid": {}
-            }
-          }
+          "properties": {}
         },
         {
-          "properties": {
-            "fill": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "metadata": "_Medidas_Controller.DSO Promedio"
           }
         },
         {
-          "properties": {
-            "fill": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "metadata": "_Medidas_Controller.DIO Promedio"
           }
         },
         {
-          "properties": {
-            "fill": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "metadata": "_Medidas_Controller.DPO Promedio"
           }
         },
         {
-          "properties": {
-            "fill": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "metadata": "_Medidas_Controller.Ciclo Conversion Efectivo (CCC)"
           }
@@ -185,9 +165,6 @@
                   "Value": "8.5D"
                 }
               }
-            },
-            "gridlineColor": {
-              "solid": {}
             },
             "labelDisplayUnits": {
               "expr": {
@@ -285,9 +262,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -307,9 +281,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {
@@ -337,9 +308,6 @@
                   "Value": "'Dinámica del Ciclo de Conversión de Efectivo (CCC)'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {

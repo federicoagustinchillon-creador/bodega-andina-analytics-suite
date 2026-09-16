@@ -80,9 +80,6 @@
                 }
               }
             },
-            "gridlineColor": {
-              "solid": {}
-            },
             "gridlineShow": {
               "expr": {
                 "Literal": {
@@ -116,21 +113,13 @@
       ],
       "dataPoint": [
         {
-          "properties": {
-            "fill": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "metadata": "_Medidas_Operaciones.Costo Fabril Real Centro"
           }
         },
         {
-          "properties": {
-            "fill": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "metadata": "_Medidas_Operaciones.Costo Fabril Plan Centro"
           }
@@ -229,9 +218,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -251,9 +237,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {
@@ -281,9 +264,6 @@
                   "Value": "'Costo Real vs. Presupuesto por Etapa Fabril'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {
@@ -318,9 +298,6 @@
                   "Value": "'Comparacion por dimension | Ordenado por valor real'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {

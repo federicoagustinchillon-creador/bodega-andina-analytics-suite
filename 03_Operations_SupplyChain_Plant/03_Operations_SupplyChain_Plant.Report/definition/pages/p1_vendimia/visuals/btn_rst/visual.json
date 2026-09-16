@@ -33,9 +33,6 @@
                 }
               }
             },
-            "fontColor": {
-              "solid": {}
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -69,11 +66,7 @@
           }
         },
         {
-          "properties": {
-            "fillColor": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "id": "default"
           }
@@ -92,11 +85,7 @@
           }
         },
         {
-          "properties": {
-            "lineColor": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "id": "default"
           }
@@ -134,9 +123,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -156,9 +142,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {

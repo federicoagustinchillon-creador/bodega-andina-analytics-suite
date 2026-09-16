@@ -1,0 +1,160 @@
+{
+  "n_observaciones": 60,
+  "rango_fechas": [
+    "2021-01-01",
+    "2025-12-01"
+  ],
+  "indice_estacional_recuperado": {
+    "1": 0.8284,
+    "2": 0.8031,
+    "3": 0.8353,
+    "4": 0.8408,
+    "5": 1.0811,
+    "6": 0.8455,
+    "7": 1.1799,
+    "8": 1.301,
+    "9": 1.1073,
+    "10": 1.1357,
+    "11": 1.107,
+    "12": 0.9085
+  },
+  "correlacion_con_indice_real": 0.9854,
+  "tabla_mes_a_mes": [
+    {
+      "mes": 1,
+      "indice_estacional_recuperado_stl": 0.8283737151793066,
+      "indice_estacional_real_inv2024": 0.7851,
+      "diferencia_absoluta": 0.04327371517930656
+    },
+    {
+      "mes": 2,
+      "indice_estacional_recuperado_stl": 0.8030571572855211,
+      "indice_estacional_real_inv2024": 0.7864,
+      "diferencia_absoluta": 0.016657157285521085
+    },
+    {
+      "mes": 3,
+      "indice_estacional_recuperado_stl": 0.8353346821247064,
+      "indice_estacional_real_inv2024": 0.8533,
+      "diferencia_absoluta": 0.01796531787529354
+    },
+    {
+      "mes": 4,
+      "indice_estacional_recuperado_stl": 0.8408029141102262,
+      "indice_estacional_real_inv2024": 0.8485,
+      "diferencia_absoluta": 0.007697085889773803
+    },
+    {
+      "mes": 5,
+      "indice_estacional_recuperado_stl": 1.0810835765339104,
+      "indice_estacional_real_inv2024": 1.0485,
+      "diferencia_absoluta": 0.03258357653391042
+    },
+    {
+      "mes": 6,
+      "indice_estacional_recuperado_stl": 0.8455434637853421,
+      "indice_estacional_real_inv2024": 0.9153,
+      "diferencia_absoluta": 0.06975653621465794
+    },
+    {
+      "mes": 7,
+      "indice_estacional_recuperado_stl": 1.1799367338070914,
+      "indice_estacional_real_inv2024": 1.1862,
+      "diferencia_absoluta": 0.006263266192908512
+    },
+    {
+      "mes": 8,
+      "indice_estacional_recuperado_stl": 1.3009836393155436,
+      "indice_estacional_real_inv2024": 1.2806,
+      "diferencia_absoluta": 0.020383639315543656
+    },
+    {
+      "mes": 9,
+      "indice_estacional_recuperado_stl": 1.1072500446686118,
+      "indice_estacional_real_inv2024": 1.1087,
+      "diferencia_absoluta": 0.001449955331388253
+    },
+    {
+      "mes": 10,
+      "indice_estacional_recuperado_stl": 1.1356976628806401,
+      "indice_estacional_real_inv2024": 1.1388,
+      "diferencia_absoluta": 0.0031023371193599214
+    },
+    {
+      "mes": 11,
+      "indice_estacional_recuperado_stl": 1.1069895206185372,
+      "indice_estacional_real_inv2024": 1.125,
+      "diferencia_absoluta": 0.01801047938146283
+    },
+    {
+      "mes": 12,
+      "indice_estacional_recuperado_stl": 0.908454330719672,
+      "indice_estacional_real_inv2024": 0.9236,
+      "diferencia_absoluta": 0.015145669280328011
+    }
+  ],
+  "nota_metodologica": "El indice real INV2024 fue la referencia usada para calibrar la estacionalidad sintetica de fact_ventas_reales.csv. Esta comparacion valida que STL recupera el patron inyectado (validacion de metodo), no es evidencia de negocio independiente.",
+  "trend": {
+    "2021-01-01": 53169.51,
+    "2021-02-01": 53063.57,
+    "2021-03-01": 52959.45,
+    "2021-04-01": 52857.2,
+    "2021-05-01": 52756.92,
+    "2021-06-01": 52658.8,
+    "2021-07-01": 52563.23,
+    "2021-08-01": 52470.79,
+    "2021-09-01": 52382.45,
+    "2021-10-01": 52299.88,
+    "2021-11-01": 52226.13,
+    "2021-12-01": 52165.31,
+    "2022-01-01": 52140.19,
+    "2022-02-01": 52124.81,
+    "2022-03-01": 52118.56,
+    "2022-04-01": 52117.76,
+    "2022-05-01": 52119.67,
+    "2022-06-01": 52117.32,
+    "2022-07-01": 52110.62,
+    "2022-08-01": 52113.41,
+    "2022-09-01": 52129.4,
+    "2022-10-01": 52149.83,
+    "2022-11-01": 52166.07,
+    "2022-12-01": 52176.96,
+    "2023-01-01": 52188.03,
+    "2023-02-01": 52201.9,
+    "2023-03-01": 52219.61,
+    "2023-04-01": 52238.53,
+    "2023-05-01": 52256.04,
+    "2023-06-01": 52270.53,
+    "2023-07-01": 52281.04,
+    "2023-08-01": 52278.75,
+    "2023-09-01": 52257.5,
+    "2023-10-01": 52221.65,
+    "2023-11-01": 52174.66,
+    "2023-12-01": 52118.87,
+    "2024-01-01": 52050.13,
+    "2024-02-01": 51958.14,
+    "2024-03-01": 51848.45,
+    "2024-04-01": 51755.37,
+    "2024-05-01": 51691.58,
+    "2024-06-01": 51637.66,
+    "2024-07-01": 51581.38,
+    "2024-08-01": 51521.8,
+    "2024-09-01": 51467.43,
+    "2024-10-01": 51426.15,
+    "2024-11-01": 51397.5,
+    "2024-12-01": 51376.07,
+    "2025-01-01": 51374.5,
+    "2025-02-01": 51427.6,
+    "2025-03-01": 51484.47,
+    "2025-04-01": 51544.52,
+    "2025-05-01": 51607.15,
+    "2025-06-01": 51671.72,
+    "2025-07-01": 51737.65,
+    "2025-08-01": 51804.4,
+    "2025-09-01": 51871.6,
+    "2025-10-01": 51939.01,
+    "2025-11-01": 52006.47,
+    "2025-12-01": 52073.91
+  },
+  "resid_std": 2096.2152
+}

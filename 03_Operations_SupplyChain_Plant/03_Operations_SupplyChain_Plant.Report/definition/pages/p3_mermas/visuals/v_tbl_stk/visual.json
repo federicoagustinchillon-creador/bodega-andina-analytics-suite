@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_tbl_stk",
   "position": {
-    "x": 196,
-    "y": 413,
+    "x": 196.26666666666668,
+    "y": 412.44444444444446,
     "z": 2,
-    "height": 186,
-    "width": 620,
+    "height": 294.4,
+    "width": 620.08888888888885,
     "tabOrder": 0
   },
   "visual": {
@@ -144,18 +144,12 @@
                 }
               }
             },
-            "gridHorizontalColor": {
-              "solid": {}
-            },
             "rowPadding": {
               "expr": {
                 "Literal": {
                   "Value": "5D"
                 }
               }
-            },
-            "outlineColor": {
-              "solid": {}
             },
             "textSize": {
               "expr": {
@@ -170,12 +164,6 @@
       "columnHeaders": [
         {
           "properties": {
-            "fontColor": {
-              "solid": {}
-            },
-            "backColor": {
-              "solid": {}
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -197,9 +185,6 @@
                 }
               }
             },
-            "outlineColor": {
-              "solid": {}
-            },
             "outlineWeight": {
               "expr": {
                 "Literal": {
@@ -213,12 +198,6 @@
       "values": [
         {
           "properties": {
-            "fontColor": {
-              "solid": {}
-            },
-            "backColor": {
-              "solid": {}
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -239,12 +218,6 @@
       "total": [
         {
           "properties": {
-            "fontColor": {
-              "solid": {}
-            },
-            "backColor": {
-              "solid": {}
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -258,9 +231,6 @@
                   "Value": "'Segoe UI Semibold'"
                 }
               }
-            },
-            "outlineColor": {
-              "solid": {}
             },
             "outlineWeight": {
               "expr": {
@@ -284,9 +254,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -306,9 +273,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {
@@ -336,9 +300,6 @@
                   "Value": "'Monitor de Riesgo de Stock & Cobertura'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {
@@ -374,9 +335,6 @@
                 }
               }
             },
-            "fontColor": {
-              "solid": {}
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -396,5 +354,93 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "afdebdfb2d3695e96c22",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_productos"
+              }
+            },
+            "Property": "SKU"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8eeb9ca001057eb1d7e0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_productos"
+              }
+            },
+            "Property": "Descripcion"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4c6475d6d2219b0b0c03",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Litros en Crianza"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9308e5a1e0ba31e3b8ba",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Valor Inventario Guarda"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "845d8481eace3704e90a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "DIO Promedio Dias"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "feca2f160583d72254c3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Tasa Merma Crianza %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

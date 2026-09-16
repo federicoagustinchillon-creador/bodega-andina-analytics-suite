@@ -129,18 +129,12 @@
                 }
               }
             },
-            "gridHorizontalColor": {
-              "solid": {}
-            },
             "rowPadding": {
               "expr": {
                 "Literal": {
                   "Value": "5D"
                 }
               }
-            },
-            "outlineColor": {
-              "solid": {}
             },
             "textSize": {
               "expr": {
@@ -155,12 +149,6 @@
       "columnHeaders": [
         {
           "properties": {
-            "fontColor": {
-              "solid": {}
-            },
-            "backColor": {
-              "solid": {}
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -182,9 +170,6 @@
                 }
               }
             },
-            "outlineColor": {
-              "solid": {}
-            },
             "outlineWeight": {
               "expr": {
                 "Literal": {
@@ -198,12 +183,6 @@
       "values": [
         {
           "properties": {
-            "fontColor": {
-              "solid": {}
-            },
-            "backColor": {
-              "solid": {}
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -224,12 +203,6 @@
       "total": [
         {
           "properties": {
-            "fontColor": {
-              "solid": {}
-            },
-            "backColor": {
-              "solid": {}
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -243,9 +216,6 @@
                   "Value": "'Segoe UI Semibold'"
                 }
               }
-            },
-            "outlineColor": {
-              "solid": {}
             },
             "outlineWeight": {
               "expr": {
@@ -269,9 +239,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -291,9 +258,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {
@@ -321,9 +285,6 @@
                   "Value": "'Matriz de Absorción Fabril por CeCo'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {
@@ -358,9 +319,6 @@
                   "Value": "'Control presupuestario de costos directos e indirectos'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {

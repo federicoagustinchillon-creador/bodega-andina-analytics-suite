@@ -1,6 +1,37 @@
-ProductoID,SKU,Descripcion,Linea,CostoEstandarUnit,PrecioPresupuestadoUnit,CategoriaABC
-PRD-01,MAL-RES-750,Malbec Reserva 750ml,Alta Gama,3200.0,6800.0,Clase A
-PRD-02,CAB-RES-750,Cabernet Franc Reserva 750ml,Alta Gama,3400.0,7200.0,Clase A
-PRD-03,MAL-CLA-750,Malbec Clasico 750ml,Entrada / Volumen,1600.0,3100.0,Clase C
-PRD-04,CHA-ESP-750,Chardonnay Extra Brut 750ml,Espumantes,2800.0,5900.0,Clase B
-PRD-05,BIB-MAL-3000,Bag in Box Malbec 3L,Granel / Masivo,4500.0,8900.0,Clase A
+ProductoID,SKU,Descripcion,Linea,Segmento,Varietal,FormatoML,CostoEstandarUnit,PrecioPresupuestadoUnit,CategoriaABC
+PRD-01,MAL-CLA-750,Malbec 750ml,Entrada / Volumen,Entrada,Malbec,750,1900.0,4085.0,Clase C
+PRD-02,MAL-RES-750,Malbec Reserva 750ml,Alta Gama,Reserva,Malbec,750,2945.0,7557.0,Clase A
+PRD-03,MAL-ICO-750,Malbec Gran Reserva 750ml,Icono / Super Premium,Gran Reserva / Icono,Malbec,750,4940.0,14706.0,Clase A
+PRD-04,MAL-CLA-1500,Malbec Magnum 1.5L,Entrada / Volumen,Entrada,Malbec,1500,3800.0,8170.0,Clase C
+PRD-05,MAL-RES-1500,Malbec Reserva Magnum 1.5L,Alta Gama,Reserva,Malbec,1500,5890.0,15114.0,Clase A
+PRD-06,CAF-CLA-750,Cabernet Franc 750ml,Entrada / Volumen,Entrada,Cabernet Franc,750,2050.0,4408.0,Clase C
+PRD-07,CAF-RES-750,Cabernet Franc Reserva 750ml,Alta Gama,Reserva,Cabernet Franc,750,3178.0,8154.0,Clase A
+PRD-08,CAF-ICO-750,Cabernet Franc Gran Reserva 750ml,Icono / Super Premium,Gran Reserva / Icono,Cabernet Franc,750,5330.0,15867.0,Clase A
+PRD-09,CAS-CLA-750,Cabernet Sauvignon 750ml,Entrada / Volumen,Entrada,Cabernet Sauvignon,750,1950.0,4192.0,Clase C
+PRD-10,CAS-RES-750,Cabernet Sauvignon Reserva 750ml,Alta Gama,Reserva,Cabernet Sauvignon,750,3022.0,7756.0,Clase A
+PRD-11,CAS-ICO-750,Cabernet Sauvignon Gran Reserva 750ml,Icono / Super Premium,Gran Reserva / Icono,Cabernet Sauvignon,750,5070.0,15093.0,Clase A
+PRD-12,BON-CLA-750,Bonarda 750ml,Entrada / Volumen,Entrada,Bonarda,750,1550.0,3332.0,Clase C
+PRD-13,BON-RES-750,Bonarda Reserva 750ml,Alta Gama,Reserva,Bonarda,750,2402.0,6165.0,Clase A
+PRD-14,SYR-CLA-750,Syrah 750ml,Entrada / Volumen,Entrada,Syrah,750,1900.0,4085.0,Clase C
+PRD-15,SYR-RES-750,Syrah Reserva 750ml,Alta Gama,Reserva,Syrah,750,2945.0,7557.0,Clase A
+PRD-16,MER-CLA-750,Merlot 750ml,Entrada / Volumen,Entrada,Merlot,750,1850.0,3978.0,Clase C
+PRD-17,MER-RES-750,Merlot Reserva 750ml,Alta Gama,Reserva,Merlot,750,2868.0,7358.0,Clase A
+PRD-18,BLC-CLA-750,Blend Corte Bordeles 750ml,Entrada / Volumen,Entrada,Blend Corte Bordeles,750,2400.0,5160.0,Clase C
+PRD-19,BLC-RES-750,Blend Corte Bordeles Reserva 750ml,Alta Gama,Reserva,Blend Corte Bordeles,750,3720.0,9546.0,Clase A
+PRD-20,BLC-ICO-750,Blend Corte Bordeles Gran Reserva 750ml,Icono / Super Premium,Gran Reserva / Icono,Blend Corte Bordeles,750,6240.0,18576.0,Clase A
+PRD-21,CHA-CLA-750,Chardonnay 750ml,Entrada / Volumen,Entrada,Chardonnay,750,1750.0,3762.0,Clase C
+PRD-22,CHA-RES-750,Chardonnay Reserva 750ml,Alta Gama,Reserva,Chardonnay,750,2712.0,6961.0,Clase A
+PRD-23,SAB-CLA-750,Sauvignon Blanc 750ml,Entrada / Volumen,Entrada,Sauvignon Blanc,750,1650.0,3548.0,Clase C
+PRD-24,SAB-RES-750,Sauvignon Blanc Reserva 750ml,Alta Gama,Reserva,Sauvignon Blanc,750,2558.0,6563.0,Clase A
+PRD-25,TOR-CLA-750,Torrontes 750ml,Entrada / Volumen,Entrada,Torrontes,750,1500.0,3225.0,Clase C
+PRD-26,TOR-RES-750,Torrontes Reserva 750ml,Alta Gama,Reserva,Torrontes,750,2325.0,5966.0,Clase A
+PRD-27,PIN-CLA-750,Pinot Noir 750ml,Entrada / Volumen,Entrada,Pinot Noir,750,2300.0,4945.0,Clase C
+PRD-28,PIN-RES-750,Pinot Noir Reserva 750ml,Alta Gama,Reserva,Pinot Noir,750,3565.0,9148.0,Clase A
+PRD-29,ROS-CLA-750,Rose de Malbec 750ml,Entrada / Volumen,Entrada,Rose de Malbec,750,1700.0,3655.0,Clase C
+PRD-30,ROS-RES-750,Rose de Malbec Reserva 750ml,Alta Gama,Reserva,Rose de Malbec,750,2635.0,6762.0,Clase A
+PRD-31,CHA-ESP-750,Chardonnay Extra Brut 750ml,Espumantes,Espumante,Chardonnay Extra Brut,750,3060.0,8127.0,Clase B
+PRD-32,ROS-ESP-750,Rose Brut 750ml,Espumantes,Espumante,Rose Brut,750,3060.0,8127.0,Clase B
+PRD-33,MAL-ESP-750,Malbec Brut Nature 750ml,Espumantes,Espumante,Malbec Brut Nature,750,3060.0,8127.0,Clase B
+PRD-34,MAL-BIB-3000,Bag in Box Malbec 3L,Granel / Masivo,Granel / Masivo,Malbec,3000,4940.0,11438.0,Clase A
+PRD-35,BON-BIB-3000,Bag in Box Bonarda 3L,Granel / Masivo,Granel / Masivo,Bonarda,3000,4940.0,11438.0,Clase A
+PRD-36,BLT-BIB-3000,Bag in Box Blend Tinto 3L,Granel / Masivo,Granel / Masivo,Blend Tinto,3000,4420.0,10234.0,Clase A

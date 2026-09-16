@@ -46,9 +46,6 @@
                 }
               }
             },
-            "fontColor": {
-              "solid": {}
-            },
             "textSize": {
               "expr": {
                 "Literal": {
@@ -62,9 +59,6 @@
                   "Value": "'Segoe UI Semibold'"
                 }
               }
-            },
-            "background": {
-              "solid": {}
             }
           }
         }
@@ -85,9 +79,6 @@
       "general": [
         {
           "properties": {
-            "outlineColor": {
-              "solid": {}
-            },
             "outlineWeight": {
               "expr": {
                 "Literal": {
@@ -156,18 +147,12 @@
       "items": [
         {
           "properties": {
-            "fontColor": {
-              "solid": {}
-            },
             "textSize": {
               "expr": {
                 "Literal": {
                   "Value": "8.5D"
                 }
               }
-            },
-            "background": {
-              "solid": {}
             }
           }
         }
@@ -197,9 +182,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -219,9 +201,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {

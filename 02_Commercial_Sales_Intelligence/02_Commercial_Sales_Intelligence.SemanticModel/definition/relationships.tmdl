@@ -22,3 +22,7 @@ relationship rel_presupuesto_centroscosto
 	fromColumn: fact_presupuesto_ventas.CentroCostoID
 	toColumn: dim_centros_costo.CentroCostoID
 
+relationship rel_forecast_calendario
+	fromColumn: fact_forecast_demanda.DateKey
+	toColumn: dim_calendario.DateKey
+

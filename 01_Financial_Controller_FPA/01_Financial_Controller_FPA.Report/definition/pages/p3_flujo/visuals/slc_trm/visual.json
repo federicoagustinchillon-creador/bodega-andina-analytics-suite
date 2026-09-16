@@ -4,10 +4,10 @@
   "position": {
     "x": 18,
     "y": 144,
-    "z": 3,
+    "z": 11000,
     "height": 52,
     "width": 160,
-    "tabOrder": 0
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "slicer",
@@ -46,9 +46,6 @@
                 }
               }
             },
-            "fontColor": {
-              "solid": {}
-            },
             "textSize": {
               "expr": {
                 "Literal": {
@@ -62,9 +59,6 @@
                   "Value": "'Segoe UI Semibold'"
                 }
               }
-            },
-            "background": {
-              "solid": {}
             }
           }
         }
@@ -85,9 +79,6 @@
       "general": [
         {
           "properties": {
-            "outlineColor": {
-              "solid": {}
-            },
             "outlineWeight": {
               "expr": {
                 "Literal": {
@@ -101,18 +92,12 @@
       "items": [
         {
           "properties": {
-            "fontColor": {
-              "solid": {}
-            },
             "textSize": {
               "expr": {
                 "Literal": {
                   "Value": "8.5D"
                 }
               }
-            },
-            "background": {
-              "solid": {}
             }
           }
         }
@@ -142,9 +127,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -164,9 +146,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {

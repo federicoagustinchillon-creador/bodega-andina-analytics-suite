@@ -4,7 +4,7 @@
   "position": {
     "x": 18,
     "y": 302,
-    "z": 3,
+    "z": 9000,
     "height": 34,
     "width": 160,
     "tabOrder": 0
@@ -32,9 +32,6 @@
                   "Value": "'Restablecer Filtros'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {
@@ -69,11 +66,7 @@
           }
         },
         {
-          "properties": {
-            "fillColor": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "id": "default"
           }
@@ -92,11 +85,7 @@
           }
         },
         {
-          "properties": {
-            "lineColor": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "id": "default"
           }
@@ -134,9 +123,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -156,9 +142,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {

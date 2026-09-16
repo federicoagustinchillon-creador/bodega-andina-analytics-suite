@@ -4,10 +4,10 @@
   "position": {
     "x": 831,
     "y": 413,
-    "z": 2,
+    "z": 8000,
     "height": 295,
     "width": 435,
-    "tabOrder": 0
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "lineChart",
@@ -49,7 +49,11 @@
               "queryRef": "_Medidas_Controller.Ingresos Reales",
               "nativeQueryRef": "Ingresos Reales",
               "displayName": "Ingresos ($)"
-            },
+            }
+          ]
+        },
+        "Y2": {
+          "projections": [
             {
               "field": {
                 "Measure": {
@@ -72,28 +76,16 @@
     "objects": {
       "dataPoint": [
         {
-          "properties": {
-            "defaultColor": {
-              "solid": {}
-            }
-          }
+          "properties": {}
         },
         {
-          "properties": {
-            "fill": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "metadata": "_Medidas_Controller.Ingresos Reales"
           }
         },
         {
-          "properties": {
-            "fill": {
-              "solid": {}
-            }
-          },
+          "properties": {},
           "selector": {
             "metadata": "_Medidas_Controller.EBITDA Real"
           }
@@ -143,20 +135,10 @@
                 }
               }
             },
-            "gridlineColor": {
-              "solid": {}
-            },
             "gridlineShow": {
               "expr": {
                 "Literal": {
                   "Value": "true"
-                }
-              }
-            },
-            "start": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
                 }
               }
             },
@@ -168,6 +150,40 @@
               }
             },
             "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "y2Axis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "secFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8.5D"
+                }
+              }
+            },
+            "secLabelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000000D"
+                }
+              }
+            },
+            "secShowAxisTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -229,9 +245,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -251,9 +264,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {
@@ -281,9 +291,6 @@
                   "Value": "'Evolución de Ingresos vs. Saldo Operativo Mensual'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {
@@ -349,5 +356,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0a88c6bea0eb5e4c3622",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_calendario"
+              }
+            },
+            "Property": "MesNombre"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5eb548c020b9d83ad1e5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Controller"
+              }
+            },
+            "Property": "Ingresos Reales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f294f40435e456ab0c0e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Controller"
+              }
+            },
+            "Property": "EBITDA Real"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

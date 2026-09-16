@@ -3,14 +3,14 @@
     "empresa": "Bodega & Agroindustria Andina S.A.",
     "pipeline": "ETL Curated Gold Layer Cleaner",
     "autor": "Federico Agustin Chillon, UNCUYO",
-    "timestamp_ejecucion": "2026-09-15T15:52:28.184968",
+    "timestamp_ejecucion": "2026-09-15T19:31:30.327837",
     "estado": "COMPLETADO_EXITOSAMENTE"
   },
   "tablas_procesadas": {
     "dim_productos": {
-      "registros_leidos": 5,
-      "registros_curados": 5,
-      "inconsistencias_corregidas": 10,
+      "registros_leidos": 36,
+      "registros_curados": 36,
+      "inconsistencias_corregidas": 0,
       "claves_huerfanas_detectadas": 0,
       "claves_huerfanas_resueltas": 0,
       "tasa_validez": "100.00%"
@@ -33,26 +33,26 @@
     },
     "dim_calendario": {
       "registros_leidos": 0,
-      "registros_curados": 485,
+      "registros_curados": 1942,
       "inconsistencias_corregidas": 0,
       "claves_huerfanas_detectadas": 0,
       "claves_huerfanas_resueltas": 0,
       "tasa_validez": "100.00%"
     },
     "fact_ventas_reales": {
-      "registros_leidos": 1620,
-      "registros_curados": 1620,
-      "inconsistencias_corregidas": 2914,
-      "claves_huerfanas_detectadas": 2,
-      "claves_huerfanas_resueltas": 2,
+      "registros_leidos": 29207,
+      "registros_curados": 29207,
+      "inconsistencias_corregidas": 45607,
+      "claves_huerfanas_detectadas": 0,
+      "claves_huerfanas_resueltas": 0,
       "tasa_validez": "100.00%"
     },
     "fact_presupuesto_ventas": {
-      "registros_leidos": 11,
-      "registros_curados": 120,
-      "inconsistencias_corregidas": 9,
-      "claves_huerfanas_detectadas": 1,
-      "claves_huerfanas_resueltas": 1,
+      "registros_leidos": 72,
+      "registros_curados": 864,
+      "inconsistencias_corregidas": 0,
+      "claves_huerfanas_detectadas": 0,
+      "claves_huerfanas_resueltas": 0,
       "tasa_validez": "100.00%"
     },
     "fact_opex_mensual": {
@@ -81,13 +81,13 @@
     }
   },
   "resumen_anomalias": {
-    "total_registros_leidos": 2103,
-    "total_registros_curados": 2696,
-    "total_inconsistencias_corregidas": 3628,
-    "total_claves_huerfanas_detectadas": 4,
-    "total_claves_huerfanas_resueltas": 4,
+    "total_registros_leidos": 29782,
+    "total_registros_curados": 32515,
+    "total_inconsistencias_corregidas": 46302,
+    "total_claves_huerfanas_detectadas": 1,
+    "total_claves_huerfanas_resueltas": 1,
     "tasa_integridad_referencial": "100.00%",
     "tasa_validez": "100.00%",
-    "tiempo_ejecucion_segundos": 0.46
+    "tiempo_ejecucion_segundos": 5.599
   }
 }

@@ -3,7 +3,8 @@
   "pageOrder": [
     "p1_canal",
     "p2_precio",
-    "p3_pareto"
+    "p3_pareto",
+    "p4_econometria"
   ],
-  "activePageName": "p3_pareto"
+  "activePageName": "p4_econometria"
 }

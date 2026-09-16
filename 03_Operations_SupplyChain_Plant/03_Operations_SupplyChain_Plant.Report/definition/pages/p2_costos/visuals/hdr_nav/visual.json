@@ -6,7 +6,7 @@
     "y": 10,
     "z": 2,
     "height": 52,
-    "width": 930,
+    "width": 650,
     "tabOrder": 0
   },
   "visual": {
@@ -58,9 +58,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {}
-            },
             "transparency": {
               "expr": {
                 "Literal": {
@@ -80,9 +77,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {

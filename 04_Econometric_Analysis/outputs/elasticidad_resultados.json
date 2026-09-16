@@ -1,0 +1,47 @@
+{
+  "resultados_por_segmento": {
+    "GLOBAL": {
+      "beta": -0.016126718397822835,
+      "std_err": 0.008081028778849138,
+      "p_value": 0.045974549427358,
+      "r2": 0.4618754462297059,
+      "n_obs": 2159
+    },
+    "Entrada": {
+      "beta": 0.0030394422563185843,
+      "std_err": 0.012044234874513431,
+      "p_value": 0.8007654368750321,
+      "r2": 0.424312683943848,
+      "n_obs": 780
+    },
+    "Espumante": {
+      "beta": 0.017015482047228296,
+      "std_err": 0.02323406201063209,
+      "p_value": 0.46395452901998946,
+      "r2": 0.28949694387871305,
+      "n_obs": 180
+    },
+    "Gran Reserva / Icono": {
+      "beta": -0.11144816516413378,
+      "std_err": 0.029622113672867524,
+      "p_value": 0.00016833776898038047,
+      "r2": 0.16564421417738218,
+      "n_obs": 240
+    },
+    "Granel / Masivo": {
+      "beta": 0.024212411141490114,
+      "std_err": 0.0217530189017067,
+      "p_value": 0.26568274193374053,
+      "r2": 0.4086634796039048,
+      "n_obs": 180
+    },
+    "Reserva": {
+      "beta": -0.019958315647240214,
+      "std_err": 0.014185478575166928,
+      "p_value": 0.15944103315376124,
+      "r2": 0.3593355616680479,
+      "n_obs": 779
+    }
+  },
+  "chequeo_sentido_economico": "OBSERVACION -- el orden economico esperado NO se cumple en los datos: segmentos de necesidad/commodity ({'Entrada': 0.0030394422563185843, 'Granel / Masivo': 0.024212411141490114}) no resultaron mas elasticos que Gran Reserva/Icono ({'Gran Reserva / Icono': -0.11144816516413378}). Se reporta el resultado real, sin forzarlo."
+}

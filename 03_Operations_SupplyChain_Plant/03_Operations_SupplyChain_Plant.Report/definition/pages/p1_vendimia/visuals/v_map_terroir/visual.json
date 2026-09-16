@@ -154,6 +154,13 @@
                   "Value": "-68.96000000000004D"
                 }
               }
+            },
+            "defaultStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'night'"
+                }
+              }
             }
           }
         }
@@ -169,9 +176,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "transparency": {
               "expr": {
@@ -192,9 +196,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "color": {
-              "solid": {}
             },
             "radius": {
               "expr": {
@@ -222,9 +223,6 @@
                   "Value": "'Geolocalización de Terroirs & Fincas de Origen'"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {}
             },
             "fontSize": {
               "expr": {
@@ -260,9 +258,6 @@
                 }
               }
             },
-            "fontColor": {
-              "solid": {}
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -282,5 +277,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "833ff4a2340a50283e5a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_operaciones_planta"
+              }
+            },
+            "Property": "FincaOrigen"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "300fb2522dde87eadc49",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Total Kilos Uva"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "391a75180763d70b48ee",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Longitud Finca"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "26397fb2dcb096ba83a1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Latitud Finca"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
