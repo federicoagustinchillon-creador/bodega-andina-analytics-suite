@@ -178,3 +178,26 @@ def test_inferencia_causal_dml_significativa():
     assert row_dml["CoeficienteEstimado"] > 0, "Efecto ATE deberia ser positivo (a mayor descuento, mayor volumen demandado)"
     assert row_dml["SesgoEliminadoPct"] > 50.0, "DML deberia corregir mas del 50% del sesgo de seleccion"
 
+
+def test_ml_auc_no_sospechosamente_perfecto():
+    """Un AUC-ROC cercano a 1.0 sobre datos de negocio reales delata data leakage, no un buen modelo."""
+    df_met = pd.read_csv(GOLD / "ML_Metricas_Clasificacion.csv")
+    assert (df_met["AUC_ROC"] < 0.98).all(), (
+        f"AUC-ROC sospechosamente perfecto ({df_met['AUC_ROC'].max():.4f}) -- revisar fuga de datos (variable "
+        "objetivo filtrandose a los features)"
+    )
+
+
+def test_ml_matriz_confusion_es_del_modelo_ganador():
+    """La matriz de confusion exportada (solo el modelo campeon, por diseno) debe corresponder
+    al modelo con mayor AUC-ROC, no a cualquier otro candidato."""
+    df_cm = pd.read_csv(GOLD / "ML_Matriz_Confusion.csv")
+    df_met = pd.read_csv(GOLD / "ML_Metricas_Clasificacion.csv")
+    ganador = df_met.sort_values("AUC_ROC", ascending=False).iloc[0]["Modelo"]
+    modelos_matriz = set(df_cm["Modelo"])
+    assert modelos_matriz == {ganador}, (
+        f"Matriz de confusion pertenece a {modelos_matriz}, pero el modelo ganador por AUC-ROC es '{ganador}'"
+    )
+    total = df_cm["Conteo"].sum()
+    assert total > 0, "Matriz de confusion vacia"
+

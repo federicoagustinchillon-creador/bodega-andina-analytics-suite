@@ -37,6 +37,9 @@ jobs:
           python src/analisis_elasticidad_cointegracion.py
           python src/estacionalidad_y_forecast.py
           python src/exportar_resultados_powerbi.py
+          python src/ml_riesgo_prediccion.py
+          python src/inferencia_causal_erpt.py
+          python src/modelo_miller_orr_var.py
 
       - name: Business-value sanity tests
         run: python -m pytest 01_Limpieza_de_Datos/tests/ -v
