@@ -179,6 +179,28 @@ def test_inferencia_causal_dml_significativa():
     assert row_dml["SesgoEliminadoPct"] > 50.0, "DML deberia corregir mas del 50% del sesgo de seleccion"
 
 
+def test_ml_forecasting_ganador_es_el_de_menor_rmse():
+    """Regresion: ModeloGanador/Ranking_Precision estaban hardcodeados a 'Gradient Boosting' sin
+    comparar RMSE real -- el benchmark SARIMAX en realidad supera al ensamble ML en este backtest.
+    El ganador declarado debe ser siempre el de menor RMSE, sea cual sea."""
+    df_met = pd.read_csv(GOLD / "ML_Metricas_Forecasting.csv")
+    ganador_por_rmse = df_met.loc[df_met["RMSE"].idxmin(), "Modelo"]
+    ganador_declarado = df_met.loc[df_met["Ranking_Precision"] == 1, "Modelo"].iloc[0]
+    assert ganador_declarado == ganador_por_rmse, (
+        f"Ranking_Precision=1 declara '{ganador_declarado}' pero el menor RMSE real es de '{ganador_por_rmse}'"
+    )
+
+    df_fc = pd.read_csv(GOLD / "ML_Forecasting_Comparativo.csv")
+    nombre_legible = {
+        "Gradient_Boosting_Regressor": "Gradient Boosting",
+        "Random_Forest_Regressor": "Random Forest",
+        "Benchmark_SARIMAX_1_1_1": "Benchmark SARIMAX",
+    }[ganador_por_rmse]
+    assert (df_fc["ModeloGanador"] == nombre_legible).all(), (
+        f"ModeloGanador en ML_Forecasting_Comparativo no coincide con el modelo de menor RMSE ({nombre_legible})"
+    )
+
+
 def test_ml_auc_no_sospechosamente_perfecto():
     """Un AUC-ROC cercano a 1.0 sobre datos de negocio reales delata data leakage, no un buen modelo."""
     df_met = pd.read_csv(GOLD / "ML_Metricas_Clasificacion.csv")

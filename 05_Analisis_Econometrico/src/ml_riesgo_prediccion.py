@@ -267,35 +267,37 @@ def run_ml_risk_and_prediction():
     
     reduccion_rmse_gb = ((rmse_s - rmse_gb) / rmse_s) * 100.0
     reduccion_rmse_rf = ((rmse_s - rmse_rf) / rmse_s) * 100.0
-    
+
+    # Ranking_Precision y ModeloGanador se calculan dinamicamente por RMSE real
+    # out-of-sample (menor RMSE = mejor), no se asume de antemano que el modelo ML
+    # supera al benchmark SARIMAX -- si SARIMAX gana, el dashboard debe decirlo.
+    candidatos = [
+        {"Modelo": "Gradient_Boosting_Regressor", "RMSE": rmse_gb, "MAE": mae_gb, "MAPE_Pct": mape_gb,
+         "R2_Score": r2_gb, "Reduccion_RMSE_vs_SARIMAX_Pct": reduccion_rmse_gb},
+        {"Modelo": "Random_Forest_Regressor", "RMSE": rmse_rf, "MAE": mae_rf, "MAPE_Pct": mape_rf,
+         "R2_Score": r2_rf, "Reduccion_RMSE_vs_SARIMAX_Pct": reduccion_rmse_rf},
+        {"Modelo": "Benchmark_SARIMAX_1_1_1", "RMSE": rmse_s, "MAE": mae_s, "MAPE_Pct": mape_s,
+         "R2_Score": r2_s, "Reduccion_RMSE_vs_SARIMAX_Pct": 0.0},
+    ]
+    candidatos.sort(key=lambda c: c["RMSE"])
+    modelo_ganador_id = candidatos[0]["Modelo"]
+    nombre_ganador_legible = {
+        "Gradient_Boosting_Regressor": "Gradient Boosting",
+        "Random_Forest_Regressor": "Random Forest",
+        "Benchmark_SARIMAX_1_1_1": "Benchmark SARIMAX",
+    }[modelo_ganador_id]
+
     df_fc_metrics = pd.DataFrame([
         {
-            "Modelo": "Gradient_Boosting_Regressor",
-            "RMSE": round(rmse_gb, 2),
-            "MAE": round(mae_gb, 2),
-            "MAPE_Pct": round(mape_gb, 2),
-            "R2_Score": round(r2_gb, 4),
-            "Reduccion_RMSE_vs_SARIMAX_Pct": round(reduccion_rmse_gb, 2),
-            "Ranking_Precision": 1
-        },
-        {
-            "Modelo": "Random_Forest_Regressor",
-            "RMSE": round(rmse_rf, 2),
-            "MAE": round(mae_rf, 2),
-            "MAPE_Pct": round(mape_rf, 2),
-            "R2_Score": round(r2_rf, 4),
-            "Reduccion_RMSE_vs_SARIMAX_Pct": round(reduccion_rmse_rf, 2),
-            "Ranking_Precision": 2
-        },
-        {
-            "Modelo": "Benchmark_SARIMAX_1_1_1",
-            "RMSE": round(rmse_s, 2),
-            "MAE": round(mae_s, 2),
-            "MAPE_Pct": round(mape_s, 2),
-            "R2_Score": round(r2_s, 4),
-            "Reduccion_RMSE_vs_SARIMAX_Pct": 0.0,
-            "Ranking_Precision": 3
+            "Modelo": c["Modelo"],
+            "RMSE": round(c["RMSE"], 2),
+            "MAE": round(c["MAE"], 2),
+            "MAPE_Pct": round(c["MAPE_Pct"], 2),
+            "R2_Score": round(c["R2_Score"], 4),
+            "Reduccion_RMSE_vs_SARIMAX_Pct": round(c["Reduccion_RMSE_vs_SARIMAX_Pct"], 2),
+            "Ranking_Precision": rank
         }
+        for rank, c in enumerate(candidatos, start=1)
     ])
     out_fcm = GOLD / "ML_Metricas_Forecasting.csv"
     df_fc_metrics.to_csv(out_fcm, index=False, encoding="utf-8")
@@ -320,7 +322,7 @@ def run_ml_risk_and_prediction():
         "Error_GBDT": np.round(y_te - pred_gb, 2),
         "IC_Inferior_95": np.round(pred_gb - 1.96 * std_res, 2),
         "IC_Superior_95": np.round(pred_gb + 1.96 * std_res, 2),
-        "ModeloGanador": "Gradient Boosting"
+        "ModeloGanador": nombre_ganador_legible
     })
     out_fcc = GOLD / "ML_Forecasting_Comparativo.csv"
     df_fc_comp.to_csv(out_fcc, index=False, encoding="utf-8")

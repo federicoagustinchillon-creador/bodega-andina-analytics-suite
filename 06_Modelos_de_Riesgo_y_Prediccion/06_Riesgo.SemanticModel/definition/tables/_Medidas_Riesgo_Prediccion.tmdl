@@ -297,7 +297,15 @@ table _Medidas_Riesgo_Prediccion
 		displayFolder: 02 Forecasting de Demanda ML
 		lineageTag: ac43cb7c-7e2c-49af-9608-60a3a1bfd39f
 
-	measure 'Prescripcion Forecasting Demanda' = "CONFIABILIDAD PREDICTIVA: El ensamble de arboles reduce la dispersion out-of-sample capturando picos estacionales de vendimia. REGLA: Adoptar proyeccion GBDT para plan maestro de embotellado."
+	measure 'Prescripcion Forecasting Demanda' =
+			VAR _rmseGBDT = [RMSE GBDT]
+			VAR _rmseSarimax = [RMSE SARIMAX]
+			RETURN
+			    IF(
+			        _rmseGBDT < _rmseSarimax,
+			        "CONFIABILIDAD PREDICTIVA: El ensamble de arboles (RMSE " & FORMAT(_rmseGBDT, "#,##0") & ") reduce la dispersion out-of-sample frente al benchmark SARIMAX (RMSE " & FORMAT(_rmseSarimax, "#,##0") & "). REGLA: Adoptar proyeccion GBDT para plan maestro de embotellado.",
+			        "BENCHMARK ESTADISTICO GANA: SARIMAX (RMSE " & FORMAT(_rmseSarimax, "#,##0") & ") supera al ensamble de arboles GBDT (RMSE " & FORMAT(_rmseGBDT, "#,##0") & ") en este backtest de 12 meses. REGLA: Mantener SARIMAX como modelo de produccion para el plan maestro; reevaluar GBDT con mas historia o features exogenas antes de reemplazarlo."
+			    )
 		displayFolder: 02 Forecasting de Demanda ML
 		lineageTag: f94653f5-3d0e-4667-a9ef-7a5be76a3316
 

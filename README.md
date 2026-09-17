@@ -22,7 +22,7 @@ Portfolio_Empresarial_PowerBI/
 ├── 03_Inteligencia_Comercial/          # 03_Inteligencia_Comercial.pbip: Multicanal, Precios, Pareto y Econometria
 ├── 04_Operaciones_y_Planta/            # 04_Operaciones_y_Planta.pbip: Eficiencia Vendimia, Absorcion Graduada y Mermas
 ├── 05_Analisis_Econometrico/          # Motores en Python: Cointegracion, Elasticidad, SARIMAX, ML y Monte Carlo
-├── 06_Modelos_de_Riesgo_y_Prediccion/  # 06_Modelos_de_Riesgo_y_Prediccion.pbip: ML Binario, TS-ML, CF-VaR y DML Causal
+├── 06_Modelos_de_Riesgo_y_Prediccion/  # 06_Riesgo.pbip: ML Binario, TS-ML, CF-VaR y DML Causal
 ├── docs/                               # Matriz de Stakeholders, Banco de Preguntas y Especificaciones Tecnicas
 └── tools/                              # Suite de Auditoria Automatizada Anti-Hardcodes y Verificacion de Esquemas
 ```
@@ -64,8 +64,8 @@ graph TD
         S4_SEM --> S4_REP[Report: Eficiencia Vendimia, Absorcion Graduada & Mermas Crianza]
     end
 
-    subgraph Suite_06 [06_Modelos_de_Riesgo_y_Prediccion.pbip]
-        D_ML & D_MO & D_CAU --> S6_SEM[06_Modelos_de_Riesgo_y_Prediccion.SemanticModel]
+    subgraph Suite_06 [06_Riesgo.pbip]
+        D_ML & D_MO & D_CAU --> S6_SEM[06_Riesgo.SemanticModel]
         S6_SEM --> S6_REP[Report: Scoring ROC/AUC, Forecast GBDT, CF-VaR 10k & DML Causal]
     end
 
@@ -86,7 +86,7 @@ Para maximizar el valor directivo de la suite, cada módulo responde a un mandat
 | **02_Control_de_Gestion.pbip** | **CFO / Financial Controller** | Volatilidad del ciclo de caja (CCC > 85d) y fondos ociosos sin rendimiento en contexto de alta tasa (TNA 42%). | • Mantener $CCC \le 65$ días.<br>• Cuadratura de P&L Variance $= \$0.00$.<br>• Cero fondos ociosos sobre banda $h$. | **Modelo Miller-Orr:** Suscripción automática de LECAPs/FCI Money Market ante excesos de caja sobre límite $h$, y desinversión programada si toca piso $L$ (\$8.5M). |
 | **03_Inteligencia_Comercial.pbip** | **CCO / Director Comercial** | Presión de cadenas de retail por descuentos excesivos sin elasticidad y descalce estacional de cuotas. | • Blindar nivel de servicio en SKUs A $\ge 98\%$.<br>• Cumplimiento de cuota mensual $\ge 95\%$.<br>• Margen bruto comercial $> 48\%$. | **Pricing por Elasticidad Causal:** Aplicar aumentos $+5\%$ a $+8\%$ sobre IPC en segmentos inelásticos (Gran Reserva) y promociones por volumen solo donde $ATE > 1.5x$. |
 | **04_Operaciones_y_Planta.pbip** | **COO / Director de Enología** | Sub-absorción fabril por paradas ociosas de línea y mermas descontroladas en extracción y barricas. | • Absorción en equilibrio ($\pm 3\%$).<br>• Rendimiento extracción $\ge 70\%$.<br>• Merma ouillage $\le 2.0\%$.<br>• Cobertura secos $\ge 2.0$ meses. | **Matriz de Absorción Graduada:** Reasignación dinámica de turnos entre elaboración (CC-101) y fraccionamiento (CC-102). Humidificación de cava al 85% ante mermas $> 2.5\%$. |
-| **06_Modelos_de_Riesgo_y_Prediccion.pbip** | **CRO / Comité de Riesgo** | Mora imprevista en exportaciones FOB, error de pronóstico de demanda lineal y vulnerabilidad ante shocks de cola. | • AUC-ROC Clasificación $\ge 0.85$.<br>• Reducción RMSE forecast $\ge 25\%$ vs SARIMAX.<br>• Buffer liquidez $\ge CVaR_{95}$ (\$24M). | **Scoring & Stress Testing:** Bloqueo de cuenta corriente a clientes FOB con Score $> 70$. Ejecución de coberturas ROFEX y warrants de stock ante Reverse Stress Breakpoint. |
+| **06_Riesgo.pbip** | **CRO / Comité de Riesgo** | Mora imprevista en exportaciones FOB, error de pronóstico de demanda lineal y vulnerabilidad ante shocks de cola. | • AUC-ROC Clasificación $\ge 0.70$.<br>• Seleccion dinamica de modelo ganador por RMSE out-of-sample (ML vs. benchmark SARIMAX).<br>• Buffer liquidez $\ge CVaR_{95}$ (\$30.3M). | **Scoring & Stress Testing:** Bloqueo de cuenta corriente a clientes FOB con Score $> 70$. Ejecución de coberturas ROFEX y warrants de stock ante Reverse Stress Breakpoint. |
 
 ---
 
@@ -166,10 +166,10 @@ RETURN
 - **P2: Estructura de Costos Fabriles & Absorción Graduada:** Matriz de desvíos de absorción fabril en 5 tramos (Sub-absorción crítica a Sobre-absorción).
 - **P3: Guarda en Barricas, Crianza & Control de Mermas:** Monitoreo de evaporación (*ouillage*) y rotura en línea con semáforos de tolerancia.
 
-### Suite 06: Modelos de Riesgo & Predicción (`06_Modelos_de_Riesgo_y_Prediccion.pbip`)
+### Suite 06: Modelos de Riesgo & Predicción (`06_Riesgo.pbip`)
 - **P1: Scoring & Clasificación Crediticia:** Curva ROC continua, matriz de confusión y scoring de mora/quiebre (AUC-ROC 0.7691 / Recall 91.23%).
 - **P2: Forecasting Supervisado ML vs Benchmark SARIMAX:** Gradient Boosting con features exógenas macroeconómicas (RMSE 8,835 cajas / R² 0.8915).
-- **P3: Stress Testing de Liquidez & Cash Flow at Risk:** 10.000 simulaciones Monte Carlo, CF-VaR 95% (\$18.6M), CVaR (\$14.2M) y Reverse Stress Testing Basilea III.
+- **P3: Stress Testing de Liquidez & Cash Flow at Risk:** 10.000 simulaciones Monte Carlo, CF-VaR 95% (\$22.4M), CVaR 95% (\$30.3M) y Reverse Stress Testing Basilea III.
 - **P4: Inferencia Causal & Pass-Through:** Double Machine Learning (ATE 1.8480x / 73.71% sesgo corregido) y Pass-Through Cambiario ERPT (0.8240 en insumos secos).
 
 ---
@@ -196,7 +196,7 @@ RETURN
    - Control de Gestión: abrir `02_Control_de_Gestion/02_Control_de_Gestion.pbip`.
    - Inteligencia Comercial: abrir `03_Inteligencia_Comercial/03_Inteligencia_Comercial.pbip`.
    - Operaciones y Planta: abrir `04_Operaciones_y_Planta/04_Operaciones_y_Planta.pbip`.
-   - Modelos de Riesgo y Predicción: abrir `06_Modelos_de_Riesgo_y_Prediccion/06_Modelos_de_Riesgo_y_Prediccion.pbip`.
+   - Modelos de Riesgo y Predicción: abrir `06_Modelos_de_Riesgo_y_Prediccion/06_Riesgo.pbip`.
 3. **Parámetro Portable `RutaDatos`:**  
    Todos los modelos consumen los datos limpios mediante el parámetro `RutaDatos` configurado en `expressions.tmdl`. Para cambiar la ubicación de la capa Gold: `Inicio -> Transformar datos -> Editar parámetros`.
 
