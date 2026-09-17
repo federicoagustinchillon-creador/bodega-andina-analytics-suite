@@ -6,9 +6,11 @@
 
 ## 1. Visión General de Arquitectura
 
-Este portfolio simula la stack analítica completa de una bodega exportadora argentina: desde el dato crudo (volcados ERP-like, planillas de planta) hasta 3 modelos semánticos de Power BI en producción, pasando por una capa de ingeniería de datos (ETL determinista) y una capa de econometría aplicada en Python. La decisión de **separar en 3 proyectos PBIP independientes** — `02_Control_de_Gestion`, `03_Inteligencia_Comercial`, `04_Operaciones_y_Planta` — en lugar de un único modelo monolítico replica cómo se organizan los equipos de BI en una empresa real: Finanzas, Comercial y Operaciones tienen dueños, cadencias de refresh y audiencias ejecutivas distintas, aunque comparten la misma capa `curated_gold` como fuente única de verdad (single source of truth). La capa `Analisis_Econometrico` es una cuarta pieza, no un modelo semántico sino un motor de análisis cuantitativo en Python (elasticidad-precio, cointegración, estacionalidad STL, forecasting SARIMA, pricing de futuros vía CIP) cuyos resultados se vuelcan de regreso a `curated_gold` y de ahí se consumen dentro de `03_Inteligencia_Comercial`.
+Este portfolio simula la stack analítica completa de una bodega exportadora argentina: desde el dato crudo (volcados ERP-like, planillas de planta) hasta 4 modelos semánticos de Power BI en producción, pasando por una capa de ingeniería de datos (ETL determinista) y una capa de econometría/ML aplicada en Python. La decisión de **separar en 4 proyectos PBIP independientes** — `02_Control_de_Gestion`, `03_Inteligencia_Comercial`, `04_Operaciones_y_Planta`, `06_Modelos_de_Riesgo_y_Prediccion` — en lugar de un único modelo monolítico replica cómo se organizan los equipos de BI en una empresa real: Finanzas, Comercial, Operaciones y Riesgo/Data Science tienen dueños, cadencias de refresh y audiencias ejecutivas distintas, aunque comparten la misma capa `curated_gold` como fuente única de verdad (single source of truth). La capa `Analisis_Econometrico` (carpeta real `05_Analisis_Econometrico`) es una quinta pieza, no un modelo semántico sino un motor de análisis cuantitativo en Python (elasticidad-precio, cointegración, estacionalidad STL, forecasting SARIMA, pricing de futuros vía CIP, y desde esta actualización también ML de riesgo/forecasting, inferencia causal y stress testing financiero) cuyos resultados se vuelcan de regreso a `curated_gold` y de ahí se consumen dentro de `03_Inteligencia_Comercial` y, para los 3 scripts nuevos, dentro de `06_Modelos_de_Riesgo_y_Prediccion` (y parcialmente `02_Control_de_Gestion`, ver §3).
 
 La filosofía de datos del repo es **"sintético pero calibrado, no inventado sin ancla"**: los datos transaccionales (ventas, presupuesto, OPEX, operaciones de planta) se generan con `numpy` para tener volumen y variedad de un dataset real de producción, pero cada generador ancla sus parámetros (estacionalidad, tipo de cambio, inflación, elasticidad esperada por segmento) contra series **reales** publicadas por BCRA (tipo de cambio A3500, tasa BADLAR), INDEC (IPC) y el INV (índice estacional de consumo de vino, mercado interno 2024). Esto es lo que permite que los tests econométricos (cointegración precio-IPC, pass-through cambiario, elasticidad por segmento) tengan contenido económico genuino en vez de ser ejercicios triviales sobre ruido aleatorio.
+
+**`06_Modelos_de_Riesgo_y_Prediccion`** es el componente más reciente y el cuarto modelo semántico PBIP: aplica machine learning supervisado y métodos cuantitativos de riesgo financiero sobre la misma capa `curated_gold`, en 4 páginas — `p1_clasif` (clasificación/scoring de riesgo crediticio con Regresión Logística L2, Random Forest y Gradient Boosting, evaluados por curva ROC/AUC), `p2_forecast` (forecasting de demanda con Gradient Boosting Regressor vs. benchmark SARIMAX), `p3_stress` (VaR/CVaR vía Monte Carlo, modelo de tesorería de Miller-Orr, reverse stress testing) y `p4_causal` (Double Machine Learning para el efecto causal (ATE) de descuentos comerciales, y pass-through cambiario/ERPT). A diferencia de `03_Inteligencia_Comercial` (econometría clásica: regresión log-log, Engle-Granger, STL/SARIMA), `06` está construido sobre `scikit-learn` y `scipy.stats`; sus 3 scripts fuente (`ml_riesgo_prediccion.py`, `inferencia_causal_erpt.py`, `modelo_miller_orr_var.py`) viven junto a los 5 scripts econométricos preexistentes en `05_Analisis_Econometrico/src/`.
 
 ---
 
@@ -56,6 +58,11 @@ flowchart TB
         GD10[InventarioGuarda.csv]
         GD11["MercadoCambiario.csv<br/>(CIP real, no sine-wave)"]
         GD12["ElasticidadSegmento.csv<br/>EstacionalidadMensual.csv<br/>PronosticoDemanda.csv / _metadata.csv<br/>TestsCointegracion.csv"]
+        GD13["ML_Curva_ROC.csv / ML_Metricas_Clasificacion.csv<br/>ML_Matriz_Confusion.csv / ML_Scoring_Riesgo.csv"]
+        GD14["ML_Metricas_Forecasting.csv<br/>ML_Forecasting_Comparativo.csv"]
+        GD15["Inferencia_Causal_Resultados.csv<br/>Inferencia_Causal_Detalle_Segmento.csv"]
+        GD16["Tesoreria_Miller_Orr_Diario.csv<br/>Tesoreria_Parametros_Optimos.csv"]
+        GD17["Riesgo_Stress_Testing_VaR.csv<br/>Riesgo_Distribucion_MonteCarlo_30d.csv<br/>Riesgo_Reverse_Stress_Testing.csv"]
     end
 
     subgraph ECON["Analisis_Econometrico (rama paralela Python)"]
@@ -64,6 +71,9 @@ flowchart TB
         E3["estacionalidad_y_forecast.py<br/>(STL + SARIMA grid search)"]
         E4["fx_pricing.py + construir_curva_historica.py<br/>(CIP: forward teórico ARS/USD)"]
         E5["exportar_resultados_powerbi.py<br/>(vuelca outputs/*.json a curated_gold)"]
+        E6["ml_riesgo_prediccion.py<br/>(Regresion Logistica L2, Random Forest,<br/>Gradient Boosting — ROC/AUC, matriz confusion,<br/>scoring; GBDT vs SARIMAX forecast demanda)"]
+        E7["inferencia_causal_erpt.py<br/>(Double Machine Learning ATE descuentos,<br/>Exchange Rate Pass-Through insumos/FOB/domestico)"]
+        E8["modelo_miller_orr_var.py<br/>(Miller-Orr tenencia optima efectivo,<br/>Monte Carlo CF-VaR/CVaR, reverse stress testing)"]
     end
 
     subgraph SM01["Control_de_Gestion.SemanticModel"]
@@ -76,6 +86,10 @@ flowchart TB
 
     subgraph SM03["Operaciones_y_Planta.SemanticModel"]
         S03T["Productos, CentrosCosto, PlanCuentas,<br/>Calendario<br/>ProduccionPlanta, GastosOperativos,<br/>CapitalTrabajo, InventarioGuarda"]
+    end
+
+    subgraph SM06["06_Riesgo.SemanticModel"]
+        S06T["Productos, Calendario<br/>ML_Curva_ROC, ML_Metricas_Clasificacion,<br/>ML_Matriz_Confusion, ML_Scoring_Riesgo,<br/>ML_Metricas_Forecasting, ML_Forecasting_Comparativo,<br/>Inferencia_Causal_Resultados,<br/>Inferencia_Causal_Detalle_Segmento,<br/>Riesgo_Stress_Testing_VaR,<br/>Riesgo_Distribucion_MonteCarlo_30d,<br/>Riesgo_Reverse_Stress_Testing"]
     end
 
     R1 --> G1
@@ -135,6 +149,18 @@ flowchart TB
     E5 --> GD11
     E5 --> GD12
 
+    GD5 --> E6
+    E6 --> GD13
+    E6 --> GD14
+
+    GD5 --> E7
+    GD4 --> E7
+    E7 --> GD15
+
+    GD11 --> E8
+    E8 --> GD16
+    E8 --> GD17
+
     GD1 --> SM01
     GD2 --> SM01
     GD3 --> SM01
@@ -144,6 +170,7 @@ flowchart TB
     GD7 --> SM01
     GD8 --> SM01
     GD11 --> SM01
+    GD16 --> SM01
 
     GD1 --> SM02
     GD2 --> SM02
@@ -160,13 +187,22 @@ flowchart TB
     GD7 --> SM03
     GD8 --> SM03
     GD10 --> SM03
+
+    GD1 --> SM06
+    GD4 --> SM06
+    GD13 --> SM06
+    GD14 --> SM06
+    GD15 --> SM06
+    GD17 --> SM06
 ```
 
-**Nota de lectura:** `CobranzasExportacion.csv` (consumida solo por 01) vive en `curated_gold` sin un script generador identificado en el repo — ver la nota correspondiente en la tabla de linaje (§3). `DesgloseCascada` no tiene CSV en `curated_gold`: es una tabla 100% calculada en DAX (`partition ... = calculated`) dentro de `02_Control_de_Gestion`, usada para la cascada de EV/EP/EC en la página `p1_cascada`.
+**Nota de lectura:** `CobranzasExportacion.csv` (consumida solo por 01) vive en `curated_gold` sin un script generador identificado en el repo — ver la nota correspondiente en la tabla de linaje (§3). `DesgloseCascada` no tiene CSV en `curated_gold`: es una tabla 100% calculada en DAX (`partition ... = calculated`) dentro de `02_Control_de_Gestion`, usada para la cascada de EV/EP/EC en la página `p1_cascada`. `Tesoreria_Miller_Orr_Diario.csv` y `Tesoreria_Parametros_Optimos.csv` (`GD16`) los genera `modelo_miller_orr_var.py` junto con las tablas de riesgo de `06`, pero **las consume `02_Control_de_Gestion`** (tablas `TesoreriaMillerOrr`/`TesoreriaParametros`, folder `03 Optimo de Caja Miller-Orr` de `_Medidas_Tesoreria.tmdl`), no `06` — el nombre de tabla difiere del nombre del CSV en este caso, a diferencia del resto del repo donde coinciden.
 
 ---
 
 ## 3. Tabla de Linaje por Tabla `curated_gold`
+
+**Nota de numeración:** en esta tabla, `01`/`02`/`03` refieren respectivamente a `02_Control_de_Gestion`, `03_Inteligencia_Comercial` y `04_Operaciones_y_Planta` (el orden en que se listaron en §1, no el prefijo de carpeta). Las filas nuevas de `06_Modelos_de_Riesgo_y_Prediccion` usan directamente el prefijo real `06` para no sumar un cuarto número ambiguo a esa convención.
 
 | Tabla | Script que la genera | Modelo(s) semántico(s) que la consumen | Calibrado contra (fuente real) |
 |---|---|---|---|
@@ -186,6 +222,19 @@ flowchart TB
 | `EstacionalidadMensual.csv` | `exportar_resultados_powerbi.py::exportar_estacionalidad()` (desde `estacionalidad_resultados.json`, producido por `estacionalidad_y_forecast.py`, descomposición STL vía `seasonality.py`) | 02 | Índice estacional real INV 2024 (columna `indice_estacional_real_inv2024` comparada contra STL recuperado) |
 | `PronosticoDemanda.csv` / `PrecisionModelo.csv` | `exportar_resultados_powerbi.py::exportar_forecast()` (backtest SARIMA 12 meses, grid search AIC) | 02 | — (backtest sobre `Ventas`) |
 | `TestsCointegracion.csv` | `exportar_resultados_powerbi.py::exportar_cointegracion()` (test Engle-Granger de 2 pasos vía `cointegracion.py`) | 02 | IPC INDEC (pass-through inflacionario) y FX BCRA (pass-through cambiario) |
+| `ML_Curva_ROC.csv` | `ml_riesgo_prediccion.py::run_ml_risk_and_prediction()` (TPR/FPR por threshold, para las 3 curvas ROC de Regresión Logística L2, Random Forest y Gradient Boosting) | 06 | — (target de riesgo sintético vía log-odds estructural: plazo, mora histórica, variación de volumen, concentración, canal; ver §5) |
+| `ML_Metricas_Clasificacion.csv` | `ml_riesgo_prediccion.py` (AUC-ROC, Accuracy, Recall, Precision, F1, threshold óptimo de Youden J, Brier Score, Log Loss — una fila por modelo) | 06 | — |
+| `ML_Matriz_Confusion.csv` | `ml_riesgo_prediccion.py` (matriz de confusión **solo del modelo campeón por mayor AUC-ROC, por diseño** — ver §5 y el test `test_ml_matriz_confusion_es_del_modelo_ganador`) | 06 | — |
+| `ML_Scoring_Riesgo.csv` | `ml_riesgo_prediccion.py` (score 0-100, nivel y prescripción de riesgo por cliente, sobre 350 clientes sintéticos con `np.random.seed(42)`) | 06 | — |
+| `ML_Metricas_Forecasting.csv` | `ml_riesgo_prediccion.py` (segunda mitad del script: RMSE, MAE, MAPE, R² y % de reducción de error del Gradient Boosting Regressor vs. benchmark SARIMAX) | 06 | — (backtest sobre `Ventas`) |
+| `ML_Forecasting_Comparativo.csv` | `ml_riesgo_prediccion.py` (forecast mensual GBDT / Random Forest / SARIMAX + intervalo de confianza 95%, con features de lags, medias móviles y armónicos de Fourier) | 06 | — |
+| `Inferencia_Causal_Resultados.csv` | `inferencia_causal_erpt.py::run_causal_inference_and_erpt()` (ATE de descuentos comerciales vía Double Machine Learning — Chernozhukov 2018 — + ERPT a insumos secos, FOB y precios domésticos) | 06 | — (`true_ate` estructural fijado en el generador para poder verificar que el DML lo recupera pese a los confounders; ver §5) |
+| `Inferencia_Causal_Detalle_Segmento.csv` | `inferencia_causal_erpt.py` (ATE causal y clasificación de elasticidad por 4 segmentos: Icono/Gran Reserva, Reserva/Roble, Varietales/Entrada, Bag in Box/Granel) | 06 | — |
+| `Riesgo_Stress_Testing_VaR.csv` | `modelo_miller_orr_var.py::run_miller_orr_and_var()` (CF-VaR 95%/99% y CVaR a 30/60/90 días, Monte Carlo de 10.000 senderos con distribución t de Student ajustada) | 06 | Flujos derivados de `MercadoCambiario` (BCRA A3500 + BADLAR, ver fila de arriba) |
+| `Riesgo_Distribucion_MonteCarlo_30d.csv` | `modelo_miller_orr_var.py` (distribución completa de cuantiles del horizonte 30 días, para el histograma de la página `p3_stress`) | 06 | ídem |
+| `Riesgo_Reverse_Stress_Testing.csv` | `modelo_miller_orr_var.py` (4 escenarios metodología EBA/Basilea III, desde el escenario base hasta el "Reverse Stress Breakpoint" de insolvencia operativa crítica) | 06 | — (escenarios definidos por diseño en el script, no leídos de un CSV externo) |
+| `Tesoreria_Miller_Orr_Diario.csv` | `modelo_miller_orr_var.py` (calibración diaria del modelo de Miller-Orr 1966: banda inferior `L`, punto de retorno `Z`, banda superior `H`, saldo ocioso, costo de oportunidad) | 01 (tablas `TesoreriaMillerOrr`/`TesoreriaParametros`, no `06` — ver nota de lectura en §2) | Tasa LECAP real (`TasaLecapReferenciaTNA` de `MercadoCambiario`) |
+| `Tesoreria_Parametros_Optimos.csv` | `modelo_miller_orr_var.py` (8 parámetros óptimos del modelo: `L`, `Z`, `H`, saldo promedio esperado, varianza y desvío diario, TNA de costo de oportunidad, costo de transacción fijo) | 01 | ídem |
 
 ---
 
@@ -250,6 +299,34 @@ Selección de medidas de negocio real (excluye auxiliares de formateo puro de to
 | `DIO Rango Optimo` / `DIO Desvio Exceso` | 03 Inventario Guarda y Mermas | Evalúa si los Días de Inventario en Guarda están dentro del rango óptimo esperado por tipo de vasija | multi-línea |
 | `Diagnostico Causal` | 05 Diagnostico Causal | Causa raíz dominante del desvío de costo fabril (mismo patrón que en 02) | multi-línea |
 
+### 06_Modelos_de_Riesgo_y_Prediccion — `_Medidas_Riesgo_Prediccion.tmdl`
+
+70 medidas en total, agrupadas en 4 `displayFolder`. Muestra representativa por folder:
+
+| Medida | displayFolder | Qué mide | Fórmula (resumida) |
+|---|---|---|---|
+| `AUC ROC Maximo Ganador` / `Modelo Clasificacion Ganador` | 01 Clasificacion y Scoring Crediticio | AUC-ROC máximo entre los 3 modelos y cuál es el modelo campeón | `CALCULATE(MAX(ML_Metricas_Clasificacion[AUC_ROC]))`; `FIRSTNONBLANK` filtrado por ese máximo |
+| `Accuracy Ganador %` / `Recall Ganador %` / `Precision Ganador %` / `F1 Score Ganador` | 01 Clasificacion y Scoring Crediticio | Métricas de clasificación del modelo campeón (no de los 3) | `CALCULATE(MAX(ML_Metricas_Clasificacion[...]), [AUC_ROC] = [AUC ROC Maximo Ganador])` |
+| `Threshold Optimo Youden J` / `Brier Score Ganador` / `Log Loss Ganador` | 01 Clasificacion y Scoring Crediticio | Punto de corte óptimo (Youden J) y calidad de calibración probabilística del modelo campeón | mismo patrón `CALCULATE(MAX(...), AUC_ROC = maximo)` |
+| `TPR Regresion Logistica` / `TPR Random Forest` / `TPR Gradient Boosting` | 01 Clasificacion y Scoring Crediticio | Punto de la curva ROC de cada uno de los 3 modelos, para graficarlas superpuestas | `CALCULATE(MAX(ML_Curva_ROC[TPR]), ML_Curva_ROC[Modelo] = "...")` |
+| `Clientes en Riesgo Critico` / `Moderado` / `Bajo` | 01 Clasificacion y Scoring Crediticio | Segmentación de la cartera de 350 clientes por nivel de score | `CALCULATE(COUNTROWS(ML_Scoring_Riesgo), [NivelRiesgo] = "...")` |
+| `Semaforo Salud Cartera` / `Color Semaforo Cartera` | 01 Clasificacion y Scoring Crediticio | Semáforo de salud de cartera según % en riesgo crítico | `SWITCH(TRUE(), [Proporcion Cartera en Riesgo %] > 0.15, "ALTO RIESGO", ...)` |
+| `Regla Decision Scoring Crediticio` | 01 Clasificacion y Scoring Crediticio | Texto de acción de mitigación (aval bancario, pago anticipado) | multi-línea |
+| `Volumen Real Mensual` / `Forecast GBDT Mensual` / `Forecast SARIMAX Mensual` / `Forecast RandomForest Mensual` | 02 Forecasting de Demanda ML | Comparativo mensual real vs. los 3 forecasts | `SUM(ML_Forecasting_Comparativo[...])` |
+| `RMSE GBDT` / `RMSE SARIMAX` / `MAE GBDT` / `MAPE GBDT %` / `MAPE SARIMAX %` | 02 Forecasting de Demanda ML | Error de forecast por modelo | `CALCULATE(MAX(ML_Metricas_Forecasting[RMSE]), [Modelo] = "Gradient_Boosting_Regressor")` |
+| `Reduccion Error Forecast %` | 02 Forecasting de Demanda ML | % de mejora de RMSE del GBDT frente al benchmark SARIMAX | `CALCULATE(MAX(ML_Metricas_Forecasting[Reduccion_RMSE_vs_SARIMAX_Pct]), [Modelo] = "Gradient_Boosting_Regressor")` |
+| `IC 95% Inferior/Superior Mensual` / `Intervalo Confianza 95 Amplitud` | 02 Forecasting de Demanda ML | Banda de confianza del forecast | `SUM(ML_Forecasting_Comparativo[IC_Inferior_95/IC_Superior_95])` |
+| `CF-VaR 95% 30d` / `CF-VaR 99% 30d` | 03 Riesgo y Stress Testing VaR | Value at Risk del flujo de caja a 30 días (Monte Carlo, 10.000 senderos) | `CALCULATE(MAX(Riesgo_Stress_Testing_VaR[CF_VaR_95]), [HorizonteDias] = 30)` |
+| `CVaR 95% Expected Shortfall` / `CVaR 99% Expected Shortfall` / `Buffer Liquidez Requerido 30d` | 03 Riesgo y Stress Testing VaR | Pérdida esperada más allá del VaR y colchón de liquidez recomendado | mismo patrón `CALCULATE(MAX(...), HorizonteDias = 30)` |
+| `Buffer Solvencia Minimo Stress` / `Dias Cobertura Stress Minimo` | 03 Riesgo y Stress Testing VaR | Solvencia y días de cobertura remanentes en el peor escenario de reverse stress testing | `MIN(Riesgo_Reverse_Stress_Testing[BufferSolvenciaRestante])` / `MIN([DiasCoberturaRestante])` |
+| `Escenario Mayor Riesgo` / `Semaforo Solvencia Stress` / `Color Semaforo Stress` | 03 Riesgo y Stress Testing VaR | Identifica y semaforiza el escenario de "Reverse Stress Breakpoint" | `CALCULATE(FIRSTNONBLANK(...[NombreEscenario], 1), [BufferSolvenciaRestante] = [Buffer Solvencia Minimo Stress])` |
+| `Playbook Mitigacion Reverse Stress` | 03 Riesgo y Stress Testing VaR | Texto de contingencia (línea de crédito, cobertura) | multi-línea |
+| `ATE Causal Descuentos DML` / `Benchmark OLS Descuentos` / `Sesgo Confusion Eliminado %` | 04 Inferencia Causal Econometrica | Efecto causal aislado (DML) vs. estimación ingenua OLS, y % de sesgo de selección eliminado | `CALCULATE(MAX(Inferencia_Causal_Resultados[CoeficienteEstimado]), [EfectoAnalizado] = "Efecto Causal ATE Descuentos Comerciales (DML)")` |
+| `IC 95 Inferior ATE DML` / `IC 95 Superior ATE DML` | 04 Inferencia Causal Econometrica | Intervalo de confianza del ATE causal | mismo patrón, sobre `[IC_95_Inferior]`/`[IC_95_Superior]` |
+| `Pass-Through Insumos ERPT` / `Pass-Through Domestico ERPT` | 04 Inferencia Causal Econometrica | Elasticidad de transmisión cambiaria a insumos secos y a precios domésticos | mismo patrón, filtrado por `EfectoAnalizado = "Pass-Through Cambiario en..."` |
+| `ATE Causal Promedio Segmentos` / `ATE Causal Segmento Entrada` / `ATE Causal Segmento Icono` | 04 Inferencia Causal Econometrica | ATE causal por segmento de producto (Entrada/Varietales es el más elástico, Icono/Gran Reserva el menos) | `AVERAGE(Inferencia_Causal_Detalle_Segmento[ATE_Causal])`; `CALCULATE(MAX(...), [Segmento] = "...")` |
+| `Prescripcion Pricing Causal` | 04 Inferencia Causal Econometrica | Texto de recomendación de pricing por elasticidad | multi-línea |
+
 ---
 
 ## 5. Convenciones y Disciplina Técnica
@@ -258,7 +335,8 @@ Selección de medidas de negocio real (excluye auxiliares de formateo puro de to
 - **Bug class detectado y corregido esta sesión — TMDL malformado en medidas multi-línea:** medidas DAX con bloques `VAR ... RETURN` de varias líneas requieren indentación consistente por tab respecto a la línea `measure 'Nombre' =`, y cada medida/columna nueva necesita un `lineageTag` (GUID) único — no reutilizado de otra medida por copy-paste. Un `lineageTag` duplicado o una indentación rota en el bloque `VAR/RETURN` no siempre falla al cargar, pero corrompe el árbol de dependencias del motor VertiPaq o produce resultados silenciosamente incorrectos. Lección de gobernanza: **validar el TMDL contra un ejemplo funcionando del mismo modelo antes de guardar**, no solo contra la sintaxis DAX en abstracto.
 - **`CategoriaABC` (`Productos.tmdl`, proyecto 02) — caso de estudio de "JSON/TMDL válido no implica valor de negocio correcto":** existían simultáneamente dos clasificaciones ABC en el mismo modelo: (1) una columna estática `CategoriaABC` que mapeaba `Linea` de producto → Clase A/B/C con un diccionario fijo, ignorando el ingreso real por SKU, y (2) la medida `'Clasificacion ABC'` en `_Medidas_Comercial.tmdl`, que calcula la clase real vía `RANKX` + % acumulado de ingresos sobre `Ventas`. Ambas convivían mostrando clasificaciones contradictorias en la misma página (`p3_pareto`): el archivo TMDL era 100% válido sintácticamente, pero la columna estática era un valor de negocio fabricado. Se resolvió convirtiendo `CategoriaABC` en una columna calculada DAX con la **misma metodología y los mismos umbrales (75%/92%)** que la medida `'Clasificacion ABC'` ya existente (ver `Productos.tmdl` líneas 80-98), eliminando la contradicción sin duplicar lógica de negocio.
 - **Causa raíz relacionada, en la capa de generación de datos:** antes de esta sesión, `generar_datos_historicos_ventas.py` generaba volumen de ventas por SKU de forma uniforme (9-20 transacciones/mes) sin importar el segmento, lo que producía una curva de Pareto irrealmente plana (67% de los SKUs caía en "Clase A"). Se corrigió introduciendo `SEGMENTO_VOL_BASE_MES` — rangos de volumen base diferenciados por segmento (p. ej. `Entrada: (35,70)` vs. `Gran Reserva / Icono: (3,9)`) — reflejando que los vinos de entrada/granel venden mucho más volumen que los íconos premium. Esta es la causa raíz real de por qué la clasificación ABC fabricada parecía "razonable" a simple vista pese a estar mal fundamentada: el dato de origen tampoco reflejaba la asimetría real de ventas por segmento.
-- **Fuente única de verdad:** los 3 modelos semánticos importan desde el mismo parámetro M `RutaDatos` (definido en `expressions.tmdl` de cada proyecto, apuntando a `01_Limpieza_de_Datos/curated_gold`), evitando que cada modelo tenga su propia copia divergente de las tablas maestras.
+- **Fuente única de verdad:** los 4 modelos semánticos importan desde el mismo parámetro M `RutaDatos` (definido en `expressions.tmdl` de cada proyecto, apuntando a `01_Limpieza_de_Datos/curated_gold`), evitando que cada modelo tenga su propia copia divergente de las tablas maestras.
+- **`ML_Matriz_Confusion.csv` — decisión de diseño, no bug:** `ml_riesgo_prediccion.py` entrena y evalúa los 3 modelos de clasificación (Regresión Logística L2, Random Forest, Gradient Boosting), pero exporta la matriz de confusión **únicamente del modelo campeón** (el de mayor `AUC_ROC`), no de los 3. Es intencional: la matriz de confusión visualizada en `06` (página `p1_clasif`) debe corresponder al modelo que realmente se usaría en producción, no a un promedio o a los 3 candidatos mezclados. Esta invariante está protegida por el test `01_Limpieza_de_Datos/tests/test_business_value_sanity.py::test_ml_matriz_confusion_es_del_modelo_ganador`, que falla si `ML_Matriz_Confusion.csv` contiene un modelo distinto al de mayor AUC-ROC en `ML_Metricas_Clasificacion.csv`.
 
 ---
 
@@ -281,18 +359,26 @@ python 01_Limpieza_de_Datos/etl_pipeline_cleaner.py
 python 01_Limpieza_de_Datos/update_data_layer.py
 
 # 4) Capa econométrica: corre los modelos y persiste outputs/*.json
-#    (desde Analisis_Econometrico/src/, vía notebook o import directo)
-python -c "from analisis_elasticidad_cointegracion import correr_todo; correr_todo()"
-python Analisis_Econometrico/src/estacionalidad_y_forecast.py   # si expone entrypoint __main__
+python 05_Analisis_Econometrico/src/analisis_elasticidad_cointegracion.py
+python 05_Analisis_Econometrico/src/estacionalidad_y_forecast.py
 
 # 5) Export de resultados econométricos a curated_gold (elasticidad, estacionalidad,
 #    forecast, cointegración, curva Rofex CIP real)
-python Analisis_Econometrico/src/exportar_resultados_powerbi.py
+python 05_Analisis_Econometrico/src/exportar_resultados_powerbi.py
 
-# 6) Apertura en Power BI Desktop: abrir cada .pbip (Control_de_Gestion.pbip,
-#    Inteligencia_Comercial.pbip, Operaciones_y_Planta.pbip) y
-#    refrescar (Home > Refresh). Los 3 leen curated_gold/ vía el parámetro M RutaDatos,
-#    por lo que basta un solo refresh por modelo tras regenerar la capa gold.
+# 5b) ML de riesgo/forecasting, inferencia causal y stress testing financiero (orden
+#     real verificado en .github/workflows/business-value-tests.yml)
+python 05_Analisis_Econometrico/src/ml_riesgo_prediccion.py
+python 05_Analisis_Econometrico/src/inferencia_causal_erpt.py
+python 05_Analisis_Econometrico/src/modelo_miller_orr_var.py
+
+# 6) Apertura en Power BI Desktop: abrir cada .pbip
+#    (02_Control_de_Gestion/02_Control_de_Gestion.pbip,
+#    03_Inteligencia_Comercial/03_Inteligencia_Comercial.pbip,
+#    04_Operaciones_y_Planta/04_Operaciones_y_Planta.pbip,
+#    06_Modelos_de_Riesgo_y_Prediccion/06_Riesgo.pbip) y refrescar (Home > Refresh).
+#    Los 4 leen curated_gold/ vía el parámetro M RutaDatos, por lo que basta un solo
+#    refresh por modelo tras regenerar la capa gold.
 ```
 
-**Nota:** los pasos 1-3 son deterministas dado `np.random.seed`/`default_rng(42)` fijo en cada generador — re-ejecutarlos produce exactamente los mismos datos, salvo que cambien los CSV/JSON de `Analisis_Econometrico/data/real/` (series reales, actualizables desde las APIs de BCRA/INDEC).
+**Nota:** los pasos 1-5b son deterministas dado `np.random.seed`/`default_rng(42)`/`random_state=42` fijo en cada generador — re-ejecutarlos produce exactamente los mismos datos, salvo que cambien los CSV/JSON de `05_Analisis_Econometrico/data/real/` (series reales, actualizables desde las APIs de BCRA/INDEC). Esta secuencia exacta es la que corre `.github/workflows/business-value-tests.yml` en CI.
