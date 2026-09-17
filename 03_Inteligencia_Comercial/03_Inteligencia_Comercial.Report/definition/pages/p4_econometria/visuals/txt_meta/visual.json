@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "txt_meta",
   "position": {
-    "x": 18,
-    "y": 580,
+    "x": 18.488888888888887,
+    "y": 446.57777777777778,
     "z": 2,
-    "height": 115,
-    "width": 160,
+    "height": 248.88888888888889,
+    "width": 159.28888888888889,
     "tabOrder": 0
   },
   "visual": {
@@ -21,13 +21,12 @@
                   {
                     "value": "Metodologia: STL, OLS panel FE+HC1, SARIMA backtest, Engle-Granger. Calibrado con BCRA/INDEC/INV reales. Ver notebook completo en 05_Analisis_Econometrico.",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "10pt",
-                      "color": "#F8FAFC",
-                      "fontWeight": "bold"
+                      "color": "#f8fafc"
                     }
                   }
-                ],
-                "horizontalTextAlignment": "left"
+                ]
               }
             ]
           }

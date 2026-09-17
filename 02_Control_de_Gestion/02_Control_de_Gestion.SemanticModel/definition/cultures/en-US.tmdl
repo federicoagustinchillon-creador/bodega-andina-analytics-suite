@@ -1103,6 +1103,79 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Alerta Semaforo OPEX": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_controller.diagnostico_causal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Controller",
+			          "ConceptualProperty": "Diagnostico Causal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Diagnostico Causal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_controller.diagnostico_prescriptivo_pnl": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Controller",
+			          "ConceptualProperty": "Diagnostico Prescriptivo PnL"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Diagnostico Prescriptivo PnL": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_tesoreria.regla_decision_tesoreria_millerorr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Tesoreria",
+			          "ConceptualProperty": "Regla Decision Tesoreria Miller-Orr"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Regla Decision Tesoreria Miller-Orr": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    }

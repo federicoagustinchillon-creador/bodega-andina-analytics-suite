@@ -407,9 +407,9 @@ table _Medidas_Operaciones
 				SWITCH(
 					TRUE(),
 					ISBLANK(_rend), BLANK(),
-					_rend >= 0.70, "🟢 OPTIMO",
-					_rend >= 0.67, "🟡 ALERTA",
-					"🔴 CRITICO"
+					_rend >= 0.70, "Óptimo",
+					_rend >= 0.67, "Alerta",
+					"Crítico"
 				)
 		formatString: @
 		displayFolder: 07 Diagnostico y Playbook de Planta
@@ -435,9 +435,9 @@ table _Medidas_Operaciones
 				SWITCH(
 					TRUE(),
 					ISBLANK(_merma), BLANK(),
-					_merma <= 0.025, "🟢 OPTIMO",
-					_merma <= 0.035, "🟡 ALERTA",
-					"🔴 CRITICO"
+					_merma <= 0.025, "Óptimo",
+					_merma <= 0.035, "Alerta",
+					"Crítico"
 				)
 		formatString: @
 		displayFolder: 07 Diagnostico y Playbook de Planta
@@ -497,11 +497,10 @@ table _Medidas_Operaciones
 				SWITCH(
 					TRUE(),
 					ISBLANK(_desv), BLANK(),
-					_desv > 0.08, "🔴 SUB-ABSORCION CRITICA",
-					_desv > 0.03, "🟡 SUB-ABSORCION MODERADA",
-					_desv >= -0.03, "🟢 ABSORCION EN EQUILIBRIO",
-					_desv >= -0.08, "🟢 SOBRE-ABSORCION EFICIENTE",
-					"🟢 SOBRE-ABSORCION RECORD"
+					_desv > 0.08, "Sub-absorción Crítica",
+					_desv > 0.03, "Sub-absorción Leve",
+					_desv >= -0.03, "En Equilibrio",
+					"Sobre-absorción"
 				)
 		formatString: @
 		displayFolder: 08 Matriz de Absorcion Fabril
@@ -560,9 +559,9 @@ table _Medidas_Operaciones
 				SWITCH(
 					TRUE(),
 					ISBLANK(_merma), BLANK(),
-					_merma <= 0.30, "🟢 NORMAL",
-					_merma <= 0.33, "🟡 MODERADA",
-					"🔴 CRITICA"
+					_merma <= 0.30, "NORMAL",
+					_merma <= 0.33, "MODERADA",
+					"CRITICA"
 				)
 		formatString: @
 		displayFolder: 09 Matriz de Mermas y Rendimientos
@@ -608,9 +607,9 @@ table _Medidas_Operaciones
 				SWITCH(
 					TRUE(),
 					ISBLANK(_merma), BLANK(),
-					_merma <= 0.010, "🟢 CONTROLADA",
-					_merma <= 0.015, "🟡 MODERADA",
-					"🔴 CRITICA"
+					_merma <= 0.010, "CONTROLADA",
+					_merma <= 0.015, "MODERADA",
+					"CRITICA"
 				)
 		formatString: @
 		displayFolder: 09 Matriz de Mermas y Rendimientos

@@ -204,5 +204,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "15601381e27c1bde04a4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Comercial"
+              }
+            },
+            "Property": "Volumen Real"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

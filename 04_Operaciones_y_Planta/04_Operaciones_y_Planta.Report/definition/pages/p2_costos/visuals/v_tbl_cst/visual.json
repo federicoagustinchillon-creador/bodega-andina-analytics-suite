@@ -119,21 +119,6 @@
               "queryRef": "_Medidas_Operaciones.Semaforo Absorcion Fabril",
               "nativeQueryRef": "Semaforo Absorcion Fabril",
               "displayName": "Semáforo Absorción"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Medidas_Operaciones"
-                    }
-                  },
-                  "Property": "Regla Decision Absorcion Fabril"
-                }
-              },
-              "queryRef": "_Medidas_Operaciones.Regla Decision Absorcion Fabril",
-              "nativeQueryRef": "Regla Decision Absorcion Fabril",
-              "displayName": "Regla de Decisión Fabril"
             }
           ]
         }
@@ -481,20 +466,6 @@
               }
             },
             "Property": "Semaforo Absorcion Fabril"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6187f2c2838d41c09fd7",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Operaciones"
-              }
-            },
-            "Property": "Regla Decision Absorcion Fabril"
           }
         },
         "type": "Advanced"

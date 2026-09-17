@@ -151,9 +151,9 @@ table _Medidas_Riesgo_Prediccion
 	measure 'Semaforo Salud Cartera' =
 			SWITCH(
 				TRUE(),
-				[Proporcion Cartera en Riesgo %] > 0.15, "🔴 ALTO RIESGO",
-				[Proporcion Cartera en Riesgo %] > 0.08, "🟡 ALERTA",
-				"🟢 CARTERA SANA"
+				[Proporcion Cartera en Riesgo %] > 0.15, "ALTO RIESGO",
+				[Proporcion Cartera en Riesgo %] > 0.08, "ALERTA",
+				"CARTERA SANA"
 			)
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: 10fa801e-a8c0-4ee7-9485-b7b4d9f27719
@@ -168,7 +168,7 @@ table _Medidas_Riesgo_Prediccion
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: c70238ad-a0fe-45db-9863-94346b622089
 
-	measure 'Regla Decision Scoring Crediticio' = "REGLA DE MITIGACION: Exigir pago anticipado o aval bancario a clientes con Score > 70. Activar cobranzas prejudiciales preventivas a 15 dias."
+	measure 'Regla Decision Scoring Crediticio' = "Politica crediticia: Exigir pago anticipado o aval a clientes con Score > 70 y activar cobranza prejudicial preventiva a 15 dias."
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: 7827cd5f-88eb-4da2-97e0-5bdc130333cd
 
@@ -310,8 +310,8 @@ table _Medidas_Riesgo_Prediccion
 			RETURN
 			    IF(
 			        _rmseGBDT < _rmseSarimax,
-			        "CONFIABILIDAD PREDICTIVA: El ensamble de arboles (RMSE " & FORMAT(_rmseGBDT, "#,##0") & ") reduce la dispersion out-of-sample frente al benchmark SARIMAX (RMSE " & FORMAT(_rmseSarimax, "#,##0") & "). REGLA: Adoptar proyeccion GBDT para plan maestro de embotellado.",
-			        "BENCHMARK ESTADISTICO GANA: SARIMAX (RMSE " & FORMAT(_rmseSarimax, "#,##0") & ") supera al ensamble de arboles GBDT (RMSE " & FORMAT(_rmseGBDT, "#,##0") & ") en este backtest de 12 meses. REGLA: Mantener SARIMAX como modelo de produccion para el plan maestro; reevaluar GBDT con mas historia o features exogenas antes de reemplazarlo."
+			        "Plan de demanda: GBDT lidera precision predictiva (RMSE " & FORMAT(_rmseGBDT, "#,##0") & "). Adoptar proyeccion para programa maestro de embotellado.",
+			        "Plan de demanda: SARIMAX lidera precision predictiva (RMSE " & FORMAT(_rmseSarimax, "#,##0") & "). Mantener modelo para programa maestro de embotellado."
 			    )
 		displayFolder: 02 Forecasting de Demanda ML
 		lineageTag: f94653f5-3d0e-4667-a9ef-7a5be76a3316
@@ -428,9 +428,9 @@ table _Medidas_Riesgo_Prediccion
 	measure 'Semaforo Solvencia Stress' =
 			SWITCH(
 				TRUE(),
-				[Buffer Solvencia Minimo Stress] <= 0, "🔴 INSOLVENCIA",
-				[Buffer Solvencia Minimo Stress] < 15000000, "🟡 BUFFER ALERTA",
-				"🟢 RESILIENTE"
+				[Buffer Solvencia Minimo Stress] <= 0, "INSOLVENCIA",
+				[Buffer Solvencia Minimo Stress] < 15000000, "BUFFER ALERTA",
+				"RESILIENTE"
 			)
 		displayFolder: 03 Riesgo y Stress Testing VaR
 		lineageTag: b9f92d16-b014-499e-b076-38cb8b7b5132
@@ -445,7 +445,7 @@ table _Medidas_Riesgo_Prediccion
 		displayFolder: 03 Riesgo y Stress Testing VaR
 		lineageTag: cb03941a-8745-4b88-aeea-2829c8123409
 
-	measure 'Playbook Mitigacion Reverse Stress' = "CONTINGENCIA EXTREMA: En caso de caida combinada > 30% en ventas y mora > 45d, ejecutar linea de credito contingente garantizada con warrants de stock estibado."
+	measure 'Playbook Mitigacion Reverse Stress' = "Plan de contingencia: Ante caidas de venta > 30% y mora > 45d, ejecutar linea contingente garantizada con warrants de stock."
 		displayFolder: 03 Riesgo y Stress Testing VaR
 		lineageTag: 712b76dc-228f-45e0-9502-082e68056fb7
 
@@ -540,7 +540,7 @@ table _Medidas_Riesgo_Prediccion
 		displayFolder: 04 Inferencia Causal Econometrica
 		lineageTag: 65c329b6-ff0c-4400-b53d-34efdadc2ab6
 
-	measure 'Prescripcion Pricing Causal' = "ELASTICIDAD ESTRUCTURAL AISLADA: Otorgar descuentos solo donde el ATE supera 1.5x. En lineas inelasticas (Gran Reserva), blindar precio para defender margen."
+	measure 'Prescripcion Pricing Causal' = "Politica de pricing: Aplicar descuentos comerciales solo con ATE > 1.5x y blindar precios en lineas inelasticas de alto margen."
 		displayFolder: 04 Inferencia Causal Econometrica
 		lineageTag: 49cca55a-27e5-4e62-9768-9fe6ba1e2120
 

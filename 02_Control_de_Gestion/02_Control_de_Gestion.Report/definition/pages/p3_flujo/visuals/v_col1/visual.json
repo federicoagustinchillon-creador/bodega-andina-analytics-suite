@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "v_col_cwc",
+  "name": "v_col1",
   "position": {
-    "x": 704.71910112359558,
-    "y": 413.48314606741576,
+    "x": 877.0,
+    "y": 451.6,
     "z": 12000,
-    "height": 294.83146067415731,
-    "width": 560.89887640449444,
+    "height": 256.8,
+    "width": 388.0,
     "tabOrder": 18000
   },
   "visual": {

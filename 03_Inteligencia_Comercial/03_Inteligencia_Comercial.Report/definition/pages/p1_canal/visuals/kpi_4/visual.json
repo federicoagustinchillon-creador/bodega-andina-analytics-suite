@@ -199,5 +199,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "238457762a05c9411306",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Comercial"
+              }
+            },
+            "Property": "Ticket Promedio"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

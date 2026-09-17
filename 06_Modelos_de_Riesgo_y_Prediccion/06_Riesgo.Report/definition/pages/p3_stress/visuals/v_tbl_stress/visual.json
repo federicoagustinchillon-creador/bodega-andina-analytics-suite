@@ -98,21 +98,6 @@
                       "Entity": "Riesgo_Reverse_Stress_Testing"
                     }
                   },
-                  "Property": "EstadoSolvencia"
-                }
-              },
-              "queryRef": "Riesgo_Reverse_Stress_Testing.EstadoSolvencia",
-              "nativeQueryRef": "EstadoSolvencia",
-              "displayName": "Estado Solvencia"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Riesgo_Reverse_Stress_Testing"
-                    }
-                  },
                   "Property": "Semaforo"
                 }
               },

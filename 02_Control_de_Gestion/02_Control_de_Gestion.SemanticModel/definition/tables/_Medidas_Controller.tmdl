@@ -223,9 +223,9 @@ table _Medidas_Controller
 	measure 'Alerta Semaforo OPEX' =
 			SWITCH(
 				TRUE(),
-				[Desvio OPEX %] > 0.05, "🔴 CRITICO (> 5.0%)",
-				[Desvio OPEX %] > 0.00, "🟡 ALERTA (0.0% - 5.0%)",
-				"🟢 EN PRESUPUESTO"
+				[Desvio OPEX %] > 0.05, "[CRITICO]",
+				[Desvio OPEX %] > 0.00, "[ALERTA]",
+				"[EN PLAN]"
 			)
 		formatString: @
 		displayFolder: 04 OPEX y EBITDA (SAP CO)
@@ -402,46 +402,90 @@ table _Medidas_Controller
 		lineageTag: c5f660e5-027a-402d-b5d0-a2791e9dce1d
 
 	measure 'Top Causa Desvio' =
-			VAR _tbl =
-			    ADDCOLUMNS(
-			        VALUES(PlanCuentas[NombreCuenta]),
-			        "@desvio", ABS(CALCULATE([Desvio Ingresos %]))
-			    )
-			VAR _top =
-			    TOPN(1, _tbl, [@desvio], DESC)
+			VAR _dominante = [Efecto Dominante Margen]
+			VAR _tbl_dim =
+				IF(
+					HASONEVALUE(Productos[Linea]),
+					ADDCOLUMNS(
+						VALUES(Productos[Descripcion]),
+						"@aporte",
+						SWITCH(
+							_dominante,
+							"Efecto Volumen (EV)", [Efecto Volumen (EV)],
+							"Efecto Precio (EP)", [Efecto Precio (EP)],
+							[Efecto Costo (EC)]
+						)
+					),
+					ADDCOLUMNS(
+						VALUES(Productos[Linea]),
+						"@aporte",
+						SWITCH(
+							_dominante,
+							"Efecto Volumen (EV)", [Efecto Volumen (EV)],
+							"Efecto Precio (EP)", [Efecto Precio (EP)],
+							[Efecto Costo (EC)]
+						)
+					)
+				)
+			VAR _top = TOPN(1, _tbl_dim, ABS([@aporte]), DESC)
 			RETURN
-			    CONCATENATEX(_top, PlanCuentas[NombreCuenta], ", ")
+				IF(
+					HASONEVALUE(Productos[Linea]),
+					CONCATENATEX(_top, Productos[Descripcion], ", "),
+					CONCATENATEX(_top, Productos[Linea], ", ")
+				)
 		formatString: @
 		displayFolder: 07 Diagnostico Causal
 		lineageTag: 18eb21fb-a5d9-4b42-aaf9-b7efa3532085
 
 	measure 'Magnitud Desvio Top Causa' =
-			VAR _tbl =
-			    ADDCOLUMNS(
-			        VALUES(PlanCuentas[NombreCuenta]),
-			        "@desvio", ABS(CALCULATE([Desvio Ingresos %]))
-			    )
-			VAR _top =
-			    TOPN(1, _tbl, [@desvio], DESC)
+			VAR _dominante = [Efecto Dominante Margen]
+			VAR _tbl_dim =
+				IF(
+					HASONEVALUE(Productos[Linea]),
+					ADDCOLUMNS(
+						VALUES(Productos[Descripcion]),
+						"@aporte",
+						SWITCH(
+							_dominante,
+							"Efecto Volumen (EV)", [Efecto Volumen (EV)],
+							"Efecto Precio (EP)", [Efecto Precio (EP)],
+							[Efecto Costo (EC)]
+						)
+					),
+					ADDCOLUMNS(
+						VALUES(Productos[Linea]),
+						"@aporte",
+						SWITCH(
+							_dominante,
+							"Efecto Volumen (EV)", [Efecto Volumen (EV)],
+							"Efecto Precio (EP)", [Efecto Precio (EP)],
+							[Efecto Costo (EC)]
+						)
+					)
+				)
+			VAR _top = TOPN(1, _tbl_dim, ABS([@aporte]), DESC)
 			RETURN
-			    MAXX(_top, [@desvio])
-		formatString: +0.00%;-0.00%;0.00%
+				MAXX(_top, [@aporte])
+		formatString: +$#,##0;-$#,##0;"-"
 		displayFolder: 07 Diagnostico Causal
 		lineageTag: 193cfdc4-d5c5-4d12-8813-6f8e210eaea1
 
 	measure 'Diagnostico Causal' =
-			VAR _estado   = [Semaforo KPI]
-			VAR _causa    = [Top Causa Desvio]
-			VAR _magnitud = FORMAT([Magnitud Desvio Top Causa], "0.0%")
-			VAR _real     = FORMAT([Ingresos Reales], "#,##0")
-			VAR _ppto     = FORMAT([Ingresos Presupuesto], "#,##0")
-			RETURN
-			    SWITCH(
-			        _estado,
-			        "CUMPLE",  "KPI en objetivo. " & _causa & " es el principal impulsor positivo (" & _magnitud & " s/ppto).",
-			        "ALERTA",  "Desvio moderado. " & _causa & " concentra la mayor brecha (" & _magnitud & "). Real: " & _real & " | Ppto: " & _ppto & ".",
-			        "CRITICO", "ACCION REQUERIDA: " & _causa & " presenta desvio critico (" & _magnitud & "). Real: " & _real & " vs Ppto: " & _ppto & "."
-			    )
+			VAR _mb_real = [Margen Bruto Real]
+			VAR _mb_ppto = [Margen Bruto Presupuesto]
+			VAR _desvio_mb = _mb_real - _mb_ppto
+			VAR _desvio_pct = DIVIDE(_desvio_mb, _mb_ppto, 0)
+			VAR _dominante = [Efecto Dominante Margen]
+			VAR _top_item = [Top Causa Desvio]
+			VAR _monto_m = FORMAT(ABS(_desvio_mb) / 1000000, "$#,##0.0 M")
+			VAR _res =
+				IF(
+					_desvio_mb >= 0,
+					"Superavit de Margen: +" & _monto_m & " (" & FORMAT(_desvio_pct, "+0.0%") & "). Causa: " & _dominante & " en " & _top_item & ".",
+					"Desvio de Margen: -" & _monto_m & " (" & FORMAT(_desvio_pct, "0.0%") & "). Detractor: " & _dominante & " en " & _top_item & "."
+				)
+			RETURN LEFT(_res, 125)
 		formatString: @
 		displayFolder: 07 Diagnostico Causal
 		lineageTag: 1917c896-c37e-4f13-ac36-7e3402c2e6b6
@@ -535,9 +579,9 @@ table _Medidas_Controller
 			SWITCH(
 				TRUE(),
 				ISBLANK([Ciclo Conversion Efectivo (CCC)]), BLANK(),
-				[Ciclo Conversion Efectivo (CCC)] <= 65, "🟢 OPTIMO",
-				[Ciclo Conversion Efectivo (CCC)] <= 85, "🟡 ALERTA",
-				"🔴 CRITICO"
+				[Ciclo Conversion Efectivo (CCC)] <= 65, "[EN PLAN]",
+				[Ciclo Conversion Efectivo (CCC)] <= 85, "[ALERTA]",
+				"[CRITICO]"
 			)
 		formatString: @
 		displayFolder: 09 Diagnostico Prescriptivo
@@ -547,8 +591,11 @@ table _Medidas_Controller
 			SWITCH(
 				[Nivel Riesgo CCC],
 				"OPTIMO", "#10B981",
+				"[EN PLAN]", "#10B981",
 				"ALERTA", "#F59E0B",
+				"[ALERTA]", "#F59E0B",
 				"CRITICO", "#EF4444",
+				"[CRITICO]", "#EF4444",
 				"#94A3B8"
 			)
 		formatString: @
@@ -580,9 +627,9 @@ table _Medidas_Controller
 				SWITCH(
 					TRUE(),
 					ISBLANK(_rot), BLANK(),
-					_rot >= 1.2, "🟢 ALTA",
-					_rot >= 0.9, "🟡 MEDIA",
-					"🔴 BAJA"
+					_rot >= 1.2, "[ALTA]",
+					_rot >= 0.9, "[MEDIA]",
+					"[BAJA]"
 				)
 		formatString: @
 		displayFolder: 09 Diagnostico Prescriptivo
@@ -607,20 +654,25 @@ table _Medidas_Controller
 			VAR _ev = [Efecto Volumen (EV)]
 			VAR _ep = [Efecto Precio (EP)]
 			VAR _ec = [Efecto Costo (EC)]
-			RETURN
+			VAR _devM = FORMAT(ABS(_devTotal) / 1000000, "$#,##0.0 M")
+			VAR _evM = FORMAT(_ev / 1000000, "+$#,##0.0 M;-$#,##0.0 M;$0.0 M")
+			VAR _epM = FORMAT(_ep / 1000000, "+$#,##0.0 M;-$#,##0.0 M;$0.0 M")
+			VAR _ecM = FORMAT(_ec / 1000000, "+$#,##0.0 M;-$#,##0.0 M;$0.0 M")
+			VAR _res =
 				IF(
 					_devTotal >= 0,
-					"SUPERAVIT DE MARGEN BRUTO (+$" & FORMAT(_devTotal, "#,##0") & "): Rendimiento presupuestario favorable sin desvios criticos.",
+					"Superavit Margen: +" & _devM & " por mix favorable. Prescripcion: Consolidar asignacion a lineas de alta gama.",
 					IF(
 						_ep < _ev && _ep < _ec,
-						"DESVIO PRINCIPAL POR PRECIO (EP: -$" & FORMAT(ABS(_ep), "#,##0") & "): Politica comercial concedio bonificaciones excesivas. Accion: Limitar descuentos en grandes superficies al 8% maximo.",
+						"Desvio en Precio (EP: " & _epM & "). Prescripcion: Limitar bonificaciones comerciales y topear descuentos al 8%.",
 						IF(
 							_ev < _ep && _ev < _ec,
-							"DESVIO PRINCIPAL POR VOLUMEN (EV: -$" & FORMAT(ABS(_ev), "#,##0") & "): Caida de cajas vendidas bajo plan. Accion: Reforzar incentivos a la red comercial y acelerar presencia en canal Horeca.",
-							"DESVIO PRINCIPAL POR COSTO (EC: -$" & FORMAT(ABS(_ec), "#,##0") & "): Sobrecosto fabril unitario. Accion: Auditar compras de insumos secos (CTA-202) y eficiencia de turnos en planta (CC-102)."
+							"Desvio en Volumen (EV: " & _evM & "). Prescripcion: Reforzar incentivos de ventas y acelerar canal Horeca.",
+							"Desvio en Costos (EC: " & _ecM & "). Prescripcion: Auditar adquisicion de insumos secos y turnos en planta."
 						)
 					)
 				)
+			RETURN LEFT(_res, 125)
 		formatString: @
 		displayFolder: 09 Diagnostico Prescriptivo
 		lineageTag: 275be823-7a40-45b7-a4f6-1e577cd29d01
@@ -669,6 +721,21 @@ table _Medidas_Controller
 		formatString: +$#,##0;-$#,##0;"-"
 		displayFolder: 04 Descomposicion de Desvios (Variance Analysis)
 		lineageTag: a1b2c3d4-9999-0001-0001-000000000008
+
+	measure 'Efecto Dominante Margen' =
+			VAR _ev = ABS([Efecto Volumen (EV)])
+			VAR _ep = ABS([Efecto Precio (EP)])
+			VAR _ec = ABS([Efecto Costo (EC)])
+			RETURN
+				SWITCH(
+					TRUE(),
+					_ev >= _ep && _ev >= _ec, "Efecto Volumen (EV)",
+					_ep >= _ev && _ep >= _ec, "Efecto Precio (EP)",
+					"Efecto Costo (EC)"
+				)
+		formatString: @
+		displayFolder: 07 Diagnostico Causal
+		lineageTag: d71a8f9c-3e2b-4a5c-8901-2b4f6e8a10d2
 
 	column Medidas
 		dataType: string

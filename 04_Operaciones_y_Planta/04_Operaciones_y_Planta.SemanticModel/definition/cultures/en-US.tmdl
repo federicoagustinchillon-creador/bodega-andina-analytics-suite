@@ -790,19 +790,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "Prescripcion Rendimiento Enologico"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Prescripción Enológica": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "table_medidas_operaciones.tasa_desvio_absorcion_": {
 			      "Definition": {
@@ -856,7 +844,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Regla de Decisión Fabril": {
+			          "Regla Decision Absorcion Fabril": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -895,10 +883,19 @@ cultureInfo en-US
 			          "ConceptualProperty": "Prescripcion Guarda y Crianza"
 			        }
 			      },
+			      "State": "Generated"
+			    },
+			    "table_medidas_operaciones.regla_decision_merma_envasado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Operaciones",
+			          "ConceptualProperty": "Regla Decision Merma Envasado"
+			        }
+			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Prescripción Guarda & Crianza": {
+			          "Regla Decision Merma Envasado": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

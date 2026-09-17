@@ -104,21 +104,6 @@
               "queryRef": "_Medidas_Operaciones.Semaforo Rendimiento Extraccion",
               "nativeQueryRef": "Semaforo Rendimiento Extraccion",
               "displayName": "Semáforo Rendimiento"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Medidas_Operaciones"
-                    }
-                  },
-                  "Property": "Prescripcion Rendimiento Enologico"
-                }
-              },
-              "queryRef": "_Medidas_Operaciones.Prescripcion Rendimiento Enologico",
-              "nativeQueryRef": "Prescripcion Rendimiento Enologico",
-              "displayName": "Prescripción Enológica"
             }
           ]
         }
@@ -452,20 +437,6 @@
               }
             },
             "Property": "Semaforo Rendimiento Extraccion"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e57304f27ab142dab332",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Operaciones"
-              }
-            },
-            "Property": "Prescripcion Rendimiento Enologico"
           }
         },
         "type": "Advanced"

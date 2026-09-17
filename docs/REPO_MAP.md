@@ -43,7 +43,7 @@
 - `test_sin_huerfanas_sin_resolver(quality_report)` — Toda clave huerfana detectada por el ETL debe haber sido resuelta (cuarentena/fix), no colada. (L50)
 - `test_tasa_validez_alta(quality_report)` (L58)
 - `test_ventas_referencian_productos_existentes(ventas, productos)` (L64)
-- *...y 15 funciones más*
+- *...y 16 funciones más*
 
 ### [`update_data_layer.py`](01_Limpieza_de_Datos/update_data_layer.py) — ⚠️ sin referencias externas encontradas
 > Script de Actualizacion de Capa de Datos y Modelos Semanticos

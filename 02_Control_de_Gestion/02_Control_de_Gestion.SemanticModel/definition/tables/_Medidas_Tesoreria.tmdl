@@ -143,9 +143,9 @@ table _Medidas_Tesoreria
 				SWITCH(
 					TRUE(),
 					ISBLANK(_saldo), BLANK(),
-					_saldo >= _h, "🔵 COMPRA TITULOS",
-					_saldo <= _l, "🔴 VENTA TITULOS",
-					"🟢 EQUILIBRIO"
+					_saldo >= _h, "[COMPRA TITULOS]",
+					_saldo <= _l, "[VENTA TITULOS]",
+					"[EQUILIBRIO]"
 				)
 		formatString: @
 		displayFolder: 03 Optimo de Caja Miller-Orr

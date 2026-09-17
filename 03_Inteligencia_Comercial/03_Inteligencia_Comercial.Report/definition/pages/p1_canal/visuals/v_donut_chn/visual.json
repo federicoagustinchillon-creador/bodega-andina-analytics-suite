@@ -329,5 +329,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2e1e07b8390aab05dc46",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Ventas"
+              }
+            },
+            "Property": "CanalVenta"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3cd6d276503edc023e47",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Comercial"
+              }
+            },
+            "Property": "Ingresos Reales"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

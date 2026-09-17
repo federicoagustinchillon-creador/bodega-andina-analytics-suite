@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "v_tbl_liq",
+  "name": "v_tbl_cobertura",
   "position": {
-    "x": 196.55430711610487,
-    "y": 413.48314606741576,
+    "x": 196.0,
+    "y": 413.0,
     "z": 11000,
-    "height": 294.83146067415731,
-    "width": 494.9812734082397,
-    "tabOrder": 17000
+    "height": 295.0,
+    "width": 565.0,
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "tableEx",
@@ -20,75 +20,60 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Calendario"
+                      "Entity": "CobranzasExportacion"
                     }
                   },
-                  "Property": "MesNombre"
+                  "Property": "FechaEmbarque"
                 }
               },
-              "queryRef": "Calendario.MesNombre",
-              "nativeQueryRef": "MesNombre",
-              "displayName": "Período"
+              "queryRef": "CobranzasExportacion.FechaEmbarque",
+              "nativeQueryRef": "FechaEmbarque",
+              "displayName": "Embarque"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Medidas_Controller"
+                      "Entity": "Productos"
                     }
                   },
-                  "Property": "Ingresos Reales"
+                  "Property": "SKU"
                 }
               },
-              "queryRef": "_Medidas_Controller.Ingresos Reales",
-              "nativeQueryRef": "Ingresos Reales",
-              "displayName": "Cobros ($)"
+              "queryRef": "Productos.SKU",
+              "nativeQueryRef": "SKU",
+              "displayName": "SKU"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Medidas_Controller"
+                      "Entity": "CobranzasExportacion"
                     }
                   },
-                  "Property": "OPEX Real"
+                  "Property": "FechaCobroEstimada"
                 }
               },
-              "queryRef": "_Medidas_Controller.OPEX Real",
-              "nativeQueryRef": "OPEX Real",
-              "displayName": "Pagos ($)"
+              "queryRef": "CobranzasExportacion.FechaCobroEstimada",
+              "nativeQueryRef": "FechaCobroEstimada",
+              "displayName": "Cobro Estimado"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Medidas_Controller"
+                      "Entity": "CobranzasExportacion"
                     }
                   },
-                  "Property": "EBITDA Real"
+                  "Property": "ImporteFOB_USD"
                 }
               },
-              "queryRef": "_Medidas_Controller.EBITDA Real",
-              "nativeQueryRef": "EBITDA Real",
-              "displayName": "Saldo Op. ($)"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Medidas_Controller"
-                    }
-                  },
-                  "Property": "NOF Total"
-                }
-              },
-              "queryRef": "_Medidas_Controller.NOF Total",
-              "nativeQueryRef": "NOF Total",
-              "displayName": "NOF ($)"
+              "queryRef": "CobranzasExportacion.ImporteFOB_USD",
+              "nativeQueryRef": "ImporteFOB_USD",
+              "displayName": "FOB (USD)"
             }
           ]
         }
@@ -100,10 +85,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Calendario"
+                    "Entity": "CobranzasExportacion"
                   }
                 },
-                "Property": "DateKey"
+                "Property": "FechaCobroEstimada"
               }
             },
             "direction": "Ascending"
@@ -199,33 +184,6 @@
             }
           }
         }
-      ],
-      "total": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI Semibold'"
-                }
-              }
-            },
-            "outlineWeight": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          }
-        }
       ]
     },
     "visualContainerObjects": {
@@ -282,7 +240,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Detalle de Posición de Liquidez & Flujo Operativo'"
+                  "Value": "'Cobranzas de Exportación Pendientes (USD)'"
                 }
               }
             },
@@ -316,14 +274,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Conciliación de cobros, pagos y requerimiento NOF'"
+                  "Value": "'Ordenado por fecha de cobro estimada | Exposición abierta'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "7.5D"
                 }
               }
             },
@@ -339,5 +297,63 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "11d0ebec17cd0ffc84dd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CobranzasExportacion"
+              }
+            },
+            "Property": "EstadoCobranza"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "CobranzasExportacion",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "EstadoCobranza"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Pendiente'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
   }
 }

@@ -165,5 +165,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6a5daa6fdd0c050e9108",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Comercial"
+              }
+            },
+            "Property": "Cumplimiento Presupuesto %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

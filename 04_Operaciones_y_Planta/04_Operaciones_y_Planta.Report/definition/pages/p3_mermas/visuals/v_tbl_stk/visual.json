@@ -119,21 +119,6 @@
               "queryRef": "_Medidas_Operaciones.Semaforo Merma Crianza",
               "nativeQueryRef": "Semaforo Merma Crianza",
               "displayName": "Semáforo Merma"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Medidas_Operaciones"
-                    }
-                  },
-                  "Property": "Prescripcion Guarda y Crianza"
-                }
-              },
-              "queryRef": "_Medidas_Operaciones.Prescripcion Guarda y Crianza",
-              "nativeQueryRef": "Prescripcion Guarda y Crianza",
-              "displayName": "Prescripción Guarda & Crianza"
             }
           ]
         }
@@ -481,20 +466,6 @@
               }
             },
             "Property": "Semaforo Merma Crianza"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "ca328ad38b8649ffaa6d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Operaciones"
-              }
-            },
-            "Property": "Prescripcion Guarda y Crianza"
           }
         },
         "type": "Advanced"

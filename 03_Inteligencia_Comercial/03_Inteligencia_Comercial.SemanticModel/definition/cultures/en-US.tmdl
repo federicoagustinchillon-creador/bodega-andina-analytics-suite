@@ -721,7 +721,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Regla de Pricing": {
+			          "Regla Decision Precio": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -743,6 +743,16 @@ cultureInfo en-US
 			      "Terms": [
 			        {
 			          "Recomendación Estratégica": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Recomendacion Estrategica ABC": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1184,6 +1194,48 @@ cultureInfo en-US
 			      "Terms": [
 			        {
 			          "P-Value": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_comercial.diagnostico_causal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Comercial",
+			          "ConceptualProperty": "Diagnostico Causal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Diagnostico Causal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_comercial.prescripcion_cartera_pareto_abc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Comercial",
+			          "ConceptualProperty": "Prescripcion Cartera Pareto ABC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prescripcion Cartera Pareto ABC": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
