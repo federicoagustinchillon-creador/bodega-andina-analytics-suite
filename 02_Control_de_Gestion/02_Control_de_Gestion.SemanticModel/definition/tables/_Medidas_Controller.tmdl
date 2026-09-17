@@ -403,36 +403,35 @@ table _Medidas_Controller
 
 	measure 'Top Causa Desvio' =
 			VAR _dominante = [Efecto Dominante Margen]
-			VAR _tbl_dim =
-				IF(
-					HASONEVALUE(Productos[Linea]),
-					ADDCOLUMNS(
-						VALUES(Productos[Descripcion]),
-						"@aporte",
-						SWITCH(
-							_dominante,
-							"Efecto Volumen (EV)", [Efecto Volumen (EV)],
-							"Efecto Precio (EP)", [Efecto Precio (EP)],
-							[Efecto Costo (EC)]
-						)
-					),
-					ADDCOLUMNS(
-						VALUES(Productos[Linea]),
-						"@aporte",
-						SWITCH(
-							_dominante,
-							"Efecto Volumen (EV)", [Efecto Volumen (EV)],
-							"Efecto Precio (EP)", [Efecto Precio (EP)],
-							[Efecto Costo (EC)]
-						)
+			VAR _tbl_desc =
+				ADDCOLUMNS(
+					VALUES(Productos[Descripcion]),
+					"@aporte",
+					SWITCH(
+						_dominante,
+						"Efecto Volumen (EV)", [Efecto Volumen (EV)],
+						"Efecto Precio (EP)", [Efecto Precio (EP)],
+						[Efecto Costo (EC)]
 					)
 				)
-			VAR _top = TOPN(1, _tbl_dim, ABS([@aporte]), DESC)
+			VAR _tbl_linea =
+				ADDCOLUMNS(
+					VALUES(Productos[Linea]),
+					"@aporte",
+					SWITCH(
+						_dominante,
+						"Efecto Volumen (EV)", [Efecto Volumen (EV)],
+						"Efecto Precio (EP)", [Efecto Precio (EP)],
+						[Efecto Costo (EC)]
+					)
+				)
+			VAR _top_desc = TOPN(1, _tbl_desc, ABS([@aporte]), DESC)
+			VAR _top_linea = TOPN(1, _tbl_linea, ABS([@aporte]), DESC)
 			RETURN
 				IF(
 					HASONEVALUE(Productos[Linea]),
-					CONCATENATEX(_top, Productos[Descripcion], ", "),
-					CONCATENATEX(_top, Productos[Linea], ", ")
+					CONCATENATEX(_top_desc, Productos[Descripcion], ", "),
+					CONCATENATEX(_top_linea, Productos[Linea], ", ")
 				)
 		formatString: @
 		displayFolder: 07 Diagnostico Causal
