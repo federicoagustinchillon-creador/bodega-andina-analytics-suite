@@ -11,11 +11,10 @@
 - `generar()` (L129)
 - `generar_maestro_productos()` (L205)
 
-### [`02_generar_presupuesto_2025.py`](01_Limpieza_de_Datos/02_generar_presupuesto_2025.py) — ⚠️ sin referencias externas encontradas
-> Expande raw_presupuesto_horizontal.csv de 8 a 36 SKUs (catalogo actual),
-- `cargar_catalogo()` (L30)
-- `cargar_indice_estacional()` (L34)
-- `generar()` (L39)
+### [`02_generar_presupuesto_2025.py`](01_Limpieza_de_Datos/02_generar_presupuesto_2025.py) — 🔗 conectado
+> Generador de Presupuesto Multianual 2021-2025 Indexado a Inflacion INDEC y Tipo de Cambio BCRA.
+- `_drifts_por_segmento(seg, rng)` — Sesgo estructural de planificacion (fijo por SKU): crecimiento de volumen vs anio (L27)
+- `generar_presupuesto_indexado()` (L37)
 
 ### [`03_etl_pipeline_cleaner.py`](01_Limpieza_de_Datos/03_etl_pipeline_cleaner.py) — ⚠️ sin referencias externas encontradas
 > ===================================================================================
@@ -43,7 +42,7 @@
 - `test_sin_huerfanas_sin_resolver(quality_report)` — Toda clave huerfana detectada por el ETL debe haber sido resuelta (cuarentena/fix), no colada. (L50)
 - `test_tasa_validez_alta(quality_report)` (L58)
 - `test_ventas_referencian_productos_existentes(ventas, productos)` (L64)
-- *...y 16 funciones más*
+- *...y 17 funciones más*
 
 ### [`update_data_layer.py`](01_Limpieza_de_Datos/update_data_layer.py) — ⚠️ sin referencias externas encontradas
 > Script de Actualizacion de Capa de Datos y Modelos Semanticos

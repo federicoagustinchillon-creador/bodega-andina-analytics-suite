@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_col_lin",
   "position": {
-    "x": 831,
-    "y": 158,
+    "x": 1036.8,
+    "y": 157.86666666666667,
     "z": 2,
-    "height": 245,
-    "width": 435,
+    "height": 312.88888888888891,
+    "width": 228.97777777777779,
     "tabOrder": 0
   },
   "visual": {
@@ -287,5 +287,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "37ef0d60200d9372067a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "Linea"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "448d4e4520a63c5708b6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Comercial"
+              }
+            },
+            "Property": "Ingresos Reales"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

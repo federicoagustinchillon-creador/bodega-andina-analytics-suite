@@ -77,6 +77,14 @@ table Productos
 
 		annotation SummarizationSetBy = Automatic
 
+	column CategoriaABC
+		dataType: string
+		lineageTag: 4440658f-1626-4621-a743-3cbe927d4e45
+		summarizeBy: none
+		sourceColumn: CategoriaABC
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Productos = m
 		mode: import
 		source =

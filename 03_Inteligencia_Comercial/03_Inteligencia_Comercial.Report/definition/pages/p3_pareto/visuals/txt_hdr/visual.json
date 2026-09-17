@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "txt_hdr",
   "position": {
-    "x": 18,
-    "y": 10,
+    "x": 18.488888888888887,
+    "y": 9.9555555555555557,
     "z": 3,
-    "height": 48,
-    "width": 160,
+    "height": 48.355555555555554,
+    "width": 125.15555555555555,
     "tabOrder": 0
   },
   "visual": {

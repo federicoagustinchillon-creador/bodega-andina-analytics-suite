@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "txt_meta",
   "position": {
-    "x": 18,
-    "y": 595,
+    "x": 18.488888888888887,
+    "y": 594.48888888888894,
     "z": 3,
-    "height": 115,
-    "width": 160,
+    "height": 166.4,
+    "width": 136.53333333333333,
     "tabOrder": 0
   },
   "visual": {
@@ -19,35 +19,56 @@
               {
                 "textRuns": [
                   {
-                    "value": "PLATAFORMA CORPORATIVA\n",
+                    "value": "PLATAFORMA CORPORATIVA",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "7pt",
-                      "color": "#64748B",
-                      "fontWeight": "bold"
+                      "color": "#64748b"
                     }
-                  },
+                  }
+                ]
+              },
+              {
+                "textRuns": [
                   {
-                    "value": "Federico Agustín Chillón\n",
+                    "value": "Federico Agustín Chillón",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "8pt",
-                      "color": "#F8FAFC",
-                      "fontWeight": "bold"
+                      "color": "#f8fafc"
                     }
-                  },
+                  }
+                ]
+              },
+              {
+                "textRuns": [
                   {
-                    "value": "Facultad de Ciencias Económicas\nUniversidad Nacional de Cuyo\n",
+                    "value": "Facultad de Ciencias Económicas",
                     "textStyle": {
                       "fontSize": "7pt",
-                      "color": "#94A3B8",
-                      "fontWeight": "normal"
+                      "color": "#94a3b8"
                     }
-                  },
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Universidad Nacional de Cuyo",
+                    "textStyle": {
+                      "fontSize": "7pt",
+                      "color": "#94a3b8"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
                   {
                     "value": "UNCUYO · Mendoza, Argentina",
                     "textStyle": {
                       "fontSize": "6.5pt",
-                      "color": "#475569",
-                      "fontWeight": "normal"
+                      "color": "#475569"
                     }
                   }
                 ],

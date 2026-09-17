@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_line_rofex",
   "position": {
-    "x": 777.0,
-    "y": 413.0,
+    "x": 806.64273971333967,
+    "y": 242.47296640192653,
     "z": 10000,
-    "height": 295.0,
-    "width": 488.0,
+    "height": 465.74015328686875,
+    "width": 458.53798596799965,
     "tabOrder": 15000
   },
   "visual": {

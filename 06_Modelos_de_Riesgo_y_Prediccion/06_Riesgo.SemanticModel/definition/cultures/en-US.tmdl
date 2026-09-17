@@ -998,19 +998,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "MAPE_Pct"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "MAPE (%)": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "ml_metricas_forecasting.r2_score": {
 			      "Definition": {
@@ -1040,19 +1028,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "Reduccion_RMSE_vs_SARIMAX_Pct"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Reduccion vs SARIMAX": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "ml_forecasting_comparativo.fecha": {
 			      "Definition": {
@@ -1117,16 +1093,6 @@ cultureInfo en-US
 			      "Terms": [
 			        {
 			          "Estado de Solvencia": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "Estado Solvencia": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1395,19 +1361,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "SesgoEliminadoPct"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Sesgo Eliminado (%)": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "inferencia_causal_resultados.diagnosticoeconomico": {
 			      "Definition": {
@@ -1545,6 +1499,69 @@ cultureInfo en-US
 			      "Terms": [
 			        {
 			          "Prescripcion Directiva": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.mape__fila": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "MAPE % (Fila)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "MAPE (%)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.reduccion_rmse__fila": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Reduccion RMSE % (Fila)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Reduccion vs SARIMAX": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.sesgo_eliminado__fila": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Sesgo Eliminado % (Fila)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sesgo Eliminado (%)": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

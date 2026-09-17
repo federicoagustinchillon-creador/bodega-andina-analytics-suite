@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "slc_lin",
   "position": {
-    "x": 18,
-    "y": 238,
+    "x": 18.488888888888887,
+    "y": 230.4,
     "z": 3,
-    "height": 77,
-    "width": 160,
+    "height": 83.911111111111111,
+    "width": 125.15555555555555,
     "tabOrder": 0
   },
   "visual": {
@@ -172,5 +172,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1accb20ddad0324002d0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "Linea"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

@@ -369,5 +369,107 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d50bebb10d3bbae0808d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Inferencia_Causal_Resultados"
+              }
+            },
+            "Property": "EfectoAnalizado"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "91df274ea6373b465640",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Inferencia_Causal_Resultados"
+              }
+            },
+            "Property": "Metodologia"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "759a43c9c5a453e0d2c3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Inferencia_Causal_Resultados"
+              }
+            },
+            "Property": "CoeficienteEstimado"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "538fa7e1c101a6ae78bd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Inferencia_Causal_Resultados"
+              }
+            },
+            "Property": "Benchmark_OLS_Ingenuo"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b74456ca4557086a04de",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Riesgo_Prediccion"
+              }
+            },
+            "Property": "Sesgo Eliminado % (Fila)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "398fda7847159101624b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Inferencia_Causal_Resultados"
+              }
+            },
+            "Property": "DiagnosticoEconomico"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "17af74ad2ac7d715065d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Inferencia_Causal_Resultados"
+              }
+            },
+            "Property": "PrescripcionEstrategica"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
