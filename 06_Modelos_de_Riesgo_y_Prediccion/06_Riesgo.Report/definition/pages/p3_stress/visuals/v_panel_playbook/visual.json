@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_panel_playbook",
   "position": {
-    "x": 946.0,
-    "y": 413.0,
-    "z": 10.0,
-    "height": 295.0,
-    "width": 319.0,
+    "x": 946,
+    "y": 413,
+    "z": 10,
+    "height": 295,
+    "width": 319,
     "tabOrder": 61
   },
   "visual": {

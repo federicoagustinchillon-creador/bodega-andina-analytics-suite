@@ -1,95 +1,100 @@
-table ML_Metricas_Clasificacion
-	lineageTag: 5661f0c9-de4c-4a87-b659-ab1b6dcb6711
-
-	column Modelo
-		dataType: string
-		lineageTag: 24d0ba84-2b87-4347-b9b2-d054245d0103
-		summarizeBy: none
-		sourceColumn: Modelo
-
-		annotation SummarizationSetBy = Automatic
-
-	column AUC_ROC
-		dataType: double
-		formatString: 0.0000
-		lineageTag: df73887b-25bb-430b-97c9-45976e23a399
-		summarizeBy: none
-		sourceColumn: AUC_ROC
-
-		annotation SummarizationSetBy = Automatic
-
-	column Accuracy
-		dataType: double
-		formatString: 0.00%
-		lineageTag: 6caabbfc-d4fd-4d73-93d2-30a0b37d94e5
-		summarizeBy: none
-		sourceColumn: Accuracy
-
-		annotation SummarizationSetBy = Automatic
-
-	column Precision
-		dataType: double
-		formatString: 0.00%
-		lineageTag: fd985dc5-20f4-4f24-958a-69f660f00ebc
-		summarizeBy: none
-		sourceColumn: Precision
-
-		annotation SummarizationSetBy = Automatic
-
-	column Recall
-		dataType: double
-		formatString: 0.00%
-		lineageTag: 33f72d44-831a-46d9-b8d7-779795c70304
-		summarizeBy: none
-		sourceColumn: Recall
-
-		annotation SummarizationSetBy = Automatic
-
-	column F1_Score
-		dataType: double
-		formatString: 0.0000
-		lineageTag: 5eb3b01c-f6af-46ac-bfbf-971b1cae447c
-		summarizeBy: none
-		sourceColumn: F1_Score
-
-		annotation SummarizationSetBy = Automatic
-
-	column Brier_Score
-		dataType: double
-		formatString: 0.0000
-		lineageTag: e44fc8da-a087-46f2-94ca-04e879114fde
-		summarizeBy: none
-		sourceColumn: Brier_Score
-
-		annotation SummarizationSetBy = Automatic
-
-	column Log_Loss
-		dataType: double
-		formatString: 0.0000
-		lineageTag: 81179548-5800-4cae-a519-4ca486cee8c9
-		summarizeBy: none
-		sourceColumn: Log_Loss
-
-		annotation SummarizationSetBy = Automatic
-
-	column Threshold_Optimo_Youden
-		dataType: double
-		formatString: 0.0000
-		lineageTag: f5e7f4c1-f668-4d67-b33d-578e17718c58
-		summarizeBy: none
-		sourceColumn: Threshold_Optimo_Youden
-
-		annotation SummarizationSetBy = Automatic
-
-	partition ML_Metricas_Clasificacion = m
-		mode: import
-		source =
-				let
-					Origen = Csv.Document(File.Contents(RutaDatos & "/ML_Metricas_Clasificacion.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
-					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
-					Tipos = Table.TransformColumnTypes(Encabezados, {{"Modelo", type text}, {"AUC_ROC", type number}, {"Accuracy", type number}, {"Precision", type number}, {"Recall", type number}, {"F1_Score", type number}, {"Brier_Score", type number}, {"Log_Loss", type number}, {"Threshold_Optimo_Youden", type number}}, "en-US")
-				in
-					Tipos
-
-	annotation PBI_ResultType = Table
-
+table ML_Metricas_Clasificacion
+	lineageTag: 5661f0c9-de4c-4a87-b659-ab1b6dcb6711
+
+	column Modelo
+		dataType: string
+		lineageTag: 24d0ba84-2b87-4347-b9b2-d054245d0103
+		summarizeBy: none
+		sourceColumn: Modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column AUC_ROC
+		dataType: double
+		formatString: 0.0000
+		lineageTag: df73887b-25bb-430b-97c9-45976e23a399
+		summarizeBy: none
+		sourceColumn: AUC_ROC
+
+		annotation SummarizationSetBy = Automatic
+
+	column Accuracy
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 6caabbfc-d4fd-4d73-93d2-30a0b37d94e5
+		summarizeBy: none
+		sourceColumn: Accuracy
+
+		annotation SummarizationSetBy = Automatic
+
+	column Precision
+		dataType: double
+		formatString: 0.00%
+		lineageTag: fd985dc5-20f4-4f24-958a-69f660f00ebc
+		summarizeBy: none
+		sourceColumn: Precision
+
+		annotation SummarizationSetBy = Automatic
+
+	column Recall
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 33f72d44-831a-46d9-b8d7-779795c70304
+		summarizeBy: none
+		sourceColumn: Recall
+
+		annotation SummarizationSetBy = Automatic
+
+	column F1_Score
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 5eb3b01c-f6af-46ac-bfbf-971b1cae447c
+		summarizeBy: none
+		sourceColumn: F1_Score
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brier_Score
+		dataType: double
+		formatString: 0.0000
+		lineageTag: e44fc8da-a087-46f2-94ca-04e879114fde
+		summarizeBy: none
+		sourceColumn: Brier_Score
+
+		annotation SummarizationSetBy = Automatic
+
+	column Log_Loss
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 81179548-5800-4cae-a519-4ca486cee8c9
+		summarizeBy: none
+		sourceColumn: Log_Loss
+
+		annotation SummarizationSetBy = Automatic
+
+	column Threshold_Optimo_Youden
+		dataType: double
+		formatString: 0.0000
+		lineageTag: f5e7f4c1-f668-4d67-b33d-578e17718c58
+		summarizeBy: none
+		sourceColumn: Threshold_Optimo_Youden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ML_Metricas_Clasificacion = m
+		mode: import
+		source =
+				let
+				
+					Origen = Csv.Document(File.Contents(RutaDatos & "/ML_Metricas_Clasificacion.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"Modelo", type text}, {"AUC_ROC", type number}, {"Accuracy", type number}, {"Precision", type number}, {"Recall", type number}, {"F1_Score", type number}, {"Brier_Score", type number}, {"Log_Loss", type number}, {"Threshold_Optimo_Youden", type number}}, "en-US")
+				
+				in
+				
+					Tipos
+
+	annotation PBI_ResultType = Table
+

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_tbl_scoring",
   "position": {
-    "x": 196.0,
-    "y": 413.0,
-    "z": 10.0,
-    "height": 295.0,
-    "width": 735.0,
+    "x": 196,
+    "y": 413,
+    "z": 10,
+    "height": 295,
+    "width": 735,
     "tabOrder": 60
   },
   "visual": {

@@ -1,127 +1,132 @@
-table Riesgo_Reverse_Stress_Testing
-	lineageTag: d3bd38a6-e6e4-4ee2-9a4e-feef81fa7610
-
-	column EscenarioID
-		dataType: string
-		lineageTag: 43d81a9d-d181-4826-b84a-6e97a0e5a6cf
-		summarizeBy: none
-		sourceColumn: EscenarioID
-
-		annotation SummarizationSetBy = Automatic
-
-	column NombreEscenario
-		dataType: string
-		lineageTag: 7654c213-6d02-4dde-ace2-79dd156da93a
-		summarizeBy: none
-		sourceColumn: NombreEscenario
-
-		annotation SummarizationSetBy = Automatic
-
-	column ShockVentasPct
-		dataType: double
-		formatString: 0.0%
-		lineageTag: 599e2ec5-1af2-4029-9544-bbabbd378c78
-		summarizeBy: none
-		sourceColumn: ShockVentasPct
-
-		annotation SummarizationSetBy = Automatic
-
-	column ShockMoraDias
-		dataType: int64
-		formatString: 0
-		lineageTag: ce97a0fb-b0b8-43b0-98fe-e7ae74c51a6e
-		summarizeBy: none
-		sourceColumn: ShockMoraDias
-
-		annotation SummarizationSetBy = Automatic
-
-	column ShockDevaluacionInsumosPct
-		dataType: double
-		formatString: 0.0%
-		lineageTag: 0ccf0671-5b7b-4ca9-9506-99d184a2d056
-		summarizeBy: none
-		sourceColumn: ShockDevaluacionInsumosPct
-
-		annotation SummarizationSetBy = Automatic
-
-	column ShockTasaInteresBps
-		dataType: int64
-		formatString: #,##0
-		lineageTag: 11b2faa0-69cc-4296-b7a9-88a6b6fb70b3
-		summarizeBy: none
-		sourceColumn: ShockTasaInteresBps
-
-		annotation SummarizationSetBy = Automatic
-
-	column ImpactoCajaNeto
-		dataType: double
-		formatString: $#,##0;($#,##0);"-"
-		lineageTag: c7505aad-c70c-4110-b38b-2a06e68bb7b8
-		summarizeBy: none
-		sourceColumn: ImpactoCajaNeto
-
-		annotation SummarizationSetBy = Automatic
-
-	column BufferSolvenciaRestante
-		dataType: double
-		formatString: $#,##0;($#,##0);"-"
-		lineageTag: cdb13fe6-534c-4d69-a198-20f78c117a3b
-		summarizeBy: none
-		sourceColumn: BufferSolvenciaRestante
-
-		annotation SummarizationSetBy = Automatic
-
-	column DiasCoberturaRestante
-		dataType: int64
-		formatString: 0
-		lineageTag: 02eb3d88-7f56-4cba-9e4a-67e3ea12d287
-		summarizeBy: none
-		sourceColumn: DiasCoberturaRestante
-
-		annotation SummarizationSetBy = Automatic
-
-	column ProbabilidadConjuntaPct
-		dataType: double
-		formatString: 0.0%
-		lineageTag: 9fd73619-30ee-4953-b621-8cf628251825
-		summarizeBy: none
-		sourceColumn: ProbabilidadConjuntaPct
-
-		annotation SummarizationSetBy = Automatic
-
-	column EstadoSolvencia
-		dataType: string
-		lineageTag: 04928b4d-d19a-4c0f-9096-0e835bfc4352
-		summarizeBy: none
-		sourceColumn: EstadoSolvencia
-
-		annotation SummarizationSetBy = Automatic
-
-	column Semaforo
-		dataType: string
-		lineageTag: 00681b98-39dc-49e3-8fb8-d0dde13edaad
-		summarizeBy: none
-		sourceColumn: Semaforo
-
-		annotation SummarizationSetBy = Automatic
-
-	column PrescripcionDirectiva
-		dataType: string
-		lineageTag: 3860060f-8ee3-4714-bf17-fae332f82e3e
-		summarizeBy: none
-		sourceColumn: PrescripcionDirectiva
-
-		annotation SummarizationSetBy = Automatic
-
-	partition Riesgo_Reverse_Stress_Testing = m
-		mode: import
-		source =
-				let
-					Origen = Csv.Document(File.Contents(RutaDatos & "/Riesgo_Reverse_Stress_Testing.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
-					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
-					Tipos = Table.TransformColumnTypes(Encabezados, {{"EscenarioID", type text}, {"NombreEscenario", type text}, {"ShockVentasPct", type number}, {"ShockMoraDias", Int64.Type}, {"ShockDevaluacionInsumosPct", type number}, {"ShockTasaInteresBps", Int64.Type}, {"ImpactoCajaNeto", type number}, {"BufferSolvenciaRestante", type number}, {"DiasCoberturaRestante", Int64.Type}, {"ProbabilidadConjuntaPct", type number}, {"EstadoSolvencia", type text}, {"Semaforo", type text}, {"PrescripcionDirectiva", type text}}, "en-US")
-				in
-					Tipos
-
-	annotation PBI_ResultType = Table
-
+table Riesgo_Reverse_Stress_Testing
+	lineageTag: d3bd38a6-e6e4-4ee2-9a4e-feef81fa7610
+
+	column EscenarioID
+		dataType: string
+		lineageTag: 43d81a9d-d181-4826-b84a-6e97a0e5a6cf
+		summarizeBy: none
+		sourceColumn: EscenarioID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreEscenario
+		dataType: string
+		lineageTag: 7654c213-6d02-4dde-ace2-79dd156da93a
+		summarizeBy: none
+		sourceColumn: NombreEscenario
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShockVentasPct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 599e2ec5-1af2-4029-9544-bbabbd378c78
+		summarizeBy: none
+		sourceColumn: ShockVentasPct
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShockMoraDias
+		dataType: int64
+		formatString: 0
+		lineageTag: ce97a0fb-b0b8-43b0-98fe-e7ae74c51a6e
+		summarizeBy: none
+		sourceColumn: ShockMoraDias
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShockDevaluacionInsumosPct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 0ccf0671-5b7b-4ca9-9506-99d184a2d056
+		summarizeBy: none
+		sourceColumn: ShockDevaluacionInsumosPct
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShockTasaInteresBps
+		dataType: int64
+		formatString: #,##0
+		lineageTag: 11b2faa0-69cc-4296-b7a9-88a6b6fb70b3
+		summarizeBy: none
+		sourceColumn: ShockTasaInteresBps
+
+		annotation SummarizationSetBy = Automatic
+
+	column ImpactoCajaNeto
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: c7505aad-c70c-4110-b38b-2a06e68bb7b8
+		summarizeBy: none
+		sourceColumn: ImpactoCajaNeto
+
+		annotation SummarizationSetBy = Automatic
+
+	column BufferSolvenciaRestante
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: cdb13fe6-534c-4d69-a198-20f78c117a3b
+		summarizeBy: none
+		sourceColumn: BufferSolvenciaRestante
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiasCoberturaRestante
+		dataType: int64
+		formatString: 0
+		lineageTag: 02eb3d88-7f56-4cba-9e4a-67e3ea12d287
+		summarizeBy: none
+		sourceColumn: DiasCoberturaRestante
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProbabilidadConjuntaPct
+		dataType: double
+		formatString: 0.0"%"
+		lineageTag: 9fd73619-30ee-4953-b621-8cf628251825
+		summarizeBy: none
+		sourceColumn: ProbabilidadConjuntaPct
+
+		annotation SummarizationSetBy = Automatic
+
+	column EstadoSolvencia
+		dataType: string
+		lineageTag: 04928b4d-d19a-4c0f-9096-0e835bfc4352
+		summarizeBy: none
+		sourceColumn: EstadoSolvencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semaforo
+		dataType: string
+		lineageTag: 00681b98-39dc-49e3-8fb8-d0dde13edaad
+		summarizeBy: none
+		sourceColumn: Semaforo
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrescripcionDirectiva
+		dataType: string
+		lineageTag: 3860060f-8ee3-4714-bf17-fae332f82e3e
+		summarizeBy: none
+		sourceColumn: PrescripcionDirectiva
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Riesgo_Reverse_Stress_Testing = m
+		mode: import
+		source =
+				let
+				
+					Origen = Csv.Document(File.Contents(RutaDatos & "/Riesgo_Reverse_Stress_Testing.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"EscenarioID", type text}, {"NombreEscenario", type text}, {"ShockVentasPct", type number}, {"ShockMoraDias", Int64.Type}, {"ShockDevaluacionInsumosPct", type number}, {"ShockTasaInteresBps", Int64.Type}, {"ImpactoCajaNeto", type number}, {"BufferSolvenciaRestante", type number}, {"DiasCoberturaRestante", Int64.Type}, {"ProbabilidadConjuntaPct", type number}, {"EstadoSolvencia", type text}, {"Semaforo", type text}, {"PrescripcionDirectiva", type text}}, "en-US")
+				
+				in
+				
+					Tipos
+
+	annotation PBI_ResultType = Table
+

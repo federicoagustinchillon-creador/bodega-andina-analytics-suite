@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_tbl_metrics",
   "position": {
-    "x": 196.0,
-    "y": 413.0,
-    "z": 10.0,
-    "height": 295.0,
-    "width": 680.0,
+    "x": 196,
+    "y": 413,
+    "z": 10,
+    "height": 295,
+    "width": 680,
     "tabOrder": 60
   },
   "visual": {
@@ -62,17 +62,17 @@
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ML_Metricas_Forecasting"
+                      "Entity": "_Medidas_Riesgo_Prediccion"
                     }
                   },
-                  "Property": "MAPE_Pct"
+                  "Property": "MAPE % (Fila)"
                 }
               },
-              "queryRef": "ML_Metricas_Forecasting.MAPE_Pct",
-              "nativeQueryRef": "MAPE_Pct",
+              "queryRef": "_Medidas_Riesgo_Prediccion.MAPE % (Fila)",
+              "nativeQueryRef": "MAPE % (Fila)",
               "displayName": "MAPE (%)"
             },
             {
@@ -92,17 +92,17 @@
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ML_Metricas_Forecasting"
+                      "Entity": "_Medidas_Riesgo_Prediccion"
                     }
                   },
-                  "Property": "Reduccion_RMSE_vs_SARIMAX_Pct"
+                  "Property": "Reduccion RMSE % (Fila)"
                 }
               },
-              "queryRef": "ML_Metricas_Forecasting.Reduccion_RMSE_vs_SARIMAX_Pct",
-              "nativeQueryRef": "Reduccion_RMSE_vs_SARIMAX_Pct",
+              "queryRef": "_Medidas_Riesgo_Prediccion.Reduccion RMSE % (Fila)",
+              "nativeQueryRef": "Reduccion RMSE % (Fila)",
               "displayName": "Reduccion vs SARIMAX"
             }
           ]

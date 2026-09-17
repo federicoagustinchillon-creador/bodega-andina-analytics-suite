@@ -3,6 +3,1559 @@ cultureInfo en-US
 	linguisticMetadata =
 			{
 			  "Version": "2.0.0",
-			  "Language": "en-US"
+			  "Language": "en-US",
+			  "Entities": {
+			    "calendario.anio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendario",
+			          "ConceptualProperty": "Anio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Año Fiscal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_curva_roc.modelo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Curva_ROC",
+			          "ConceptualProperty": "Modelo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Modelo Evaluado": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_curva_roc.fpr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Curva_ROC",
+			          "ConceptualProperty": "FPR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Tasa Falsos Positivos (FPR)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_scoring_riesgo.canal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Scoring_Riesgo",
+			          "ConceptualProperty": "Canal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Canal Comercial": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Canal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_scoring_riesgo.nivelriesgo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Scoring_Riesgo",
+			          "ConceptualProperty": "NivelRiesgo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Nivel de Riesgo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_scoring_riesgo.clienteid": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Scoring_Riesgo",
+			          "ConceptualProperty": "ClienteID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ID Cliente": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_scoring_riesgo.razonsocial": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Scoring_Riesgo",
+			          "ConceptualProperty": "RazonSocial"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Razon Social": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_scoring_riesgo.scoreriesgo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Scoring_Riesgo",
+			          "ConceptualProperty": "ScoreRiesgo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Score Riesgo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_scoring_riesgo.prescripcionaccion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Scoring_Riesgo",
+			          "ConceptualProperty": "PrescripcionAccion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prescripcion Accion": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.auc_roc_maximo_ganador": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "AUC ROC Maximo Ganador"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "AUC-ROC Maximo Ganador": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.recall_ganador_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Recall Ganador %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Recall Ganador %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.precision_ganador_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Precision Ganador %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Precision Ganador %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.clientes_en_riesgo_critico": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Clientes en Riesgo Critico"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Clientes en Riesgo Critico": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.tpr_regresion_logistica": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "TPR Regresion Logistica"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Regresion Logistica L2": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.tpr_random_forest": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "TPR Random Forest"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Random Forest Classifier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.tpr_gradient_boosting": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "TPR Gradient Boosting"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Gradient Boosting Tree": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.regla_decision_scoring_crediticio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Regla Decision Scoring Crediticio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Regla Decision Scoring Crediticio": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.rmse_gbdt": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "RMSE GBDT"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "RMSE GBDT": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.rmse_sarimax": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "RMSE SARIMAX"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "RMSE SARIMAX": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.reduccion_error_forecast_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Reduccion Error Forecast %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Reduccion Error Forecast %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.r2_score_gbdt": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "R2 Score GBDT"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "R2 Score GBDT": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.volumen_real_mensual": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Volumen Real Mensual"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Volumen Real (Cajas)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.forecast_gbdt_mensual": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Forecast GBDT Mensual"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Forecast GBDT": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.forecast_sarimax_mensual": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Forecast SARIMAX Mensual"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Benchmark SARIMAX": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.ic_95_inferior_mensual": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "IC 95% Inferior Mensual"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "IC 95% Inferior": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.ic_95_superior_mensual": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "IC 95% Superior Mensual"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "IC 95% Superior": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.prescripcion_forecasting_demanda": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Prescripcion Forecasting Demanda"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prescripcion Forecasting Demanda": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.flujo_medio_esperado_30d": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Flujo Medio Esperado 30d"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Flujo Medio Esperado 30d": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.cfvar_95_30d": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "CF-VaR 95% 30d"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CF-VaR 95% 30d": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.cvar_95_expected_shortfall": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "CVaR 95% Expected Shortfall"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CVaR 95% Expected Shortfall": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.dias_cobertura_stress_minimo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Dias Cobertura Stress Minimo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Dias Cobertura Stress Minimo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.flujo_acumulado_simulado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Flujo Acumulado Simulado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Flujo de Fondos Simulado ($)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.playbook_mitigacion_reverse_stress": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Playbook Mitigacion Reverse Stress"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Playbook Mitigacion Reverse Stress": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.ate_causal_descuentos_dml": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "ATE Causal Descuentos DML"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ATE Causal Descuentos DML": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.sesgo_confusion_eliminado_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Sesgo Confusion Eliminado %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sesgo Confusion Eliminado %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.passthrough_insumos_erpt": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Pass-Through Insumos ERPT"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Pass-Through Insumos ERPT": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.passthrough_domestico_erpt": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Pass-Through Domestico ERPT"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Pass-Through Domestico ERPT": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_riesgo_prediccion.prescripcion_pricing_causal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Riesgo_Prediccion",
+			          "ConceptualProperty": "Prescripcion Pricing Causal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prescripcion Pricing Causal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_matriz_confusion.cuadrante": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Matriz_Confusion",
+			          "ConceptualProperty": "Cuadrante"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Cuadrante": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_matriz_confusion.conteo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Matriz_Confusion",
+			          "ConceptualProperty": "Conteo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Casos (#)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_matriz_confusion.descripcion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Matriz_Confusion",
+			          "ConceptualProperty": "Descripcion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Significado Operativo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "productos.linea": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Productos",
+			          "ConceptualProperty": "Linea"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Linea Enologica": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "productos.segmento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Productos",
+			          "ConceptualProperty": "Segmento"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Segmento Producto": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_metricas_forecasting.modelo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Metricas_Forecasting",
+			          "ConceptualProperty": "Modelo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Modelo Predictor": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Modelo Predictivo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_metricas_forecasting.rmse": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Metricas_Forecasting",
+			          "ConceptualProperty": "RMSE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "RMSE (Cajas)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_metricas_forecasting.mae": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Metricas_Forecasting",
+			          "ConceptualProperty": "MAE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "MAE (Cajas)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_metricas_forecasting.mape_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Metricas_Forecasting",
+			          "ConceptualProperty": "MAPE_Pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "MAPE (%)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_metricas_forecasting.r2_score": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Metricas_Forecasting",
+			          "ConceptualProperty": "R2_Score"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "R2 Score": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_metricas_forecasting.reduccion_rmse_vs_sarimax_pct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Metricas_Forecasting",
+			          "ConceptualProperty": "Reduccion_RMSE_vs_SARIMAX_Pct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Reduccion vs SARIMAX": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "ml_forecasting_comparativo.fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ML_Forecasting_Comparativo",
+			          "ConceptualProperty": "Fecha"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fecha de Medicion": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "riesgo_reverse_stress_testing.escenarioid": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Riesgo_Reverse_Stress_Testing",
+			          "ConceptualProperty": "EscenarioID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Escenario de Stress": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "riesgo_reverse_stress_testing.estadosolvencia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Riesgo_Reverse_Stress_Testing",
+			          "ConceptualProperty": "EstadoSolvencia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Estado de Solvencia": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Estado Solvencia": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "riesgo_reverse_stress_testing.semaforo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Riesgo_Reverse_Stress_Testing",
+			          "ConceptualProperty": "Semaforo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Semaforo de Alerta": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Semáforo Basilea": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "riesgo_reverse_stress_testing.nombreescenario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Riesgo_Reverse_Stress_Testing",
+			          "ConceptualProperty": "NombreEscenario"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Nombre Escenario": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "riesgo_reverse_stress_testing.shockventaspct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Riesgo_Reverse_Stress_Testing",
+			          "ConceptualProperty": "ShockVentasPct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Shock Ventas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "riesgo_reverse_stress_testing.impactocajaneto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Riesgo_Reverse_Stress_Testing",
+			          "ConceptualProperty": "ImpactoCajaNeto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Impacto Caja ($)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "riesgo_reverse_stress_testing.buffersolvenciarestante": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Riesgo_Reverse_Stress_Testing",
+			          "ConceptualProperty": "BufferSolvenciaRestante"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Buffer Restante ($)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "riesgo_reverse_stress_testing.prescripciondirectiva": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Riesgo_Reverse_Stress_Testing",
+			          "ConceptualProperty": "PrescripcionDirectiva"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prescripcion Directiva": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "riesgo_distribucion_montecarlo_30d.percentil": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Riesgo_Distribucion_MonteCarlo_30d",
+			          "ConceptualProperty": "Percentil"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Percentil Simulado (%)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inferencia_causal_resultados.efectoanalizado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inferencia_Causal_Resultados",
+			          "ConceptualProperty": "EfectoAnalizado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Efecto Causal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Efecto Causal Analizado": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inferencia_causal_resultados.metodologia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inferencia_Causal_Resultados",
+			          "ConceptualProperty": "Metodologia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Metodologia Econometrica": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inferencia_causal_resultados.coeficienteestimado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inferencia_Causal_Resultados",
+			          "ConceptualProperty": "CoeficienteEstimado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Coef. Estimado": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inferencia_causal_resultados.benchmark_ols_ingenuo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inferencia_Causal_Resultados",
+			          "ConceptualProperty": "Benchmark_OLS_Ingenuo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "OLS Ingenuo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inferencia_causal_resultados.sesgoeliminadopct": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inferencia_Causal_Resultados",
+			          "ConceptualProperty": "SesgoEliminadoPct"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sesgo Eliminado (%)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inferencia_causal_resultados.diagnosticoeconomico": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inferencia_Causal_Resultados",
+			          "ConceptualProperty": "DiagnosticoEconomico"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Diagnostico Economico": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inferencia_causal_resultados.prescripcionestrategica": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inferencia_Causal_Resultados",
+			          "ConceptualProperty": "PrescripcionEstrategica"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prescripcion Estrategica": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inferencia_causal_detalle_segmento.segmento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inferencia_Causal_Detalle_Segmento",
+			          "ConceptualProperty": "Segmento"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Segmento Enologico": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Segmento Producto": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inferencia_causal_detalle_segmento.elasticidad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inferencia_Causal_Detalle_Segmento",
+			          "ConceptualProperty": "Elasticidad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Elasticidad Estructural": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Elasticidad": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inferencia_causal_detalle_segmento.ate_causal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inferencia_Causal_Detalle_Segmento",
+			          "ConceptualProperty": "ATE_Causal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ATE Causal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "inferencia_causal_detalle_segmento.prescripcion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Inferencia_Causal_Detalle_Segmento",
+			          "ConceptualProperty": "Prescripcion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prescripcion Directiva": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
 			}
 		contentType: json
+

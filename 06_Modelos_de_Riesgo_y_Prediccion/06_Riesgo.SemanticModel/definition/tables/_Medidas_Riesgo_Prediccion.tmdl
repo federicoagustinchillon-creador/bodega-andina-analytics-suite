@@ -77,20 +77,17 @@ table _Medidas_Riesgo_Prediccion
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: e1bd79f8-a7c6-429a-991d-5da0e5036954
 
-	measure 'TPR Regresion Logistica' =
-			CALCULATE(MAX(ML_Curva_ROC[TPR]), ML_Curva_ROC[Modelo] = "Regresion_Logistica_L2")
+	measure 'TPR Regresion Logistica' = CALCULATE(MAX(ML_Curva_ROC[TPR]), ML_Curva_ROC[Modelo] = "Regresion_Logistica_L2")
 		formatString: 0.0000
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: 57622aa3-61e1-420f-b679-2354272e4dc8
 
-	measure 'TPR Random Forest' =
-			CALCULATE(MAX(ML_Curva_ROC[TPR]), ML_Curva_ROC[Modelo] = "Random_Forest_Classifier")
+	measure 'TPR Random Forest' = CALCULATE(MAX(ML_Curva_ROC[TPR]), ML_Curva_ROC[Modelo] = "Random_Forest_Classifier")
 		formatString: 0.0000
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: bfd03c77-9644-46b3-a943-01f385f84dfb
 
-	measure 'TPR Gradient Boosting' =
-			CALCULATE(MAX(ML_Curva_ROC[TPR]), ML_Curva_ROC[Modelo] = "Gradient_Boosting_Tree")
+	measure 'TPR Gradient Boosting' = CALCULATE(MAX(ML_Curva_ROC[TPR]), ML_Curva_ROC[Modelo] = "Gradient_Boosting_Tree")
 		formatString: 0.0000
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: 261b5dfb-333f-416f-8fe0-a0ecf9bc00ee
@@ -237,11 +234,21 @@ table _Medidas_Riesgo_Prediccion
 		displayFolder: 02 Forecasting de Demanda ML
 		lineageTag: f8d0ef00-2434-42eb-b90c-f71171706a69
 
+	measure 'MAPE % (Fila)' = DIVIDE(MAX(ML_Metricas_Forecasting[MAPE_Pct]), 100, BLANK())
+		formatString: 0.00%
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: fd3baa65-9848-4a95-be23-80bf2849d312
+
+	measure 'Reduccion RMSE % (Fila)' = DIVIDE(MAX(ML_Metricas_Forecasting[Reduccion_RMSE_vs_SARIMAX_Pct]), 100, BLANK())
+		formatString: +0.00%;-0.00%;0.00%
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: 41f12133-bcdf-4304-aaae-9476373d6699
+
 	measure 'Reduccion Error Forecast %' =
 			CALCULATE(
 				MAX(ML_Metricas_Forecasting[Reduccion_RMSE_vs_SARIMAX_Pct]),
 				ML_Metricas_Forecasting[Modelo] = "Gradient_Boosting_Regressor"
-			)
+			) / 100
 		formatString: +0.00%;-0.00%;0.00%
 		displayFolder: 02 Forecasting de Demanda ML
 		lineageTag: 9727805b-7d51-440f-bf9f-c0e89cda7f6e
@@ -451,11 +458,16 @@ table _Medidas_Riesgo_Prediccion
 		displayFolder: 04 Inferencia Causal Econometrica
 		lineageTag: acf23b57-03f0-49de-a3d0-1a39885dfe1e
 
+	measure 'Sesgo Eliminado % (Fila)' = DIVIDE(MAX(Inferencia_Causal_Resultados[SesgoEliminadoPct]), 100, BLANK())
+		formatString: 0.00%
+		displayFolder: 04 Inferencia Causal Econometrica
+		lineageTag: 315bb930-3ba8-4aaa-8c97-8dcf9a36e824
+
 	measure 'Sesgo Confusion Eliminado %' =
 			CALCULATE(
 				MAX(Inferencia_Causal_Resultados[SesgoEliminadoPct]),
 				Inferencia_Causal_Resultados[EfectoAnalizado] = "Efecto Causal ATE Descuentos Comerciales (DML)"
-			)
+			) / 100
 		formatString: 0.00%
 		displayFolder: 04 Inferencia Causal Econometrica
 		lineageTag: 5dc0d6cf-2ccf-44c1-9ba9-2f1656adf27e

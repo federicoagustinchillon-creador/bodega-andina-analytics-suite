@@ -223,3 +223,22 @@ def test_ml_matriz_confusion_es_del_modelo_ganador():
     total = df_cm["Conteo"].sum()
     assert total > 0, "Matriz de confusion vacia"
 
+
+def test_columnas_pct_mantienen_escala_esperada():
+    """Regresion: 'Reduccion_RMSE_vs_SARIMAX_Pct' y 'SesgoEliminadoPct' se generan en escala
+    porcentual (73.71 = 73.71%), no como fraccion (0.7371) -- las medidas DAX que las leen
+    (p.ej. 'Sesgo Eliminado % (Fila)') dividen por 100 asumiendo esa escala. Si algun cambio
+    futuro en el generador Python las pasa a fraccion sin avisar, las tarjetas/tablas del
+    dashboard mostrarian el valor 100x mas chico en silencio -- este test detecta ese cambio
+    de escala, no reemplaza la revision visual en Power BI Desktop."""
+    mf = pd.read_csv(GOLD / "ML_Metricas_Forecasting.csv")
+    assert mf["Reduccion_RMSE_vs_SARIMAX_Pct"].abs().max() > 1.5, (
+        "Reduccion_RMSE_vs_SARIMAX_Pct parece haber pasado a escala fraccion (0-1) -- "
+        "la medida 'Reduccion RMSE % (Fila)' quedaria 100x mas chica"
+    )
+    ic = pd.read_csv(GOLD / "Inferencia_Causal_Resultados.csv")
+    assert ic["SesgoEliminadoPct"].max() > 1.5, (
+        "SesgoEliminadoPct parece haber pasado a escala fraccion (0-1) -- "
+        "la medida 'Sesgo Eliminado % (Fila)' quedaria 100x mas chica"
+    )
+

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_panel_pricing",
   "position": {
-    "x": 891.0,
-    "y": 413.0,
-    "z": 10.0,
-    "height": 295.0,
-    "width": 374.0,
+    "x": 891,
+    "y": 413,
+    "z": 10,
+    "height": 295,
+    "width": 374,
     "tabOrder": 61
   },
   "visual": {

@@ -36,11 +36,6 @@
           "type": "Image"
         },
         {
-          "name": "icon_barrel.png",
-          "path": "icon_barrel.png",
-          "type": "Image"
-        },
-        {
           "name": "icon_box.png",
           "path": "icon_box.png",
           "type": "Image"
@@ -48,11 +43,6 @@
         {
           "name": "icon_brain.png",
           "path": "icon_brain.png",
-          "type": "Image"
-        },
-        {
-          "name": "icon_cart.png",
-          "path": "icon_cart.png",
           "type": "Image"
         },
         {
@@ -71,21 +61,6 @@
           "type": "Image"
         },
         {
-          "name": "icon_currency.png",
-          "path": "icon_currency.png",
-          "type": "Image"
-        },
-        {
-          "name": "icon_ebitda.png",
-          "path": "icon_ebitda.png",
-          "type": "Image"
-        },
-        {
-          "name": "icon_factory.png",
-          "path": "icon_factory.png",
-          "type": "Image"
-        },
-        {
           "name": "icon_forecast.png",
           "path": "icon_forecast.png",
           "type": "Image"
@@ -93,11 +68,6 @@
         {
           "name": "icon_gauge.png",
           "path": "icon_gauge.png",
-          "type": "Image"
-        },
-        {
-          "name": "icon_grape.png",
-          "path": "icon_grape.png",
           "type": "Image"
         },
         {
@@ -113,11 +83,6 @@
         {
           "name": "icon_target.png",
           "path": "icon_target.png",
-          "type": "Image"
-        },
-        {
-          "name": "icon_thermometer.png",
-          "path": "icon_thermometer.png",
           "type": "Image"
         },
         {

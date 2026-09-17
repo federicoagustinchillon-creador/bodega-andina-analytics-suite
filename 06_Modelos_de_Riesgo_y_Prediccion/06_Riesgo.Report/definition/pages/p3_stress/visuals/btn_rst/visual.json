@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "btn_rst",
   "position": {
-    "x": 18.0,
-    "y": 674.0,
-    "z": 10.0,
-    "height": 36.0,
-    "width": 160.0,
+    "x": 18,
+    "y": 674,
+    "z": 10,
+    "height": 36,
+    "width": 160,
     "tabOrder": 39
   },
   "visual": {

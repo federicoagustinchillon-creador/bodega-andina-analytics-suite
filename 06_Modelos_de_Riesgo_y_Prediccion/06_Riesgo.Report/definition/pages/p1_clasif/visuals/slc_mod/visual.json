@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "slc_mod",
   "position": {
-    "x": 18.0,
-    "y": 155.0,
-    "z": 10.0,
-    "height": 77.0,
-    "width": 160.0,
+    "x": 18,
+    "y": 155,
+    "z": 10,
+    "height": 77,
+    "width": 160,
     "tabOrder": 32
   },
   "visual": {

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_tbl_cm",
   "position": {
-    "x": 811.0,
-    "y": 158.0,
-    "z": 10.0,
-    "height": 245.0,
-    "width": 454.0,
+    "x": 811,
+    "y": 158,
+    "z": 10,
+    "height": 245,
+    "width": 454,
     "tabOrder": 51
   },
   "visual": {
@@ -292,7 +292,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Distribucion de Cuadrantes (Umbral Youden J = 0.5366)'"
+                  "Value": "'Distribucion de Cuadrantes (Umbral Optimo de Youden J del modelo campeon)'"
                 }
               }
             },
