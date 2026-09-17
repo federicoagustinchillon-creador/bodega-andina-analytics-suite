@@ -244,33 +244,46 @@ def test_columnas_pct_mantienen_escala_esperada():
 
 
 def test_cumplimiento_presupuesto_indexado_multianual(ventas, productos):
-    """Valida la coherencia economica del presupuesto 2021-2025 indexado a inflacion INDEC y FX.
-    Regresion del bug de 2800% / 1333%: el presupuesto debe cubrir los 5 anos (60 meses x 36 SKUs x 2 CC),
-    con cumplimiento anual calibrado estrictamente en la banda institucional del 98.0% al 102.5%."""
+    """Valida la coherencia economica del presupuesto 2021-2025 indexado a inflacion INDEC real.
+    El presupuesto de cada anio se fija con la inflacion YA CONOCIDA del anio anterior (no con
+    el dato real del propio anio/mes que presupuesta), asi que el cumplimiento debe variar
+    genuinamente con los cambios de regimen inflacionario (aceleracion/desaceleracion de IPC)
+    en vez de pegarse artificialmente a ~100% todos los anios. La banda [50%, 150%] no busca
+    forzar un resultado -- solo descarta errores de escala/ancla flagrantes (p.ej. anclar el
+    presupuesto a un precio de catalogo de otra epoca, que produjo cumplimientos de ~5%)."""
     df_p = pd.read_csv(GOLD / "PresupuestoVentas.csv")
     assert len(df_p) == 4320, f"PresupuestoVentas tiene {len(df_p)} filas, esperado 4320 (60 meses x 36 SKUs x 2 CC)"
-    
+
     # Integridad referencial con productos
     huerfanos = set(df_p["ProductoID"]) - set(productos["ProductoID"])
     assert not huerfanos, f"ProductoID en presupuesto sin dimension: {huerfanos}"
-    
+
     # Cumplimiento por anio
     ventas["Year"] = ventas["DateKey"].astype(str).str[:4]
     df_p["Year"] = df_p["DateKey"].astype(str).str[:4]
-    
+
     v_yr = ventas.groupby("Year")["IngresosReales"].sum()
     p_yr = df_p.groupby("Year")["IngresosPresupuestados"].sum()
-    
+
+    cumplimientos = []
     for anio in ["2021", "2022", "2023", "2024", "2025"]:
         assert anio in p_yr, f"Falta presupuesto para el anio {anio}"
         cumpl = (v_yr[anio] / p_yr[anio]) * 100.0
-        assert 98.0 <= cumpl <= 102.5, (
-            f"Cumplimiento Presupuesto en {anio} = {cumpl:.2f}% fuera de banda [98.0%, 102.5%]"
+        assert 50.0 <= cumpl <= 150.0, (
+            f"Cumplimiento Presupuesto en {anio} = {cumpl:.2f}% fuera de banda [50%, 150%]"
         )
-        
+        cumplimientos.append(cumpl)
+
+    # El presupuesto no debe ser un espejo casi perfecto del real en TODOS los anios: eso
+    # delataria que sigue derivandose circularmente del dato real (el bug original).
+    assert max(cumplimientos) - min(cumplimientos) > 5.0, (
+        "Cumplimiento anual casi identico en los 5 anios -- el presupuesto podria estar "
+        "derivando circularmente del dato real en vez de indexarse a inflacion independiente"
+    )
+
     tot_v = ventas["IngresosReales"].sum()
     tot_p = df_p["IngresosPresupuestados"].sum()
     tot_cumpl = (tot_v / tot_p) * 100.0
-    assert 99.5 <= tot_cumpl <= 101.5, f"Cumplimiento total 5 anos = {tot_cumpl:.2f}% fuera de banda [99.5%, 101.5%]"
+    assert 70.0 <= tot_cumpl <= 115.0, f"Cumplimiento total 5 anos = {tot_cumpl:.2f}% fuera de banda [70%, 115%]"
 
 

@@ -3,7 +3,7 @@
     "empresa": "Bodega & Agroindustria Andina S.A.",
     "pipeline": "ETL Curated Gold Layer Cleaner",
     "autor": "Federico Agustin Chillon, UNCUYO",
-    "timestamp_ejecucion": "2026-09-17T08:54:02.461191",
+    "timestamp_ejecucion": "2026-09-17T20:27:07.054466",
     "estado": "COMPLETADO_EXITOSAMENTE"
   },
   "tablas_procesadas": {
@@ -48,8 +48,8 @@
       "tasa_validez": "100.00%"
     },
     "PresupuestoVentas": {
-      "registros_leidos": 72,
-      "registros_curados": 864,
+      "registros_leidos": 4320,
+      "registros_curados": 4320,
       "inconsistencias_corregidas": 0,
       "claves_huerfanas_detectadas": 0,
       "claves_huerfanas_resueltas": 0,
@@ -81,13 +81,13 @@
     }
   },
   "resumen_anomalias": {
-    "total_registros_leidos": 78593,
-    "total_registros_curados": 81326,
+    "total_registros_leidos": 82841,
+    "total_registros_curados": 84782,
     "total_inconsistencias_corregidas": 122515,
     "total_claves_huerfanas_detectadas": 1,
     "total_claves_huerfanas_resueltas": 1,
     "tasa_integridad_referencial": "100.00%",
     "tasa_validez": "100.00%",
-    "tiempo_ejecucion_segundos": 3.174
+    "tiempo_ejecucion_segundos": 6.302
   }
 }
