@@ -1,9 +1,9 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.0.0/schema.json",
   "name": "p1_clasif",
-  "displayName": "1. Scoring & Clasificaci\u00f3n Crediticia",
+  "displayName": "1. Scoring & Clasificación Crediticia",
   "displayOption": "FitToPage",
-  "height": 720,
+  "height": 810,
   "width": 1280,
   "objects": {
     "background": [

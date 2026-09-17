@@ -625,6 +625,11 @@ table _Medidas_Controller
 		displayFolder: 09 Diagnostico Prescriptivo
 		lineageTag: 275be823-7a40-45b7-a4f6-1e577cd29d01
 
+	measure 'Color Diagnostico Prescriptivo PnL' = IF([Desvio Margen Bruto Total] >= 0, "#065F46", "#7F1D1D")
+		formatString: @
+		displayFolder: 09 Diagnostico Prescriptivo
+		lineageTag: be121f0f-793b-4156-b65f-5709a5b7b9d4
+
 	measure 'Ciclo Conversion Efectivo' = [Ciclo Conversion Efectivo (CCC)]
 		formatString: 0.0
 		displayFolder: 05 Capital de Trabajo y Ciclo de Efectivo
