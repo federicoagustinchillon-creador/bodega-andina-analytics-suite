@@ -1,0 +1,118 @@
+table Inferencia_Causal_Resultados
+	lineageTag: dbc4e2a6-6cf5-4494-82d4-a032f32f9983
+
+	column EfectoAnalizado
+		dataType: string
+		lineageTag: ca3fa320-8f45-472a-b9a5-ac36ec000f9c
+		summarizeBy: none
+		sourceColumn: EfectoAnalizado
+
+		annotation SummarizationSetBy = Automatic
+
+	column Metodologia
+		dataType: string
+		lineageTag: 717dd52b-513b-4840-9b06-b17be42edb0a
+		summarizeBy: none
+		sourceColumn: Metodologia
+
+		annotation SummarizationSetBy = Automatic
+
+	column CoeficienteEstimado
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 7ca5a2fd-8ab4-4b3f-8633-bbb51f535b01
+		summarizeBy: none
+		sourceColumn: CoeficienteEstimado
+
+		annotation SummarizationSetBy = Automatic
+
+	column ErrorEstandar
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 24e93927-2614-448c-91b1-56b188e0fd90
+		summarizeBy: none
+		sourceColumn: ErrorEstandar
+
+		annotation SummarizationSetBy = Automatic
+
+	column IC_95_Inferior
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 9ba19d17-2566-43ed-966a-73cd4358d4af
+		summarizeBy: none
+		sourceColumn: IC_95_Inferior
+
+		annotation SummarizationSetBy = Automatic
+
+	column IC_95_Superior
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 0f6a9fc7-7f10-4774-be1e-73f67415248e
+		summarizeBy: none
+		sourceColumn: IC_95_Superior
+
+		annotation SummarizationSetBy = Automatic
+
+	column P_Valor
+		dataType: double
+		formatString: 0.00000
+		lineageTag: a18bacd8-8bcb-47f8-ba17-f47ef074b5fd
+		summarizeBy: none
+		sourceColumn: P_Valor
+
+		annotation SummarizationSetBy = Automatic
+
+	column Significativo_P05
+		dataType: boolean
+		lineageTag: 1c52aef0-3b4f-4241-8158-e9eb6b0f58c6
+		summarizeBy: none
+		sourceColumn: Significativo_P05
+
+		annotation SummarizationSetBy = Automatic
+
+	column Benchmark_OLS_Ingenuo
+		dataType: double
+		formatString: 0.0000
+		lineageTag: e748dfee-1573-49df-a021-165e5008d68e
+		summarizeBy: none
+		sourceColumn: Benchmark_OLS_Ingenuo
+
+		annotation SummarizationSetBy = Automatic
+
+	column SesgoEliminadoPct
+		dataType: double
+		formatString: 0.00%
+		lineageTag: b41bcd16-df22-4ef8-953a-efa3536e75ba
+		summarizeBy: none
+		sourceColumn: SesgoEliminadoPct
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiagnosticoEconomico
+		dataType: string
+		lineageTag: 0ee4e9d9-9a40-479b-8f7b-d20de2c24306
+		summarizeBy: none
+		sourceColumn: DiagnosticoEconomico
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrescripcionEstrategica
+		dataType: string
+		lineageTag: ae5fc4b4-ec36-413e-a90f-fbc669d63216
+		summarizeBy: none
+		sourceColumn: PrescripcionEstrategica
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Inferencia_Causal_Resultados = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/Inferencia_Causal_Resultados.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"EfectoAnalizado", type text}, {"Metodologia", type text}, {"CoeficienteEstimado", type number}, {"ErrorEstandar", type number}, {"IC_95_Inferior", type number}, {"IC_95_Superior", type number}, {"P_Valor", type number}, {"Significativo_P05", type logical}, {"Benchmark_OLS_Ingenuo", type number}, {"SesgoEliminadoPct", type number}, {"DiagnosticoEconomico", type text}, {"PrescripcionEstrategica", type text}}, "en-US")
+				in
+					Tipos
+
+	annotation PBI_ResultType = Table
+

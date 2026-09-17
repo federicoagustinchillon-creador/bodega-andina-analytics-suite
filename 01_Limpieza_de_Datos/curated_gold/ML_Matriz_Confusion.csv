@@ -1,0 +1,5 @@
+Modelo,Cuadrante,Conteo,Descripcion
+Regresion_Logistica_L2,Verdadero Negativo (TN),14,Clientes solventes correctamente clasificados
+Regresion_Logistica_L2,Falso Positivo (FP),17,Falsa alarma de riesgo (costo comercial moderado)
+Regresion_Logistica_L2,Falso Negativo (FN),5,Error critico de mora no anticipada
+Regresion_Logistica_L2,Verdadero Positivo (TP),52,Moras y quiebres anticipados con exito

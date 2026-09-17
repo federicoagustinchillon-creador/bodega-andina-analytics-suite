@@ -1,0 +1,5 @@
+EscenarioID,NombreEscenario,ShockVentasPct,ShockMoraDias,ShockDevaluacionInsumosPct,ShockTasaInteresBps,ImpactoCajaNeto,BufferSolvenciaRestante,DiasCoberturaRestante,ProbabilidadConjuntaPct,EstadoSolvencia,Semaforo,PrescripcionDirectiva
+ESC-01,Escenario Base Linea Central,0.0,0,0.0,0,0.0,35000000.0,75,65.0,PLENAMENTE SOLVENTE,🟢 SOLVENTE,Politica ordinaria de liquidez
+ESC-02,Shock Macroeconómico Moderado,-0.15,18,0.2,400,-14500000.0,20500000.0,48,22.5,BUFFER ADECUADO,🟡 ALERTA,Credito a 30d y diferir pagos
+ESC-03,Shock Cambiario & Caida Exportaciones,-0.25,35,0.35,850,-28900000.0,6100000.0,22,9.8,ALERTA DE ILIQUIDEZ,🟡 TENSION,Frenar capex y descontar CPD
+ESC-04,Reverse Stress Breakpoint (Quiebre Tecnico),-0.38,52,0.55,1500,-39200000.0,-4200000.0,0,2.7,INSOLVENCIA OPERATIVA CRITICA,🔴 QUIEBRE,Cobertura Rofex y venta estiba

@@ -1,0 +1,351 @@
+ClienteID,RazonSocial,Canal,VolumenMensualCajas,PlazoPagoDias,ProbabilidadDefault,ScoreRiesgo,NivelRiesgo,PrescripcionAccion
+CLI-0001,Distribuidora / Importador 1,Distribuidor Mayorista,2690,60,0.6063,60.6,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0002,Distribuidora / Importador 2,Distribuidor Mayorista,1619,45,0.758,75.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0003,Distribuidora / Importador 3,Distribuidor Mayorista,3036,45,0.4134,41.3,🟢 BAJO,Mantener linea ordinaria
+CLI-0004,Distribuidora / Importador 4,Distribuidor Mayorista,6115,90,0.7944,79.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0005,Distribuidora / Importador 5,Distribuidor Mayorista,1499,30,0.4139,41.4,🟢 BAJO,Mantener linea ordinaria
+CLI-0006,Distribuidora / Importador 6,Distribuidor Mayorista,1499,45,0.4765,47.6,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0007,Distribuidora / Importador 7,Distribuidor Mayorista,6396,30,0.4919,49.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0008,Distribuidora / Importador 8,Exportacion FOB,3341,45,0.7649,76.5,🔴 CRITICO,Exigir pago anticipado
+CLI-0009,Distribuidora / Importador 9,Exportacion FOB,1242,30,0.5467,54.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0010,Distribuidora / Importador 10,Distribuidor Mayorista,2791,30,0.5593,55.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0011,Distribuidora / Importador 11,Distribuidor Mayorista,1248,30,0.6199,62.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0012,Distribuidora / Importador 12,Distribuidor Mayorista,1246,60,0.6849,68.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0013,Distribuidora / Importador 13,Distribuidor Mayorista,2194,60,0.6643,66.4,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0014,Distribuidora / Importador 14,Distribuidor Mayorista,391,45,0.5035,50.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0015,Distribuidora / Importador 15,Exportacion FOB,455,120,0.9864,98.6,🔴 CRITICO,Exigir pago anticipado
+CLI-0016,Distribuidora / Importador 16,Distribuidor Mayorista,1153,45,0.4172,41.7,🟢 BAJO,Mantener linea ordinaria
+CLI-0017,Distribuidora / Importador 17,Distribuidor Mayorista,804,45,0.4995,49.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0018,Distribuidora / Importador 18,Distribuidor Mayorista,2325,90,0.8838,88.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0019,Distribuidora / Importador 19,Distribuidor Mayorista,874,30,0.2863,28.6,🟢 BAJO,Mantener linea ordinaria
+CLI-0020,Distribuidora / Importador 20,Distribuidor Mayorista,584,120,0.9223,92.2,🔴 CRITICO,Exigir pago anticipado
+CLI-0021,Distribuidora / Importador 21,Distribuidor Mayorista,5840,30,0.5019,50.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0022,Distribuidora / Importador 22,Distribuidor Mayorista,1509,120,0.9245,92.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0023,Distribuidora / Importador 23,Distribuidor Mayorista,1908,30,0.5874,58.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0024,Distribuidora / Importador 24,Distribuidor Mayorista,578,90,0.7278,72.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0025,Distribuidora / Importador 25,Distribuidor Mayorista,1170,45,0.4548,45.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0026,Distribuidora / Importador 26,Distribuidor Mayorista,1976,120,0.8361,83.6,🔴 CRITICO,Exigir pago anticipado
+CLI-0027,Distribuidora / Importador 27,Exportacion FOB,720,30,0.5047,50.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0028,Distribuidora / Importador 28,Distribuidor Mayorista,2442,45,0.5443,54.4,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0029,Distribuidora / Importador 29,Distribuidor Mayorista,1118,120,0.9349,93.5,🔴 CRITICO,Exigir pago anticipado
+CLI-0030,Distribuidora / Importador 30,Distribuidor Mayorista,1432,45,0.5697,57.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0031,Distribuidora / Importador 31,Distribuidor Mayorista,1117,60,0.631,63.1,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0032,Distribuidora / Importador 32,Distribuidor Mayorista,7957,60,0.833,83.3,🔴 CRITICO,Exigir pago anticipado
+CLI-0033,Distribuidora / Importador 33,Distribuidor Mayorista,1789,45,0.6233,62.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0034,Distribuidora / Importador 34,Exportacion FOB,776,60,0.7542,75.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0035,Distribuidora / Importador 35,Distribuidor Mayorista,3491,45,0.4372,43.7,🟢 BAJO,Mantener linea ordinaria
+CLI-0036,Distribuidora / Importador 36,Distribuidor Mayorista,681,90,0.8212,82.1,🔴 CRITICO,Exigir pago anticipado
+CLI-0037,Distribuidora / Importador 37,Distribuidor Mayorista,2137,30,0.483,48.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0038,Distribuidora / Importador 38,Exportacion FOB,377,45,0.598,59.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0039,Distribuidora / Importador 39,Distribuidor Mayorista,625,120,0.9279,92.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0040,Distribuidora / Importador 40,Distribuidor Mayorista,2116,90,0.7798,78.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0041,Distribuidora / Importador 41,Distribuidor Mayorista,3264,45,0.6069,60.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0042,Distribuidora / Importador 42,Distribuidor Mayorista,2074,60,0.5558,55.6,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0043,Distribuidora / Importador 43,Distribuidor Mayorista,1648,45,0.568,56.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0044,Distribuidora / Importador 44,Distribuidor Mayorista,1421,30,0.4711,47.1,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0045,Distribuidora / Importador 45,Distribuidor Mayorista,554,45,0.3959,39.6,🟢 BAJO,Mantener linea ordinaria
+CLI-0046,Distribuidora / Importador 46,Distribuidor Mayorista,1017,45,0.5292,52.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0047,Distribuidora / Importador 47,Distribuidor Mayorista,1251,45,0.6043,60.4,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0048,Distribuidora / Importador 48,Distribuidor Mayorista,4212,30,0.4784,47.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0049,Distribuidora / Importador 49,Exportacion FOB,2380,120,0.9497,95.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0050,Distribuidora / Importador 50,Distribuidor Mayorista,441,120,0.9143,91.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0051,Distribuidora / Importador 51,Distribuidor Mayorista,2343,60,0.7268,72.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0052,Distribuidora / Importador 52,Distribuidor Mayorista,1329,45,0.4651,46.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0053,Distribuidora / Importador 53,Distribuidor Mayorista,1052,45,0.6119,61.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0054,Distribuidora / Importador 54,Exportacion FOB,2949,90,0.9487,94.9,🔴 CRITICO,Exigir pago anticipado
+CLI-0055,Distribuidora / Importador 55,Distribuidor Mayorista,4125,60,0.6537,65.4,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0056,Distribuidora / Importador 56,Distribuidor Mayorista,3809,30,0.4459,44.6,🟢 BAJO,Mantener linea ordinaria
+CLI-0057,Distribuidora / Importador 57,Distribuidor Mayorista,924,90,0.7166,71.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0058,Distribuidora / Importador 58,Distribuidor Mayorista,1412,90,0.756,75.6,🔴 CRITICO,Exigir pago anticipado
+CLI-0059,Distribuidora / Importador 59,Distribuidor Mayorista,2357,90,0.8275,82.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0060,Distribuidora / Importador 60,Distribuidor Mayorista,3946,60,0.6129,61.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0061,Distribuidora / Importador 61,Distribuidor Mayorista,1232,60,0.5858,58.6,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0062,Distribuidora / Importador 62,Exportacion FOB,1558,45,0.7773,77.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0063,Distribuidora / Importador 63,Distribuidor Mayorista,746,90,0.7735,77.3,🔴 CRITICO,Exigir pago anticipado
+CLI-0064,Distribuidora / Importador 64,Exportacion FOB,694,90,0.9382,93.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0065,Distribuidora / Importador 65,Exportacion FOB,3463,30,0.6528,65.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0066,Distribuidora / Importador 66,Exportacion FOB,5351,30,0.6893,68.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0067,Distribuidora / Importador 67,Distribuidor Mayorista,1707,45,0.5199,52.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0068,Distribuidora / Importador 68,Distribuidor Mayorista,4035,90,0.8302,83.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0069,Distribuidora / Importador 69,Exportacion FOB,2415,120,0.9896,99.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0070,Distribuidora / Importador 70,Distribuidor Mayorista,1079,30,0.2436,24.4,🟢 BAJO,Mantener linea ordinaria
+CLI-0071,Distribuidora / Importador 71,Distribuidor Mayorista,2414,45,0.5788,57.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0072,Distribuidora / Importador 72,Exportacion FOB,6188,45,0.6829,68.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0073,Distribuidora / Importador 73,Exportacion FOB,1757,120,0.9837,98.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0074,Distribuidora / Importador 74,Distribuidor Mayorista,6322,90,0.8277,82.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0075,Distribuidora / Importador 75,Distribuidor Mayorista,222,90,0.6789,67.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0076,Distribuidora / Importador 76,Distribuidor Mayorista,3490,45,0.6447,64.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0077,Distribuidora / Importador 77,Exportacion FOB,1938,45,0.7616,76.2,🔴 CRITICO,Exigir pago anticipado
+CLI-0078,Distribuidora / Importador 78,Exportacion FOB,1423,45,0.6979,69.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0079,Distribuidora / Importador 79,Distribuidor Mayorista,1946,30,0.4174,41.7,🟢 BAJO,Mantener linea ordinaria
+CLI-0080,Distribuidora / Importador 80,Distribuidor Mayorista,369,90,0.7004,70.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0081,Distribuidora / Importador 81,Exportacion FOB,1517,90,0.8836,88.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0082,Distribuidora / Importador 82,Distribuidor Mayorista,2406,120,0.8766,87.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0083,Distribuidora / Importador 83,Distribuidor Mayorista,5898,120,0.9731,97.3,🔴 CRITICO,Exigir pago anticipado
+CLI-0084,Distribuidora / Importador 84,Exportacion FOB,1194,45,0.7544,75.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0085,Distribuidora / Importador 85,Distribuidor Mayorista,947,60,0.5872,58.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0086,Distribuidora / Importador 86,Distribuidor Mayorista,1210,90,0.8165,81.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0087,Distribuidora / Importador 87,Distribuidor Mayorista,3761,90,0.8294,82.9,🔴 CRITICO,Exigir pago anticipado
+CLI-0088,Distribuidora / Importador 88,Distribuidor Mayorista,2352,30,0.3362,33.6,🟢 BAJO,Mantener linea ordinaria
+CLI-0089,Distribuidora / Importador 89,Exportacion FOB,1183,45,0.7702,77.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0090,Distribuidora / Importador 90,Distribuidor Mayorista,2726,30,0.38,38.0,🟢 BAJO,Mantener linea ordinaria
+CLI-0091,Distribuidora / Importador 91,Exportacion FOB,1954,120,0.9492,94.9,🔴 CRITICO,Exigir pago anticipado
+CLI-0092,Distribuidora / Importador 92,Distribuidor Mayorista,3924,60,0.7473,74.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0093,Distribuidora / Importador 93,Distribuidor Mayorista,1031,30,0.3007,30.1,🟢 BAJO,Mantener linea ordinaria
+CLI-0094,Distribuidora / Importador 94,Distribuidor Mayorista,1391,60,0.7001,70.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0095,Distribuidora / Importador 95,Distribuidor Mayorista,1321,60,0.6976,69.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0096,Distribuidora / Importador 96,Distribuidor Mayorista,561,45,0.4804,48.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0097,Distribuidora / Importador 97,Distribuidor Mayorista,2291,30,0.5597,56.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0098,Distribuidora / Importador 98,Distribuidor Mayorista,2228,60,0.6999,70.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0099,Distribuidora / Importador 99,Distribuidor Mayorista,1815,45,0.6327,63.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0100,Distribuidora / Importador 100,Exportacion FOB,1499,60,0.7288,72.9,🔴 CRITICO,Exigir pago anticipado
+CLI-0101,Distribuidora / Importador 101,Distribuidor Mayorista,583,45,0.358,35.8,🟢 BAJO,Mantener linea ordinaria
+CLI-0102,Distribuidora / Importador 102,Exportacion FOB,1291,90,0.8644,86.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0103,Distribuidora / Importador 103,Distribuidor Mayorista,1374,45,0.5973,59.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0104,Distribuidora / Importador 104,Distribuidor Mayorista,952,45,0.5295,53.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0105,Distribuidora / Importador 105,Distribuidor Mayorista,1589,90,0.7526,75.3,🔴 CRITICO,Exigir pago anticipado
+CLI-0106,Distribuidora / Importador 106,Distribuidor Mayorista,2498,45,0.6149,61.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0107,Distribuidora / Importador 107,Distribuidor Mayorista,8176,30,0.5924,59.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0108,Distribuidora / Importador 108,Exportacion FOB,2079,30,0.616,61.6,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0109,Distribuidora / Importador 109,Exportacion FOB,2222,60,0.8069,80.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0110,Distribuidora / Importador 110,Distribuidor Mayorista,1704,60,0.6932,69.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0111,Distribuidora / Importador 111,Distribuidor Mayorista,390,60,0.5228,52.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0112,Distribuidora / Importador 112,Exportacion FOB,1770,30,0.6016,60.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0113,Distribuidora / Importador 113,Distribuidor Mayorista,1897,30,0.3403,34.0,🟢 BAJO,Mantener linea ordinaria
+CLI-0114,Distribuidora / Importador 114,Exportacion FOB,12973,30,0.8461,84.6,🔴 CRITICO,Exigir pago anticipado
+CLI-0115,Distribuidora / Importador 115,Exportacion FOB,1550,45,0.6496,65.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0116,Distribuidora / Importador 116,Exportacion FOB,2301,45,0.586,58.6,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0117,Distribuidora / Importador 117,Distribuidor Mayorista,1759,45,0.539,53.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0118,Distribuidora / Importador 118,Distribuidor Mayorista,710,45,0.5193,51.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0119,Distribuidora / Importador 119,Distribuidor Mayorista,4511,90,0.7868,78.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0120,Distribuidora / Importador 120,Distribuidor Mayorista,3300,45,0.6852,68.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0121,Distribuidora / Importador 121,Exportacion FOB,3404,45,0.7842,78.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0122,Distribuidora / Importador 122,Distribuidor Mayorista,873,60,0.6237,62.4,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0123,Distribuidora / Importador 123,Distribuidor Mayorista,5554,45,0.5306,53.1,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0124,Distribuidora / Importador 124,Exportacion FOB,589,60,0.8141,81.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0125,Distribuidora / Importador 125,Exportacion FOB,2891,90,0.9299,93.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0126,Distribuidora / Importador 126,Exportacion FOB,10429,90,0.965,96.5,🔴 CRITICO,Exigir pago anticipado
+CLI-0127,Distribuidora / Importador 127,Exportacion FOB,819,30,0.5585,55.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0128,Distribuidora / Importador 128,Distribuidor Mayorista,1149,90,0.7387,73.9,🔴 CRITICO,Exigir pago anticipado
+CLI-0129,Distribuidora / Importador 129,Distribuidor Mayorista,1958,45,0.4706,47.1,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0130,Distribuidora / Importador 130,Exportacion FOB,1209,45,0.7961,79.6,🔴 CRITICO,Exigir pago anticipado
+CLI-0131,Distribuidora / Importador 131,Distribuidor Mayorista,523,45,0.3994,39.9,🟢 BAJO,Mantener linea ordinaria
+CLI-0132,Distribuidora / Importador 132,Distribuidor Mayorista,1910,120,0.9071,90.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0133,Distribuidora / Importador 133,Distribuidor Mayorista,773,45,0.4119,41.2,🟢 BAJO,Mantener linea ordinaria
+CLI-0134,Distribuidora / Importador 134,Distribuidor Mayorista,2641,45,0.6766,67.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0135,Distribuidora / Importador 135,Exportacion FOB,866,60,0.7343,73.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0136,Distribuidora / Importador 136,Distribuidor Mayorista,6248,30,0.6038,60.4,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0137,Distribuidora / Importador 137,Distribuidor Mayorista,966,30,0.4276,42.8,🟢 BAJO,Mantener linea ordinaria
+CLI-0138,Distribuidora / Importador 138,Distribuidor Mayorista,1397,30,0.5998,60.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0139,Distribuidora / Importador 139,Distribuidor Mayorista,3466,30,0.581,58.1,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0140,Distribuidora / Importador 140,Distribuidor Mayorista,675,30,0.2253,22.5,🟢 BAJO,Mantener linea ordinaria
+CLI-0141,Distribuidora / Importador 141,Distribuidor Mayorista,2169,30,0.5245,52.4,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0142,Distribuidora / Importador 142,Exportacion FOB,5145,60,0.8262,82.6,🔴 CRITICO,Exigir pago anticipado
+CLI-0143,Distribuidora / Importador 143,Distribuidor Mayorista,500,30,0.3939,39.4,🟢 BAJO,Mantener linea ordinaria
+CLI-0144,Distribuidora / Importador 144,Distribuidor Mayorista,2096,45,0.4877,48.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0145,Distribuidora / Importador 145,Distribuidor Mayorista,2226,90,0.7751,77.5,🔴 CRITICO,Exigir pago anticipado
+CLI-0146,Distribuidora / Importador 146,Distribuidor Mayorista,3379,45,0.5096,51.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0147,Distribuidora / Importador 147,Distribuidor Mayorista,672,60,0.4845,48.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0148,Distribuidora / Importador 148,Exportacion FOB,629,30,0.7009,70.1,🔴 CRITICO,Exigir pago anticipado
+CLI-0149,Distribuidora / Importador 149,Distribuidor Mayorista,2745,30,0.3098,31.0,🟢 BAJO,Mantener linea ordinaria
+CLI-0150,Distribuidora / Importador 150,Exportacion FOB,2293,30,0.6101,61.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0151,Distribuidora / Importador 151,Distribuidor Mayorista,2209,30,0.3061,30.6,🟢 BAJO,Mantener linea ordinaria
+CLI-0152,Distribuidora / Importador 152,Distribuidor Mayorista,2385,45,0.599,59.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0153,Distribuidora / Importador 153,Distribuidor Mayorista,1049,30,0.373,37.3,🟢 BAJO,Mantener linea ordinaria
+CLI-0154,Distribuidora / Importador 154,Exportacion FOB,2177,30,0.5822,58.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0155,Distribuidora / Importador 155,Distribuidor Mayorista,2286,30,0.4227,42.3,🟢 BAJO,Mantener linea ordinaria
+CLI-0156,Distribuidora / Importador 156,Distribuidor Mayorista,1021,45,0.5487,54.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0157,Distribuidora / Importador 157,Distribuidor Mayorista,8044,30,0.5963,59.6,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0158,Distribuidora / Importador 158,Distribuidor Mayorista,2641,45,0.4596,46.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0159,Distribuidora / Importador 159,Distribuidor Mayorista,697,45,0.4022,40.2,🟢 BAJO,Mantener linea ordinaria
+CLI-0160,Distribuidora / Importador 160,Distribuidor Mayorista,3057,60,0.5837,58.4,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0161,Distribuidora / Importador 161,Distribuidor Mayorista,829,30,0.3601,36.0,🟢 BAJO,Mantener linea ordinaria
+CLI-0162,Distribuidora / Importador 162,Distribuidor Mayorista,3394,60,0.719,71.9,🔴 CRITICO,Exigir pago anticipado
+CLI-0163,Distribuidora / Importador 163,Distribuidor Mayorista,4568,60,0.7427,74.3,🔴 CRITICO,Exigir pago anticipado
+CLI-0164,Distribuidora / Importador 164,Exportacion FOB,938,30,0.6687,66.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0165,Distribuidora / Importador 165,Exportacion FOB,3908,90,0.9254,92.5,🔴 CRITICO,Exigir pago anticipado
+CLI-0166,Distribuidora / Importador 166,Exportacion FOB,2515,90,0.8824,88.2,🔴 CRITICO,Exigir pago anticipado
+CLI-0167,Distribuidora / Importador 167,Distribuidor Mayorista,3490,30,0.6403,64.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0168,Distribuidora / Importador 168,Distribuidor Mayorista,8246,45,0.7603,76.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0169,Distribuidora / Importador 169,Distribuidor Mayorista,1486,90,0.8419,84.2,🔴 CRITICO,Exigir pago anticipado
+CLI-0170,Distribuidora / Importador 170,Distribuidor Mayorista,989,60,0.6164,61.6,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0171,Distribuidora / Importador 171,Distribuidor Mayorista,887,30,0.2683,26.8,🟢 BAJO,Mantener linea ordinaria
+CLI-0172,Distribuidora / Importador 172,Distribuidor Mayorista,941,30,0.5178,51.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0173,Distribuidora / Importador 173,Distribuidor Mayorista,1700,45,0.6671,66.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0174,Distribuidora / Importador 174,Distribuidor Mayorista,2375,45,0.4475,44.8,🟢 BAJO,Mantener linea ordinaria
+CLI-0175,Distribuidora / Importador 175,Exportacion FOB,2256,60,0.6733,67.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0176,Distribuidora / Importador 176,Distribuidor Mayorista,3504,45,0.4108,41.1,🟢 BAJO,Mantener linea ordinaria
+CLI-0177,Distribuidora / Importador 177,Distribuidor Mayorista,1827,45,0.5522,55.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0178,Distribuidora / Importador 178,Distribuidor Mayorista,5784,60,0.69,69.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0179,Distribuidora / Importador 179,Distribuidor Mayorista,1463,30,0.4241,42.4,🟢 BAJO,Mantener linea ordinaria
+CLI-0180,Distribuidora / Importador 180,Distribuidor Mayorista,15933,45,0.722,72.2,🔴 CRITICO,Exigir pago anticipado
+CLI-0181,Distribuidora / Importador 181,Exportacion FOB,2983,60,0.9062,90.6,🔴 CRITICO,Exigir pago anticipado
+CLI-0182,Distribuidora / Importador 182,Exportacion FOB,911,90,0.8891,88.9,🔴 CRITICO,Exigir pago anticipado
+CLI-0183,Distribuidora / Importador 183,Distribuidor Mayorista,768,45,0.4418,44.2,🟢 BAJO,Mantener linea ordinaria
+CLI-0184,Distribuidora / Importador 184,Exportacion FOB,2660,45,0.6736,67.4,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0185,Distribuidora / Importador 185,Exportacion FOB,1512,30,0.7355,73.6,🔴 CRITICO,Exigir pago anticipado
+CLI-0186,Distribuidora / Importador 186,Exportacion FOB,3201,45,0.6984,69.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0187,Distribuidora / Importador 187,Exportacion FOB,2640,45,0.7327,73.3,🔴 CRITICO,Exigir pago anticipado
+CLI-0188,Distribuidora / Importador 188,Distribuidor Mayorista,1706,30,0.6121,61.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0189,Distribuidora / Importador 189,Distribuidor Mayorista,918,45,0.4723,47.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0190,Distribuidora / Importador 190,Distribuidor Mayorista,538,45,0.6374,63.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0191,Distribuidora / Importador 191,Distribuidor Mayorista,1265,30,0.3288,32.9,🟢 BAJO,Mantener linea ordinaria
+CLI-0192,Distribuidora / Importador 192,Exportacion FOB,3587,45,0.7785,77.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0193,Distribuidora / Importador 193,Distribuidor Mayorista,2146,30,0.4874,48.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0194,Distribuidora / Importador 194,Exportacion FOB,667,45,0.6655,66.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0195,Distribuidora / Importador 195,Exportacion FOB,2077,30,0.6523,65.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0196,Distribuidora / Importador 196,Exportacion FOB,2461,90,0.9065,90.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0197,Distribuidora / Importador 197,Exportacion FOB,892,45,0.5941,59.4,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0198,Distribuidora / Importador 198,Distribuidor Mayorista,2045,60,0.6991,69.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0199,Distribuidora / Importador 199,Distribuidor Mayorista,1894,60,0.6401,64.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0200,Distribuidora / Importador 200,Distribuidor Mayorista,725,45,0.4571,45.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0201,Distribuidora / Importador 201,Distribuidor Mayorista,2407,30,0.3284,32.8,🟢 BAJO,Mantener linea ordinaria
+CLI-0202,Distribuidora / Importador 202,Distribuidor Mayorista,2832,45,0.7345,73.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0203,Distribuidora / Importador 203,Distribuidor Mayorista,4300,45,0.4655,46.6,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0204,Distribuidora / Importador 204,Exportacion FOB,4201,60,0.8078,80.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0205,Distribuidora / Importador 205,Distribuidor Mayorista,601,45,0.4989,49.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0206,Distribuidora / Importador 206,Distribuidor Mayorista,854,30,0.3476,34.8,🟢 BAJO,Mantener linea ordinaria
+CLI-0207,Distribuidora / Importador 207,Distribuidor Mayorista,2730,45,0.5366,53.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0208,Distribuidora / Importador 208,Distribuidor Mayorista,2727,45,0.5985,59.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0209,Distribuidora / Importador 209,Distribuidor Mayorista,2730,60,0.6078,60.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0210,Distribuidora / Importador 210,Exportacion FOB,39426,45,0.9802,98.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0211,Distribuidora / Importador 211,Distribuidor Mayorista,2855,45,0.5246,52.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0212,Distribuidora / Importador 212,Exportacion FOB,4485,120,0.9706,97.1,🔴 CRITICO,Exigir pago anticipado
+CLI-0213,Distribuidora / Importador 213,Distribuidor Mayorista,3878,60,0.8655,86.6,🔴 CRITICO,Exigir pago anticipado
+CLI-0214,Distribuidora / Importador 214,Exportacion FOB,3045,30,0.6595,66.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0215,Distribuidora / Importador 215,Distribuidor Mayorista,1405,30,0.4821,48.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0216,Distribuidora / Importador 216,Distribuidor Mayorista,3318,30,0.4411,44.1,🟢 BAJO,Mantener linea ordinaria
+CLI-0217,Distribuidora / Importador 217,Distribuidor Mayorista,974,30,0.3593,35.9,🟢 BAJO,Mantener linea ordinaria
+CLI-0218,Distribuidora / Importador 218,Exportacion FOB,1496,30,0.5776,57.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0219,Distribuidora / Importador 219,Distribuidor Mayorista,1226,30,0.4606,46.1,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0220,Distribuidora / Importador 220,Distribuidor Mayorista,1930,45,0.7206,72.1,🔴 CRITICO,Exigir pago anticipado
+CLI-0221,Distribuidora / Importador 221,Exportacion FOB,11519,30,0.8091,80.9,🔴 CRITICO,Exigir pago anticipado
+CLI-0222,Distribuidora / Importador 222,Exportacion FOB,406,90,0.8795,87.9,🔴 CRITICO,Exigir pago anticipado
+CLI-0223,Distribuidora / Importador 223,Distribuidor Mayorista,3131,30,0.4751,47.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0224,Distribuidora / Importador 224,Exportacion FOB,498,45,0.7484,74.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0225,Distribuidora / Importador 225,Distribuidor Mayorista,1239,45,0.6082,60.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0226,Distribuidora / Importador 226,Distribuidor Mayorista,4321,120,0.9252,92.5,🔴 CRITICO,Exigir pago anticipado
+CLI-0227,Distribuidora / Importador 227,Distribuidor Mayorista,1903,30,0.3806,38.1,🟢 BAJO,Mantener linea ordinaria
+CLI-0228,Distribuidora / Importador 228,Exportacion FOB,763,45,0.7603,76.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0229,Distribuidora / Importador 229,Exportacion FOB,1020,120,0.9516,95.2,🔴 CRITICO,Exigir pago anticipado
+CLI-0230,Distribuidora / Importador 230,Distribuidor Mayorista,3114,90,0.7744,77.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0231,Distribuidora / Importador 231,Distribuidor Mayorista,1008,90,0.848,84.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0232,Distribuidora / Importador 232,Distribuidor Mayorista,2150,45,0.5435,54.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0233,Distribuidora / Importador 233,Exportacion FOB,1875,30,0.739,73.9,🔴 CRITICO,Exigir pago anticipado
+CLI-0234,Distribuidora / Importador 234,Exportacion FOB,1074,60,0.7275,72.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0235,Distribuidora / Importador 235,Distribuidor Mayorista,10048,90,0.8943,89.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0236,Distribuidora / Importador 236,Exportacion FOB,3002,45,0.774,77.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0237,Distribuidora / Importador 237,Exportacion FOB,358,45,0.6739,67.4,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0238,Distribuidora / Importador 238,Distribuidor Mayorista,2099,45,0.6044,60.4,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0239,Distribuidora / Importador 239,Distribuidor Mayorista,1065,60,0.7707,77.1,🔴 CRITICO,Exigir pago anticipado
+CLI-0240,Distribuidora / Importador 240,Distribuidor Mayorista,3576,30,0.4523,45.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0241,Distribuidora / Importador 241,Distribuidor Mayorista,959,45,0.4268,42.7,🟢 BAJO,Mantener linea ordinaria
+CLI-0242,Distribuidora / Importador 242,Distribuidor Mayorista,1649,45,0.6669,66.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0243,Distribuidora / Importador 243,Distribuidor Mayorista,2708,45,0.5273,52.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0244,Distribuidora / Importador 244,Exportacion FOB,3614,30,0.5,50.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0245,Distribuidora / Importador 245,Distribuidor Mayorista,692,30,0.2697,27.0,🟢 BAJO,Mantener linea ordinaria
+CLI-0246,Distribuidora / Importador 246,Distribuidor Mayorista,1384,60,0.7456,74.6,🔴 CRITICO,Exigir pago anticipado
+CLI-0247,Distribuidora / Importador 247,Distribuidor Mayorista,1237,45,0.5962,59.6,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0248,Distribuidora / Importador 248,Distribuidor Mayorista,1072,45,0.45,45.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0249,Distribuidora / Importador 249,Distribuidor Mayorista,7423,30,0.5559,55.6,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0250,Distribuidora / Importador 250,Distribuidor Mayorista,2500,45,0.4843,48.4,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0251,Distribuidora / Importador 251,Distribuidor Mayorista,659,45,0.5119,51.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0252,Distribuidora / Importador 252,Distribuidor Mayorista,3768,30,0.2882,28.8,🟢 BAJO,Mantener linea ordinaria
+CLI-0253,Distribuidora / Importador 253,Distribuidor Mayorista,9875,45,0.7037,70.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0254,Distribuidora / Importador 254,Distribuidor Mayorista,4130,30,0.5699,57.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0255,Distribuidora / Importador 255,Exportacion FOB,536,30,0.692,69.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0256,Distribuidora / Importador 256,Distribuidor Mayorista,1227,120,0.9122,91.2,🔴 CRITICO,Exigir pago anticipado
+CLI-0257,Distribuidora / Importador 257,Distribuidor Mayorista,4982,45,0.6476,64.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0258,Distribuidora / Importador 258,Exportacion FOB,1026,90,0.8776,87.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0259,Distribuidora / Importador 259,Distribuidor Mayorista,2579,45,0.4924,49.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0260,Distribuidora / Importador 260,Distribuidor Mayorista,3360,60,0.6927,69.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0261,Distribuidora / Importador 261,Exportacion FOB,861,60,0.7875,78.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0262,Distribuidora / Importador 262,Distribuidor Mayorista,1724,45,0.4534,45.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0263,Distribuidora / Importador 263,Distribuidor Mayorista,135,45,0.6769,67.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0264,Distribuidora / Importador 264,Exportacion FOB,797,45,0.5603,56.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0265,Distribuidora / Importador 265,Exportacion FOB,1477,45,0.627,62.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0266,Distribuidora / Importador 266,Exportacion FOB,666,90,0.8471,84.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0267,Distribuidora / Importador 267,Distribuidor Mayorista,6674,90,0.9295,93.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0268,Distribuidora / Importador 268,Distribuidor Mayorista,576,120,0.9362,93.6,🔴 CRITICO,Exigir pago anticipado
+CLI-0269,Distribuidora / Importador 269,Distribuidor Mayorista,1272,30,0.2958,29.6,🟢 BAJO,Mantener linea ordinaria
+CLI-0270,Distribuidora / Importador 270,Distribuidor Mayorista,2007,60,0.6112,61.1,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0271,Distribuidora / Importador 271,Distribuidor Mayorista,5727,90,0.8577,85.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0272,Distribuidora / Importador 272,Distribuidor Mayorista,573,30,0.2786,27.9,🟢 BAJO,Mantener linea ordinaria
+CLI-0273,Distribuidora / Importador 273,Exportacion FOB,4585,30,0.7133,71.3,🔴 CRITICO,Exigir pago anticipado
+CLI-0274,Distribuidora / Importador 274,Distribuidor Mayorista,1823,60,0.8039,80.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0275,Distribuidora / Importador 275,Distribuidor Mayorista,825,45,0.7366,73.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0276,Distribuidora / Importador 276,Distribuidor Mayorista,2617,90,0.7691,76.9,🔴 CRITICO,Exigir pago anticipado
+CLI-0277,Distribuidora / Importador 277,Distribuidor Mayorista,2120,30,0.5632,56.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0278,Distribuidora / Importador 278,Distribuidor Mayorista,1119,60,0.5552,55.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0279,Distribuidora / Importador 279,Distribuidor Mayorista,1912,30,0.3805,38.0,🟢 BAJO,Mantener linea ordinaria
+CLI-0280,Distribuidora / Importador 280,Distribuidor Mayorista,1328,30,0.326,32.6,🟢 BAJO,Mantener linea ordinaria
+CLI-0281,Distribuidora / Importador 281,Distribuidor Mayorista,1980,30,0.2892,28.9,🟢 BAJO,Mantener linea ordinaria
+CLI-0282,Distribuidora / Importador 282,Exportacion FOB,3071,90,0.9411,94.1,🔴 CRITICO,Exigir pago anticipado
+CLI-0283,Distribuidora / Importador 283,Exportacion FOB,6431,60,0.9269,92.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0284,Distribuidora / Importador 284,Distribuidor Mayorista,672,45,0.6249,62.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0285,Distribuidora / Importador 285,Distribuidor Mayorista,9961,45,0.6807,68.1,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0286,Distribuidora / Importador 286,Exportacion FOB,379,90,0.8945,89.5,🔴 CRITICO,Exigir pago anticipado
+CLI-0287,Distribuidora / Importador 287,Exportacion FOB,1601,45,0.8638,86.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0288,Distribuidora / Importador 288,Distribuidor Mayorista,2895,90,0.7543,75.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0289,Distribuidora / Importador 289,Exportacion FOB,2264,45,0.7973,79.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0290,Distribuidora / Importador 290,Distribuidor Mayorista,1099,45,0.4907,49.1,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0291,Distribuidora / Importador 291,Exportacion FOB,1531,45,0.7993,79.9,🔴 CRITICO,Exigir pago anticipado
+CLI-0292,Distribuidora / Importador 292,Exportacion FOB,1219,45,0.7981,79.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0293,Distribuidora / Importador 293,Distribuidor Mayorista,1128,60,0.7039,70.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0294,Distribuidora / Importador 294,Exportacion FOB,3568,45,0.719,71.9,🔴 CRITICO,Exigir pago anticipado
+CLI-0295,Distribuidora / Importador 295,Distribuidor Mayorista,2406,30,0.4361,43.6,🟢 BAJO,Mantener linea ordinaria
+CLI-0296,Distribuidora / Importador 296,Exportacion FOB,1039,90,0.9126,91.3,🔴 CRITICO,Exigir pago anticipado
+CLI-0297,Distribuidora / Importador 297,Distribuidor Mayorista,3713,45,0.4367,43.7,🟢 BAJO,Mantener linea ordinaria
+CLI-0298,Distribuidora / Importador 298,Exportacion FOB,2312,45,0.7603,76.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0299,Distribuidora / Importador 299,Distribuidor Mayorista,3464,90,0.9303,93.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0300,Distribuidora / Importador 300,Distribuidor Mayorista,2992,60,0.6221,62.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0301,Distribuidora / Importador 301,Distribuidor Mayorista,932,30,0.3997,40.0,🟢 BAJO,Mantener linea ordinaria
+CLI-0302,Distribuidora / Importador 302,Exportacion FOB,1155,90,0.8978,89.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0303,Distribuidora / Importador 303,Exportacion FOB,3287,60,0.8005,80.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0304,Distribuidora / Importador 304,Exportacion FOB,2946,45,0.7853,78.5,🔴 CRITICO,Exigir pago anticipado
+CLI-0305,Distribuidora / Importador 305,Exportacion FOB,1778,30,0.5805,58.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0306,Distribuidora / Importador 306,Distribuidor Mayorista,1986,60,0.7167,71.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0307,Distribuidora / Importador 307,Distribuidor Mayorista,5025,60,0.6959,69.6,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0308,Distribuidora / Importador 308,Distribuidor Mayorista,1126,45,0.4185,41.9,🟢 BAJO,Mantener linea ordinaria
+CLI-0309,Distribuidora / Importador 309,Distribuidor Mayorista,2801,90,0.8332,83.3,🔴 CRITICO,Exigir pago anticipado
+CLI-0310,Distribuidora / Importador 310,Distribuidor Mayorista,1538,60,0.6695,67.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0311,Distribuidora / Importador 311,Distribuidor Mayorista,1519,30,0.3042,30.4,🟢 BAJO,Mantener linea ordinaria
+CLI-0312,Distribuidora / Importador 312,Distribuidor Mayorista,4355,45,0.513,51.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0313,Distribuidora / Importador 313,Distribuidor Mayorista,3499,30,0.3748,37.5,🟢 BAJO,Mantener linea ordinaria
+CLI-0314,Distribuidora / Importador 314,Distribuidor Mayorista,3466,60,0.6106,61.1,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0315,Distribuidora / Importador 315,Distribuidor Mayorista,5138,30,0.4465,44.7,🟢 BAJO,Mantener linea ordinaria
+CLI-0316,Distribuidora / Importador 316,Exportacion FOB,1839,45,0.7573,75.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0317,Distribuidora / Importador 317,Exportacion FOB,3120,60,0.7924,79.2,🔴 CRITICO,Exigir pago anticipado
+CLI-0318,Distribuidora / Importador 318,Exportacion FOB,1411,90,0.9099,91.0,🔴 CRITICO,Exigir pago anticipado
+CLI-0319,Distribuidora / Importador 319,Distribuidor Mayorista,2343,45,0.6569,65.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0320,Distribuidora / Importador 320,Distribuidor Mayorista,1629,90,0.6968,69.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0321,Distribuidora / Importador 321,Exportacion FOB,1954,30,0.6332,63.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0322,Distribuidora / Importador 322,Distribuidor Mayorista,2911,90,0.9274,92.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0323,Distribuidora / Importador 323,Distribuidor Mayorista,940,30,0.3409,34.1,🟢 BAJO,Mantener linea ordinaria
+CLI-0324,Distribuidora / Importador 324,Distribuidor Mayorista,9642,45,0.6588,65.9,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0325,Distribuidora / Importador 325,Distribuidor Mayorista,809,60,0.5602,56.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0326,Distribuidora / Importador 326,Distribuidor Mayorista,684,30,0.2946,29.5,🟢 BAJO,Mantener linea ordinaria
+CLI-0327,Distribuidora / Importador 327,Distribuidor Mayorista,4566,30,0.507,50.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0328,Distribuidora / Importador 328,Distribuidor Mayorista,3406,60,0.6647,66.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0329,Distribuidora / Importador 329,Distribuidor Mayorista,2979,60,0.601,60.1,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0330,Distribuidora / Importador 330,Distribuidor Mayorista,2989,60,0.7075,70.7,🔴 CRITICO,Exigir pago anticipado
+CLI-0331,Distribuidora / Importador 331,Exportacion FOB,1790,60,0.7083,70.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0332,Distribuidora / Importador 332,Distribuidor Mayorista,882,45,0.6058,60.6,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0333,Distribuidora / Importador 333,Distribuidor Mayorista,1921,45,0.5402,54.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0334,Distribuidora / Importador 334,Exportacion FOB,1052,45,0.8877,88.8,🔴 CRITICO,Exigir pago anticipado
+CLI-0335,Distribuidora / Importador 335,Distribuidor Mayorista,3945,30,0.4629,46.3,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0336,Distribuidora / Importador 336,Distribuidor Mayorista,1607,90,0.8015,80.1,🔴 CRITICO,Exigir pago anticipado
+CLI-0337,Distribuidora / Importador 337,Distribuidor Mayorista,934,45,0.5371,53.7,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0338,Distribuidora / Importador 338,Distribuidor Mayorista,1398,45,0.458,45.8,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0339,Distribuidora / Importador 339,Distribuidor Mayorista,2516,45,0.592,59.2,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0340,Distribuidora / Importador 340,Exportacion FOB,1152,90,0.8837,88.4,🔴 CRITICO,Exigir pago anticipado
+CLI-0341,Distribuidora / Importador 341,Distribuidor Mayorista,937,30,0.3047,30.5,🟢 BAJO,Mantener linea ordinaria
+CLI-0342,Distribuidora / Importador 342,Distribuidor Mayorista,2197,45,0.4086,40.9,🟢 BAJO,Mantener linea ordinaria
+CLI-0343,Distribuidora / Importador 343,Distribuidor Mayorista,2199,45,0.7009,70.1,🔴 CRITICO,Exigir pago anticipado
+CLI-0344,Distribuidora / Importador 344,Distribuidor Mayorista,1205,60,0.5748,57.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0345,Distribuidora / Importador 345,Distribuidor Mayorista,1240,30,0.4273,42.7,🟢 BAJO,Mantener linea ordinaria
+CLI-0346,Distribuidora / Importador 346,Distribuidor Mayorista,2177,90,0.8432,84.3,🔴 CRITICO,Exigir pago anticipado
+CLI-0347,Distribuidora / Importador 347,Distribuidor Mayorista,568,90,0.745,74.5,🔴 CRITICO,Exigir pago anticipado
+CLI-0348,Distribuidora / Importador 348,Distribuidor Mayorista,586,45,0.5248,52.5,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0349,Distribuidora / Importador 349,Distribuidor Mayorista,1018,60,0.6198,62.0,🟡 MODERADO,Plazo 30d y aval bancario
+CLI-0350,Distribuidora / Importador 350,Distribuidor Mayorista,1524,90,0.9199,92.0,🔴 CRITICO,Exigir pago anticipado

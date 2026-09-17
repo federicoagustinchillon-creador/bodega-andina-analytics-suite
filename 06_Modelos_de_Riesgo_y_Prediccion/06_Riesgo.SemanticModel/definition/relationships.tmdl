@@ -1,0 +1,4 @@
+relationship rel_forecast_calendario
+	fromColumn: ML_Forecasting_Comparativo.DateKey
+	toColumn: Calendario.DateKey
+

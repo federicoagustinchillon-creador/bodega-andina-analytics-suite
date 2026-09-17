@@ -1,0 +1,115 @@
+table ML_Forecasting_Comparativo
+	lineageTag: 5618b648-528d-4b05-a677-b0aeb9233dd8
+
+	column Fecha
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 54264b31-3bd6-427f-8297-216f72326a02
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a0521eae-20c3-4ef3-9829-c048eed521e0
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column VolumenReal
+		dataType: double
+		formatString: #,##0
+		lineageTag: c74c370e-52d7-4ba3-a80f-9d4c84868cc7
+		summarizeBy: sum
+		sourceColumn: VolumenReal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Forecast_SARIMAX
+		dataType: double
+		formatString: #,##0
+		lineageTag: d86a6d00-de62-4244-9813-e55a861de4d0
+		summarizeBy: sum
+		sourceColumn: Forecast_SARIMAX
+
+		annotation SummarizationSetBy = Automatic
+
+	column Forecast_GBDT
+		dataType: double
+		formatString: #,##0
+		lineageTag: d0200e25-3d6f-4256-a9f9-0e28f9f5e9f5
+		summarizeBy: sum
+		sourceColumn: Forecast_GBDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column Forecast_RandomForest
+		dataType: double
+		formatString: #,##0
+		lineageTag: d60552aa-2529-4a06-9524-2e25620295c9
+		summarizeBy: sum
+		sourceColumn: Forecast_RandomForest
+
+		annotation SummarizationSetBy = Automatic
+
+	column Error_SARIMAX
+		dataType: double
+		formatString: +#,##0;-#,##0;0
+		lineageTag: 111fcd4c-b203-4566-a07c-2667e148ef69
+		summarizeBy: sum
+		sourceColumn: Error_SARIMAX
+
+		annotation SummarizationSetBy = Automatic
+
+	column Error_GBDT
+		dataType: double
+		formatString: +#,##0;-#,##0;0
+		lineageTag: b7ae51ad-4d77-4497-8cba-3f45d868c56c
+		summarizeBy: sum
+		sourceColumn: Error_GBDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column IC_Inferior_95
+		dataType: double
+		formatString: #,##0
+		lineageTag: 92b19b83-6897-4a60-b57b-2091a0bf3095
+		summarizeBy: sum
+		sourceColumn: IC_Inferior_95
+
+		annotation SummarizationSetBy = Automatic
+
+	column IC_Superior_95
+		dataType: double
+		formatString: #,##0
+		lineageTag: 5e942535-5587-407a-9792-24b191e5b799
+		summarizeBy: sum
+		sourceColumn: IC_Superior_95
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModeloGanador
+		dataType: string
+		lineageTag: 0c8839bd-d00b-4ed4-873f-896d5f7497bf
+		summarizeBy: none
+		sourceColumn: ModeloGanador
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ML_Forecasting_Comparativo = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/ML_Forecasting_Comparativo.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"Fecha", type date}, {"DateKey", Int64.Type}, {"VolumenReal", type number}, {"Forecast_SARIMAX", type number}, {"Forecast_GBDT", type number}, {"Forecast_RandomForest", type number}, {"Error_SARIMAX", type number}, {"Error_GBDT", type number}, {"IC_Inferior_95", type number}, {"IC_Superior_95", type number}, {"ModeloGanador", type text}}, "en-US")
+				in
+					Tipos
+
+	annotation PBI_ResultType = Table
+

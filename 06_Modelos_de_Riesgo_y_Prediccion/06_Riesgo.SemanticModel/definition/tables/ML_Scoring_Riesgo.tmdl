@@ -1,0 +1,92 @@
+table ML_Scoring_Riesgo
+	lineageTag: 944ada62-4464-4abf-8ddc-13915c7e7939
+
+	column ClienteID
+		dataType: string
+		isKey
+		lineageTag: 759b774f-221f-40b4-95ee-d25ce32cacec
+		summarizeBy: none
+		sourceColumn: ClienteID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RazonSocial
+		dataType: string
+		lineageTag: d588a9e0-acd9-480f-aa70-288b9000b6c9
+		summarizeBy: none
+		sourceColumn: RazonSocial
+
+		annotation SummarizationSetBy = Automatic
+
+	column Canal
+		dataType: string
+		lineageTag: 8c4d23a7-fd40-41db-921f-7bd5ce68433d
+		summarizeBy: none
+		sourceColumn: Canal
+
+		annotation SummarizationSetBy = Automatic
+
+	column VolumenMensualCajas
+		dataType: int64
+		formatString: #,##0
+		lineageTag: b28eb966-723e-4266-b076-9ad9f6f0d25d
+		summarizeBy: sum
+		sourceColumn: VolumenMensualCajas
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlazoPagoDias
+		dataType: int64
+		formatString: 0
+		lineageTag: e663dcdc-695c-44f8-84a0-2750898f3db9
+		summarizeBy: average
+		sourceColumn: PlazoPagoDias
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProbabilidadDefault
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 00692802-64b2-417a-9415-4cdbe79dc8bb
+		summarizeBy: average
+		sourceColumn: ProbabilidadDefault
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScoreRiesgo
+		dataType: double
+		formatString: 0.0
+		lineageTag: 8260989b-f812-42a4-829f-7e111a94622b
+		summarizeBy: average
+		sourceColumn: ScoreRiesgo
+
+		annotation SummarizationSetBy = Automatic
+
+	column NivelRiesgo
+		dataType: string
+		lineageTag: 4fa06010-e6f0-43c2-b6ab-ce48305828b1
+		summarizeBy: none
+		sourceColumn: NivelRiesgo
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrescripcionAccion
+		dataType: string
+		lineageTag: 07618a0a-a6f1-491a-91d2-0447f34e2d03
+		summarizeBy: none
+		sourceColumn: PrescripcionAccion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ML_Scoring_Riesgo = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/ML_Scoring_Riesgo.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"ClienteID", type text}, {"RazonSocial", type text}, {"Canal", type text}, {"VolumenMensualCajas", Int64.Type}, {"PlazoPagoDias", Int64.Type}, {"ProbabilidadDefault", type number}, {"ScoreRiesgo", type number}, {"NivelRiesgo", type text}, {"PrescripcionAccion", type text}}, "en-US")
+				in
+					Tipos
+
+	annotation PBI_ResultType = Table
+

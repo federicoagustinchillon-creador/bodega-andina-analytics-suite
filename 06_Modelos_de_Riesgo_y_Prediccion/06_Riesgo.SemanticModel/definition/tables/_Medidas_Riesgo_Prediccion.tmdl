@@ -1,0 +1,540 @@
+table _Medidas_Riesgo_Prediccion
+	lineageTag: 16e860ff-5f0e-4dc1-aba4-991a975b4bcd
+
+	measure 'AUC ROC Maximo Ganador' = CALCULATE(MAX(ML_Metricas_Clasificacion[AUC_ROC]))
+		formatString: 0.0000
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: b8d8e455-09b6-4a4c-a30b-e5da1fe91ee9
+
+	measure 'Modelo Clasificacion Ganador' =
+			CALCULATE(
+				FIRSTNONBLANK(ML_Metricas_Clasificacion[Modelo], 1),
+				ML_Metricas_Clasificacion[AUC_ROC] = [AUC ROC Maximo Ganador]
+			)
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 48ba7082-0b75-4471-9e2d-f06f6c831433
+
+	measure 'Accuracy Ganador %' =
+			CALCULATE(
+				MAX(ML_Metricas_Clasificacion[Accuracy]),
+				ML_Metricas_Clasificacion[AUC_ROC] = [AUC ROC Maximo Ganador]
+			)
+		formatString: 0.00%
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 2e0ae350-41f9-44c5-ab24-94fc7f3b15ac
+
+	measure 'Recall Ganador %' =
+			CALCULATE(
+				MAX(ML_Metricas_Clasificacion[Recall]),
+				ML_Metricas_Clasificacion[AUC_ROC] = [AUC ROC Maximo Ganador]
+			)
+		formatString: 0.00%
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 913e5e57-107f-4c41-908a-a3795ab9c39c
+
+	measure 'Precision Ganador %' =
+			CALCULATE(
+				MAX(ML_Metricas_Clasificacion[Precision]),
+				ML_Metricas_Clasificacion[AUC_ROC] = [AUC ROC Maximo Ganador]
+			)
+		formatString: 0.00%
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 2f04104a-2df9-4e24-b812-55de743277e5
+
+	measure 'F1 Score Ganador' =
+			CALCULATE(
+				MAX(ML_Metricas_Clasificacion[F1_Score]),
+				ML_Metricas_Clasificacion[AUC_ROC] = [AUC ROC Maximo Ganador]
+			)
+		formatString: 0.0000
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: acb9412f-edb5-4f57-a591-e917b3aa5ca8
+
+	measure 'Threshold Optimo Youden J' =
+			CALCULATE(
+				MAX(ML_Metricas_Clasificacion[Threshold_Optimo_Youden]),
+				ML_Metricas_Clasificacion[AUC_ROC] = [AUC ROC Maximo Ganador]
+			)
+		formatString: 0.0000
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: c088fb73-71c1-45cb-862f-5bbd5ea990c2
+
+	measure 'Brier Score Ganador' =
+			CALCULATE(
+				MAX(ML_Metricas_Clasificacion[Brier_Score]),
+				ML_Metricas_Clasificacion[AUC_ROC] = [AUC ROC Maximo Ganador]
+			)
+		formatString: 0.0000
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 9750857d-cdba-4c48-acc7-acc20ea14843
+
+	measure 'Log Loss Ganador' =
+			CALCULATE(
+				MAX(ML_Metricas_Clasificacion[Log_Loss]),
+				ML_Metricas_Clasificacion[AUC_ROC] = [AUC ROC Maximo Ganador]
+			)
+		formatString: 0.0000
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: e1bd79f8-a7c6-429a-991d-5da0e5036954
+
+	measure 'TPR Regresion Logistica' =
+			CALCULATE(MAX(ML_Curva_ROC[TPR]), ML_Curva_ROC[Modelo] = "Regresion_Logistica_L2")
+		formatString: 0.0000
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 57622aa3-61e1-420f-b679-2354272e4dc8
+
+	measure 'TPR Random Forest' =
+			CALCULATE(MAX(ML_Curva_ROC[TPR]), ML_Curva_ROC[Modelo] = "Random_Forest_Classifier")
+		formatString: 0.0000
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: bfd03c77-9644-46b3-a943-01f385f84dfb
+
+	measure 'TPR Gradient Boosting' =
+			CALCULATE(MAX(ML_Curva_ROC[TPR]), ML_Curva_ROC[Modelo] = "Gradient_Boosting_Tree")
+		formatString: 0.0000
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 261b5dfb-333f-416f-8fe0-a0ecf9bc00ee
+
+	measure 'Clientes Totales Evaluados' = DISTINCTCOUNT(ML_Scoring_Riesgo[ClienteID])
+		formatString: #,##0
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 0f3015af-0df2-4281-aa27-f7b2578a98d7
+
+	measure 'Clientes en Riesgo Critico' =
+			CALCULATE(
+				COUNTROWS(ML_Scoring_Riesgo),
+				ML_Scoring_Riesgo[NivelRiesgo] = "RIESGO CRITICO"
+			)
+		formatString: #,##0
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: c1f526f7-403e-4cfa-b543-07848da23207
+
+	measure 'Clientes en Riesgo Moderado' =
+			CALCULATE(
+				COUNTROWS(ML_Scoring_Riesgo),
+				ML_Scoring_Riesgo[NivelRiesgo] = "RIESGO MODERADO"
+			)
+		formatString: #,##0
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: cae9b13c-001c-4d9c-8087-bacace53c4c5
+
+	measure 'Clientes en Riesgo Bajo' =
+			CALCULATE(
+				COUNTROWS(ML_Scoring_Riesgo),
+				ML_Scoring_Riesgo[NivelRiesgo] = "RIESGO BAJO"
+			)
+		formatString: #,##0
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 720edb54-c412-41fe-acf7-216d9371f649
+
+	measure 'Proporcion Cartera en Riesgo %' = DIVIDE([Clientes en Riesgo Critico], [Clientes Totales Evaluados], 0)
+		formatString: 0.00%
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 303b471e-62cb-40aa-b2fc-1e30da6d9f5b
+
+	measure 'Score Riesgo Promedio' = AVERAGE(ML_Scoring_Riesgo[ScoreRiesgo])
+		formatString: 0.0
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 8ce0ea33-c1cb-48d4-b298-5349632ad106
+
+	measure 'Volumen en Riesgo Critico Cajas' =
+			CALCULATE(
+				SUM(ML_Scoring_Riesgo[VolumenMensualCajas]),
+				ML_Scoring_Riesgo[NivelRiesgo] = "RIESGO CRITICO"
+			)
+		formatString: #,##0
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: d7d0244c-3c9f-42d5-bde6-d623dd394f12
+
+	measure 'Plazo Pago Promedio Cartera' = AVERAGE(ML_Scoring_Riesgo[PlazoPagoDias])
+		formatString: 0.0
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 5c4d564a-7d1c-49ac-8ea8-92ce9ec81dfb
+
+	measure 'Semaforo Salud Cartera' =
+			SWITCH(
+				TRUE(),
+				[Proporcion Cartera en Riesgo %] > 0.15, "🔴 ALTO RIESGO",
+				[Proporcion Cartera en Riesgo %] > 0.08, "🟡 ALERTA",
+				"🟢 CARTERA SANA"
+			)
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 10fa801e-a8c0-4ee7-9485-b7b4d9f27719
+
+	measure 'Color Semaforo Cartera' =
+			SWITCH(
+				TRUE(),
+				[Proporcion Cartera en Riesgo %] > 0.15, "#EF4444",
+				[Proporcion Cartera en Riesgo %] > 0.08, "#F59E0B",
+				"#10B981"
+			)
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: c70238ad-a0fe-45db-9863-94346b622089
+
+	measure 'Regla Decision Scoring Crediticio' = "REGLA DE MITIGACION: Exigir pago anticipado o aval bancario a clientes con Score > 70. Activar cobranzas prejudiciales preventivas a 15 dias."
+		displayFolder: 01 Clasificacion y Scoring Crediticio
+		lineageTag: 7827cd5f-88eb-4da2-97e0-5bdc130333cd
+
+	measure 'Volumen Real Mensual' = SUM(ML_Forecasting_Comparativo[VolumenReal])
+		formatString: #,##0
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: 2da551d5-6590-45f6-ac5b-25d30206c75a
+
+	measure 'Forecast GBDT Mensual' = SUM(ML_Forecasting_Comparativo[Forecast_GBDT])
+		formatString: #,##0
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: 4ba90318-befc-4ce3-b23c-386742b6a5d7
+
+	measure 'Forecast SARIMAX Mensual' = SUM(ML_Forecasting_Comparativo[Forecast_SARIMAX])
+		formatString: #,##0
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: b0fe2b5d-17c9-42d8-8e2e-b4f2b5659578
+
+	measure 'Forecast RandomForest Mensual' = SUM(ML_Forecasting_Comparativo[Forecast_RandomForest])
+		formatString: #,##0
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: a0c3a14c-ec30-481e-b3dd-167064d4285d
+
+	measure 'Error Absoluto GBDT' = SUMX(ML_Forecasting_Comparativo, ABS(ML_Forecasting_Comparativo[Error_GBDT]))
+		formatString: #,##0
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: 6dbfc74c-aad8-4b4e-9534-88a398a7c395
+
+	measure 'Error Absoluto SARIMAX' = SUMX(ML_Forecasting_Comparativo, ABS(ML_Forecasting_Comparativo[Error_SARIMAX]))
+		formatString: #,##0
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: 9c021ddf-d63f-481d-9740-3f9d5e4e9c5f
+
+	measure 'Desvio Forecast GBDT %' = DIVIDE([Forecast GBDT Mensual] - [Volumen Real Mensual], [Volumen Real Mensual], 0)
+		formatString: +0.00%;-0.00%;0.00%
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: 1fd2fdbe-a042-4d8e-a9f1-4e65e7c90d77
+
+	measure 'RMSE GBDT' =
+			CALCULATE(
+				MAX(ML_Metricas_Forecasting[RMSE]),
+				ML_Metricas_Forecasting[Modelo] = "Gradient_Boosting_Regressor"
+			)
+		formatString: #,##0.00
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: b2d083df-bc0a-4262-b493-46a80803dc23
+
+	measure 'RMSE SARIMAX' =
+			CALCULATE(
+				MAX(ML_Metricas_Forecasting[RMSE]),
+				ML_Metricas_Forecasting[Modelo] = "Benchmark_SARIMAX_1_1_1"
+			)
+		formatString: #,##0.00
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: 580fd005-96b3-4248-b83a-08dc14ae5d8b
+
+	measure 'MAE GBDT' =
+			CALCULATE(
+				MAX(ML_Metricas_Forecasting[MAE]),
+				ML_Metricas_Forecasting[Modelo] = "Gradient_Boosting_Regressor"
+			)
+		formatString: #,##0.00
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: f8d0ef00-2434-42eb-b90c-f71171706a69
+
+	measure 'Reduccion Error Forecast %' =
+			CALCULATE(
+				MAX(ML_Metricas_Forecasting[Reduccion_RMSE_vs_SARIMAX_Pct]),
+				ML_Metricas_Forecasting[Modelo] = "Gradient_Boosting_Regressor"
+			)
+		formatString: +0.00%;-0.00%;0.00%
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: 9727805b-7d51-440f-bf9f-c0e89cda7f6e
+
+	measure 'MAPE GBDT %' =
+			CALCULATE(
+				MAX(ML_Metricas_Forecasting[MAPE_Pct]),
+				ML_Metricas_Forecasting[Modelo] = "Gradient_Boosting_Regressor"
+			) / 100
+		formatString: 0.00%
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: e3419c6d-16b8-4d50-97f2-11af549c32fd
+
+	measure 'MAPE SARIMAX %' =
+			CALCULATE(
+				MAX(ML_Metricas_Forecasting[MAPE_Pct]),
+				ML_Metricas_Forecasting[Modelo] = "Benchmark_SARIMAX_1_1_1"
+			) / 100
+		formatString: 0.00%
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: a239ccd6-7cd8-4b69-8a60-86ffee45e431
+
+	measure 'R2 Score GBDT' =
+			CALCULATE(
+				MAX(ML_Metricas_Forecasting[R2_Score]),
+				ML_Metricas_Forecasting[Modelo] = "Gradient_Boosting_Regressor"
+			)
+		formatString: 0.0000
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: d0b73085-d5fe-4104-ba04-a1a67d66904c
+
+	measure 'R2 Score SARIMAX' =
+			CALCULATE(
+				MAX(ML_Metricas_Forecasting[R2_Score]),
+				ML_Metricas_Forecasting[Modelo] = "Benchmark_SARIMAX_1_1_1"
+			)
+		formatString: 0.0000
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: 3890cdac-91c6-41a5-9db1-aeff3b54ce93
+
+	measure 'IC 95% Inferior Mensual' = SUM(ML_Forecasting_Comparativo[IC_Inferior_95])
+		formatString: #,##0
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: 0ef86055-5583-4ea4-8ae9-4623b7bb4dcb
+
+	measure 'IC 95% Superior Mensual' = SUM(ML_Forecasting_Comparativo[IC_Superior_95])
+		formatString: #,##0
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: ba33a291-c218-42b2-b774-c37eedf3d3a0
+
+	measure 'Intervalo Confianza 95 Amplitud' = [IC 95% Superior Mensual] - [IC 95% Inferior Mensual]
+		formatString: #,##0
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: ac43cb7c-7e2c-49af-9608-60a3a1bfd39f
+
+	measure 'Prescripcion Forecasting Demanda' = "CONFIABILIDAD PREDICTIVA: El ensamble de arboles reduce la dispersion out-of-sample capturando picos estacionales de vendimia. REGLA: Adoptar proyeccion GBDT para plan maestro de embotellado."
+		displayFolder: 02 Forecasting de Demanda ML
+		lineageTag: f94653f5-3d0e-4667-a9ef-7a5be76a3316
+
+	measure 'Flujo Acumulado Simulado' = SUM(Riesgo_Distribucion_MonteCarlo_30d[FlujoAcumuladoSimulado])
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: de915e11-cfb7-49e8-8f9d-a5e02a50a96c
+
+	measure 'CF-VaR 95% 30d' =
+			CALCULATE(
+				MAX(Riesgo_Stress_Testing_VaR[CF_VaR_95]),
+				Riesgo_Stress_Testing_VaR[HorizonteDias] = 30
+			)
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: 7afdfede-7694-4f60-a8e3-0ff62154b680
+
+	measure 'CF-VaR 99% 30d' =
+			CALCULATE(
+				MAX(Riesgo_Stress_Testing_VaR[CF_VaR_99]),
+				Riesgo_Stress_Testing_VaR[HorizonteDias] = 30
+			)
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: 8480dde6-09f6-4631-a0ad-d8a888400b82
+
+	measure 'CVaR 95% Expected Shortfall' =
+			CALCULATE(
+				MAX(Riesgo_Stress_Testing_VaR[CVaR_95_ExpectedShortfall]),
+				Riesgo_Stress_Testing_VaR[HorizonteDias] = 30
+			)
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: 43aeafd4-2fff-456e-befa-f2030323338c
+
+	measure 'CVaR 99% Expected Shortfall' =
+			CALCULATE(
+				MAX(Riesgo_Stress_Testing_VaR[CVaR_99_ExpectedShortfall]),
+				Riesgo_Stress_Testing_VaR[HorizonteDias] = 30
+			)
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: c0b890ee-4946-4022-8ce2-9a660b0d971c
+
+	measure 'Buffer Liquidez Requerido 30d' =
+			CALCULATE(
+				MAX(Riesgo_Stress_Testing_VaR[BufferLiquidezRequerido]),
+				Riesgo_Stress_Testing_VaR[HorizonteDias] = 30
+			)
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: 78fcfb0c-43ee-492e-841d-76b8649653df
+
+	measure 'Flujo Medio Esperado 30d' =
+			CALCULATE(
+				MAX(Riesgo_Stress_Testing_VaR[FlujoMedioEsperado]),
+				Riesgo_Stress_Testing_VaR[HorizonteDias] = 30
+			)
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: 2d21cad6-bb1e-450d-a0c5-87d0d116fb23
+
+	measure 'Flujo Minimo Percentil 5 30d' =
+			CALCULATE(
+				MAX(Riesgo_Stress_Testing_VaR[FlujoMinimo_Percentil_5]),
+				Riesgo_Stress_Testing_VaR[HorizonteDias] = 30
+			)
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: a00fbca5-a4ee-47e6-ac16-ad8b832191f3
+
+	measure 'Flujo Minimo Percentil 1 30d' =
+			CALCULATE(
+				MAX(Riesgo_Stress_Testing_VaR[FlujoMinimo_Percentil_1]),
+				Riesgo_Stress_Testing_VaR[HorizonteDias] = 30
+			)
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: 750a7be5-71fa-40c5-a3b6-cb654b159c5f
+
+	measure 'Buffer Solvencia Minimo Stress' = MIN(Riesgo_Reverse_Stress_Testing[BufferSolvenciaRestante])
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: 92697c8d-ea45-41c3-814c-4dfdceffb6aa
+
+	measure 'Dias Cobertura Stress Minimo' = MIN(Riesgo_Reverse_Stress_Testing[DiasCoberturaRestante])
+		formatString: 0
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: 7124276d-8f8f-4ebf-87f7-9f8395322f57
+
+	measure 'Buffer Solvencia Base' =
+			CALCULATE(
+				MAX(Riesgo_Reverse_Stress_Testing[BufferSolvenciaRestante]),
+				Riesgo_Reverse_Stress_Testing[EscenarioID] = "ESC-01"
+			)
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: fbde9137-e577-4972-a5e1-a1987140baa2
+
+	measure 'Impacto Caja Maximo Stress' = MIN(Riesgo_Reverse_Stress_Testing[ImpactoCajaNeto])
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: abc995bb-a7ef-42bf-b785-5526338ce806
+
+	measure 'Escenario Mayor Riesgo' =
+			CALCULATE(
+				FIRSTNONBLANK(Riesgo_Reverse_Stress_Testing[NombreEscenario], 1),
+				Riesgo_Reverse_Stress_Testing[BufferSolvenciaRestante] = [Buffer Solvencia Minimo Stress]
+			)
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: 1b04e12c-e70e-4fd2-b819-9fa90207b7a9
+
+	measure 'Semaforo Solvencia Stress' =
+			SWITCH(
+				TRUE(),
+				[Buffer Solvencia Minimo Stress] <= 0, "🔴 INSOLVENCIA",
+				[Buffer Solvencia Minimo Stress] < 15000000, "🟡 BUFFER ALERTA",
+				"🟢 RESILIENTE"
+			)
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: b9f92d16-b014-499e-b076-38cb8b7b5132
+
+	measure 'Color Semaforo Stress' =
+			SWITCH(
+				TRUE(),
+				[Buffer Solvencia Minimo Stress] <= 0, "#EF4444",
+				[Buffer Solvencia Minimo Stress] < 15000000, "#F59E0B",
+				"#10B981"
+			)
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: cb03941a-8745-4b88-aeea-2829c8123409
+
+	measure 'Playbook Mitigacion Reverse Stress' = "CONTINGENCIA EXTREMA: En caso de caida combinada > 30% en ventas y mora > 45d, ejecutar linea de credito contingente garantizada con warrants de stock estibado."
+		displayFolder: 03 Riesgo y Stress Testing VaR
+		lineageTag: 712b76dc-228f-45e0-9502-082e68056fb7
+
+	measure 'ATE Causal Descuentos DML' =
+			CALCULATE(
+				MAX(Inferencia_Causal_Resultados[CoeficienteEstimado]),
+				Inferencia_Causal_Resultados[EfectoAnalizado] = "Efecto Causal ATE Descuentos Comerciales (DML)"
+			)
+		formatString: 0.0000
+		displayFolder: 04 Inferencia Causal Econometrica
+		lineageTag: acf23b57-03f0-49de-a3d0-1a39885dfe1e
+
+	measure 'Sesgo Confusion Eliminado %' =
+			CALCULATE(
+				MAX(Inferencia_Causal_Resultados[SesgoEliminadoPct]),
+				Inferencia_Causal_Resultados[EfectoAnalizado] = "Efecto Causal ATE Descuentos Comerciales (DML)"
+			)
+		formatString: 0.00%
+		displayFolder: 04 Inferencia Causal Econometrica
+		lineageTag: 5dc0d6cf-2ccf-44c1-9ba9-2f1656adf27e
+
+	measure 'Pass-Through Insumos ERPT' =
+			CALCULATE(
+				MAX(Inferencia_Causal_Resultados[CoeficienteEstimado]),
+				Inferencia_Causal_Resultados[EfectoAnalizado] = "Pass-Through Cambiario en Insumos Secos (ERPT)"
+			)
+		formatString: 0.0000
+		displayFolder: 04 Inferencia Causal Econometrica
+		lineageTag: 757d9da6-7b9f-41c6-962e-e28adafcb85a
+
+	measure 'Pass-Through Domestico ERPT' =
+			CALCULATE(
+				MAX(Inferencia_Causal_Resultados[CoeficienteEstimado]),
+				Inferencia_Causal_Resultados[EfectoAnalizado] = "Pass-Through Cambiario en Precios Domesticos (ERPT)"
+			)
+		formatString: 0.0000
+		displayFolder: 04 Inferencia Causal Econometrica
+		lineageTag: fef71617-2fd7-4c80-a899-8d4b8ef8f81e
+
+	measure 'Benchmark OLS Descuentos' =
+			CALCULATE(
+				MAX(Inferencia_Causal_Resultados[Benchmark_OLS_Ingenuo]),
+				Inferencia_Causal_Resultados[EfectoAnalizado] = "Efecto Causal ATE Descuentos Comerciales (DML)"
+			)
+		formatString: 0.0000
+		displayFolder: 04 Inferencia Causal Econometrica
+		lineageTag: 79d6d082-fba8-4c51-b5a8-c3fccf7e8dee
+
+	measure 'IC 95 Inferior ATE DML' =
+			CALCULATE(
+				MAX(Inferencia_Causal_Resultados[IC_95_Inferior]),
+				Inferencia_Causal_Resultados[EfectoAnalizado] = "Efecto Causal ATE Descuentos Comerciales (DML)"
+			)
+		formatString: 0.0000
+		displayFolder: 04 Inferencia Causal Econometrica
+		lineageTag: 9d3c4998-1996-418e-9a09-8b9cfefb9e18
+
+	measure 'IC 95 Superior ATE DML' =
+			CALCULATE(
+				MAX(Inferencia_Causal_Resultados[IC_95_Superior]),
+				Inferencia_Causal_Resultados[EfectoAnalizado] = "Efecto Causal ATE Descuentos Comerciales (DML)"
+			)
+		formatString: 0.0000
+		displayFolder: 04 Inferencia Causal Econometrica
+		lineageTag: 87d703c8-74d8-4112-b656-05565734c61e
+
+	measure 'ATE Causal Promedio Segmentos' = AVERAGE(Inferencia_Causal_Detalle_Segmento[ATE_Causal])
+		formatString: 0.00
+		displayFolder: 04 Inferencia Causal Econometrica
+		lineageTag: c2cb1055-da8a-402e-bc96-addce38ffb67
+
+	measure 'ATE Causal Segmento Entrada' =
+			CALCULATE(
+				MAX(Inferencia_Causal_Detalle_Segmento[ATE_Causal]),
+				Inferencia_Causal_Detalle_Segmento[Segmento] = "Varietales Jovenes & Entrada"
+			)
+		formatString: 0.00
+		displayFolder: 04 Inferencia Causal Econometrica
+		lineageTag: 6362bd3e-ec5a-4304-8204-50649d5ce293
+
+	measure 'ATE Causal Segmento Icono' =
+			CALCULATE(
+				MAX(Inferencia_Causal_Detalle_Segmento[ATE_Causal]),
+				Inferencia_Causal_Detalle_Segmento[Segmento] = "Lineas Icono & Gran Reserva"
+			)
+		formatString: 0.00
+		displayFolder: 04 Inferencia Causal Econometrica
+		lineageTag: 65c329b6-ff0c-4400-b53d-34efdadc2ab6
+
+	measure 'Prescripcion Pricing Causal' = "ELASTICIDAD ESTRUCTURAL AISLADA: Otorgar descuentos solo donde el ATE supera 1.5x. En lineas inelasticas (Gran Reserva), blindar precio para defender margen."
+		displayFolder: 04 Inferencia Causal Econometrica
+		lineageTag: 49cca55a-27e5-4e62-9768-9fe6ba1e2120
+
+	column Medidas
+		dataType: string
+		isHidden
+		lineageTag: e0d6cf7a-01a5-496c-8429-30f1f8d733b9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Medidas]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Medidas_Riesgo_Prediccion = calculated
+		mode: import
+		source = Row("Medidas", "Tabla Centralizada de Medidas de Riesgo y Prediccion")
+

@@ -1,0 +1,452 @@
+table _Medidas_Comercial
+	lineageTag: f8a9b0c1-0101-0101-0101-060101010101
+
+	measure 'Ingresos Reales' = SUM(Ventas[IngresosReales])
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 01 Ventas y Cumplimiento
+		lineageTag: a1b2c3d4-1111-2222-3333-000100010001
+
+	measure 'Volumen Real' = SUM(Ventas[VolumenReal])
+		formatString: #,##0;(#,##0);"-"
+		displayFolder: 01 Ventas y Cumplimiento
+		lineageTag: a1b2c3d4-1111-2222-3333-000100010002
+
+	measure 'Ingresos Presupuesto' =
+			VAR _CanalesSel = VALUES(Ventas[CanalVenta])
+			VAR _IncluyeExport = "Exportacion Directa" IN _CanalesSel
+			VAR _PresupuestoExport = CALCULATE(SUM(PresupuestoVentas[IngresosPresupuestados]), PresupuestoVentas[CentroCostoID] = "CC-203")
+			VAR _PresupuestoDomesticoTotal = CALCULATE(SUM(PresupuestoVentas[IngresosPresupuestados]), PresupuestoVentas[CentroCostoID] = "CC-202")
+			VAR _RealDomesticoSel = CALCULATE([Ingresos Reales], REMOVEFILTERS(Ventas[CanalVenta]), KEEPFILTERS(Ventas[CanalVenta] IN _CanalesSel), Ventas[CanalVenta] <> "Exportacion Directa")
+			VAR _RealDomesticoTotal = CALCULATE([Ingresos Reales], REMOVEFILTERS(Ventas[CanalVenta]), Ventas[CanalVenta] IN {"Canal Horeca", "Supermercados", "Distribuidor Mayorista"})
+			VAR _PresupuestoDomAsignado = _PresupuestoDomesticoTotal * DIVIDE(_RealDomesticoSel, _RealDomesticoTotal, 0)
+			RETURN
+				_PresupuestoDomAsignado + IF(_IncluyeExport, _PresupuestoExport, 0)
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 01 Ventas y Cumplimiento
+		lineageTag: a1b2c3d4-1111-2222-3333-000100010003
+
+	measure 'Volumen Presupuesto' =
+			VAR _CanalesSel = VALUES(Ventas[CanalVenta])
+			VAR _IncluyeExport = "Exportacion Directa" IN _CanalesSel
+			VAR _PresupuestoExport = CALCULATE(SUM(PresupuestoVentas[VolumenPresupuestado]), PresupuestoVentas[CentroCostoID] = "CC-203")
+			VAR _PresupuestoDomesticoTotal = CALCULATE(SUM(PresupuestoVentas[VolumenPresupuestado]), PresupuestoVentas[CentroCostoID] = "CC-202")
+			VAR _RealDomesticoSel = CALCULATE([Volumen Real], REMOVEFILTERS(Ventas[CanalVenta]), KEEPFILTERS(Ventas[CanalVenta] IN _CanalesSel), Ventas[CanalVenta] <> "Exportacion Directa")
+			VAR _RealDomesticoTotal = CALCULATE([Volumen Real], REMOVEFILTERS(Ventas[CanalVenta]), Ventas[CanalVenta] IN {"Canal Horeca", "Supermercados", "Distribuidor Mayorista"})
+			VAR _PresupuestoDomAsignado = _PresupuestoDomesticoTotal * DIVIDE(_RealDomesticoSel, _RealDomesticoTotal, 0)
+			RETURN
+				_PresupuestoDomAsignado + IF(_IncluyeExport, _PresupuestoExport, 0)
+		formatString: #,##0;(#,##0);"-"
+		displayFolder: 01 Ventas y Cumplimiento
+		lineageTag: a1b2c3d4-1111-2222-3333-000100010004
+
+	measure 'Cumplimiento Presupuesto %' = DIVIDE([Ingresos Reales], [Ingresos Presupuesto], 0)
+		formatString: 0.00%;(0.00%);"-"
+		displayFolder: 01 Ventas y Cumplimiento
+		lineageTag: a1b2c3d4-1111-2222-3333-000100010005
+
+	measure 'Desvio Cuota %' = DIVIDE([Ingresos Reales] - [Ingresos Presupuesto], [Ingresos Presupuesto], 0)
+		formatString: +0.00%;-0.00%;0.00%
+		displayFolder: 01 Ventas y Cumplimiento
+		lineageTag: a1b2c3d4-1111-2222-3333-000100010006
+
+	measure 'Desvio Ingresos $' = [Ingresos Reales] - [Ingresos Presupuesto]
+		formatString: +$#,##0;-$#,##0;"-"
+		displayFolder: 01 Ventas y Cumplimiento
+		lineageTag: a1b2c3d4-1111-2222-3333-000100010007
+
+	measure 'Cantidad Pedidos' = DISTINCTCOUNT(Ventas[TransaccionID])
+		formatString: #,##0
+		displayFolder: 01 Ventas y Cumplimiento
+		lineageTag: a1b2c3d4-1111-2222-3333-000100010008
+
+	measure 'Ticket Promedio' = DIVIDE([Ingresos Reales], [Cantidad Pedidos], 0)
+		formatString: $#,##0.00;($#,##0.00);"-"
+		displayFolder: 01 Ventas y Cumplimiento
+		lineageTag: a1b2c3d4-1111-2222-3333-000100010009
+
+	measure 'Subtitulo Brecha Volumen' = "Plan: " & FORMAT([Volumen Presupuesto], "#,##0") & " | Brecha: " & FORMAT([Volumen Presupuesto] - [Volumen Real], "#,##0")
+		formatString: @
+		lineageTag: c7d4e1a9-2b6f-4c8d-9a3e-5f1b7c8d9e2a
+
+	measure 'Precio Promedio Real' = DIVIDE([Ingresos Reales], [Volumen Real], 0)
+		formatString: $#,##0.00;($#,##0.00);"-"
+		displayFolder: 02 Precios, Costos y Margen
+		lineageTag: b2c3d4e5-2222-3333-4444-000200010001
+
+	measure 'Precio Lista Presupuestado' = DIVIDE([Ingresos Presupuesto], [Volumen Presupuesto], 0)
+		formatString: $#,##0.00;($#,##0.00);"-"
+		displayFolder: 02 Precios, Costos y Margen
+		lineageTag: b2c3d4e5-2222-3333-4444-000200010002
+
+	measure 'Desvio de Precio $' = [Precio Promedio Real] - [Precio Lista Presupuestado]
+		formatString: +$#,##0.00;-$#,##0.00;"-"
+		displayFolder: 02 Precios, Costos y Margen
+		lineageTag: b2c3d4e5-2222-3333-4444-000200010003
+
+	measure 'Descuento Comercial Promedio %' = DIVIDE([Precio Lista Presupuestado] - [Precio Promedio Real], [Precio Lista Presupuestado], 0)
+		formatString: 0.00%;(0.00%);"0.00%"
+		displayFolder: 02 Precios, Costos y Margen
+		lineageTag: b2c3d4e5-2222-3333-4444-000200010004
+
+	measure 'Costo Real Total' = SUM(Ventas[CostoReal])
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 02 Precios, Costos y Margen
+		lineageTag: b2c3d4e5-2222-3333-4444-000200010005
+
+	measure 'Margen Bruto Real' = SUM(Ventas[MargenBrutoReal])
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 02 Precios, Costos y Margen
+		lineageTag: b2c3d4e5-2222-3333-4444-000200010006
+
+	measure 'Margen Bruto %' = DIVIDE([Margen Bruto Real], [Ingresos Reales], 0)
+		formatString: 0.00%;(0.00%);"-"
+		displayFolder: 02 Precios, Costos y Margen
+		lineageTag: b2c3d4e5-2222-3333-4444-000200010007
+
+	measure 'Margen Presupuesto Total' = SUM(PresupuestoVentas[MargenBrutoPresupuestado])
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 02 Precios, Costos y Margen
+		lineageTag: b2c3d4e5-2222-3333-4444-000200010008
+
+	measure 'Margen Presupuesto %' = DIVIDE([Margen Presupuesto Total], [Ingresos Presupuesto], 0)
+		formatString: 0.00%;(0.00%);"-"
+		displayFolder: 02 Precios, Costos y Margen
+		lineageTag: b2c3d4e5-2222-3333-4444-000200010009
+
+	measure 'Ventas Acumuladas %' =
+			VAR TablaRanking =
+				ADDCOLUMNS(
+					SUMMARIZE(ALLSELECTED(Productos), Productos[SKU]),
+					"@Ingresos", CALCULATE([Ingresos Reales])
+				)
+			VAR VentasActual = [Ingresos Reales]
+			VAR TotalVentas = CALCULATE([Ingresos Reales], ALLSELECTED(Productos))
+			VAR Acum = SUMX(FILTER(TablaRanking, [@Ingresos] >= VentasActual), [@Ingresos])
+			RETURN
+				DIVIDE(Acum, TotalVentas, 0)
+		formatString: 0.00%
+		displayFolder: 03 Pareto y Cartera ABC
+		lineageTag: c3d4e5f6-3333-4444-5555-000300010001
+
+	measure 'Clasificacion ABC' = IF(ISBLANK([Ingresos Reales]), BLANK(), IF([Ventas Acumuladas %] <= 0.75, "Clase A", IF([Ventas Acumuladas %] <= 0.92, "Clase B", "Clase C")))
+		displayFolder: 03 Pareto y Cartera ABC
+		lineageTag: c3d4e5f6-3333-4444-5555-000300010002
+
+	measure 'SKUs Clase A' = COUNTROWS(FILTER(VALUES(Productos[SKU]), [Clasificacion ABC] = "Clase A"))
+		formatString: #,##0
+		displayFolder: 03 Pareto y Cartera ABC
+		lineageTag: c3d4e5f6-3333-4444-5555-000300010003
+
+	measure 'Ingresos Clase A' = CALCULATE([Ingresos Reales], FILTER(VALUES(Productos[SKU]), [Clasificacion ABC] = "Clase A"))
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 03 Pareto y Cartera ABC
+		lineageTag: c3d4e5f6-3333-4444-5555-000300010004
+
+	measure 'Concentracion Top 2 Productos %' = DIVIDE(SUMX(TOPN(2, ALLSELECTED(Productos[SKU]), [Ingresos Reales], DESC), [Ingresos Reales]), CALCULATE([Ingresos Reales], ALLSELECTED(Productos)), 0)
+		formatString: 0.00%
+		displayFolder: 03 Pareto y Cartera ABC
+		lineageTag: c3d4e5f6-3333-4444-5555-000300010005
+
+	measure 'Margen Promedio Clase A' = CALCULATE([Margen Bruto %], FILTER(VALUES(Productos[SKU]), [Clasificacion ABC] = "Clase A"))
+		formatString: 0.00%
+		displayFolder: 03 Pareto y Cartera ABC
+		lineageTag: c3d4e5f6-3333-4444-5555-000300010006
+
+	measure 'Recomendacion Estrategica ABC' =
+			SWITCH(
+				[Clasificacion ABC],
+				"Clase A", "🟢 Stock y margen prioritario",
+				"Clase B", "🟡 Estimular volumen Horeca",
+				"Clase C", "🔴 Ajustar precio o liquidar",
+				"⚪ Revision de cartera"
+			)
+		displayFolder: 03 Pareto y Cartera ABC
+		lineageTag: c3d4e5f6-3333-4444-5555-000300010007
+
+	measure 'Facturacion Bruta Total' = SUMX(Ventas, Ventas[VolumenReal] * RELATED(Productos[PrecioPresupuestadoUnit]))
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 04 Elasticidad y Deducciones
+		lineageTag: a9d7cd60-7c93-4814-b94d-45040e625028
+
+	measure 'Deducciones Comerciales Total' = [Facturacion Bruta Total] - [Ingresos Reales]
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 04 Elasticidad y Deducciones
+		lineageTag: a146a170-f952-41e9-8bc1-921445d44bf3
+
+	measure 'Deducciones Comerciales %' = DIVIDE([Deducciones Comerciales Total], [Facturacion Bruta Total], 0)
+		formatString: 0.00%
+		displayFolder: 04 Elasticidad y Deducciones
+		lineageTag: 014ad485-77e4-4ea7-aa4f-2349b4eb1275
+
+	measure 'Margen Contribucion Comercial' = [Ingresos Reales] - [Costo Real Total]
+		formatString: $#,##0;($#,##0);"-"
+		displayFolder: 04 Elasticidad y Deducciones
+		lineageTag: 0becb021-64c0-4dce-8b9d-5f550f7fdb27
+
+	measure 'Desvio Precio Relativo %' = DIVIDE([Precio Promedio Real] - [Precio Lista Presupuestado], [Precio Lista Presupuestado], 0)
+		formatString: +0.00%;-0.00%;0.00%
+		displayFolder: 04 Elasticidad y Deducciones
+		lineageTag: 8a5ef6cb-dc08-424c-bf3c-55c68083e4bf
+
+	measure 'Color Semaforo Precio' =
+			SWITCH(
+				TRUE(),
+				[Desvio Precio Relativo %] < -0.05, "#DC2626",
+				[Desvio Precio Relativo %] < 0.00, "#D97706",
+				"#059669"
+			)
+		formatString: @
+		displayFolder: 04 Elasticidad y Deducciones
+		lineageTag: 5f2b8c14-6a3d-4e91-b7f0-2c9d1a6e8b3f
+
+	measure 'Semaforo KPI' =
+			VAR _desvio = [Desvio Cuota %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        _desvio >= 0,               "CUMPLE",
+			        _desvio >= -0.05,           "ALERTA",
+			        "CRITICO"
+			    )
+		formatString: @
+		displayFolder: 06 Diagnostico Causal
+		lineageTag: 455e4855-a2d7-480b-a4c1-d525939cfff6
+
+	measure 'Color Semaforo KPI' =
+			SWITCH(
+			    [Semaforo KPI],
+			    "CUMPLE",  "#059669",
+			    "ALERTA",  "#D97706",
+			    "CRITICO", "#DC2626",
+			    "#1E293B"
+			)
+		formatString: @
+		displayFolder: 06 Diagnostico Causal
+		lineageTag: 7bcec410-3789-4d7d-b130-18968a97410b
+
+	measure 'Top Causa Desvio' =
+			VAR _tbl =
+			    ADDCOLUMNS(
+			        VALUES(Productos[Linea]),
+			        "@desvio", ABS(CALCULATE([Desvio Cuota %]))
+			    )
+			VAR _top =
+			    TOPN(1, _tbl, [@desvio], DESC)
+			RETURN
+			    CONCATENATEX(_top, Productos[Linea], ", ")
+		formatString: @
+		displayFolder: 06 Diagnostico Causal
+		lineageTag: 45400334-5753-43d2-b26d-cfe4db2df110
+
+	measure 'Magnitud Desvio Top Causa' =
+			VAR _tbl =
+			    ADDCOLUMNS(
+			        VALUES(Productos[Linea]),
+			        "@desvio", ABS(CALCULATE([Desvio Cuota %]))
+			    )
+			VAR _top =
+			    TOPN(1, _tbl, [@desvio], DESC)
+			RETURN
+			    MAXX(_top, [@desvio])
+		formatString: +0.00%;-0.00%;0.00%
+		displayFolder: 06 Diagnostico Causal
+		lineageTag: d28f3c4f-6532-4824-92e8-1f712dbccc0e
+
+	measure 'Diagnostico Causal' =
+			VAR _estado   = [Semaforo KPI]
+			VAR _causa    = [Top Causa Desvio]
+			VAR _magnitud = FORMAT([Magnitud Desvio Top Causa], "0.0%")
+			VAR _real     = FORMAT([Ingresos Reales], "#,##0")
+			VAR _ppto     = FORMAT([Ingresos Presupuesto], "#,##0")
+			RETURN
+			    SWITCH(
+			        _estado,
+			        "CUMPLE",  "KPI en objetivo. " & _causa & " es el principal impulsor positivo (" & _magnitud & " s/ppto).",
+			        "ALERTA",  "Desvio moderado. " & _causa & " concentra la mayor brecha (" & _magnitud & "). Real: " & _real & " | Ppto: " & _ppto & ".",
+			        "CRITICO", "ACCION REQUERIDA: " & _causa & " presenta desvio critico (" & _magnitud & "). Real: " & _real & " vs Ppto: " & _ppto & "."
+			    )
+		formatString: @
+		displayFolder: 06 Diagnostico Causal
+		lineageTag: f52054a7-69d3-4eda-ad99-d6e0c584c480
+
+	measure 'Rank Desvio por Dimension' =
+			VAR _tbl = ADDCOLUMNS(VALUES(Productos[Linea]), "@dev", ABS(CALCULATE([Desvio Cuota %])))
+			RETURN RANKX(_tbl, [@dev], , DESC, Skip)
+		formatString: 0
+		displayFolder: 06 Diagnostico Causal
+		lineageTag: 536f532c-300d-4823-9f1e-cf8a1c9178f2
+
+	measure 'KPI Fuera de Objetivo' = IF([Desvio Cuota %] < -0.05, 1, 0)
+		formatString: 0
+		displayFolder: 06 Diagnostico Causal
+		lineageTag: 95cf287a-2bc3-499c-9c91-3881242f1cd5
+
+	measure 'Varianza Absoluta KPI' = [Ingresos Reales] - [Ingresos Presupuesto]
+		displayFolder: 06 Diagnostico Causal
+		lineageTag: 94c14ce9-6f2d-42d7-ad51-1680fd542f48
+
+	measure 'Periodo Seleccionado' =
+			VAR _anio = SELECTEDVALUE(Calendario[Anio], "Todos")
+			VAR _mes  = SELECTEDVALUE(Calendario[MesNombre], "")
+			RETURN
+			    IF(_mes <> "", _anio & " — " & _mes, _anio & " (todos los meses)")
+		formatString: @
+		displayFolder: 07 Storytelling y Contexto
+		lineageTag: adb09663-f065-4e3a-83d1-06ea789109f2
+
+	measure 'Titulo Dinamico Principal' = "Evolucion " & [Ingresos Reales] & " — " & [Periodo Seleccionado]
+		formatString: @
+		displayFolder: 07 Storytelling y Contexto
+		lineageTag: 350b0082-0ecd-4ac0-9aca-36b75f5c2b07
+
+	measure 'Real Anio Anterior' = CALCULATE([Ingresos Reales], SAMEPERIODLASTYEAR(Calendario[Fecha]))
+		displayFolder: 07 Storytelling y Contexto
+		lineageTag: 957edb8e-6e7b-41e8-9e6d-0855a0c1dad6
+
+	measure 'Variacion YoY' = DIVIDE([Ingresos Reales] - [Real Anio Anterior], ABS([Real Anio Anterior]), BLANK())
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 07 Storytelling y Contexto
+		lineageTag: b84a4ce2-a4d0-4d2f-b683-b790aadf4f1e
+
+	measure 'Variacion YoY Texto' =
+			VAR _yoy = [Variacion YoY]
+			RETURN
+			    IF(
+			        ISBLANK(_yoy),
+			        "Sin periodo anterior comparable",
+			        IF(_yoy >= 0,
+			            "+" & FORMAT(_yoy, "0.0%") & " vs. año anterior",
+			            FORMAT(_yoy, "0.0%") & " vs. año anterior"
+			        )
+			    )
+		formatString: @
+		displayFolder: 07 Storytelling y Contexto
+		lineageTag: 16d98439-985f-4839-827d-6dc6157a4edc
+
+	measure 'Resumen Ejecutivo' =
+			VAR _estado   = [Semaforo KPI]
+			VAR _dev      = FORMAT(ABS([Desvio Cuota %]), "0.0%")
+			VAR _yoy      = [Variacion YoY Texto]
+			VAR _causa    = [Top Causa Desvio]
+			VAR _periodo  = [Periodo Seleccionado]
+			RETURN
+			    SWITCH(
+			        _estado,
+			        "CUMPLE",
+			            "SITUACION: En objetivo para " & _periodo & ". " &
+			            "El cumplimiento es positivo con " & _yoy & ". " &
+			            "Impulsor principal: " & _causa & ".",
+			        "ALERTA",
+			            "ATENCION: Desvio moderado (" & _dev & " bajo plan) en " & _periodo & ". " &
+			            _yoy & ". " &
+			            "Revisar: " & _causa & ".",
+			        "CRITICO",
+			            "ACCION URGENTE: Desvio critico (" & _dev & " bajo plan) en " & _periodo & ". " &
+			            _yoy & ". " &
+			            "Dimension mas comprometida: " & _causa & ". Se requiere plan de recuperacion."
+			    )
+		formatString: @
+		displayFolder: 07 Storytelling y Contexto
+		lineageTag: 9ba86a27-09e9-4b78-93ba-3bce3719005d
+
+	measure 'Tendencia YoY Icono' = IF([Variacion YoY] >= 0, "▲", "▼")
+		formatString: @
+		displayFolder: 07 Storytelling y Contexto
+		lineageTag: d962cfc9-3ed0-46bd-896e-b5c9284d727a
+
+	measure 'Diagnostico Cointegracion LP' =
+			VAR _pVal = MIN(TestsCointegracion[PValue])
+			RETURN
+				IF(
+					ISBLANK(_pVal),
+					"Analisis de cointegracion no disponible",
+					IF(
+						_pVal < 0.05,
+						"RELACION DE LARGO PLAZO CONFIRMADA (Engle-Granger p=" & FORMAT(_pVal, "0.000") & " < 0.05). Existe equilibrio estacionario entre precio y volumen. La demanda absorbe ajustes tarifarios alineados a la inflacion.",
+						"AUSENCIA DE COINTEGRACION (Engle-Granger p=" & FORMAT(_pVal, "0.000") & " >= 0.05). Ruptura estructural detectada. Shocks de precio generan efectos permanentes; prohibido aplicar subas por encima del promedio de la competencia."
+					)
+				)
+		formatString: @
+		displayFolder: 08 Diagnostico Econometrico y Prescripcion
+		lineageTag: e6479b7e-6a15-4fa8-a56d-4c1db4aae0b3
+
+	measure 'Estrategia Pricing Elasticidad' =
+			VAR _seg = SELECTEDVALUE(ElasticidadSegmento[Segmento], "Consolidado")
+			VAR _beta = AVERAGE(ElasticidadSegmento[Beta_Elasticidad])
+			RETURN
+				SWITCH(
+					TRUE(),
+					ISBLANK(_beta), "Seleccione un segmento para evaluar la respuesta de precios",
+					_seg = "Gran Reserva / Icono" || _beta > -0.005,
+						"DEMANDA INELASTICA (" & _seg & ", beta=" & FORMAT(_beta, "0.0000") & "). Los consumidores priorizan valor de marca. Accion: Incrementar precios (+5% a +8% sobre IPC) para maximizar margen bruto sin merma de volumen.",
+					_seg = "Entrada" || _beta < -0.010,
+						"DEMANDA ELASTICA (" & _seg & ", beta=" & FORMAT(_beta, "0.0000") & "). Alta sensibilidad competitiva. Accion: Prohibido aumento unilateral de precios. Competir por volumen, promociones cruzadas y absorcion de costos fabriles.",
+					"ELASTICIDAD MODERADA (" & _seg & ", beta=" & FORMAT(_beta, "0.0000") & "). Trasladar estrictamente variaciones de costo directo sin recargo de margen adicional."
+				)
+		formatString: @
+		displayFolder: 08 Diagnostico Econometrico y Prescripcion
+		lineageTag: 323d5e03-cbfc-4048-872c-b1123ebbedcb
+
+	measure 'Alerta Cuello de Botella Estacionalidad' =
+			VAR _mesMax = TOPN(1, ALL(EstacionalidadMensual), EstacionalidadMensual[indice_estacional_real_inv2024], DESC)
+			VAR _nombreMax = MAXX(_mesMax, EstacionalidadMensual[NombreMes])
+			VAR _idxMax = MAXX(_mesMax, EstacionalidadMensual[indice_estacional_real_inv2024])
+			RETURN
+				"PICO ESTACIONAL PREVISTO: " & _nombreMax & " (Indice=" & FORMAT(_idxMax, "0.00") & "). Accion: Anticipar ordenes de compra de botellas y corchos a 60 dias para evitar quiebre de stock en planta."
+		formatString: @
+		displayFolder: 08 Diagnostico Econometrico y Prescripcion
+		lineageTag: ed1ca3c4-8270-4240-bb02-39ba41d8267d
+
+	measure 'Prescripcion Cartera Pareto ABC' =
+			VAR _concA = [Concentracion Top 2 Productos %]
+			VAR _skuA = [SKUs Clase A]
+			RETURN
+				"PORTAFOLIO COMERCIAL (" & FORMAT(_skuA, "#,##0") & " SKUs Clase A concentran el " & FORMAT(_concA, "0.0%") & " de ventas): Blindar stock continuo en Bag in Box y Malbec Reserva. En SKUs Clase C, evaluar incremento de precio o eliminacion de presentaciones deficitarias."
+		formatString: @
+		displayFolder: 08 Diagnostico Econometrico y Prescripcion
+		lineageTag: 31956bcc-a5a8-4783-a5dd-44110e54e05b
+
+	measure 'Semaforo Variacion Precio' =
+			SWITCH(
+				TRUE(),
+				[Desvio de Precio $] < -300, "🔴 CRITICO",
+				[Desvio de Precio $] < 0, "🟡 BAJO PLAN",
+				"🟢 ALINEADO"
+			)
+		displayFolder: 02 Precios, Costos y Margen
+		lineageTag: e83017a1-1209-42b1-912a-3819fa019234
+
+	measure 'Regla Decision Precio' =
+			SWITCH(
+				TRUE(),
+				[Desvio de Precio $] < -300, "Suspender bonificaciones",
+				[Desvio de Precio $] < 0, "Revisar escala de volumen",
+				"Defender precio de lista"
+			)
+		displayFolder: 02 Precios, Costos y Margen
+		lineageTag: f94128b2-2310-53c2-823b-4920fa120345
+
+	measure 'Desvio Precio Promedio' = [Desvio de Precio $]
+		formatString: +$#,##0.00;-$#,##0.00;"-"
+		displayFolder: 02 Precios, Costos y Margen
+		lineageTag: b2c3d4e5-9999-0002-0001-000000000001
+
+	measure 'Precio Promedio Presupuesto' = [Precio Lista Presupuestado]
+		formatString: $#,##0.00;($#,##0.00);"-"
+		displayFolder: 02 Precios, Costos y Margen
+		lineageTag: b2c3d4e5-9999-0002-0001-000000000002
+
+	column Medidas
+		dataType: string
+		isHidden
+		lineageTag: d4e5f6a7-4444-5555-6666-000400010001
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Medidas]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Medidas_Comercial = calculated
+		mode: import
+		source = Row("Medidas", "Tabla de Medidas Comerciales")
+

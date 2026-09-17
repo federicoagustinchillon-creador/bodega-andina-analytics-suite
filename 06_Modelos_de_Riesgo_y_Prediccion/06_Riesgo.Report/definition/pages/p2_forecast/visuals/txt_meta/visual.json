@@ -1,0 +1,140 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "txt_meta",
+  "position": {
+    "x": 18.0,
+    "y": 594.0,
+    "z": 10.0,
+    "height": 74.0,
+    "width": 160.0,
+    "tabOrder": 38
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "PLATAFORMA CORPORATIVA\n",
+                    "textStyle": {
+                      "fontSize": "7pt",
+                      "color": "#64748B",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Federico Agustin Chillon\n",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#F8FAFC",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Facultad de Ciencias Economicas\nUniversidad Nacional de Cuyo\n",
+                    "textStyle": {
+                      "fontSize": "7pt",
+                      "color": "#94A3B8",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": "UNCUYO - Mendoza, Argentina",
+                    "textStyle": {
+                      "fontSize": "6.5pt",
+                      "color": "#64748B",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#111827'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1E293B'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

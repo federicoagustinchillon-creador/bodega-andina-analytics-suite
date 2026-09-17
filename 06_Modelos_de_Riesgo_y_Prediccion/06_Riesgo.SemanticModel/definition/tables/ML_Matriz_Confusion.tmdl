@@ -1,0 +1,48 @@
+table ML_Matriz_Confusion
+	lineageTag: fa3c594b-d0bd-4288-830f-55c26762863b
+
+	column Modelo
+		dataType: string
+		lineageTag: 64568a56-d00b-4dc4-925a-44d472d8d74c
+		summarizeBy: none
+		sourceColumn: Modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cuadrante
+		dataType: string
+		lineageTag: eba81b30-abca-47b2-a577-6cd19251c972
+		summarizeBy: none
+		sourceColumn: Cuadrante
+
+		annotation SummarizationSetBy = Automatic
+
+	column Conteo
+		dataType: int64
+		formatString: #,##0
+		lineageTag: b0dbad4e-9225-46f0-8860-ec82705843fa
+		summarizeBy: sum
+		sourceColumn: Conteo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descripcion
+		dataType: string
+		lineageTag: 99b2b8c1-6e9d-4186-9dd4-5e651514bcb9
+		summarizeBy: none
+		sourceColumn: Descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ML_Matriz_Confusion = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/ML_Matriz_Confusion.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"Modelo", type text}, {"Cuadrante", type text}, {"Conteo", Int64.Type}, {"Descripcion", type text}}, "en-US")
+				in
+					Tipos
+
+	annotation PBI_ResultType = Table
+

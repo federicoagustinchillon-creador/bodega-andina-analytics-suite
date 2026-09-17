@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "04_Operaciones_y_Planta"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "975a829f-1e20-4257-a2d6-223605caaef4"
+  }
+}

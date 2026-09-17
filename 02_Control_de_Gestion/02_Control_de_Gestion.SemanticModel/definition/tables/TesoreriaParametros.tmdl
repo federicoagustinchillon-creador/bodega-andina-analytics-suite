@@ -1,0 +1,46 @@
+table TesoreriaParametros
+	lineageTag: f9eaf37c-0a1f-4807-867e-6ebab0b0708a
+
+	column Parametro
+		dataType: string
+		lineageTag: 89cf6c41-a48c-47d6-a512-fe80c12118fd
+		summarizeBy: none
+		sourceColumn: Parametro
+
+		annotation SummarizationSetBy = Automatic
+
+	column Valor
+		dataType: double
+		formatString: #,##0.00
+		lineageTag: dd3c3ca1-c680-4ac0-99d8-02728fb796a5
+		summarizeBy: none
+		sourceColumn: Valor
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unidad
+		dataType: string
+		lineageTag: 807fad06-2113-4ead-989e-39d43915236b
+		summarizeBy: none
+		sourceColumn: Unidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descripcion
+		dataType: string
+		lineageTag: aeece585-7a30-4693-8682-765b43959f72
+		summarizeBy: none
+		sourceColumn: Descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TesoreriaParametros = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/Tesoreria_Parametros_Optimos.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"Parametro", type text}, {"Valor", type number}, {"Unidad", type text}, {"Descripcion", type text}}, "en-US")
+				in
+					Tipos
+

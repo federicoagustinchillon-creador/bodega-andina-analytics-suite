@@ -13,7 +13,7 @@ import duckdb
 BASE_DIR = r"c:\Users\fedea\Downloads\cv\Portfolio_Empresarial_PowerBI"
 GOLD_DIR = os.path.join(BASE_DIR, "01_Limpieza_de_Datos", "curated_gold")
 SUITE03_DIR = os.path.join(BASE_DIR, "04_Operaciones_y_Planta")
-TMDL_DIR = os.path.join(SUITE03_DIR, "Operaciones_y_Planta.SemanticModel", "definition")
+TMDL_DIR = os.path.join(SUITE03_DIR, "04_Operaciones_y_Planta.SemanticModel", "definition")
 
 def test_fact_operaciones_planta():
     print("--- 1. Auditando fact_operaciones_planta.csv ---")

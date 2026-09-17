@@ -1,0 +1,77 @@
+table ML_Metricas_Forecasting
+	lineageTag: c44c2f05-1fa1-4571-849f-ec0de49b5b78
+
+	column Modelo
+		dataType: string
+		lineageTag: a76f0f78-96c9-4ac8-a68c-2be1e8b88f46
+		summarizeBy: none
+		sourceColumn: Modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column RMSE
+		dataType: double
+		formatString: #,##0.00
+		lineageTag: 7da1816f-5d4e-443d-be22-e8202c9fb0c0
+		summarizeBy: none
+		sourceColumn: RMSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MAE
+		dataType: double
+		formatString: #,##0.00
+		lineageTag: 550f2775-3063-4375-ba4a-0ca59d081bf9
+		summarizeBy: none
+		sourceColumn: MAE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MAPE_Pct
+		dataType: double
+		formatString: 0.00
+		lineageTag: 73c49332-521f-481d-b6a3-b2e5525d59a1
+		summarizeBy: none
+		sourceColumn: MAPE_Pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column R2_Score
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 20406864-0c08-4a06-b554-dbcfb612f7f8
+		summarizeBy: none
+		sourceColumn: R2_Score
+
+		annotation SummarizationSetBy = Automatic
+
+	column Reduccion_RMSE_vs_SARIMAX_Pct
+		dataType: double
+		formatString: +0.00%;-0.00%;0.00%
+		lineageTag: 2a12041c-384e-4be2-b0ab-3c037efc4eaf
+		summarizeBy: none
+		sourceColumn: Reduccion_RMSE_vs_SARIMAX_Pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ranking_Precision
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f5cd112-cc05-433d-9c07-e7b72e68fdeb
+		summarizeBy: none
+		sourceColumn: Ranking_Precision
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ML_Metricas_Forecasting = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/ML_Metricas_Forecasting.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"Modelo", type text}, {"RMSE", type number}, {"MAE", type number}, {"MAPE_Pct", type number}, {"R2_Score", type number}, {"Reduccion_RMSE_vs_SARIMAX_Pct", type number}, {"Ranking_Precision", Int64.Type}}, "en-US")
+				in
+					Tipos
+
+	annotation PBI_ResultType = Table
+

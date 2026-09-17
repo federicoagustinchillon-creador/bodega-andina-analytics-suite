@@ -1,0 +1,199 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "v_panel_diagnostico",
+  "position": {
+    "x": 891.0,
+    "y": 413.0,
+    "z": 10.0,
+    "height": 295.0,
+    "width": 374.0,
+    "tabOrder": 61
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "VALIDACION ECONOMETRICA & CAPACIDAD PREDICTIVA\n",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#0EA5E9",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "SUPERIORIDAD ESTRUCTURAL GBDT:\n",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#F8FAFC",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "El algoritmo Gradient Boosting Tree captura relaciones no lineales entre demanda fisica, pass-through cambiario y estacionalidad turistica, reduciendo el sesgo predictivo sistematico.\n\n",
+                    "textStyle": {
+                      "fontSize": "7.5pt",
+                      "color": "#94A3B8",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "IMPACTO EN PLANIFICACION FABRIL & SUPPLY CHAIN:\n",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#10B981",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "1. Reduccion de error predictivo out-of-sample que disminuye el stock de seguridad en 14,200 cajas.\n2. Blindaje de inventario en vendimia y embotellado: eliminacion de quiebres de servicio en varietales premium.\n3. Calibracion con intervalos de confianza al 95% para compra anticipada de insumos secos (botellas y corchos).\n\n",
+                    "textStyle": {
+                      "fontSize": "7.5pt",
+                      "color": "#94A3B8",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Area de Data Science & Supply Chain | Bodega Andina S.A.",
+                    "textStyle": {
+                      "fontSize": "7pt",
+                      "color": "#64748B",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#111827'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1E293B'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'DIAGNOSTICO DE CAPACIDAD PREDICTIVA'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9.5D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F8FAFC'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

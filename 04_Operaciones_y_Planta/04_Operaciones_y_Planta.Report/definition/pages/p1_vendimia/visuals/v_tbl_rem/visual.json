@@ -1,0 +1,475 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "v_tbl_rem",
+  "position": {
+    "x": 196.27,
+    "y": 412.44,
+    "z": 2,
+    "height": 295.82,
+    "width": 620,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProduccionPlanta"
+                    }
+                  },
+                  "Property": "FincaOrigen"
+                }
+              },
+              "queryRef": "ProduccionPlanta.FincaOrigen",
+              "nativeQueryRef": "FincaOrigen",
+              "displayName": "Finca"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProduccionPlanta"
+                    }
+                  },
+                  "Property": "VariedadUva"
+                }
+              },
+              "queryRef": "ProduccionPlanta.VariedadUva",
+              "nativeQueryRef": "VariedadUva",
+              "displayName": "Varietal"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Total Kilos Uva"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Total Kilos Uva",
+              "nativeQueryRef": "Total Kilos Uva",
+              "displayName": "Kilos Uva"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Total Litros Mosto"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Total Litros Mosto",
+              "nativeQueryRef": "Total Litros Mosto",
+              "displayName": "Litros Mosto"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Rendimiento Medio Extraccion %"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Rendimiento Medio Extraccion %",
+              "nativeQueryRef": "Rendimiento Medio Extraccion %",
+              "displayName": "Rendimiento %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Semaforo Rendimiento Extraccion"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Semaforo Rendimiento Extraccion",
+              "nativeQueryRef": "Semaforo Rendimiento Extraccion",
+              "displayName": "Semáforo Rendimiento"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Prescripcion Rendimiento Enologico"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Prescripcion Rendimiento Enologico",
+              "nativeQueryRef": "Prescripcion Rendimiento Enologico",
+              "displayName": "Prescripción Enológica"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas_Operaciones"
+                  }
+                },
+                "Property": "Total Kilos Uva"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Trazabilidad de Remitos y Molienda de Vendimia'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9.5D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Asignación a piletas y control de balance de masa'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2127f03a9f884eb38a6e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ProduccionPlanta"
+              }
+            },
+            "Property": "FincaOrigen"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c7479174549d4254954f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ProduccionPlanta"
+              }
+            },
+            "Property": "VariedadUva"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7bfee221f14a4be186bc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Total Kilos Uva"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2867c9031906478ea180",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Total Litros Mosto"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "af23abf1f00c4266abd8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Rendimiento Medio Extraccion %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "096e2fc4e4f84528ae6d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Semaforo Rendimiento Extraccion"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e57304f27ab142dab332",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Prescripcion Rendimiento Enologico"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

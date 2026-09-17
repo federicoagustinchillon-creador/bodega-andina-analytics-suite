@@ -106,15 +106,18 @@ def step_4_sync_to_gdrive():
 
         # Validacion de artefactos criticos
         critical_files = [
-            r"02_Control_de_Gestion\Control_de_Gestion.pbip",
-            r"02_Control_de_Gestion\Control_de_Gestion.Report\definition.pbir",
-            r"02_Control_de_Gestion\Control_de_Gestion.SemanticModel\definition.pbism",
-            r"03_Inteligencia_Comercial\Inteligencia_Comercial.pbip",
-            r"03_Inteligencia_Comercial\Inteligencia_Comercial.Report\definition.pbir",
-            r"03_Inteligencia_Comercial\Inteligencia_Comercial.SemanticModel\definition.pbism",
-            r"04_Operaciones_y_Planta\Operaciones_y_Planta.pbip",
-            r"04_Operaciones_y_Planta\Operaciones_y_Planta.Report\definition.pbir",
-            r"04_Operaciones_y_Planta\Operaciones_y_Planta.SemanticModel\definition.pbism"
+            r"02_Control_de_Gestion\02_Control_de_Gestion.pbip",
+            r"02_Control_de_Gestion\02_Control_de_Gestion.Report\definition.pbir",
+            r"02_Control_de_Gestion\02_Control_de_Gestion.SemanticModel\definition.pbism",
+            r"03_Inteligencia_Comercial\03_Inteligencia_Comercial.pbip",
+            r"03_Inteligencia_Comercial\03_Inteligencia_Comercial.Report\definition.pbir",
+            r"03_Inteligencia_Comercial\03_Inteligencia_Comercial.SemanticModel\definition.pbism",
+            r"04_Operaciones_y_Planta\04_Operaciones_y_Planta.pbip",
+            r"04_Operaciones_y_Planta\04_Operaciones_y_Planta.Report\definition.pbir",
+            r"04_Operaciones_y_Planta\04_Operaciones_y_Planta.SemanticModel\definition.pbism",
+            r"06_Modelos_de_Riesgo_y_Prediccion\06_Modelos_de_Riesgo_y_Prediccion.pbip",
+            r"06_Modelos_de_Riesgo_y_Prediccion\06_Riesgo.Report\definition.pbir",
+            r"06_Modelos_de_Riesgo_y_Prediccion\06_Riesgo.SemanticModel\definition.pbism"
         ]
         for cf in critical_files:
             cfp = os.path.join(gdrive_dest, cf)

@@ -1,0 +1,405 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "v_tbl_stress",
+  "position": {
+    "x": 196.0,
+    "y": 413.0,
+    "z": 10.0,
+    "height": 295.0,
+    "width": 735.0,
+    "tabOrder": 60
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Riesgo_Reverse_Stress_Testing"
+                    }
+                  },
+                  "Property": "EscenarioID"
+                }
+              },
+              "queryRef": "Riesgo_Reverse_Stress_Testing.EscenarioID",
+              "nativeQueryRef": "EscenarioID",
+              "displayName": "ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Riesgo_Reverse_Stress_Testing"
+                    }
+                  },
+                  "Property": "NombreEscenario"
+                }
+              },
+              "queryRef": "Riesgo_Reverse_Stress_Testing.NombreEscenario",
+              "nativeQueryRef": "NombreEscenario",
+              "displayName": "Nombre Escenario"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Riesgo_Reverse_Stress_Testing"
+                    }
+                  },
+                  "Property": "ShockVentasPct"
+                }
+              },
+              "queryRef": "Riesgo_Reverse_Stress_Testing.ShockVentasPct",
+              "nativeQueryRef": "ShockVentasPct",
+              "displayName": "Shock Ventas"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Riesgo_Reverse_Stress_Testing"
+                    }
+                  },
+                  "Property": "ImpactoCajaNeto"
+                }
+              },
+              "queryRef": "Riesgo_Reverse_Stress_Testing.ImpactoCajaNeto",
+              "nativeQueryRef": "ImpactoCajaNeto",
+              "displayName": "Impacto Caja ($)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Riesgo_Reverse_Stress_Testing"
+                    }
+                  },
+                  "Property": "BufferSolvenciaRestante"
+                }
+              },
+              "queryRef": "Riesgo_Reverse_Stress_Testing.BufferSolvenciaRestante",
+              "nativeQueryRef": "BufferSolvenciaRestante",
+              "displayName": "Buffer Restante ($)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Riesgo_Reverse_Stress_Testing"
+                    }
+                  },
+                  "Property": "EstadoSolvencia"
+                }
+              },
+              "queryRef": "Riesgo_Reverse_Stress_Testing.EstadoSolvencia",
+              "nativeQueryRef": "EstadoSolvencia",
+              "displayName": "Estado Solvencia"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Riesgo_Reverse_Stress_Testing"
+                    }
+                  },
+                  "Property": "Semaforo"
+                }
+              },
+              "queryRef": "Riesgo_Reverse_Stress_Testing.Semaforo",
+              "nativeQueryRef": "Semaforo",
+              "displayName": "Semáforo Basilea"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Riesgo_Reverse_Stress_Testing"
+                    }
+                  },
+                  "Property": "PrescripcionDirectiva"
+                }
+              },
+              "queryRef": "Riesgo_Reverse_Stress_Testing.PrescripcionDirectiva",
+              "nativeQueryRef": "PrescripcionDirectiva",
+              "displayName": "Prescripcion Directiva"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Riesgo_Reverse_Stress_Testing"
+                  }
+                },
+                "Property": "BufferSolvenciaRestante"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8.5D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8.5D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#111827'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1E293B'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Reverse Stress Testing Basilea III - Umbrales de Ruptura de Caja'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9.5D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F8FAFC'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Parametrizacion de Shocks Multivariados y Buffer de Solvencia Restante'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "7.5D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#94A3B8'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

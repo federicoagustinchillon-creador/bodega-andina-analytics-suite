@@ -1,0 +1,4 @@
+Modelo,RMSE,MAE,MAPE_Pct,R2_Score,Reduccion_RMSE_vs_SARIMAX_Pct,Ranking_Precision
+Gradient_Boosting_Regressor,8835.17,6600.14,3.64,0.8915,-28.59,1
+Random_Forest_Regressor,10384.19,7422.33,4.08,0.8502,-51.13,2
+Benchmark_SARIMAX_1_1_1,6871.03,5710.35,3.52,0.9344,0.0,3

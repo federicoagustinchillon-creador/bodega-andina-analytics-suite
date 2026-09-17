@@ -1,0 +1,49 @@
+table Riesgo_Distribucion_MonteCarlo_30d
+	lineageTag: f6b400a2-950a-4c30-85e9-10497d716801
+
+	column Percentil
+		dataType: double
+		formatString: 0.0
+		lineageTag: 7d462f95-f04d-477a-acb3-1ffba79c0ee8
+		summarizeBy: none
+		sourceColumn: Percentil
+
+		annotation SummarizationSetBy = Automatic
+
+	column FlujoAcumuladoSimulado
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: 897c2a77-cae3-43d1-9e46-059d03749cbf
+		summarizeBy: none
+		sourceColumn: FlujoAcumuladoSimulado
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZonaRiesgo
+		dataType: string
+		lineageTag: 2fa27379-23d6-4091-9edf-a47fbdf2a05f
+		summarizeBy: none
+		sourceColumn: ZonaRiesgo
+
+		annotation SummarizationSetBy = Automatic
+
+	column ColorZona
+		dataType: string
+		lineageTag: a2485eb1-2370-4f32-a1bc-2656e4482cdc
+		summarizeBy: none
+		sourceColumn: ColorZona
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Riesgo_Distribucion_MonteCarlo_30d = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/Riesgo_Distribucion_MonteCarlo_30d.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"Percentil", type number}, {"FlujoAcumuladoSimulado", type number}, {"ZonaRiesgo", type text}, {"ColorZona", type text}}, "en-US")
+				in
+					Tipos
+
+	annotation PBI_ResultType = Table
+

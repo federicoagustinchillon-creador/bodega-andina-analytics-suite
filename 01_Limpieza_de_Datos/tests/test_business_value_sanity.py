@@ -18,7 +18,7 @@ import pytest
 
 BASE = Path(__file__).resolve().parent.parent
 GOLD = BASE / "curated_gold"
-ECON_OUT = BASE.parent / "Analisis_Econometrico" / "outputs"
+ECON_OUT = BASE.parent / "05_Analisis_Econometrico" / "outputs"
 
 
 @pytest.fixture(scope="module")
@@ -131,3 +131,50 @@ def test_estacionalidad_correlaciona_con_indice_real():
     d = json.load(open(ECON_OUT / "estacionalidad_resultados.json", encoding="utf-8"))
     corr = d["correlacion_con_indice_real"]
     assert corr > 0.7, f"Correlacion STL vs. indice estacional real INV2024 = {corr:.3f} -- deberia ser alta si el patron es genuino"
+
+
+# ------------------------------------ modelos de riesgo, ML y Miller-Orr --
+def test_miller_orr_calibracion_coherente():
+    """Valida la consistencia teorica del Modelo de Miller-Orr (L < z < h)."""
+    df_mo = pd.read_csv(GOLD / "Tesoreria_Miller_Orr_Diario.csv")
+    L = df_mo["BandaInferior_L"].iloc[0]
+    z = df_mo["PuntoRetorno_Z"].iloc[0]
+    h = df_mo["BandaSuperior_H"].iloc[0]
+    assert L < z < h, f"Violacion de bandas Miller-Orr: L={L}, z={z}, h={h}"
+    assert (df_mo["SaldoOcioso"] >= 0).all(), "Existen saldos ociosos negativos"
+    assert (df_mo["CostoOportunidadDiario"] >= 0).all(), "Existen costos de oportunidad negativos"
+
+
+def test_ml_clasificacion_auc_y_recall():
+    """Valida que los modelos de clasificacion de riesgo superen los umbrales minimos de calidad."""
+    df_met = pd.read_csv(GOLD / "ML_Metricas_Clasificacion.csv")
+    mejor_auc = df_met["AUC_ROC"].max()
+    assert mejor_auc >= 0.70, f"AUC-ROC del mejor modelo ({mejor_auc:.4f}) es inferior al umbral admisible (0.70)"
+    mejor_rec = df_met["Recall"].max()
+    assert mejor_rec >= 0.85, f"Recall en mora/quiebre ({mejor_rec:.4f}) es inferior al 85%"
+
+
+def test_ml_forecasting_precision():
+    """Valida que el forecasting supervisado tenga un error porcentual controlado y buen ajuste."""
+    df_fc = pd.read_csv(GOLD / "ML_Metricas_Forecasting.csv")
+    gb_row = df_fc[df_fc["Modelo"] == "Gradient_Boosting_Regressor"].iloc[0]
+    assert gb_row["MAPE_Pct"] < 10.0, f"MAPE GBDT = {gb_row['MAPE_Pct']}% es demasiado alto"
+    assert gb_row["R2_Score"] > 0.80, f"R2 GBDT = {gb_row['R2_Score']} no explica suficiente varianza"
+
+
+def test_stress_testing_var_orden_probabilistico():
+    """Valida la coherencia de colas: VaR 99% >= VaR 95% y CVaR >= VaR."""
+    df_var = pd.read_csv(GOLD / "Riesgo_Stress_Testing_VaR.csv")
+    row_30d = df_var[df_var["HorizonteDias"] == 30].iloc[0]
+    assert row_30d["CF_VaR_99"] >= row_30d["CF_VaR_95"], "Inconsistencia: VaR 99% menor que VaR 95%"
+    assert row_30d["CVaR_95_ExpectedShortfall"] >= row_30d["CF_VaR_95"], "Inconsistencia: Expected Shortfall menor que VaR 95%"
+
+
+def test_inferencia_causal_dml_significativa():
+    """Valida que el Double Machine Learning identifique un efecto causal estadisticamente significativo."""
+    df_cau = pd.read_csv(GOLD / "Inferencia_Causal_Resultados.csv")
+    row_dml = df_cau[df_cau["EfectoAnalizado"].str.contains("ATE")].iloc[0]
+    assert row_dml["P_Valor"] < 0.05, f"Efecto ATE no significativo: p={row_dml['P_Valor']}"
+    assert row_dml["CoeficienteEstimado"] > 0, "Efecto ATE deberia ser positivo (a mayor descuento, mayor volumen demandado)"
+    assert row_dml["SesgoEliminadoPct"] > 50.0, "DML deberia corregir mas del 50% del sesgo de seleccion"
+

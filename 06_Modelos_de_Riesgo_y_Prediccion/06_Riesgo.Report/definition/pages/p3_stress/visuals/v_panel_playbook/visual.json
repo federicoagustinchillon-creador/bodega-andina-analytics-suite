@@ -1,0 +1,199 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "v_panel_playbook",
+  "position": {
+    "x": 946.0,
+    "y": 413.0,
+    "z": 10.0,
+    "height": 295.0,
+    "width": 319.0,
+    "tabOrder": 61
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "PLAYBOOK DE CONTINGENCIA BASILEA III\n",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#EF4444",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "PROTOCOLO ANTE ESCENARIO DE QUIEBRE (ESC-04):\n",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#F8FAFC",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Bajo shock combinado de caida de ventas > 38%, devaluacion de insumos > 55% y mora crediticia de 52 dias, el buffer de solvencia cae a -$4.2M agotando la cobertura de tesoreria.\n\n",
+                    "textStyle": {
+                      "fontSize": "7.5pt",
+                      "color": "#94A3B8",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "PLAN DE ACCION INMEDIATO (HORIZONTE 48 HS):\n",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#F59E0B",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "1. Ejecucion de linea de credito contingente preacordada con garantia de warrants sobre stock estibado.\n2. Congelamiento absoluto de CAPEX discrecional y diferimiento de pagos a proveedores no criticos.\n3. Descuento anticipado de cheques de primera linea en mercado de capitales y cobertura sintetica ROFEX.\n\n",
+                    "textStyle": {
+                      "fontSize": "7.5pt",
+                      "color": "#94A3B8",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Direccion de Finanzas & Riesgo Corporativo | Bodega Andina S.A.",
+                    "textStyle": {
+                      "fontSize": "7pt",
+                      "color": "#64748B",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#111827'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1E293B'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'PLAYBOOK DE CONTINGENCIA DE LIQUIDEZ'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9.5D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F8FAFC'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

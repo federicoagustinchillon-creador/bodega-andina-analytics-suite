@@ -1,0 +1,122 @@
+table TesoreriaMillerOrr
+	lineageTag: 93656459-0167-40ed-b806-fd30926e735b
+
+	column Fecha
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 3c180ee3-b49a-4b2f-bcda-33a660440078
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6828688e-48ad-4d3e-b8e0-b86785feccd6
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column FlujoNetoDiario
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: 5937c174-dc0b-4879-b652-d19b20e10b83
+		summarizeBy: sum
+		sourceColumn: FlujoNetoDiario
+
+		annotation SummarizationSetBy = Automatic
+
+	column SaldoEfectivoReal
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: 0b9d0f11-efe2-4b5f-80db-7933ddf41c51
+		summarizeBy: average
+		sourceColumn: SaldoEfectivoReal
+
+		annotation SummarizationSetBy = Automatic
+
+	column BandaInferior_L
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: a251f8e9-d782-4395-81a9-114535a5125a
+		summarizeBy: average
+		sourceColumn: BandaInferior_L
+
+		annotation SummarizationSetBy = Automatic
+
+	column PuntoRetorno_Z
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: 49b9b890-85b3-4c90-9853-686b6877a778
+		summarizeBy: average
+		sourceColumn: PuntoRetorno_Z
+
+		annotation SummarizationSetBy = Automatic
+
+	column BandaSuperior_H
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: d53db732-295f-4620-8322-b3019a89cdb6
+		summarizeBy: average
+		sourceColumn: BandaSuperior_H
+
+		annotation SummarizationSetBy = Automatic
+
+	column SaldoPromedioEsperado
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: eef78bc1-6adc-4c16-b707-b96a650fb38a
+		summarizeBy: average
+		sourceColumn: SaldoPromedioEsperado
+
+		annotation SummarizationSetBy = Automatic
+
+	column SaldoOcioso
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: 1afafccf-b791-40a3-80ae-9b7a1e67069e
+		summarizeBy: sum
+		sourceColumn: SaldoOcioso
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostoOportunidadDiario
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: 505d8a3e-983c-4043-a438-9bcc3cf57abe
+		summarizeBy: sum
+		sourceColumn: CostoOportunidadDiario
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccionRecomendada
+		dataType: string
+		lineageTag: 280cca49-f2bb-4ba8-8bae-319706898c28
+		summarizeBy: none
+		sourceColumn: AccionRecomendada
+
+		annotation SummarizationSetBy = Automatic
+
+	column MontoOperacion
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: da592af9-8a25-4949-b124-b7cc5d4be0c7
+		summarizeBy: sum
+		sourceColumn: MontoOperacion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TesoreriaMillerOrr = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/Tesoreria_Miller_Orr_Diario.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"Fecha", type date}, {"DateKey", Int64.Type}, {"FlujoNetoDiario", type number}, {"SaldoEfectivoReal", type number}, {"BandaInferior_L", type number}, {"PuntoRetorno_Z", type number}, {"BandaSuperior_H", type number}, {"SaldoPromedioEsperado", type number}, {"SaldoOcioso", type number}, {"CostoOportunidadDiario", type number}, {"AccionRecomendada", type text}, {"MontoOperacion", type number}}, "en-US")
+				in
+					Tipos
+

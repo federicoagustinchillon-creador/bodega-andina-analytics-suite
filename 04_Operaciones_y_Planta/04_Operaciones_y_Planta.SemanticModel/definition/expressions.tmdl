@@ -1,0 +1,6 @@
+/// Carpeta de datos curados en capa Gold para Operaciones y Planta.
+expression RutaDatos = "G:/Mi unidad/Federico_Chillon_Master/02_Insercion_Laboral_y_CVs/Proyecto Empresarial/Portfolio_Empresarial_PowerBI/01_Limpieza_de_Datos/curated_gold" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 1bc300af-4a46-49ea-968c-6f891739acac
+
+	annotation PBI_ResultType = Text
+

@@ -1,0 +1,68 @@
+table ML_Curva_ROC
+	lineageTag: 355ae5af-162f-4c6f-b2fa-0c1cc64926bb
+
+	column Modelo
+		dataType: string
+		lineageTag: 08d5db50-5227-4efb-9204-d7d2b3daf888
+		summarizeBy: none
+		sourceColumn: Modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Threshold
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 6d643f81-e11c-4225-93e8-a3734411f360
+		summarizeBy: none
+		sourceColumn: Threshold
+
+		annotation SummarizationSetBy = Automatic
+
+	column FPR
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 9d6f72db-aab2-42e5-b6f4-008b76baf111
+		summarizeBy: none
+		sourceColumn: FPR
+
+		annotation SummarizationSetBy = Automatic
+
+	column TPR
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 0fcd9006-e41f-45e9-9cf4-6871207d8c76
+		summarizeBy: none
+		sourceColumn: TPR
+
+		annotation SummarizationSetBy = Automatic
+
+	column Youden_J
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 83395181-eea9-4f6c-a9cc-2f9ed949adc8
+		summarizeBy: none
+		sourceColumn: Youden_J
+
+		annotation SummarizationSetBy = Automatic
+
+	column EsPuntoOptimo
+		dataType: boolean
+		lineageTag: 167b9fd7-5690-4167-8b3b-3ce771f4e251
+		summarizeBy: none
+		sourceColumn: EsPuntoOptimo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ML_Curva_ROC = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/ML_Curva_ROC.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					ReemplazarInf = Table.ReplaceValue(Encabezados, "inf", "1.0", Replacer.ReplaceText, {"Threshold"}),
+					Tipos = Table.TransformColumnTypes(ReemplazarInf, {{"Modelo", type text}, {"Threshold", type number}, {"FPR", type number}, {"TPR", type number}, {"Youden_J", type number}, {"EsPuntoOptimo", type logical}}, "en-US")
+				in
+					Tipos
+
+	annotation PBI_ResultType = Table
+

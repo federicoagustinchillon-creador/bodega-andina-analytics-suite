@@ -1,0 +1,113 @@
+table Riesgo_Stress_Testing_VaR
+	lineageTag: 45169b2a-abb9-49ac-abd4-72eb7c925d88
+
+	column HorizonteDias
+		dataType: int64
+		formatString: 0
+		lineageTag: 5efb3776-9ce3-4185-b8cf-72198c366594
+		summarizeBy: none
+		sourceColumn: HorizonteDias
+
+		annotation SummarizationSetBy = Automatic
+
+	column FlujoMedioEsperado
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: ee9a2e0a-fc20-49d1-8c5c-6a009261e963
+		summarizeBy: none
+		sourceColumn: FlujoMedioEsperado
+
+		annotation SummarizationSetBy = Automatic
+
+	column DesvioEstandar
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: 1542aef4-5ad2-40aa-a508-a7c6615f95a2
+		summarizeBy: none
+		sourceColumn: DesvioEstandar
+
+		annotation SummarizationSetBy = Automatic
+
+	column FlujoMinimo_Percentil_5
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: 4314aba3-224f-4eec-8aeb-078b0f5c0bc0
+		summarizeBy: none
+		sourceColumn: FlujoMinimo_Percentil_5
+
+		annotation SummarizationSetBy = Automatic
+
+	column FlujoMinimo_Percentil_1
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: 39d3dabb-31db-402d-a81b-709e7210cd38
+		summarizeBy: none
+		sourceColumn: FlujoMinimo_Percentil_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CF_VaR_95
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: a9833d0c-a99b-44e9-9708-64583f06f5fb
+		summarizeBy: none
+		sourceColumn: CF_VaR_95
+
+		annotation SummarizationSetBy = Automatic
+
+	column CF_VaR_99
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: c65c5b35-7deb-4859-8595-2bb8874335d3
+		summarizeBy: none
+		sourceColumn: CF_VaR_99
+
+		annotation SummarizationSetBy = Automatic
+
+	column CVaR_95_ExpectedShortfall
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: 29d6651f-9c1b-44eb-9bbb-f0634f86ec22
+		summarizeBy: none
+		sourceColumn: CVaR_95_ExpectedShortfall
+
+		annotation SummarizationSetBy = Automatic
+
+	column CVaR_99_ExpectedShortfall
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: b37127c0-e324-4dc1-89ff-d6fc5b58ad22
+		summarizeBy: none
+		sourceColumn: CVaR_99_ExpectedShortfall
+
+		annotation SummarizationSetBy = Automatic
+
+	column BufferLiquidezRequerido
+		dataType: double
+		formatString: $#,##0;($#,##0);"-"
+		lineageTag: f9e43061-2ac2-431f-92df-23832c4871aa
+		summarizeBy: none
+		sourceColumn: BufferLiquidezRequerido
+
+		annotation SummarizationSetBy = Automatic
+
+	column SemaforoRiesgo
+		dataType: string
+		lineageTag: 5df34b48-aded-4906-85c1-ca4307177e4f
+		summarizeBy: none
+		sourceColumn: SemaforoRiesgo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Riesgo_Stress_Testing_VaR = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/Riesgo_Stress_Testing_VaR.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"HorizonteDias", Int64.Type}, {"FlujoMedioEsperado", type number}, {"DesvioEstandar", type number}, {"FlujoMinimo_Percentil_5", type number}, {"FlujoMinimo_Percentil_1", type number}, {"CF_VaR_95", type number}, {"CF_VaR_99", type number}, {"CVaR_95_ExpectedShortfall", type number}, {"CVaR_99_ExpectedShortfall", type number}, {"BufferLiquidezRequerido", type number}, {"SemaforoRiesgo", type text}}, "en-US")
+				in
+					Tipos
+
+	annotation PBI_ResultType = Table
+

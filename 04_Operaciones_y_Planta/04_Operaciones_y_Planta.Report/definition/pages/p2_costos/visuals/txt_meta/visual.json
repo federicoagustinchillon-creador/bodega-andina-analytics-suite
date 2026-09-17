@@ -1,0 +1,104 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "txt_meta",
+  "position": {
+    "x": 18,
+    "y": 599.0,
+    "z": 3,
+    "height": 115,
+    "width": 160,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "PLATAFORMA CORPORATIVA\n",
+                    "textStyle": {
+                      "fontSize": "7pt",
+                      "color": "#64748B",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Federico Agustín Chillón\n",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#F8FAFC",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Facultad de Ciencias Económicas\nUniversidad Nacional de Cuyo\n",
+                    "textStyle": {
+                      "fontSize": "7pt",
+                      "color": "#94A3B8",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": "UNCUYO · Mendoza, Argentina",
+                    "textStyle": {
+                      "fontSize": "6.5pt",
+                      "color": "#475569",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

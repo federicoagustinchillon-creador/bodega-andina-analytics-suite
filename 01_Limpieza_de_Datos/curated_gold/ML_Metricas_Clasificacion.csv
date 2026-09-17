@@ -1,0 +1,4 @@
+Modelo,AUC_ROC,Accuracy,Precision,Recall,F1_Score,Brier_Score,Log_Loss,Threshold_Optimo_Youden
+Regresion_Logistica_L2,0.7691,0.75,0.7536,0.9123,0.8254,0.1852,0.5471,0.5366
+Random_Forest_Classifier,0.7606,0.7614,0.7647,0.9123,0.832,0.1827,0.5515,0.5524
+Gradient_Boosting_Tree,0.7482,0.7841,0.7879,0.9123,0.8455,0.18,0.5599,0.5746

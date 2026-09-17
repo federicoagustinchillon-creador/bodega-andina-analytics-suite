@@ -1,0 +1,91 @@
+table Productos
+	lineageTag: fa070827-a110-4443-9e4d-3db8b9134078
+
+	column ProductoID
+		dataType: string
+		isKey
+		lineageTag: 7a5b5a34-582f-4bb7-be9f-148276db1965
+		summarizeBy: none
+		sourceColumn: ProductoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SKU
+		dataType: string
+		lineageTag: 2774ba9f-3145-4dbd-97ba-605fe7f523ae
+		summarizeBy: none
+		sourceColumn: SKU
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descripcion
+		dataType: string
+		lineageTag: 649a7ed0-4185-4268-8884-aae33077af28
+		summarizeBy: none
+		sourceColumn: Descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	column Linea
+		dataType: string
+		lineageTag: 3c45edf3-903b-4d08-a857-8622464c82a1
+		summarizeBy: none
+		sourceColumn: Linea
+
+		annotation SummarizationSetBy = Automatic
+
+	column Segmento
+		dataType: string
+		lineageTag: 62890e11-f07c-417f-8c4c-62ef458d8796
+		summarizeBy: none
+		sourceColumn: Segmento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Varietal
+		dataType: string
+		lineageTag: 556b7a87-4dd2-4e9a-8f76-e73e217dcf0d
+		summarizeBy: none
+		sourceColumn: Varietal
+
+		annotation SummarizationSetBy = Automatic
+
+	column FormatoML
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b406ab7-2d23-424b-ac3a-2c9539dfc010
+		summarizeBy: none
+		sourceColumn: FormatoML
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostoEstandarUnit
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: 3a20e91e-f1f9-4d20-97db-7f9d7b54620d
+		summarizeBy: average
+		sourceColumn: CostoEstandarUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrecioPresupuestadoUnit
+		dataType: double
+		formatString: $#,##0.00;($#,##0.00);"-"
+		lineageTag: a1a733f2-29b4-4ba6-9b96-651546784d9f
+		summarizeBy: average
+		sourceColumn: PrecioPresupuestadoUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Productos = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/Productos.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"ProductoID", type text}, {"SKU", type text}, {"Descripcion", type text}, {"Linea", type text}, {"Segmento", type text}, {"Varietal", type text}, {"FormatoML", Int64.Type}, {"CostoEstandarUnit", type number}, {"PrecioPresupuestadoUnit", type number}}, "en-US")
+				in
+					Tipos
+
+	annotation PBI_ResultType = Table
+

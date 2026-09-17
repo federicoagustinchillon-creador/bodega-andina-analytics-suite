@@ -1,0 +1,32 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: es-AR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["RutaDatos","Calendario","Productos","ML_Curva_ROC","ML_Metricas_Clasificacion","ML_Matriz_Confusion","ML_Scoring_Riesgo","ML_Forecasting_Comparativo","ML_Metricas_Forecasting","Riesgo_Stress_Testing_VaR","Riesgo_Distribucion_MonteCarlo_30d","Riesgo_Reverse_Stress_Testing","Inferencia_Causal_Resultados","Inferencia_Causal_Detalle_Segmento"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Calendario
+ref table Productos
+ref table ML_Curva_ROC
+ref table ML_Metricas_Clasificacion
+ref table ML_Matriz_Confusion
+ref table ML_Scoring_Riesgo
+ref table ML_Forecasting_Comparativo
+ref table ML_Metricas_Forecasting
+ref table Riesgo_Stress_Testing_VaR
+ref table Riesgo_Distribucion_MonteCarlo_30d
+ref table Riesgo_Reverse_Stress_Testing
+ref table Inferencia_Causal_Resultados
+ref table Inferencia_Causal_Detalle_Segmento
+ref table _Medidas_Riesgo_Prediccion
+
+ref cultureInfo en-US
+

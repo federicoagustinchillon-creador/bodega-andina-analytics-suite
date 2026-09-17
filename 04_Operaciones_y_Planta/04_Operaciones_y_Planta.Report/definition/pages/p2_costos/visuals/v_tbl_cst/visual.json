@@ -1,0 +1,504 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "v_tbl_cst",
+  "position": {
+    "x": 196.27,
+    "y": 499.2,
+    "z": 2,
+    "height": 209.07,
+    "width": 620,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CentrosCosto"
+                    }
+                  },
+                  "Property": "CentroCostoID"
+                }
+              },
+              "queryRef": "CentrosCosto.CentroCostoID",
+              "nativeQueryRef": "CentroCostoID",
+              "displayName": "CeCo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CentrosCosto"
+                    }
+                  },
+                  "Property": "NombreCentroCosto"
+                }
+              },
+              "queryRef": "CentrosCosto.NombreCentroCosto",
+              "nativeQueryRef": "NombreCentroCosto",
+              "displayName": "Centro Costo"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Costo Fabril Real Centro"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Costo Fabril Real Centro",
+              "nativeQueryRef": "Costo Fabril Real Centro",
+              "displayName": "Real ($)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Costo Fabril Plan Centro"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Costo Fabril Plan Centro",
+              "nativeQueryRef": "Costo Fabril Plan Centro",
+              "displayName": "Plan ($)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Desvio Fabril Centro"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Desvio Fabril Centro",
+              "nativeQueryRef": "Desvio Fabril Centro",
+              "displayName": "Desvío ($)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Tasa Desvio Absorcion %"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Tasa Desvio Absorcion %",
+              "nativeQueryRef": "Tasa Desvio Absorcion %",
+              "displayName": "Tasa Absorción %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Semaforo Absorcion Fabril"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Semaforo Absorcion Fabril",
+              "nativeQueryRef": "Semaforo Absorcion Fabril",
+              "displayName": "Semáforo Absorción"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Regla Decision Absorcion Fabril"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Regla Decision Absorcion Fabril",
+              "nativeQueryRef": "Regla Decision Absorcion Fabril",
+              "displayName": "Regla de Decisión Fabril"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CentrosCosto"
+                  }
+                },
+                "Property": "NombreCentroCosto"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Matriz de Absorción Fabril por CeCo'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9.5D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Control presupuestario de costos directos e indirectos'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c3dac72a609748eaadb1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CentrosCosto"
+              }
+            },
+            "Property": "CentroCostoID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "30375560b659436fa439",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CentrosCosto"
+              }
+            },
+            "Property": "NombreCentroCosto"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "372169d74f6846089fab",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Costo Fabril Real Centro"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f25fbb9aa92745ceb430",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Costo Fabril Plan Centro"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "941658a8ee704ba78758",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Desvio Fabril Centro"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5b1ef48258904fafb340",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Tasa Desvio Absorcion %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4facc025dd914077ba8f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Semaforo Absorcion Fabril"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6187f2c2838d41c09fd7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Regla Decision Absorcion Fabril"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

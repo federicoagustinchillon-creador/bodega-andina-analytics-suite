@@ -4,11 +4,11 @@ on:
   push:
     paths:
       - "01_Limpieza_de_Datos/**"
-      - "Analisis_Econometrico/**"
+      - "05_Analisis_Econometrico/**"
   pull_request:
     paths:
       - "01_Limpieza_de_Datos/**"
-      - "Analisis_Econometrico/**"
+      - "05_Analisis_Econometrico/**"
   workflow_dispatch:
 
 jobs:
@@ -22,17 +22,17 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install pytest -r Analisis_Econometrico/requirements.txt
+        run: pip install pytest -r 05_Analisis_Econometrico/requirements.txt
 
       - name: Regenerate curated_gold from raw data
         working-directory: 01_Limpieza_de_Datos
         run: |
-          python generar_datos_historicos_ventas.py
-          python generar_presupuesto_2025.py
-          python etl_pipeline_cleaner.py
+          python 01_generar_datos_historicos_ventas.py
+          python 02_generar_presupuesto_2025.py
+          python 03_etl_pipeline_cleaner.py
 
       - name: Run econometric pipeline
-        working-directory: Analisis_Econometrico
+        working-directory: 05_Analisis_Econometrico
         run: |
           python src/analisis_elasticidad_cointegracion.py
           python src/estacionalidad_y_forecast.py
@@ -40,3 +40,6 @@ jobs:
 
       - name: Business-value sanity tests
         run: python -m pytest 01_Limpieza_de_Datos/tests/ -v
+
+      - name: Power BI Suite TMDL & PBIR Architecture Audit
+        run: python tools/audit_powerbi_suite.py

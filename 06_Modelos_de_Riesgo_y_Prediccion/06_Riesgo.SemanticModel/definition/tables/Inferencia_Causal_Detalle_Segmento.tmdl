@@ -1,0 +1,66 @@
+table Inferencia_Causal_Detalle_Segmento
+	lineageTag: 683d8ce9-0a00-427c-902d-bf8f0095f958
+
+	column Segmento
+		dataType: string
+		lineageTag: 46abd791-f7f8-4d55-a307-459bf22611df
+		summarizeBy: none
+		sourceColumn: Segmento
+
+		annotation SummarizationSetBy = Automatic
+
+	column ATE_Causal
+		dataType: double
+		formatString: 0.00
+		lineageTag: cba71530-a31e-4563-8bce-f8ac951e03b3
+		summarizeBy: none
+		sourceColumn: ATE_Causal
+
+		annotation SummarizationSetBy = Automatic
+
+	column IC_Inf
+		dataType: double
+		formatString: 0.00
+		lineageTag: c550816b-4630-4fd5-8a97-49c1f8f77cb5
+		summarizeBy: none
+		sourceColumn: IC_Inf
+
+		annotation SummarizationSetBy = Automatic
+
+	column IC_Sup
+		dataType: double
+		formatString: 0.00
+		lineageTag: 3d74e530-2678-4bbf-8793-bd184df62433
+		summarizeBy: none
+		sourceColumn: IC_Sup
+
+		annotation SummarizationSetBy = Automatic
+
+	column Elasticidad
+		dataType: string
+		lineageTag: d0779909-e7ad-4dac-a222-26444c0eb579
+		summarizeBy: none
+		sourceColumn: Elasticidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column Prescripcion
+		dataType: string
+		lineageTag: 63c4d2c9-9ba1-4d32-b724-4d917195f0da
+		summarizeBy: none
+		sourceColumn: Prescripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Inferencia_Causal_Detalle_Segmento = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "/Inferencia_Causal_Detalle_Segmento.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+					Tipos = Table.TransformColumnTypes(Encabezados, {{"Segmento", type text}, {"ATE_Causal", type number}, {"IC_Inf", type number}, {"IC_Sup", type number}, {"Elasticidad", type text}, {"Prescripcion", type text}}, "en-US")
+				in
+					Tipos
+
+	annotation PBI_ResultType = Table
+

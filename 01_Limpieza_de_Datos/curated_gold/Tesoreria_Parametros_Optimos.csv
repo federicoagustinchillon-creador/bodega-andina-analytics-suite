@@ -1,0 +1,9 @@
+Parametro,Valor,Unidad,Descripcion
+Saldo_Minimo_L,8500000.0,ARS,Piso de seguridad estocastico para contingencias
+Punto_Retorno_Z,11961040.86,ARS,Nivel optimo de retorno tras intervencion
+Banda_Superior_H,18883122.59,ARS,Techo de liquidez maxima para inversion automatica
+Saldo_Promedio_Esperado,13114721.15,ARS,Saldo de caja estacionario de largo plazo
+Varianza_Diaria_Flujos,10201359036576.89,ARS^2,Varianza de volatilidad de cobros y pagos
+Desvio_Estandar_Diario,3193956.64,ARS,Volatilidad diaria de caja neta
+Tasa_Costo_Oportunidad_Anual,0.3539,% TNA,Rendimiento promedio diario derivado de LECAP real
+Costo_Transaccion_Fijo,4500.0,ARS,Arancel bursatil y comision por operacion de ajuste

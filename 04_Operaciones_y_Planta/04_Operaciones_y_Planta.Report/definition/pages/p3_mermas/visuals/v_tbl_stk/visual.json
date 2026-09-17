@@ -1,0 +1,504 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "v_tbl_stk",
+  "position": {
+    "x": 196.27,
+    "y": 467.91,
+    "z": 2,
+    "height": 251.73,
+    "width": 660,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Productos"
+                    }
+                  },
+                  "Property": "SKU"
+                }
+              },
+              "queryRef": "Productos.SKU",
+              "nativeQueryRef": "SKU",
+              "displayName": "SKU"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Productos"
+                    }
+                  },
+                  "Property": "Descripcion"
+                }
+              },
+              "queryRef": "Productos.Descripcion",
+              "nativeQueryRef": "Descripcion",
+              "displayName": "Producto / Etiqueta"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Litros en Crianza"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Litros en Crianza",
+              "nativeQueryRef": "Litros en Crianza",
+              "displayName": "Litros Guarda"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Valor Inventario Guarda"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Valor Inventario Guarda",
+              "nativeQueryRef": "Valor Inventario Guarda",
+              "displayName": "Valor ($)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "DIO Promedio Dias"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.DIO Promedio Dias",
+              "nativeQueryRef": "DIO Promedio Dias",
+              "displayName": "Días (DIO)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Tasa Merma Crianza %"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Tasa Merma Crianza %",
+              "nativeQueryRef": "Tasa Merma Crianza %",
+              "displayName": "Merma (%)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Semaforo Merma Crianza"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Semaforo Merma Crianza",
+              "nativeQueryRef": "Semaforo Merma Crianza",
+              "displayName": "Semáforo Merma"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Operaciones"
+                    }
+                  },
+                  "Property": "Prescripcion Guarda y Crianza"
+                }
+              },
+              "queryRef": "_Medidas_Operaciones.Prescripcion Guarda y Crianza",
+              "nativeQueryRef": "Prescripcion Guarda y Crianza",
+              "displayName": "Prescripción Guarda & Crianza"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas_Operaciones"
+                  }
+                },
+                "Property": "Prescripcion Guarda y Crianza"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Monitor de Riesgo de Stock & Cobertura'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9.5D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Auditoría de seguridad para evitar quiebres de stock'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "69989fb943c449649313",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "SKU"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f3d0fdc73c8b4d539111",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Productos"
+              }
+            },
+            "Property": "Descripcion"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9a14d2d19bcd4d30b356",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Litros en Crianza"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "584e8d0cf1db4310bbfa",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Valor Inventario Guarda"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "51db0f30cf794a40a153",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "DIO Promedio Dias"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "32edba7a0aa8431ab4c2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Tasa Merma Crianza %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "99c76736b78d47538a35",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Semaforo Merma Crianza"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ca328ad38b8649ffaa6d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Operaciones"
+              }
+            },
+            "Property": "Prescripcion Guarda y Crianza"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
