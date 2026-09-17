@@ -1,5 +1,5 @@
 Segmento,ATE_Causal,IC_Inf,IC_Sup,Elasticidad,Prescripcion
-Lineas Icono & Gran Reserva,0.62,0.45,0.79,Inelastica,Blindar precio de lista
-Lineas Reserva & Roble,1.48,1.25,1.71,Moderada,Descuentos por escala de volumen
-Varietales Jovenes & Entrada,2.35,2.05,2.65,Altamente Elastica,Promociones activas de rotacion
-Bag in Box & Granel,2.82,2.45,3.19,Hiper Elastica,Liderazgo en costos y escala
+Lineas Icono & Gran Reserva,0.62,0.45,0.79,Inelastica,NO DESCONTAR: La demanda no responde al precio; preservar margen y posicionamiento de marca.
+Lineas Reserva & Roble,1.48,1.25,1.71,Moderada,DESCUENTOS POR VOLUMEN: Condicionar bonificaciones a pedidos superiores a 500 cajas.
+Varietales Jovenes & Entrada,2.35,2.05,2.65,Altamente Elastica,DESCUENTOS ACTIVOS: Promociones agresivas 3x2 o 15% off para maximizar absorcion fabril de bodega.
+Bag in Box & Granel,2.82,2.45,3.19,Hiper Elastica,COMPETENCIA POR COSTO: Mantener precio agresivo para sostener rotacion rapida de inventario.
