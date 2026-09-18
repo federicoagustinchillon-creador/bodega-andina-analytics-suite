@@ -8,87 +8,87 @@ table _Medidas_Riesgo_Prediccion
 
 	measure 'Modelo Clasificacion Ganador' =
 			VAR _aucMax = [AUC ROC Maximo Ganador]
-		RETURN
-			CALCULATE(
-				FIRSTNONBLANK(ML_Metricas_Clasificacion[Modelo], 1),
-				ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
-			)
+			RETURN
+				CALCULATE(
+					FIRSTNONBLANK(ML_Metricas_Clasificacion[Modelo], 1),
+					ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
+				)
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: 48ba7082-0b75-4471-9e2d-f06f6c831433
 
 	measure 'Accuracy Ganador %' =
 			VAR _aucMax = [AUC ROC Maximo Ganador]
-		RETURN
-			CALCULATE(
-				MAX(ML_Metricas_Clasificacion[Accuracy]),
-				ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
-			)
+			RETURN
+				CALCULATE(
+					MAX(ML_Metricas_Clasificacion[Accuracy]),
+					ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
+				)
 		formatString: 0.00%
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: 2e0ae350-41f9-44c5-ab24-94fc7f3b15ac
 
 	measure 'Recall Ganador %' =
 			VAR _aucMax = [AUC ROC Maximo Ganador]
-		RETURN
-			CALCULATE(
-				MAX(ML_Metricas_Clasificacion[Recall]),
-				ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
-			)
+			RETURN
+				CALCULATE(
+					MAX(ML_Metricas_Clasificacion[Recall]),
+					ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
+				)
 		formatString: 0.00%
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: 913e5e57-107f-4c41-908a-a3795ab9c39c
 
 	measure 'Precision Ganador %' =
 			VAR _aucMax = [AUC ROC Maximo Ganador]
-		RETURN
-			CALCULATE(
-				MAX(ML_Metricas_Clasificacion[Precision]),
-				ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
-			)
+			RETURN
+				CALCULATE(
+					MAX(ML_Metricas_Clasificacion[Precision]),
+					ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
+				)
 		formatString: 0.00%
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: 2f04104a-2df9-4e24-b812-55de743277e5
 
 	measure 'F1 Score Ganador' =
 			VAR _aucMax = [AUC ROC Maximo Ganador]
-		RETURN
-			CALCULATE(
-				MAX(ML_Metricas_Clasificacion[F1_Score]),
-				ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
-			)
+			RETURN
+				CALCULATE(
+					MAX(ML_Metricas_Clasificacion[F1_Score]),
+					ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
+				)
 		formatString: 0.0000
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: acb9412f-edb5-4f57-a591-e917b3aa5ca8
 
 	measure 'Threshold Optimo Youden J' =
 			VAR _aucMax = [AUC ROC Maximo Ganador]
-		RETURN
-			CALCULATE(
-				MAX(ML_Metricas_Clasificacion[Threshold_Optimo_Youden]),
-				ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
-			)
+			RETURN
+				CALCULATE(
+					MAX(ML_Metricas_Clasificacion[Threshold_Optimo_Youden]),
+					ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
+				)
 		formatString: 0.0000
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: c088fb73-71c1-45cb-862f-5bbd5ea990c2
 
 	measure 'Brier Score Ganador' =
 			VAR _aucMax = [AUC ROC Maximo Ganador]
-		RETURN
-			CALCULATE(
-				MAX(ML_Metricas_Clasificacion[Brier_Score]),
-				ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
-			)
+			RETURN
+				CALCULATE(
+					MAX(ML_Metricas_Clasificacion[Brier_Score]),
+					ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
+				)
 		formatString: 0.0000
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: 9750857d-cdba-4c48-acc7-acc20ea14843
 
 	measure 'Log Loss Ganador' =
 			VAR _aucMax = [AUC ROC Maximo Ganador]
-		RETURN
-			CALCULATE(
-				MAX(ML_Metricas_Clasificacion[Log_Loss]),
-				ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
-			)
+			RETURN
+				CALCULATE(
+					MAX(ML_Metricas_Clasificacion[Log_Loss]),
+					ML_Metricas_Clasificacion[AUC_ROC] = _aucMax
+				)
 		formatString: 0.0000
 		displayFolder: 01 Clasificacion y Scoring Crediticio
 		lineageTag: e1bd79f8-a7c6-429a-991d-5da0e5036954
