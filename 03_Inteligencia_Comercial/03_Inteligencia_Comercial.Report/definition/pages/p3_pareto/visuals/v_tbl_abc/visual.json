@@ -4,10 +4,10 @@
   "position": {
     "x": 155.02222222222221,
     "y": 482.13333333333333,
-    "z": 2,
+    "z": 7000,
     "height": 226.13333333333333,
     "width": 742.4,
-    "tabOrder": 0
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "tableEx",
@@ -354,93 +354,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "3868fe30c37c675e20d7",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "SKU"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b2ed84fb48c8b84bb60e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "Descripcion"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "e57f08e15ec9b9a62036",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "Linea"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "af43b27bc07ce0a37cb4",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Volumen Real"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "69335496379ae466b704",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Ingresos Reales"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b6facf68938d3bdc50a8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Clasificacion ABC"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

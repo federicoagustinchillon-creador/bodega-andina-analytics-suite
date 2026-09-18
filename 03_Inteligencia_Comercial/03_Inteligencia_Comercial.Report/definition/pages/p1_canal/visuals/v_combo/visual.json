@@ -4,10 +4,10 @@
   "position": {
     "x": 196.26666666666668,
     "y": 157.86666666666667,
-    "z": 2,
+    "z": 5000,
     "height": 314.31111111111113,
     "width": 620.08888888888885,
-    "tabOrder": 0
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -317,51 +317,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "344d55cb2580dc6a320c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Calendario"
-              }
-            },
-            "Property": "MesNombre"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a6428fb670406a0e5d09",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Volumen Real"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "05c92721b5150b9ec2c1",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Cumplimiento Presupuesto %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

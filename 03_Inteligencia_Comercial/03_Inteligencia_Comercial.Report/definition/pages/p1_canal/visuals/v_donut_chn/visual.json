@@ -4,10 +4,10 @@
   "position": {
     "x": 831,
     "y": 413,
-    "z": 2,
+    "z": 8000,
     "height": 295,
     "width": 435,
-    "tabOrder": 0
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "donutChart",
@@ -329,37 +329,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "2e1e07b8390aab05dc46",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Ventas"
-              }
-            },
-            "Property": "CanalVenta"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "3cd6d276503edc023e47",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Ingresos Reales"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

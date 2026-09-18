@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "hdr_nav",
   "position": {
-    "x": 196,
-    "y": 10,
+    "x": 196.25,
+    "y": 0,
     "z": 2,
-    "height": 52,
-    "width": 650,
+    "height": 52.5,
+    "width": 651.25,
     "tabOrder": 0
   },
   "visual": {

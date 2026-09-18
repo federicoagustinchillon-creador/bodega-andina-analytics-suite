@@ -4,10 +4,10 @@
   "position": {
     "x": 196.26666666666668,
     "y": 482.13333333333333,
-    "z": 2,
+    "z": 7000,
     "height": 224.71111111111111,
     "width": 620.08888888888885,
-    "tabOrder": 0
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "tableEx",
@@ -339,79 +339,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "8e774c6603d4eb01d1e5",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Ventas"
-              }
-            },
-            "Property": "CanalVenta"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a3b8171fb00d8ec34eae",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Volumen Real"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "012621668bde3aa922d8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Ingresos Reales"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "165a6129dd52936935a6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Desvio Ingresos $"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "505b55d61736bda03c6b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Cumplimiento Presupuesto %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

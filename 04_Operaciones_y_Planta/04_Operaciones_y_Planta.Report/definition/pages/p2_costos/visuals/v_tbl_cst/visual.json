@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_tbl_cst",
   "position": {
-    "x": 196.27,
-    "y": 499.2,
+    "x": 196.85924004908887,
+    "y": 499.35026744159126,
     "z": 2,
-    "height": 209.07,
-    "width": 620,
+    "height": 208.86285224720405,
+    "width": 697.40986871049165,
     "tabOrder": 0
   },
   "visual": {

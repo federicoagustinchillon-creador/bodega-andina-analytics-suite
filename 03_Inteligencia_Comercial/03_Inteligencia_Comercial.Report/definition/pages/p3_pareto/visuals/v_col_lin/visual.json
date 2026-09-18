@@ -4,10 +4,10 @@
   "position": {
     "x": 1036.8,
     "y": 157.86666666666667,
-    "z": 2,
+    "z": 5000,
     "height": 312.88888888888891,
     "width": 228.97777777777779,
-    "tabOrder": 0
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -287,37 +287,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "37ef0d60200d9372067a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "Linea"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "448d4e4520a63c5708b6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Ingresos Reales"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

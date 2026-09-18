@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "slc_yr",
   "position": {
-    "x": 18,
-    "y": 68,
+    "x": 0,
+    "y": 0,
     "z": 3,
     "height": 77,
     "width": 160,
@@ -172,5 +172,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "22c285305a01bd206017"
 }

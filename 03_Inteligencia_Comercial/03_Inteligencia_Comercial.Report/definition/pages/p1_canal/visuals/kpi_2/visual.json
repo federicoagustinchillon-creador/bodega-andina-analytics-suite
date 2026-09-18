@@ -4,10 +4,10 @@
   "position": {
     "x": 467,
     "y": 66,
-    "z": 2,
+    "z": 2000,
     "height": 84,
     "width": 256,
-    "tabOrder": 0
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
@@ -165,23 +165,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "6a5daa6fdd0c050e9108",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Cumplimiento Presupuesto %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

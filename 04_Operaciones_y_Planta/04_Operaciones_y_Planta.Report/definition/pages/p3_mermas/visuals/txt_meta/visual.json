@@ -19,35 +19,56 @@
               {
                 "textRuns": [
                   {
-                    "value": "PLATAFORMA CORPORATIVA\n",
+                    "value": "PLATAFORMA CORPORATIVA",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "7pt",
-                      "color": "#64748B",
-                      "fontWeight": "bold"
+                      "color": "#64748b"
                     }
-                  },
+                  }
+                ]
+              },
+              {
+                "textRuns": [
                   {
-                    "value": "Federico Agustín Chillón\n",
+                    "value": "Federico Agustín Chillón",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "8pt",
-                      "color": "#F8FAFC",
-                      "fontWeight": "bold"
+                      "color": "#f8fafc"
                     }
-                  },
+                  }
+                ]
+              },
+              {
+                "textRuns": [
                   {
-                    "value": "Facultad de Ciencias Económicas\nUniversidad Nacional de Cuyo\n",
+                    "value": "Facultad de Ciencias Económicas",
                     "textStyle": {
                       "fontSize": "7pt",
-                      "color": "#94A3B8",
-                      "fontWeight": "normal"
+                      "color": "#94a3b8"
                     }
-                  },
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Universidad Nacional de Cuyo",
+                    "textStyle": {
+                      "fontSize": "7pt",
+                      "color": "#94a3b8"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
                   {
                     "value": "UNCUYO · Mendoza, Argentina",
                     "textStyle": {
                       "fontSize": "6.5pt",
-                      "color": "#475569",
-                      "fontWeight": "normal"
+                      "color": "#475569"
                     }
                   }
                 ],

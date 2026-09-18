@@ -4,10 +4,10 @@
   "position": {
     "x": 155.02222222222221,
     "y": 157.86666666666667,
-    "z": 2,
+    "z": 6000,
     "height": 312.88888888888891,
     "width": 871.82222222222219,
-    "tabOrder": 0
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -334,51 +334,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "6fa37e1442c93c1a3b53",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "Descripcion"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "bdf17469168ee5b14751",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Ingresos Reales"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b96fe91c4ee0e00089e5",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Ventas Acumuladas %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

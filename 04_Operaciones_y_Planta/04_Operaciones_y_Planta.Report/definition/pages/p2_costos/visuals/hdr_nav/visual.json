@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "hdr_nav",
   "position": {
-    "x": 196,
-    "y": 10,
+    "x": 196.85924004908887,
+    "y": 0,
     "z": 2,
-    "height": 52,
-    "width": 650,
+    "height": 70.821311968879527,
+    "width": 650.59578113784244,
     "tabOrder": 0
   },
   "visual": {
@@ -21,13 +21,12 @@
                   {
                     "value": "ESTRUCTURA DE COSTOS FABRILES & ABSORCIÓN INDUSTRIAL",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "11pt",
-                      "color": "#F8FAFC",
-                      "fontWeight": "bold"
+                      "color": "#f8fafc"
                     }
                   }
-                ],
-                "horizontalTextAlignment": "left"
+                ]
               },
               {
                 "textRuns": [
@@ -35,12 +34,10 @@
                     "value": "Costo por Botella, Absorción Fabril y Variaciones de Costo | Operaciones · Cap. 2",
                     "textStyle": {
                       "fontSize": "8pt",
-                      "color": "#94A3B8",
-                      "fontWeight": "normal"
+                      "color": "#94a3b8"
                     }
                   }
-                ],
-                "horizontalTextAlignment": "left"
+                ]
               }
             ]
           }

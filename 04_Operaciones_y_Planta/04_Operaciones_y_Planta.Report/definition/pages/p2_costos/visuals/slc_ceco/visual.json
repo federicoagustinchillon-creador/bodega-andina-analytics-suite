@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "slc_ceco",
   "position": {
-    "x": 18,
-    "y": 238,
+    "x": 0,
+    "y": 170,
     "z": 3,
     "height": 77,
     "width": 160,
@@ -227,5 +227,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "fd5c05052b295957470d"
 }

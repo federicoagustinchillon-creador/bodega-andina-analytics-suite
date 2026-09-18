@@ -4,10 +4,10 @@
   "position": {
     "x": 18.488888888888887,
     "y": 230.4,
-    "z": 3,
+    "z": 11000,
     "height": 83.911111111111111,
     "width": 125.15555555555555,
-    "tabOrder": 0
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "slicer",
@@ -172,23 +172,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "1accb20ddad0324002d0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "Linea"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

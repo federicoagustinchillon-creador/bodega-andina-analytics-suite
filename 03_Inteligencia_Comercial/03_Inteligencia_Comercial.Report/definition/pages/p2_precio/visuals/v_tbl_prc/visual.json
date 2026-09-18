@@ -4,10 +4,10 @@
   "position": {
     "x": 196.26666666666668,
     "y": 412.44444444444446,
-    "z": 2,
+    "z": 7000,
     "height": 295.82222222222219,
-    "width": 669.86666666666667,
-    "tabOrder": 0
+    "width": 681.24444444444441,
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "tableEx",
@@ -358,48 +358,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "78538ae4b8b0bb60ab22",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "SKU"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2bd1bbd45420325bad63",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Productos"
-              }
-            },
-            "Property": "Descripcion"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0c7d19432773052c0a9d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Precio Promedio Real"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "88aa2578ed0062c6b02d",
         "field": {
           "Measure": {
@@ -428,48 +386,6 @@
         },
         "type": "Advanced",
         "howCreated": "User"
-      },
-      {
-        "name": "b091cf952e15508a7962",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Precio Promedio Presupuesto"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "79c58f9dc08bd6ed021e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Desvio Precio Promedio"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a0a1852504e4e9d6bb90",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Semaforo Variacion Precio"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

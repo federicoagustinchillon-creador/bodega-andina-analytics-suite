@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "txt_hdr",
   "position": {
-    "x": 18,
-    "y": 10,
+    "x": 18.00541829717276,
+    "y": 9.60288975849214,
     "z": 3,
-    "height": 48,
-    "width": 160,
+    "height": 122.43684442077478,
+    "width": 159.64804223493181,
     "tabOrder": 0
   },
   "visual": {
@@ -19,19 +19,22 @@
               {
                 "textRuns": [
                   {
-                    "value": "FILTROS EJECUTIVOS\n",
+                    "value": "FILTROS EJECUTIVOS",
                     "textStyle": {
+                      "fontWeight": "bold",
                       "fontSize": "9pt",
-                      "color": "#F8FAFC",
-                      "fontWeight": "bold"
+                      "color": "#f8fafc"
                     }
-                  },
+                  }
+                ]
+              },
+              {
+                "textRuns": [
                   {
                     "value": "Bodega Andina S.A. | Mando Integral",
                     "textStyle": {
                       "fontSize": "7.5pt",
-                      "color": "#94A3B8",
-                      "fontWeight": "normal"
+                      "color": "#94a3b8"
                     }
                   }
                 ],

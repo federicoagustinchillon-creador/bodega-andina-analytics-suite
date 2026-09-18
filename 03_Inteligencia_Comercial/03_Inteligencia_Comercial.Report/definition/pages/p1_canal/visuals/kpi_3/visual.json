@@ -4,10 +4,10 @@
   "position": {
     "x": 738,
     "y": 66,
-    "z": 2,
+    "z": 3000,
     "height": 84,
     "width": 256,
-    "tabOrder": 0
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "card",
@@ -204,23 +204,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "15601381e27c1bde04a4",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas_Comercial"
-              }
-            },
-            "Property": "Volumen Real"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

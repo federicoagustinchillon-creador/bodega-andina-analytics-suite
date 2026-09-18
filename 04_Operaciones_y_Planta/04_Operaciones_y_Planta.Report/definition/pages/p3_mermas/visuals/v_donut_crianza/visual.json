@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "v_donut_crianza",
   "position": {
-    "x": 870,
-    "y": 413,
+    "x": 911.07416583694169,
+    "y": 468.1408757264918,
     "z": 2,
-    "height": 295,
-    "width": 395,
+    "height": 240.07224396230347,
+    "width": 354.10655984439762,
     "tabOrder": 0
   },
   "visual": {
