@@ -243,6 +243,36 @@
             ],
             "metadata": "_Medidas_Controller.Desvio OPEX"
           }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas_Controller"
+                        }
+                      },
+                      "Property": "Color Semaforo OPEX"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "_Medidas_Controller.Alerta Semaforo OPEX"
+          }
         }
       ],
       "total": [

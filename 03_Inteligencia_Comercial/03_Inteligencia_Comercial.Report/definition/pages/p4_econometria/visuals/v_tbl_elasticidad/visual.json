@@ -196,6 +196,36 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas_Econometria"
+                        }
+                      },
+                      "Property": "Color Elasticidad Significativa"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "ElasticidadSegmento.Significativo"
+          }
         }
       ]
     },
@@ -287,7 +317,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Panel SKU x mes, FE + HC1 -- solo Icono es significativo (ver notebook)'"
+                  "Value": "'Panel SKU x mes, FE + HC1 -- solo Entrada es significativo (ver notebook)'"
                 }
               }
             },

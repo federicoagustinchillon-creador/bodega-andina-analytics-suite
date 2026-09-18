@@ -6,7 +6,7 @@
     "y": 499.35026744159126,
     "z": 2,
     "height": 208.86285224720405,
-    "width": 697.40986871049165,
+    "width": 697.4098687104917,
     "tabOrder": 0
   },
   "visual": {
@@ -227,6 +227,36 @@
                 }
               }
             }
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas_Operaciones"
+                        }
+                      },
+                      "Property": "Color Semaforo Absorcion"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "_Medidas_Operaciones.Semaforo Absorcion Fabril"
           }
         }
       ],

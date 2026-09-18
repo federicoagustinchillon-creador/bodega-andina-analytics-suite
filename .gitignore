@@ -2,6 +2,9 @@
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
 
+# pbir CLI local connection state
+**/.pbir/active
+
 # Python caches
 __pycache__/
 *.pyc

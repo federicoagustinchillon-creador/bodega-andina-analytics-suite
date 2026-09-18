@@ -5,8 +5,8 @@
     "x": 196.26666666666668,
     "y": 412.44444444444446,
     "z": 7000,
-    "height": 295.82222222222219,
-    "width": 681.24444444444441,
+    "height": 295.8222222222222,
+    "width": 681.2444444444444,
     "tabOrder": 14000
   },
   "visual": {
@@ -212,6 +212,36 @@
                 }
               }
             }
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas_Comercial"
+                        }
+                      },
+                      "Property": "Color Semaforo Precio"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "_Medidas_Comercial.Semaforo Variacion Precio"
           }
         }
       ],

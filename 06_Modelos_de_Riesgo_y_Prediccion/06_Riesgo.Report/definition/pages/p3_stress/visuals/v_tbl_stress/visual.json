@@ -228,6 +228,36 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas_Riesgo_Prediccion"
+                        }
+                      },
+                      "Property": "Color Semaforo Stress"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Riesgo_Reverse_Stress_Testing.Semaforo"
+          }
         }
       ]
     },
