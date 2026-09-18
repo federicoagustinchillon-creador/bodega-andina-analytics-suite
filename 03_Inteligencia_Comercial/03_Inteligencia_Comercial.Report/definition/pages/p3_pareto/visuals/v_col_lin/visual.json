@@ -230,7 +230,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Distribución de Ingresos por Línea Enológica'"
+                  "Value": "'Ingresos por Línea Enológica'"
                 }
               }
             },
@@ -264,7 +264,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Comparacion por dimension | Ordenado por valor real'"
+                  "Value": "'Ordenado por valor real'"
                 }
               }
             },

@@ -142,7 +142,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Correlacion Estacional STL vs. Real INV'"
+                  "Value": "'Correlacion STL vs. Real INV'"
                 }
               }
             },

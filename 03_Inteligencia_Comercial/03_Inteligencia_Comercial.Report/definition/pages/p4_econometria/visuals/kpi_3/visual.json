@@ -142,7 +142,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Elasticidad-Precio (Gran Reserva/Icono)'"
+                  "Value": "'Elasticidad (Gran Reserva/Icono)'"
                 }
               }
             },

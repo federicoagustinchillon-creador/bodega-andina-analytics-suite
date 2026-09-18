@@ -230,7 +230,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Estructura del Gasto por Naturaleza Contable FI'"
+                  "Value": "'Gasto por Naturaleza Contable (FI)'"
                 }
               }
             },
@@ -264,7 +264,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Comparacion por cuenta contable | Filtros activos en panel izquierdo'"
+                  "Value": "'Comparacion por cuenta contable'"
                 }
               }
             },
